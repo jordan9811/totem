@@ -1,0 +1,6 @@
+{
+  "about": "The Ed25519 public keys whose approvals list an ad lot (lib/ads/policy.ts). Written by `npm run ads:approve -- --new-reviewer`; the private halves never enter the repository.",
+  "keys": [
+    "4c6ba4d482e3a107b21ecb70b4daa31da6b85eb8a14ea6a33d60357f4a53fa7f"
+  ]
+}

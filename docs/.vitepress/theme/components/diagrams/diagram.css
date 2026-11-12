@@ -1,0 +1,316 @@
+/*
+  DIAGRAMS. Inline SVG pictures, one Vue component each (DiagramRootPersonas and the rest). Every colour is a
+  VitePress variable or currentColor, so light and dark both work and nothing paints its own background.
+
+  Each component draws two pictures of the same thing: a wide one for a desk and a tall one for a phone. Only one
+  shows at a time, chosen by the width of the column it sits in, so the text never shrinks below a readable size.
+  The hidden one is display:none, which also takes it out of what a screen reader announces.
+*/
+.lyd {
+  margin: 22px 0 14px;
+  container-type: inline-size;
+}
+
+.lyd > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  overflow: visible;
+  font-family: var(--vp-font-family-base);
+}
+
+.lyd > .lyd__wide {
+  max-width: 760px;
+}
+
+.lyd > .lyd__tall {
+  display: none;
+  max-width: 420px;
+}
+
+@container (max-width: 599px) {
+  .lyd > .lyd__wide {
+    display: none;
+  }
+  .lyd > .lyd__tall {
+    display: block;
+  }
+}
+
+/* The same switch for a browser without container queries: a phone's column is narrow anyway. */
+@supports not (container-type: inline-size) {
+  @media (max-width: 719px) {
+    .lyd > .lyd__wide {
+      display: none;
+    }
+    .lyd > .lyd__tall {
+      display: block;
+    }
+  }
+}
+
+.lyd__caption {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--vp-c-text-2);
+  text-align: center;
+}
+
+/* Text. Titles, the lines under them, arrow labels, small caps tags, and footnotes. */
+.lyd .lyd-t {
+  fill: var(--vp-c-text-1);
+  font-size: 16.5px;
+  font-weight: 600;
+}
+
+.lyd .lyd-s {
+  fill: var(--vp-c-text-2);
+  font-size: 14px;
+}
+
+.lyd__tall .lyd-t {
+  font-size: 16px;
+}
+
+.lyd__tall .lyd-s {
+  font-size: 13.5px;
+}
+
+.lyd__tall .lyd-s--sm {
+  font-size: 13px;
+}
+
+.lyd .lyd-l {
+  fill: var(--vp-c-text-2);
+  font-size: 13px;
+  paint-order: stroke fill;
+  stroke: var(--vp-c-bg);
+  stroke-width: 5px;
+  stroke-linejoin: round;
+}
+
+/* A label that crosses nothing, inside a tinted region, where a halo would show as a smudge. */
+.lyd .lyd-l--bare {
+  stroke: none;
+}
+
+.lyd .lyd-cap {
+  fill: var(--vp-c-text-2);
+  font-size: 11.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.lyd .lyd-note {
+  fill: var(--vp-c-text-2);
+  font-size: 13.5px;
+}
+
+/* Boxes. A plain step, the step that is yours (brand border), and the dashed region that is your device. */
+.lyd .lyd-box__rect {
+  fill: var(--vp-c-bg-soft);
+  stroke: var(--vp-c-divider);
+  stroke-width: 1;
+}
+
+.lyd .lyd-box--us .lyd-box__rect {
+  stroke: var(--vp-c-brand-1);
+  stroke-width: 1.75;
+}
+
+.lyd .lyd-box--ghost .lyd-box__rect {
+  fill: none;
+  stroke: var(--vp-c-text-3);
+  stroke-dasharray: 5 4;
+}
+
+.lyd .lyd-zone {
+  fill: var(--vp-c-brand-soft);
+  fill-opacity: 0.45;
+  stroke: var(--vp-c-brand-1);
+  stroke-width: 1.25;
+  stroke-dasharray: 7 5;
+}
+
+.lyd .lyd-zone-label {
+  fill: var(--vp-c-brand-1);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+}
+
+/* Arrows. Solid for what happens; dashed and fainter for a path that is off, planned or test-only. */
+.lyd .lyd-arrow__line {
+  fill: none;
+  stroke: var(--vp-c-text-2);
+  stroke-width: 1.5;
+}
+
+.lyd .lyd-arrow__head {
+  fill: var(--vp-c-text-2);
+}
+
+.lyd .lyd-arrow--dashed .lyd-arrow__line {
+  stroke-dasharray: 6 5;
+}
+
+.lyd .lyd-arrow--muted .lyd-arrow__line {
+  stroke: var(--vp-c-text-3);
+}
+
+.lyd .lyd-arrow--muted .lyd-arrow__head {
+  fill: var(--vp-c-text-3);
+}
+
+/* A link between personas: dashed, no arrowhead, because it is a relation and not a step. */
+.lyd .lyd-link {
+  fill: none;
+  stroke: var(--vp-c-brand-1);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 4;
+}
+
+/*
+  Status chips, in the legend's colours: the same pairs as the page chips (.st--live, .st--test, .st--designed,
+  .st--off, .st--soon in theme/custom.css), so a colour means one thing everywhere. Change both together.
+  currentColor carries the tone to both the outline and the text.
+*/
+.lyd .lyd-chip rect {
+  fill: var(--vp-c-default-soft);
+  stroke: currentColor;
+  stroke-opacity: 0.35;
+  stroke-width: 1;
+}
+
+.lyd .lyd-chip text {
+  fill: currentColor;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.lyd .lyd-chip--live {
+  color: var(--vp-c-green-1);
+}
+.lyd .lyd-chip--live rect {
+  fill: var(--vp-c-green-soft);
+}
+
+.lyd .lyd-chip--test {
+  color: var(--vp-c-indigo-1);
+}
+.lyd .lyd-chip--test rect {
+  fill: var(--vp-c-indigo-soft);
+}
+
+.lyd .lyd-chip--designed {
+  color: var(--vp-c-yellow-1);
+}
+.lyd .lyd-chip--designed rect {
+  fill: var(--vp-c-yellow-soft);
+}
+
+.lyd .lyd-chip--off {
+  color: var(--vp-c-text-2);
+}
+.lyd .lyd-chip--off rect {
+  fill: var(--vp-c-gray-soft);
+}
+
+.lyd .lyd-chip--soon {
+  color: var(--vp-c-purple-1);
+}
+.lyd .lyd-chip--soon rect {
+  fill: var(--vp-c-purple-soft);
+}
+
+.lyd .lyd-chip--na {
+  color: var(--vp-c-text-2);
+}
+.lyd .lyd-chip--na rect {
+  fill: none;
+}
+
+/* Small pieces: a padlock, a numbered badge, timeline dots, and the people in "who sees what". */
+.lyd .lyd-icon {
+  fill: none;
+  stroke: var(--vp-c-brand-1);
+  stroke-width: 1.6;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.lyd .lyd-badge circle {
+  fill: var(--vp-c-bg);
+  stroke: var(--vp-c-text-2);
+  stroke-width: 1.25;
+}
+
+.lyd .lyd-badge text {
+  fill: var(--vp-c-text-1);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.lyd .lyd-dot--device {
+  fill: var(--vp-c-brand-1);
+}
+
+.lyd .lyd-dot--server {
+  fill: var(--vp-c-text-2);
+}
+
+.lyd .lyd-dot--network {
+  fill: var(--vp-c-bg);
+  stroke: var(--vp-c-text-2);
+  stroke-width: 2;
+}
+
+/* An opaque disc under each tinted avatar, so the line that ties them does not show through. */
+.lyd .lyd-av-under {
+  fill: var(--vp-c-bg);
+}
+
+.lyd .lyd-av {
+  fill: var(--vp-c-brand-soft);
+  stroke: var(--vp-c-brand-1);
+  stroke-width: 1.5;
+}
+
+.lyd .lyd-av-letter {
+  fill: var(--vp-c-brand-1);
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.lyd .lyd-av--ghost {
+  fill: none;
+  stroke: var(--vp-c-text-3);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.lyd .lyd-av-letter--ghost {
+  fill: var(--vp-c-text-3);
+}
+
+.lyd .lyd-av-name {
+  fill: var(--vp-c-text-1);
+  font-size: 12.5px;
+}
+
+.lyd .lyd-av-name--ghost {
+  /* text-2, not text-3: "anon" is a fact a reader needs, so it keeps readable contrast in both themes */
+  fill: var(--vp-c-text-2);
+}
+
+.lyd .lyd-tie {
+  stroke: var(--vp-c-brand-1);
+  stroke-width: 2.5;
+}
+
+.lyd .lyd-rule {
+  stroke: var(--vp-c-divider);
+  stroke-width: 1;
+}

@@ -1,0 +1,12 @@
+{
+  "at": "2026-09-06T07:08:47.863Z",
+  "mode": "fixture-universe/live-chain-facts",
+  "issuers": {},
+  "refusals": {
+    "onchain.wallet-age": "the facts support none of the requested buckets",
+    "onchain.holdings": "the facts support none of the requested buckets",
+    "onchain.protocol-history": "the facts support none of the requested buckets",
+    "onchain.governance": "the facts support none of the requested buckets"
+  },
+  "chainSourceAfter": "fixture"
+}

@@ -1,0 +1,790 @@
+{
+  "catalogue": {
+    "interests": [
+      {
+        "label": "Espresso",
+        "value": "espresso"
+      },
+      {
+        "label": "Amateur astronomy",
+        "value": "astronomy"
+      },
+      {
+        "label": "Fantasy football",
+        "value": "fantasy_football"
+      },
+      {
+        "label": "Market structure",
+        "value": "market_structure"
+      },
+      {
+        "label": "Ramen",
+        "value": "ramen"
+      },
+      {
+        "label": "Military history",
+        "value": "military_history"
+      }
+    ],
+    "demographics": [
+      {
+        "label": "Age 25–34",
+        "value": "age_25_34"
+      },
+      {
+        "label": "Urban",
+        "value": "urban"
+      },
+      {
+        "label": "English",
+        "value": "english"
+      }
+    ],
+    "ownership": [
+      {
+        "label": "Owns a telescope",
+        "value": "telescope"
+      },
+      {
+        "label": "Owns an espresso machine",
+        "value": "espresso_machine"
+      },
+      {
+        "label": "Owns a car",
+        "value": "car"
+      }
+    ],
+    "habits": [
+      {
+        "label": "Buys coffee weekly",
+        "value": "coffee_weekly"
+      },
+      {
+        "label": "Reads long-form",
+        "value": "longform_reader"
+      },
+      {
+        "label": "Watches sports",
+        "value": "watches_sports"
+      },
+      {
+        "label": "Cooks at home",
+        "value": "cooks_home"
+      }
+    ],
+    "health": [
+      {
+        "label": "Tracks sleep",
+        "value": "sleep_tracking"
+      },
+      {
+        "label": "Runs regularly",
+        "value": "running"
+      }
+    ],
+    "finances": [
+      {
+        "label": "Holds index funds",
+        "value": "index_funds"
+      },
+      {
+        "label": "Household income band",
+        "value": "income_band"
+      }
+    ],
+    "politics": [
+      {
+        "label": "Follows local elections",
+        "value": "local_elections"
+      }
+    ]
+  },
+  "connectors": [
+    {
+      "id": "conn_card",
+      "name": "Card spend",
+      "description": "Import merchant categories from a card statement.",
+      "issuer": "Northgate Bank",
+      "category": "habits",
+      "yields": [
+        {
+          "category": "habits",
+          "label": "Buys coffee weekly",
+          "value": "coffee_weekly"
+        },
+        {
+          "category": "habits",
+          "label": "Dines out 3x weekly",
+          "value": "dines_out"
+        },
+        {
+          "category": "ownership",
+          "label": "Owns an espresso machine",
+          "value": "espresso_machine"
+        }
+      ]
+    },
+    {
+      "id": "conn_wearable",
+      "name": "Wearable",
+      "description": "Import activity and sleep summaries from a fitness band.",
+      "issuer": "Corvid Health",
+      "category": "health",
+      "yields": [
+        {
+          "category": "health",
+          "label": "Tracks sleep",
+          "value": "sleep_tracking"
+        },
+        {
+          "category": "health",
+          "label": "Runs regularly",
+          "value": "running"
+        }
+      ]
+    },
+    {
+      "id": "conn_watch",
+      "name": "Watch history",
+      "description": "Import viewing categories from a streaming account.",
+      "issuer": "Lumen TV",
+      "category": "interests",
+      "yields": [
+        {
+          "category": "interests",
+          "label": "Documentaries",
+          "value": "documentaries"
+        },
+        {
+          "category": "habits",
+          "label": "Watches sports",
+          "value": "watches_sports"
+        }
+      ]
+    },
+    {
+      "id": "conn_vc_degree",
+      "name": "Verifiable Credential",
+      "description": "Import a W3C Verifiable Credential — a claim cryptographically signed by its issuer.",
+      "issuer": "Cascadia State University (W3C VC)",
+      "category": "demographics",
+      "trustSource": "attested",
+      "method": "w3c-vc",
+      "yields": [
+        {
+          "category": "demographics",
+          "label": "Verified degree: B.S. Computer Science",
+          "value": "degree_bs_cs"
+        }
+      ]
+    },
+    {
+      "id": "conn_did",
+      "name": "Decentralized Identifier",
+      "description": "Prove control of a DID — a self-sovereign identifier backed by a key only you hold.",
+      "issuer": "did:web:layers.example",
+      "category": "ownership",
+      "trustSource": "attested",
+      "method": "did-control",
+      "yields": [
+        {
+          "category": "ownership",
+          "label": "Controls a verifiable DID",
+          "value": "did_controlled"
+        }
+      ]
+    },
+    {
+      "id": "conn_platform_export",
+      "name": "Platform data export",
+      "description": "Import a data export from another platform — inferred from activity there, not individually signed.",
+      "issuer": "Wavelength Music",
+      "category": "interests",
+      "trustSource": "x-inferred",
+      "yields": [
+        {
+          "category": "interests",
+          "label": "Listens to jazz weekly",
+          "value": "jazz_weekly"
+        },
+        {
+          "category": "finances",
+          "label": "Premium subscriber ($15/mo tier)",
+          "value": "premium_subscriber"
+        }
+      ]
+    }
+  ],
+  "viewerClaims": [
+    {
+      "id": "claim_seed_0",
+      "personaId": "persona_viewer_main",
+      "category": "interests",
+      "label": "Espresso",
+      "value": "espresso",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    },
+    {
+      "id": "claim_seed_1",
+      "personaId": "persona_viewer_main",
+      "category": "interests",
+      "label": "Amateur astronomy",
+      "value": "astronomy",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    },
+    {
+      "id": "claim_seed_2",
+      "personaId": "persona_viewer_main",
+      "category": "interests",
+      "label": "Market structure",
+      "value": "market_structure",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    },
+    {
+      "id": "claim_seed_3",
+      "personaId": "persona_viewer_main",
+      "category": "habits",
+      "label": "Buys coffee weekly",
+      "value": "coffee_weekly",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    },
+    {
+      "id": "claim_seed_4",
+      "personaId": "persona_viewer_main",
+      "category": "habits",
+      "label": "Reads long-form",
+      "value": "longform_reader",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    },
+    {
+      "id": "claim_seed_5",
+      "personaId": "persona_viewer_main",
+      "category": "ownership",
+      "label": "Owns a telescope",
+      "value": "telescope",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    },
+    {
+      "id": "claim_seed_6",
+      "personaId": "persona_viewer_main",
+      "category": "demographics",
+      "label": "Age 25–34",
+      "value": "age_25_34",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    },
+    {
+      "id": "claim_seed_7",
+      "personaId": "persona_viewer_main",
+      "category": "demographics",
+      "label": "Urban",
+      "value": "urban",
+      "source": "self",
+      "issuer": null,
+      "issuedAt": null,
+      "active": true
+    }
+  ],
+  "campaigns": [
+    {
+      "id": "camp_espresso",
+      "name": "Rowan & Vine — single-origin subscription",
+      "advertiserPersonaId": "persona_acc_food_2",
+      "budget": 4200,
+      "audience": {
+        "combinator": "AND",
+        "clauses": [
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "espresso"
+          },
+          {
+            "field": "author.tier",
+            "op": "gte",
+            "value": 4
+          }
+        ]
+      },
+      "status": "live",
+      "createdAt": 0
+    },
+    {
+      "id": "camp_scope",
+      "name": "Aperture Optics — dobsonian clearance",
+      "advertiserPersonaId": "persona_acc_astro_1",
+      "budget": 2800,
+      "audience": {
+        "combinator": "AND",
+        "clauses": [
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "telescope"
+          }
+        ]
+      },
+      "status": "live",
+      "createdAt": 0
+    },
+    {
+      "id": "camp_longform",
+      "name": "The Meter — annual reader pass",
+      "advertiserPersonaId": "persona_acc_crypto_1",
+      "budget": 6100,
+      "audience": {
+        "combinator": "AND",
+        "clauses": [
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "longform_reader"
+          },
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "market_structure"
+          }
+        ]
+      },
+      "status": "live",
+      "createdAt": 0
+    },
+    {
+      "id": "camp_sleep",
+      "name": "Corvid Rest — sleep tracker upgrade",
+      "advertiserPersonaId": "persona_acc_astro_2",
+      "budget": 1900,
+      "audience": {
+        "combinator": "AND",
+        "clauses": [
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "sleep_tracking"
+          }
+        ]
+      },
+      "status": "live",
+      "createdAt": 0
+    },
+    {
+      "id": "camp_narrow",
+      "name": "Niche — military history quarterly",
+      "advertiserPersonaId": "persona_acc_hist_2",
+      "budget": 400,
+      "audience": {
+        "combinator": "AND",
+        "clauses": [
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "military_history"
+          },
+          {
+            "field": "author.tier",
+            "op": "gte",
+            "value": 9
+          }
+        ]
+      },
+      "status": "live",
+      "createdAt": 0
+    },
+    {
+      "id": "camp_degree",
+      "name": "Cascadia Alumni Network — annual dues",
+      "advertiserPersonaId": "persona_acc_hist_2",
+      "budget": 1500,
+      "audience": {
+        "combinator": "AND",
+        "clauses": [
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "degree_bs_cs"
+          }
+        ]
+      },
+      "status": "live",
+      "createdAt": 0
+    },
+    {
+      "id": "camp_jazz",
+      "name": "Bluenote Records — new release alerts",
+      "advertiserPersonaId": "persona_acc_astro_1",
+      "budget": 900,
+      "audience": {
+        "combinator": "AND",
+        "clauses": [
+          {
+            "field": "graph.claim",
+            "op": "contains",
+            "value": "jazz_weekly"
+          }
+        ]
+      },
+      "status": "live",
+      "createdAt": 0
+    }
+  ],
+  "matchIndex": {
+    "espresso": [
+      "camp_espresso"
+    ],
+    "telescope": [
+      "camp_scope"
+    ],
+    "longform_reader": [
+      "camp_longform"
+    ],
+    "market_structure": [
+      "camp_longform"
+    ],
+    "sleep_tracking": [
+      "camp_sleep"
+    ],
+    "military_history": [
+      "camp_narrow"
+    ],
+    "degree_bs_cs": [
+      "camp_degree"
+    ],
+    "jazz_weekly": [
+      "camp_jazz"
+    ]
+  },
+  "audiencePopulation": [
+    {
+      "personaId": "persona_acc_crypto_1",
+      "tier": 9,
+      "claims": [
+        "market_structure",
+        "longform_reader",
+        "espresso",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_crypto_2",
+      "tier": 9,
+      "claims": [
+        "market_structure",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_crypto_2_alt",
+      "tier": 9,
+      "claims": [
+        "telescope",
+        "astronomy"
+      ]
+    },
+    {
+      "personaId": "persona_acc_crypto_3",
+      "tier": 6,
+      "claims": [
+        "market_structure",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_crypto_4",
+      "tier": 4,
+      "claims": [
+        "market_structure",
+        "longform_reader",
+        "espresso",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_crypto_5",
+      "tier": 6,
+      "claims": [
+        "market_structure",
+        "longform_reader",
+        "espresso"
+      ]
+    },
+    {
+      "personaId": "persona_acc_crypto_6",
+      "tier": 1,
+      "claims": [
+        "market_structure",
+        "longform_reader",
+        "espresso",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_fantasy_1",
+      "tier": 9,
+      "claims": [
+        "fantasy_football",
+        "watches_sports"
+      ]
+    },
+    {
+      "personaId": "persona_acc_fantasy_2",
+      "tier": 10,
+      "claims": [
+        "fantasy_football",
+        "watches_sports"
+      ]
+    },
+    {
+      "personaId": "persona_acc_fantasy_2_alt",
+      "tier": 10,
+      "claims": [
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_fantasy_3",
+      "tier": 8,
+      "claims": [
+        "fantasy_football",
+        "watches_sports",
+        "espresso"
+      ]
+    },
+    {
+      "personaId": "persona_acc_fantasy_4",
+      "tier": 4,
+      "claims": [
+        "fantasy_football",
+        "watches_sports",
+        "espresso"
+      ]
+    },
+    {
+      "personaId": "persona_acc_fantasy_5",
+      "tier": 1,
+      "claims": [
+        "fantasy_football",
+        "watches_sports"
+      ]
+    },
+    {
+      "personaId": "persona_acc_astro_1",
+      "tier": 10,
+      "claims": [
+        "telescope",
+        "astronomy"
+      ]
+    },
+    {
+      "personaId": "persona_acc_astro_2",
+      "tier": 9,
+      "claims": [
+        "telescope",
+        "astronomy"
+      ]
+    },
+    {
+      "personaId": "persona_acc_astro_3",
+      "tier": 5,
+      "claims": [
+        "telescope",
+        "astronomy",
+        "espresso"
+      ]
+    },
+    {
+      "personaId": "persona_acc_astro_4",
+      "tier": 2,
+      "claims": [
+        "telescope",
+        "astronomy",
+        "espresso"
+      ]
+    },
+    {
+      "personaId": "persona_acc_food_1",
+      "tier": 9,
+      "claims": [
+        "espresso",
+        "coffee_weekly",
+        "ramen",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_food_1_alt",
+      "tier": 9,
+      "claims": [
+        "fantasy_football",
+        "watches_sports"
+      ]
+    },
+    {
+      "personaId": "persona_acc_food_2",
+      "tier": 10,
+      "claims": [
+        "espresso",
+        "coffee_weekly",
+        "ramen",
+        "espresso"
+      ]
+    },
+    {
+      "personaId": "persona_acc_food_3",
+      "tier": 7,
+      "claims": [
+        "espresso",
+        "coffee_weekly",
+        "ramen"
+      ]
+    },
+    {
+      "personaId": "persona_acc_food_4",
+      "tier": 2,
+      "claims": [
+        "espresso",
+        "coffee_weekly",
+        "ramen"
+      ]
+    },
+    {
+      "personaId": "persona_acc_hist_1",
+      "tier": 9,
+      "claims": [
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_hist_2",
+      "tier": 9,
+      "claims": [
+        "longform_reader",
+        "military_history"
+      ]
+    },
+    {
+      "personaId": "persona_acc_hist_3",
+      "tier": 6,
+      "claims": [
+        "longform_reader",
+        "military_history"
+      ]
+    },
+    {
+      "personaId": "persona_acc_hist_4",
+      "tier": 8,
+      "claims": [
+        "longform_reader",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_acc_hist_5",
+      "tier": 2,
+      "claims": [
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_viewer_main",
+      "tier": 8,
+      "claims": [
+        "market_structure",
+        "longform_reader"
+      ]
+    },
+    {
+      "personaId": "persona_viewer_alt",
+      "tier": 8,
+      "claims": [
+        "telescope",
+        "astronomy"
+      ]
+    }
+  ],
+  "settlements": [
+    {
+      "id": "settle_seed_0",
+      "kind": "graph_share",
+      "personaId": "persona_viewer_main",
+      "amount": 340,
+      "category": "interests",
+      "note": "Espresso interest matched 3 campaigns",
+      "minutesAgo": 240
+    },
+    {
+      "id": "settle_seed_1",
+      "kind": "graph_share",
+      "personaId": "persona_viewer_main",
+      "amount": 275,
+      "category": "habits",
+      "note": "Coffee purchase cadence",
+      "minutesAgo": 480
+    },
+    {
+      "id": "settle_seed_2",
+      "kind": "graph_share",
+      "personaId": "persona_viewer_main",
+      "amount": 190,
+      "category": "ownership",
+      "note": "Telescope ownership",
+      "minutesAgo": 720
+    },
+    {
+      "id": "settle_seed_3",
+      "kind": "graph_share",
+      "personaId": "persona_viewer_main",
+      "amount": 155,
+      "category": "interests",
+      "note": "Market structure interest",
+      "minutesAgo": 960
+    },
+    {
+      "id": "settle_seed_4",
+      "kind": "ad_impression",
+      "personaId": "persona_viewer_main",
+      "amount": 60,
+      "category": "interests",
+      "note": "Rowan & Vine impression",
+      "minutesAgo": 1200
+    },
+    {
+      "id": "settle_seed_5",
+      "kind": "ad_impression",
+      "personaId": "persona_viewer_main",
+      "amount": 45,
+      "category": "ownership",
+      "note": "Aperture Optics impression",
+      "minutesAgo": 1440
+    },
+    {
+      "id": "settle_seed_6",
+      "kind": "graph_share",
+      "personaId": "persona_viewer_main",
+      "amount": 120,
+      "category": "demographics",
+      "note": "Urban / age band",
+      "minutesAgo": 1680
+    }
+  ]
+}

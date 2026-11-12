@@ -1,0 +1,7 @@
+# GitBook Git Sync — the docs live in docs/; index.md is the space's README; SUMMARY.md is the table of contents
+# (owner + `npm run docs:summary`, which only appends). See notes/runbooks/CONNECTING-GITBOOK.md.
+root: ./docs/
+
+structure:
+  readme: index.md
+  summary: SUMMARY.md

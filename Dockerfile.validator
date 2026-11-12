@@ -1,0 +1,24 @@
+# PUBLIC PREVIEW Gate 3 (run as BROWSER KEYSTORE PASS Gate 6) — the validator as a container: a stateful Node
+# service with its SQLite database on a mounted volume (VALIDATOR_DB), run under the supervisor so a crash restarts
+# with a logged cause (scripts/validator-supervisor.mjs → deaths.log on the volume). node:sqlite needs Node 22.5+;
+# the rig runs 24, so does this image. No secrets are baked in: the environment is the platform's.
+FROM node:24-slim
+ENV NODE_ENV=production
+WORKDIR /app
+# the validator is a workspace package (validator/package.json: express, the semaphore packages, hpke, poseidon);
+# both manifests must be present for `npm ci` to install it — production dependencies only, no lifecycle scripts
+COPY package.json package-lock.json ./
+COPY validator/package.json ./validator/package.json
+RUN npm ci --omit=dev --ignore-scripts
+COPY validator ./validator
+COPY scripts/validator-supervisor.mjs ./scripts/validator-supervisor.mjs
+# validator/zk.js pins the ceremony record it verifies against (the one file under research/ the service reads)
+COPY research/zk-ceremony-verification.json ./research/zk-ceremony-verification.json
+# the database, the death log and the backups live on the volume mounted at /data
+ENV VALIDATOR_DB=/data/layers.db \
+    VALIDATOR_DEATHS_LOG=/data/deaths.log \
+    VALIDATOR_BACKUP_DIR=/data/backups \
+    LAYERS_VALIDATOR_PORT=4001 \
+    PORT=4001
+EXPOSE 4001
+CMD ["node", "scripts/validator-supervisor.mjs"]

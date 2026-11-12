@@ -1,0 +1,336 @@
+/* ------------------------------------------------------------------ the roadmap's filters and the status tags
+   (internal roadmap, Roadmap.vue; the tags are the bold [TAG] vocabulary of docs:check) */
+.roadmap-filters { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 12px; }
+.roadmap-filters button { border: 1px solid var(--vp-c-divider); background: var(--vp-c-bg-soft); color: var(--vp-c-text-1); border-radius: 999px; padding: 2px 10px; font-size: 12px; cursor: pointer; }
+.roadmap-filters button.on { background: var(--vp-c-brand-1); color: #fff; border-color: var(--vp-c-brand-1); }
+.roadmap-table { font-size: 13px; }
+.tag { display: inline-block; border-radius: 4px; padding: 0 6px; font-size: 11px; font-weight: 600; letter-spacing: .02em; }
+.tag-SHIPPED { background: #16a34a22; color: #15803d; }
+.tag-SHIPPED-FIXTURE { background: #0ea5e922; color: #0369a1; }
+.tag-SPECCED { background: #a855f722; color: #7e22ce; }
+.tag-IDEA { background: #f59e0b22; color: #b45309; }
+.tag-KNOWN-BROKEN { background: #ef444422; color: #b91c1c; }
+.tag-UNCLEAR { background: #6b728022; color: #374151; }
+
+/* ------------------------------------------------------------------ citation chips
+   {cite: FILE > "Heading"} renders as .cite (config.mts). On the plain-words pages (frontmatter `pageClass: eli5`) the
+   chip is hidden: the citation still binds the sentence for docs:check and docs:sync, and a reader is not handed a
+   reference to a file the site does not publish. */
+/* inline and wrapping, not a nowrap box: a long heading in a chip pushed phone pages 30 to 90 px past the screen */
+.cite { display: inline; font-size: 11px; color: var(--vp-c-text-3); border: 1px solid var(--vp-c-divider); border-radius: 4px; padding: 0 5px; margin-left: 4px; white-space: normal; overflow-wrap: anywhere; -webkit-box-decoration-break: clone; box-decoration-break: clone; }
+.eli5 .vp-doc .cite { display: none; }
+/* except in "The record", the auditors' list at the foot of each feature page, which promises its citations: there the
+   chip shows again. The record is always the page's last section, so every list after its heading is the record. */
+.eli5 .vp-doc h2#the-record ~ ul .cite, .eli5 .vp-doc h2#the-record ~ p .cite { display: inline; }
+
+/*
+  FLOW DIAGRAMS (ported from Salvo). Each feature page opens with how it works as a picture: a row of steps joined by
+  arrows, written as a plain <ol class="flow"> in the markdown so it reads as an ordered list with the styles off.
+  Across on a desk, down on a phone, so the text never shrinks to fit. Colours come from VitePress's own variables, so
+  light and dark both work.
+
+  Keep a flow to five steps. More than that stops being a picture.
+*/
+.vp-doc ol.flow {
+  display: flex;
+  align-items: stretch;
+  gap: 26px;
+  margin: 20px 0 12px;
+  padding: 0;
+  list-style: none;
+}
+
+.vp-doc ol.flow > li {
+  flex: 1 1 0;
+  min-width: 0;
+  position: relative;
+  margin: 0;
+  padding: 12px 14px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc ol.flow > li > strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--vp-c-text-1);
+}
+
+/* The step where Totem does the work: the one the questions below are about. */
+.vp-doc ol.flow > li.flow__us {
+  border-color: var(--vp-c-brand-1);
+}
+
+/* A step that is not built yet: dashed, so a planned step never reads as a working one. */
+.vp-doc ol.flow > li.flow__soon {
+  border-style: dashed;
+  background: transparent;
+}
+
+.vp-doc ol.flow > li:not(:last-child)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -19px;
+  transform: translateY(-50%);
+  color: var(--vp-c-text-3);
+  font-size: 15px;
+}
+
+@media (max-width: 719px) {
+  .vp-doc ol.flow {
+    flex-direction: column;
+    gap: 22px;
+  }
+
+  .vp-doc ol.flow > li:not(:last-child)::after {
+    content: '↓';
+    top: auto;
+    right: auto;
+    bottom: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* The line under a flow that says what the picture leaves out. */
+.vp-doc p.flow__note {
+  margin-top: 0;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+/*
+  STATUS CHIPS. The five words the whole site uses for how real something is, as a pill. Each pairs a word with a
+  colour, never a colour alone.
+*/
+.vp-doc .st {
+  display: inline-block;
+  margin: 0 4px 2px 0;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.vp-doc .st--live { background: var(--vp-c-green-soft); color: var(--vp-c-green-1); }
+.vp-doc .st--test { background: var(--vp-c-indigo-soft); color: var(--vp-c-indigo-1); }
+.vp-doc .st--designed { background: var(--vp-c-yellow-soft); color: var(--vp-c-yellow-1); }
+.vp-doc .st--off { background: var(--vp-c-gray-soft); color: var(--vp-c-text-2); }
+.vp-doc .st--soon { background: var(--vp-c-purple-soft); color: var(--vp-c-purple-1); }
+.vp-doc .st--na { background: transparent; color: var(--vp-c-text-2); box-shadow: inset 0 0 0 1px var(--vp-c-divider); }
+
+/*
+  WHERE CHIPS (Salvo's rail chips, renamed). A small label naming where a piece of you lives, so a reader can see at a
+  glance what stays on the device, what the server stores, and what goes out to the network.
+*/
+.vp-doc .where {
+  display: inline-block;
+  margin: 0 4px 2px 0;
+  padding: 0 8px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 20px;
+  white-space: nowrap;
+}
+
+.vp-doc .where--device { background: var(--vp-c-green-soft); color: var(--vp-c-green-1); }
+.vp-doc .where--server { background: var(--vp-c-purple-soft); color: var(--vp-c-purple-1); }
+.vp-doc .where--network { background: var(--vp-c-indigo-soft); color: var(--vp-c-indigo-1); }
+.vp-doc .where--none { background: var(--vp-c-gray-soft); color: var(--vp-c-text-2); }
+
+.vp-doc .chip-key {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+  font-size: 14px;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc .chip-key .where,
+.vp-doc .chip-key .st {
+  margin-right: -8px;
+}
+
+/*
+  THE WHERE MAP (Salvo's money map). One row per feature: its name, then what the device holds, what the server
+  stores, and what reaches the network. A grid on a desk; on a phone each feature becomes its own short column.
+*/
+.vp-doc .wheremap {
+  display: grid;
+  grid-template-columns: 128px repeat(3, minmax(0, 1fr));
+  gap: 14px 26px;
+  margin: 16px 0 12px;
+}
+
+.vp-doc .wheremap__feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.vp-doc .wheremap__feature > span {
+  margin-top: 2px;
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--vp-c-text-3);
+}
+
+.vp-doc .wheremap__step {
+  position: relative;
+  padding: 10px 12px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--vp-c-text-2);
+}
+
+.vp-doc .wheremap__step > em {
+  display: block;
+  margin-bottom: 4px;
+  font-style: normal;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--vp-c-text-3);
+}
+
+/* Arrows after "device" and "server": the 2nd and 3rd of each four. */
+.vp-doc .wheremap > :nth-child(4n + 2)::after,
+.vp-doc .wheremap > :nth-child(4n + 3)::after {
+  content: '→';
+  position: absolute;
+  top: 50%;
+  right: -19px;
+  transform: translateY(-50%);
+  color: var(--vp-c-text-3);
+  font-size: 15px;
+}
+
+@media (max-width: 719px) {
+  .vp-doc .wheremap {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 22px;
+  }
+
+  .vp-doc .wheremap__feature {
+    margin-top: 12px;
+    margin-bottom: -10px;
+  }
+
+  .vp-doc .wheremap__feature:first-child {
+    margin-top: 0;
+  }
+
+  .vp-doc .wheremap > :nth-child(4n + 2)::after,
+  .vp-doc .wheremap > :nth-child(4n + 3)::after {
+    content: '↓';
+    top: auto;
+    right: auto;
+    bottom: -19px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/*
+  CARDS. A small grid of linked boxes (the start page's "pick your track"). Two across on a desk, one on a phone.
+*/
+.vp-doc .cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 16px 0;
+}
+
+.vp-doc .cards > a {
+  display: block;
+  padding: 14px 16px;
+  border: 1px solid var(--vp-c-divider);
+  border-radius: 10px;
+  background: var(--vp-c-bg-soft);
+  color: var(--vp-c-text-2);
+  font-size: 14px;
+  line-height: 1.45;
+  text-decoration: none;
+  transition: border-color 0.2s;
+}
+
+.vp-doc .cards > a:hover {
+  border-color: var(--vp-c-brand-1);
+}
+
+.vp-doc .cards > a > strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--vp-c-text-1);
+  font-size: 15px;
+}
+
+@media (max-width: 719px) {
+  .vp-doc .cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/*
+  DIAGRAMS. Inline SVG pictures drawn narrow (about 400 units wide) so they read on a phone without shrinking the text,
+  and centred on a desk. Every colour is a class bound to a VitePress variable, so the same SVG is right in light and
+  dark. No fill or stroke colour is written inside an SVG.
+*/
+.vp-doc figure.diagram {
+  margin: 20px auto 12px;
+  max-width: 460px;
+}
+
+.vp-doc figure.diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+  font-family: var(--vp-font-family-base);
+}
+
+.vp-doc figure.diagram figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: var(--vp-c-text-2);
+  text-align: center;
+}
+
+/* box outlines use text-3, not divider: divider is about 1.3:1 against the page in both themes, so nested boxes vanished */
+.vp-doc .dg-box { fill: var(--vp-c-bg-soft); stroke: var(--vp-c-text-3); stroke-width: 1.5; }
+.vp-doc .dg-box--us { stroke: var(--vp-c-brand-1); stroke-width: 2; }
+.vp-doc .dg-box--soon { fill: none; stroke: var(--vp-c-text-3); stroke-dasharray: 5 4; }
+.vp-doc .dg-box--device { fill: var(--vp-c-green-soft); stroke: var(--vp-c-green-2); }
+.vp-doc .dg-box--server { fill: var(--vp-c-purple-soft); stroke: var(--vp-c-purple-2); }
+.vp-doc .dg-box--network { fill: var(--vp-c-indigo-soft); stroke: var(--vp-c-indigo-2); }
+.vp-doc .dg-box--off { fill: var(--vp-c-gray-soft); stroke: var(--vp-c-text-3); }
+.vp-doc .dg-box--plain { fill: var(--vp-c-bg); stroke: var(--vp-c-text-3); stroke-width: 1.5; }
+.vp-doc .dg-no { fill: none; stroke: var(--vp-c-danger-1); stroke-width: 2; }
+.vp-doc .dg-ring { fill: none; stroke: var(--vp-c-text-3); stroke-width: 1.5; }
+.vp-doc .dg-title { fill: var(--vp-c-text-1); font-size: 15px; font-weight: 600; }
+.vp-doc .dg-text { fill: var(--vp-c-text-1); font-size: 13px; }
+.vp-doc .dg-sub { fill: var(--vp-c-text-2); font-size: 12px; }
+/* the smallest text carries real facts (times, "not sent"), so it uses text-2 (about 4.5:1 or better), not text-3 */
+.vp-doc .dg-tiny { fill: var(--vp-c-text-2); font-size: 12px; }
+.vp-doc .dg-line { fill: none; stroke: var(--vp-c-text-3); stroke-width: 1.5; }
+.vp-doc .dg-line--soon { stroke-dasharray: 5 4; }
+.vp-doc .dg-line--accent { stroke: var(--vp-c-brand-1); }
+.vp-doc .dg-head { fill: var(--vp-c-text-3); }
+.vp-doc .dg-dot { fill: var(--vp-c-brand-1); }
+.vp-doc .dg-dot--muted { fill: var(--vp-c-text-3); }

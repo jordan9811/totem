@@ -1,0 +1,81 @@
+---
+title: "Tier A Report"
+pass: 04-tier-a
+report: notes/reports/REPORT-A.md
+date: 2026-08-22
+status: SHIPPED
+---
+
+# Tier A Report
+
+> Written from `notes/reports/REPORT-A.md`. Every claim below cites the report section it comes from.
+
+## What shipped
+
+- **[SHIPPED]** Four gates — relationship event log, portable algorithms, caught-up banner, curator subscriptions — plus two call options, all closed. {cite: notes/reports/REPORT-A.md > "TIER A — CLOSED"}
+- **[SHIPPED]** Gate 1 — a closed-union event log (`lib/eventlog/types.ts`) of twelve event types (graph edges, moderation, the user's own interactions, and the derived first-interaction pair), with no view/impression/dwell/seen/scroll type, enforced both by a static grep and a runtime rejection in the adapter's write path. {cite: notes/reports/REPORT-A.md > "What shipped (iteration 1)"}
+- **[SHIPPED]** Gate 1 — exactly-one write semantics: routes mint each event (id + timestamp) once, `record()` is an idempotent put-by-id, and the write retries through the mocks' injected failures. {cite: notes/reports/REPORT-A.md > "What shipped (iteration 1)"}
+- **[SHIPPED]** Gate 1 — `/api/follow` returns 503 if the event cannot be recorded, since an edge action whose history silently failed to record is unrecoverable loss. {cite: notes/reports/REPORT-A.md > "What shipped (iteration 1)"}
+- **[SHIPPED]** Gate 1 — follow became real: seed baseline plus persisted deltas behind one `followingFor()` helper shared by the feed, routes, and tests, replacing prior client-side `useState` chrome with no endpoint. {cite: notes/reports/REPORT-A.md > "Judgment calls made before building"}
+- **[SHIPPED]** Gate 1 — call sites wired to the log across both block routes (seed-backed and validator-backed), facet follow/unfollow, likes, replies, and the follow route itself; the room-participant mute was deliberately left unwired since it is host moderation, not the user's own graph. {cite: notes/reports/REPORT-A.md > "What shipped (iteration 1)"}
+- **[SHIPPED]** Gate 1 — co-interaction detection in both directions (reply-then-follow, like-an-already-followed-author), consulting only the user's own recorded actions. {cite: notes/reports/REPORT-A.md > "What shipped (iteration 1)"}
+- **[SHIPPED]** Gate 1 — backfill gives every seeded follow a synthetic origin (`backfilled: true`, `context: "backfill"`, timestamp 0), written directly to the store at seed time to avoid ~20s of injected latency on reset. {cite: notes/reports/REPORT-A.md > "What shipped (iteration 1)"}
+- **[SHIPPED]** Gate 1 — the root-leak sweep now scans every payload for event ids (`ev_` prefix) and event-schema field names, with exactly one sanctioned surface (`/api/eventlog`, actor fixed server-side). {cite: notes/reports/REPORT-A.md > "What shipped (iteration 1)"}
+- **[SHIPPED]** Gate 2 — a signed, portable algorithm artifact (`lib/algo/artifact.ts`) with rules embedded in full (ids are meaningless off-device) and provenance (`forkedFrom`) inside the signature so a forged lineage breaks verification. {cite: notes/reports/REPORT-A.md > "GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"}
+- **[SHIPPED]** Gate 2 — guardrails in the rules evaluator itself (`validateRuleGroup()`) refuse by name any rule touching the disclosure/grant layer, the k-floor, correction delivery, or composer chrome, called by both the import sanitizer and `buildFeed`; a protected-namespace rule kills the whole import. {cite: notes/reports/REPORT-A.md > "GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"}
+- **[SHIPPED]** Gate 2 — a hostile-artifact safety test imports one artifact attempting all four attacks and asserts refusal names every attack while all four protected surfaces keep functioning. {cite: notes/reports/REPORT-A.md > "GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"}
+- **[SHIPPED]** Gate 2 — `previewArtifact` runs through the same `buildFeed` activation uses (with `modeOverride` + `inlineRules`), so preview numbers structurally equal post-activation reality. {cite: notes/reports/REPORT-A.md > "GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"}
+- **[SHIPPED]** Gate 2 — provenance forks on edit (`mode.update` flips `modifiedLocally`, rendered as "modified from @author's algo vN") and a marketplace-lite Algo Shelf folder holds published algorithms through the ordinary folder mechanism. {cite: notes/reports/REPORT-A.md > "GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"}
+- **[SHIPPED]** Gate 3 — the caught-up banner is a hard stop structurally: the exhausted branch of `buildFeed` returns a fixed card order with no code path able to place a ranked post, ad, or anything else below the banner. {cite: notes/reports/REPORT-A.md > "GATE 3 — Caught-up banner — CLOSED (2 iterations)"}
+- **[SHIPPED]** Gate 3 — calibration (off / after new content / aggressive) lives on the mode and mode builder, with aggressive counting saturated stories as seen, measurably reducing posts above the banner; Safe Space composes correctly because exhaustion is computed on the post-rules eligible set. {cite: notes/reports/REPORT-A.md > "GATE 3 — Caught-up banner — CLOSED (2 iterations)"}
+- **[SHIPPED]** Gate 4 — real multisig verification for curator annotations: a signer counts only if listed on the desk and carrying a signature verifying against the annotation's canonical form; a sub-threshold annotation is entirely absent, not merely styled smaller. {cite: notes/reports/REPORT-A.md > "What shipped"}
+- **[SHIPPED]** Gate 4 — curator annotations ride the existing correction cards and debunk indicator with no parallel display system, tagged "Annotation from {desk}" plus an evidence link. {cite: notes/reports/REPORT-A.md > "What shipped"}
+- **[SHIPPED]** Gate 4 — viewer actions (badge only by default, demote, auto-block composing with cross-persona blocking) are all derived at read time from valid annotations, so unsubscribing reverses everything on the next render. {cite: notes/reports/REPORT-A.md > "What shipped"}
+- **[SHIPPED]** Call Option A — typed refutation/probe edges (author-declared or curator-attested), a standing rule where a claim holds standing unless refuted by an equal-or-higher tier author or a subscribed desk, and a `kingOfTheHill` seeded algo card (engagement weight zero) demonstrating lost-standing posts sinking in the window. {cite: notes/reports/REPORT-A.md > "CALL OPTION A — Refutation edges — OPENED"}
+- **[SHIPPED]** Call Option A — concur/dispute one-tap voting on annotation cards feeding a per-curator accuracy tally in subscription settings, and distinct thread treatment for author-declared versus curator-attested refutations. {cite: notes/reports/REPORT-A.md > "CALL OPTION A — Refutation edges — OPENED"}
+- **[SHIPPED]** Call Option B — a relationship history section on every non-own profile (why-you-follow with a receipt cast, first interaction, engagement count, strike history), and a per-user 3-strike auto-mute toggle defaulting OFF, requiring a triggering cast per strike. {cite: notes/reports/REPORT-A.md > "CALL OPTION B — Relationship history UI + 3-strike — CLOSED (1 iteration)"}
+- **[KNOWN-BROKEN]** Signatures are mock primitives throughout (grants, algo artifacts, annotations, all `H(key ‖ canonical)`); canonical forms are real and tested, the primitive is not — same deferral as the mega pass. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+- **[KNOWN-BROKEN]** `views` on seeded posts is fixture data; live mode omits it since Farcaster has no impression metric. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+- **[KNOWN-BROKEN]** Author-declared refutation edges accept any `fromCastId` — the route does not verify the asserter authored the from-cast, though the standing math itself is unaffected; a hostile client could declare edges in its own name against arbitrary casts. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+- **[KNOWN-BROKEN]** KOTH standing consults only in-window posts — a claim outside the 40-post window is neither standing nor sunk, it is simply absent. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+- **[KNOWN-BROKEN]** Concur/dispute tallies are per-annotation and unweighted (one persona, one vote, no tier weighting), deliberately, since weighting by tier would let high-tier accounts define curator reputations. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+- **[KNOWN-BROKEN]** The Wave-6 advertiser estimate remains timing-sensitive under injected latency; g3 test 12 now polls for settle, but up to ~5s of pending UX on a bad latency roll is mock-latency behavior, not a product defect. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+
+## What it found
+
+- Iteration 1 of Gate 2 (post-rebuild) failed tests 1 and 2 with symptoms implying a dangling active mode; the cause was later found to be an orphaned `test:m3` suite from a killed sweep that ran undetected for ~40 minutes, resetting seed state and switching view-as under everything. {cite: notes/reports/REPORT-A.md > "Open observation"}
+- Process cleanup now goes through PowerShell CIM instead of `wmic` (deprecated and silently matching nothing), and kills are verified by listing what survived. {cite: notes/reports/REPORT-A.md > "Open observation"}
+- Gate 3 found a clock-drift bug: seed timestamps are relative to server BOOT while a test's cutoff used its own `Date.now()`, passing on a fresh server and failing after an hour of uptime; the cutoff now derives from the newest post visible. {cite: notes/reports/REPORT-A.md > "GATE 3 — Caught-up banner — CLOSED (2 iterations)"}
+- Gate 3 found a "hoping instead of arranging" test bug: the "longform beneath the banner" assertion relied on a seed readwise schedule still being due, which also drifted with uptime; the test now schedules and fast-forwards its own. {cite: notes/reports/REPORT-A.md > "GATE 3 — Caught-up banner — CLOSED (2 iterations)"}
+- Gate 4 found the correction cap (3) ate the curator card: three seeded community notes filled the cap and the curator annotation silently fell off the end; raised to 5. {cite: notes/reports/REPORT-A.md > "Three findings worth the record"}
+- Gate 4 found demote took three tries to actually mean demote: sinking flagged posts in the corpus sort pushed them below the selection limit (a de facto block), and sinking before the final recency sort got un-sunk; the only reliable place is the feed's LAST ordering, which also surfaced that the private-post merge's recency re-sort had quietly been the feed's true final order since the mega pass. {cite: notes/reports/REPORT-A.md > "Three findings worth the record"}
+- Gate 4 found the dedup queue and the annotation seed disagreed about targets: an annotation seeded onto an already-noted post was dropped as a duplicate (first writer wins by design); the seed was retargeted. {cite: notes/reports/REPORT-A.md > "Three findings worth the record"}
+- Call Option A exposed a pre-existing X-parity gap: every seeded post's permalink 404'd, because `getCast`/`getThread` only knew the phase-1 fixture corpus; found when refutation-thread rendering tried to open one, and fixed so seeded posts and locally-posted replies both get real permalinks and thread membership. {cite: notes/reports/REPORT-A.md > "CALL OPTION A — Refutation edges — OPENED"}
+- The final stability sweeps found one identical failure across all four runs: `a2 test 6 — expected 2 curator algos, found 3`, a stale test expectation predating Call Option A's third (King of the Hill) algo; the test now asserts three by name. {cite: notes/reports/REPORT-A.md > "Final stability — the four consecutive sweeps"}
+- One INFRA classification in the final sweeps was a machine sleep (`ERR_NETWORK_IO_SUSPENDED`), correctly classified as could-not-test rather than a product failure. {cite: notes/reports/REPORT-A.md > "Final stability — the four consecutive sweeps"}
+
+## Judgment calls
+
+- `notes/design/roadmap-v4.md` does not exist; only the prompt itself was present and fully specifies every gate and exit, so the prompt is treated as the operative spec — the same situation and resolution as `notes/design/architecture-v3.md` at the mega-pass start. {cite: notes/reports/REPORT-A.md > "Judgment calls made before building"}
+- Follow was made real inside Gate 1 because Gate 1's co-interaction exit ("user replies, later follows the OP") cannot be tested against a follow that does not exist. {cite: notes/reports/REPORT-A.md > "Judgment calls made before building"}
+- The event log records the user's own replies and likes (not impressions) because co-interaction detection needs them consultable and the spec's constraint is that the log contains only actions the user took. {cite: notes/reports/REPORT-A.md > "Judgment calls made before building"}
+- Log writes are idempotent-by-id so they can be retried without double-logging, since an unretried write would flake at the mocks' 2% synthetic failure rate. {cite: notes/reports/REPORT-A.md > "Judgment calls made before building"}
+
+## Verification result
+
+- Gate 1: 9/9. Gate 2: 7/7 (warm, and 7/7 again after an activate -> hard-kill -> restart -> cold-run cycle). Gate 3: 6/6. Gate 4: 8/8. Call Option A: 6/6. Call Option B: 7/7. {cite: notes/reports/REPORT-A.md > "VERIFICATION"}
+- Restart-survival (extended): 11/11 — imported algo + provenance, curator subscription + action, and relationship event + receipts all survive a hard kill. {cite: notes/reports/REPORT-A.md > "VERIFICATION"}
+- Cumulative sweep (pre-options build): 109 checks, 1 failed suite (g3 t12 timing race, root-caused and fixed by polling for estimate settle), 1 infra (synthetic failures, correctly classified). {cite: notes/reports/REPORT-A.md > "VERIFICATION"}
+- tsc strict clean throughout; production build clean throughout; root-leak + event-log-leak clean over 31 payloads. {cite: notes/reports/REPORT-A.md > "VERIFICATION"}
+- Final four consecutive sweeps (18 suites, ~125 checks each): run 1 had 123 passing, 1 INFRA (machine sleep), 1 failed suite; runs 2-4 each had 124 passing, 0 infra, 1 failed suite — the one failure was identical across all four runs and traced to a stale test expectation, which was corrected; with that fix, the product-failure count across all four final runs is zero. {cite: notes/reports/REPORT-A.md > "Final stability — the four consecutive sweeps"}
+- Both call options were opened: the core four gates closed in 10 of 14 iterations, leaving 7 remaining for Option A (needed >=4) and Option B needing >=3 after A (had 5); Option A took 2 iterations, Option B took 1, for 10 of 14 total iterations used. {cite: notes/reports/REPORT-A.md > "Call options: opened, and why"}
+- Overall: six gates, 43 acceptance checks, 11 restart-survival checks, ~124 cumulative checks green per sweep. {cite: notes/reports/REPORT-A.md > "TIER A — CLOSED"}
+
+## Assumptions and open items
+
+- Signatures being mock primitives throughout is logged as a standing deferral: crypto last, same direction as the mega pass. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+- The relationship event log is the vault's new top-priority tenant: every follow, block, strike, reply and like with its triggering cast plus derived first-interaction pairs, schema vault-ready with single-actor scoped reads and no cross-actor queries in the contract. {cite: notes/reports/REPORT-A.md > "WHAT THE VAULT MUST HOLD"}
+- The context graph, private posts, grants, follow deltas + last-visit + strike settings, curator subscriptions + annotation votes, and imported algorithms with provenance are all named as vault-must-hold material for Tier A. {cite: notes/reports/REPORT-A.md > "WHAT THE VAULT MUST HOLD"}
+- Published algo cards, curator feeds themselves, and refutation edges are explicitly named as NOT vault material, being public by intent or public attestations/claims. {cite: notes/reports/REPORT-A.md > "WHAT THE VAULT MUST HOLD"}
+- Author-declared refutation edges needing authorship proof is logged as a real-track requirement rather than hand-waved. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}
+- Concur/dispute tally weighting is logged as needing design, not just code, before any tier-weighting is introduced. {cite: notes/reports/REPORT-A.md > "KNOWN-BROKEN"}

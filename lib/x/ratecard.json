@@ -1,0 +1,10 @@
+{
+  "comment": "X pay-per-use rate card. Rates change: update the numbers here, bump lastVerified, done — one edit. The composer surfaces lastVerified in the estimate tooltip so a stale card is visible, not silent.",
+  "lastVerified": "2026-08-01",
+  "currency": "USD",
+  "postBase": 0.015,
+  "postWithLink": 0.195,
+  "mediaSurcharge": 0.01,
+  "readPerRequest": 0.0004,
+  "deletePerRequest": 0.002
+}

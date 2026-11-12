@@ -1,0 +1,237 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1340" class="eco" role="img" aria-labelledby="eco-title eco-desc" font-family="system-ui, -apple-system, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif">
+<title id="eco-title">Totem, Farcaster and X: what lives where</title>
+<desc id="eco-desc">Three zones. X on the left: your X account, your X archive, and the paid X developer API. Totem in the middle: your private root and personas, find your people, who sees what, a history shelf for imported tweets, readwise and folders, the anon composer, influence and tiers, feed controls, private posts and show to a friend. Farcaster on the right: X verifications, your main account, persona accounts, the anon account and public casts. Eleven numbered arrows connect them; the key at the bottom names each and its status.</desc>
+<style>
+.eco{--eco-ink:#172033;--eco-muted:#475467;--eco-faint:#667085;--eco-line:#7f8b9c;
+--eco-card:rgba(23,32,51,.035);--eco-card-line:rgba(23,32,51,.17);
+--eco-x:#475569;--eco-x-tint:rgba(71,85,105,.07);--eco-x-line:rgba(71,85,105,.38);
+--eco-l:#2563eb;--eco-l-tint:rgba(37,99,235,.055);--eco-l-strong:rgba(37,99,235,.11);--eco-l-line:rgba(37,99,235,.5);
+--eco-f:#7c3aed;--eco-f-tint:rgba(124,58,237,.055);--eco-f-line:rgba(124,58,237,.48);
+--eco-live:#15803d;--eco-live-tint:rgba(22,163,74,.17);
+--eco-built:#3b4a61;--eco-built-tint:rgba(59,74,97,.13);
+--eco-warn:#b45309;--eco-warn-tint:rgba(217,119,6,.09);
+color:var(--eco-ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif}
+@media (prefers-color-scheme:dark){.eco{--eco-ink:#e8ecf3;--eco-muted:#b4bfcd;--eco-faint:#929eb0;--eco-line:#8792a3;
+--eco-card:rgba(255,255,255,.04);--eco-card-line:rgba(255,255,255,.17);
+--eco-x:#a3b1c4;--eco-x-tint:rgba(148,163,184,.075);--eco-x-line:rgba(148,163,184,.4);
+--eco-l:#6ea8fe;--eco-l-tint:rgba(96,165,250,.075);--eco-l-strong:rgba(96,165,250,.14);--eco-l-line:rgba(96,165,250,.55);
+--eco-f:#b197fc;--eco-f-tint:rgba(167,139,250,.075);--eco-f-line:rgba(167,139,250,.52);
+--eco-live:#4ade80;--eco-live-tint:rgba(74,222,128,.17);
+--eco-built:#c9d2df;--eco-built-tint:rgba(201,210,223,.15);
+--eco-warn:#fbbf24;--eco-warn-tint:rgba(251,191,36,.08)}}
+.eco text{fill:var(--eco-ink,currentColor)}
+.eco .h1{font-size:31px;font-weight:700;letter-spacing:-.01em}
+.eco .lede{font-size:16px;fill:var(--eco-muted,currentColor)}
+.eco .zn{font-size:24px;font-weight:700}
+.eco .zt{font-size:14.5px;fill:var(--eco-muted,currentColor)}
+.eco .nt{font-size:16.5px;font-weight:650}
+.eco .ns{font-size:14px;fill:var(--eco-muted,currentColor)}
+.eco .nf{font-size:13px;fill:var(--eco-faint,currentColor)}
+.eco .mono{font-family:ui-monospace,"Cascadia Mono",Consolas,Menlo,monospace;font-size:14px;font-weight:600}
+.eco .kt{font-size:16px;font-weight:650}
+.eco .kd{font-size:14.5px;fill:var(--eco-muted,currentColor)}
+.eco .num{font-size:14.5px;font-weight:700;text-anchor:middle}
+.eco .lbl{font-size:14.5px;fill:var(--eco-muted,currentColor);font-style:italic}
+.eco .tag{font-size:12.5px;font-weight:600;text-anchor:middle}
+.eco .z-x{fill:var(--eco-x-tint);stroke:var(--eco-x-line);stroke-width:1.5}
+.eco .z-l{fill:var(--eco-l-tint);stroke:var(--eco-l-line);stroke-width:1.5}
+.eco .z-f{fill:var(--eco-f-tint);stroke:var(--eco-f-line);stroke-width:1.5}
+.eco .card{fill:var(--eco-card);stroke:var(--eco-card-line);stroke-width:1.2}
+.eco .card-soon{fill:none;stroke:var(--eco-card-line);stroke-width:1.4;stroke-dasharray:6 5}
+.eco .core{fill:var(--eco-l-strong);stroke:var(--eco-l-line);stroke-width:1.2}
+.eco .root{fill:var(--eco-l-tint);stroke:var(--eco-l);stroke-width:2}
+.eco .file{fill:var(--eco-card);stroke:var(--eco-x-line);stroke-width:1}
+.eco .tag-pub{fill:var(--eco-l-strong);stroke:var(--eco-l-line);stroke-width:1}
+.eco .tag-priv{fill:none;stroke:var(--eco-card-line);stroke-width:1}
+.eco .tag-pub-t{fill:var(--eco-l,currentColor)}
+.eco .tag-priv-t{fill:var(--eco-muted,currentColor)}
+.eco .branch{fill:none;stroke:var(--eco-l-line);stroke-width:1.8}
+.eco .ic-x{color:var(--eco-x)}
+.eco .ic-l{color:var(--eco-l)}
+.eco .ic-f{color:var(--eco-f)}
+.eco .ic-m{color:var(--eco-muted)}
+.eco .a{fill:none;stroke:var(--eco-line);stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.eco .a-plan{stroke-dasharray:7 6;stroke-linecap:butt}
+.eco .a-paid{stroke-dasharray:1 6}
+.eco .a-l{stroke:var(--eco-l)}
+.eco .ah{fill:var(--eco-line)}
+.eco .ah-l{fill:var(--eco-l)}
+.eco .mk-live{fill:var(--eco-live);stroke:var(--eco-live);stroke-width:1.6}
+.eco .mk-built{fill:none;stroke:var(--eco-built);stroke-width:1.8}
+.eco .mk-built-f{fill:var(--eco-built)}
+.eco .mk-plan{fill:none;stroke:var(--eco-muted);stroke-width:1.7;stroke-dasharray:2.6 2.2}
+.eco .mk-paid{fill:none;stroke:var(--eco-muted);stroke-width:1.5}
+.eco .mk-paid-t{font-size:11px;font-weight:700;text-anchor:middle;fill:var(--eco-muted,currentColor)}
+.eco .b-live{fill:var(--eco-live-tint);stroke:var(--eco-live);stroke-width:2}
+.eco .b-built{fill:var(--eco-built-tint);stroke:var(--eco-built);stroke-width:2}
+.eco .b-plan{fill:none;stroke:var(--eco-muted);stroke-width:1.8;stroke-dasharray:4 3}
+.eco .b-paid{fill:none;stroke:var(--eco-muted);stroke-width:2;stroke-dasharray:1 4;stroke-linecap:round}
+.eco .glyph{fill:none;stroke:var(--eco-line);stroke-width:1.6}
+.eco .rule{stroke:var(--eco-card-line);stroke-width:1}
+.eco .honest{fill:var(--eco-warn-tint);stroke:var(--eco-warn);stroke-width:1.2;stroke-dasharray:5 4}
+.eco .lead{fill:none;stroke:var(--eco-faint);stroke-width:1.2;stroke-dasharray:2 3}
+.eco .pill{fill:var(--eco-card);stroke:var(--eco-card-line);stroke-width:1}
+.eco .pill-l{fill:var(--eco-l-strong);stroke:var(--eco-l-line);stroke-width:1}
+.eco .pill-soon{fill:none;stroke:var(--eco-muted);stroke-width:1.2;stroke-dasharray:4 3}
+.eco .av-f{fill:var(--eco-f-tint);stroke:var(--eco-f);stroke-width:1.8}
+.eco .bullet{fill:var(--eco-f)}
+.eco .bullet-l{fill:var(--eco-l)}
+</style>
+<defs>
+<marker id="ah" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="6.4" markerHeight="6.4" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" class="ah"/></marker>
+<marker id="ahl" viewBox="0 0 10 10" refX="8.6" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse"><path d="M0 0L10 5 0 10z" class="ah-l"/></marker>
+<symbol id="i-x" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 5l12 14M18 5L6 19"/></g></symbol>
+<symbol id="i-layers" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 5-9 5-9-5z"/><path d="M3 12.5l9 5 9-5"/><path d="M3 16.5l9 5 9-5"/></g></symbol>
+<symbol id="i-arch" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 20V6.5h14V20h-3.6v-5.2a3.4 3.4 0 0 0-6.8 0V20z"/></g></symbol>
+<symbol id="i-key" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="12" r="4"/><path d="M12 12h9M17.5 12v3.2M20.5 12v2.4"/></g></symbol>
+<symbol id="i-person" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8.2" r="3.6"/><path d="M5 20a7 6.2 0 0 1 14 0"/></g></symbol>
+<symbol id="i-file" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7.5L19 7.5V21H7z"/><path d="M14.5 3v4.5H19M9.8 12h6.4M9.8 15.6h6.4"/></g></symbol>
+<symbol id="i-coin" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M14.6 9.3c-.5-.8-1.5-1.3-2.6-1.3-1.5 0-2.7.8-2.7 2s1.2 1.6 2.7 1.9 2.8.8 2.8 2.1-1.3 2.1-2.8 2.1c-1.2 0-2.2-.5-2.8-1.3M12 6.4v11.2"/></g></symbol>
+<symbol id="i-check" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M8.2 12.3l2.6 2.6 5-5.2"/></g></symbol>
+<symbol id="i-link" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.2 13.8a3.8 3.8 0 0 0 5.4 0l3-3a3.8 3.8 0 0 0-5.4-5.4l-1 1"/><path d="M13.8 10.2a3.8 3.8 0 0 0-5.4 0l-3 3a3.8 3.8 0 0 0 5.4 5.4l1-1"/></g></symbol>
+<symbol id="i-mask" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8.5C3.5 7 4.7 6 6.2 6h11.6c1.5 0 2.7 1 2.7 2.5 0 5-3.9 8.6-8.5 9.5-4.6-.9-8.5-4.5-8.5-9.5z"/><path d="M7.4 10.6h2.8M13.8 10.6h2.8"/></g></symbol>
+<symbol id="i-shield" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 2.8v5.4c0 4.4-3 8.1-7 9.8-4-1.7-7-5.4-7-9.8V5.8z"/><path d="M9 12.2l2.1 2.1 4-4.1"/></g></symbol>
+<symbol id="i-clock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.6"/><path d="M12 7.4V12l3.1 2"/></g></symbol>
+<symbol id="i-shelf" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4.5h3.2v15H5zM10.2 4.5h3.2v15h-3.2zM15.4 5.6l3-.8 3.1 14.6-3 .7z"/><path d="M3 19.5h18"/></g></symbol>
+<symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10.5" cy="10.5" r="5.8"/><path d="M15 15l5 5"/></g></symbol>
+<symbol id="i-eye" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 12S6 6 12 6s9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"/><circle cx="12" cy="12" r="2.6"/></g></symbol>
+<symbol id="i-lock" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M6 11h12v9.5H6z"/><path d="M8.6 11V8.2a3.4 3.4 0 0 1 6.8 0V11"/></g></symbol>
+<symbol id="i-sliders" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h9M17.4 7H20M4 17h2.6M11 17h9"/><circle cx="15.2" cy="7" r="2.2"/><circle cx="8.8" cy="17" r="2.2"/></g></symbol>
+<symbol id="i-bookmark" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3.8h10V20l-5-3.6L7 20z"/></g></symbol>
+<symbol id="i-chart" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h16M7.2 16.5v-4.2M12 16.5V8M16.8 16.5V5.5"/></g></symbol>
+<symbol id="i-friends" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8.6" r="3.1"/><path d="M3.4 19.4a5.6 5.1 0 0 1 11.2 0"/><circle cx="16.6" cy="8.2" r="2.5"/><path d="M15.2 13.3a4.9 4.4 0 0 1 6 5.6"/></g></symbol>
+<symbol id="i-cast" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5h16v11H9.5L4 20.2z"/><path d="M8 9.4h8M8 12.4h5"/></g></symbol>
+<symbol id="i-batch" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h10"/><circle cx="18.5" cy="17" r="2.2"/></g></symbol>
+<mask id="cut" maskUnits="userSpaceOnUse" x="0" y="0" width="1200" height="1340"><rect x="0" y="0" width="1200" height="1340" fill="white"/><circle cx="440" cy="122" r="18" fill="black"/><circle cx="875" cy="292" r="18" fill="black"/><circle cx="875" cy="342" r="18" fill="black"/><circle cx="875" cy="409" r="18" fill="black"/><circle cx="875" cy="543.5" r="18" fill="black"/><circle cx="840" cy="626" r="18" fill="black"/><circle cx="874" cy="626" r="14" fill="black"/><circle cx="905" cy="626" r="14" fill="black"/><circle cx="875" cy="721.5" r="18" fill="black"/><circle cx="311" cy="469" r="18" fill="black"/><circle cx="311" cy="547" r="18" fill="black"/><circle cx="311" cy="626" r="18" fill="black"/><circle cx="701" cy="852" r="18" fill="black"/></mask>
+</defs>
+<g><text x="24" y="50" class="h1">Totem, Farcaster and X: what lives where</text>
+<text x="24" y="80" class="lede">Totem sits in the middle: your private side. Farcaster, on the right, is the public network. Numbers match the key below.</text>
+<rect x="24" y="140" width="246" height="690" rx="22" class="z-x"/><use href="#i-x" x="42" y="157" width="27" height="27" class="ic-x"/><text x="78" y="178" class="zn">X</text><text x="42" y="204" class="zt">where your past posts</text><text x="42" y="223" class="zt">and follows live</text>
+<rect x="348" y="140" width="480" height="690" rx="22" class="z-l"/><use href="#i-layers" x="366" y="157" width="27" height="27" class="ic-l"/><text x="402" y="178" class="zn">Totem</text><text x="366" y="204" class="zt">your private side: you, your personas, your rules</text>
+<rect x="926" y="140" width="250" height="690" rx="22" class="z-f"/><use href="#i-arch" x="944" y="157" width="27" height="27" class="ic-f"/><text x="980" y="178" class="zn">Farcaster</text><text x="944" y="204" class="zt">the public network:</text><text x="944" y="223" class="zt">any app can read it</text>
+<rect x="40" y="240" width="214" height="84" rx="14" class="card"/><use href="#i-person" x="53" y="252" width="23" height="23" class="ic-x"/><text x="84" y="270" class="nt">Your X account</text><text x="54" y="294" class="ns">posts, follows, likes</text>
+<rect x="40" y="340" width="214" height="244" rx="14" class="card"/><use href="#i-file" x="53" y="352" width="23" height="23" class="ic-x"/><text x="84" y="370" class="nt">Your X archive</text><text x="54" y="394" class="ns">the ZIP X gives you,</text><text x="54" y="414" class="ns">usually within a day</text>
+<rect x="54" y="448" width="186" height="42" rx="8" class="file"/>
+<text x="66" y="466" class="mono">following.js</text>
+<text x="66" y="483" class="nf">who you follow</text>
+<rect x="54" y="526" width="186" height="42" rx="8" class="file"/>
+<text x="66" y="544" class="mono">tweets.js</text>
+<text x="66" y="561" class="nf">your posts, with dates</text>
+<rect x="40" y="600" width="214" height="214" rx="14" class="card"/><use href="#i-coin" x="53" y="612" width="23" height="23" class="ic-x"/><text x="84" y="630" class="nt">X developer API</text><text x="54" y="654" class="ns">paid per use, no free tier</text><text x="54" y="674" class="ns">$0.015 a post,</text><text x="54" y="694" class="ns">$0.20 with a link</text><circle cx="237" cy="623" r="8.5" class="mk-paid"/><text x="237" y="623" dy=".36em" class="mk-paid-t">$</text>
+<text x="54" y="730" class="ns">post to X, sync bookmarks,</text><text x="54" y="750" class="ns">sign in with X</text>
+<rect x="368" y="240" width="440" height="180" rx="16" class="core"/>
+<circle cx="438" cy="318" r="38" class="root"/>
+<use href="#i-key" x="418" y="298" width="40" height="40" class="ic-l"/>
+<text x="438" y="384" class="nt" text-anchor="middle">Your root</text>
+<text x="438" y="404" class="ns" text-anchor="middle">one private identity</text>
+<circle cx="493" cy="378" r="7" class="mk-live"/>
+<text x="528" y="263" class="nf">your personas</text>
+<path d="M476 318C502 318 502 290 528 290" class="branch"/>
+<rect x="528" y="272" width="280" height="36" rx="18" class="card"/>
+<use href="#i-person" x="538" y="279" width="22" height="22" class="ic-l"/>
+<text x="568" y="295.5" class="nt">main</text>
+<rect x="726" y="279" width="68" height="22" rx="11" class="tag-pub"/>
+<text x="760" y="294.5" class="tag tag-pub-t">public</text>
+<path d="M476 318C502 318 502 336 528 336" class="branch"/>
+<rect x="528" y="318" width="280" height="36" rx="18" class="card"/>
+<use href="#i-person" x="538" y="325" width="22" height="22" class="ic-l"/>
+<text x="568" y="341.5" class="nt">finsta</text>
+<rect x="726" y="325" width="68" height="22" rx="11" class="tag-pub"/>
+<text x="760" y="340.5" class="tag tag-pub-t">public</text>
+<path d="M476 318C502 318 502 382 528 382" class="branch"/>
+<rect x="528" y="364" width="280" height="36" rx="18" class="card"/>
+<use href="#i-person" x="538" y="371" width="22" height="22" class="ic-l"/>
+<text x="568" y="387.5" class="nt">alt</text>
+<rect x="726" y="371" width="68" height="22" rx="11" class="tag-priv"/>
+<text x="760" y="386.5" class="tag tag-priv-t">private</text>
+<rect x="368" y="436" width="213" height="66" rx="14" class="card"/><use href="#i-search" x="381" y="448" width="23" height="23" class="ic-l"/><text x="412" y="466" class="nt">Find your people</text><text x="382" y="489" class="ns">matched in your browser</text><circle cx="564" cy="459" r="7" class="mk-built"/><path d="M564 452A7 7 0 0 1 564 466z" class="mk-built-f"/>
+<rect x="595" y="436" width="213" height="66" rx="14" class="card"/><use href="#i-eye" x="608" y="448" width="23" height="23" class="ic-l"/><text x="639" y="466" class="nt">Who sees what</text><text x="609" y="489" class="ns">rings, your Top 16</text><circle cx="791" cy="459" r="7" class="mk-built"/><path d="M791 452A7 7 0 0 1 791 466z" class="mk-built-f"/>
+<rect x="368" y="514" width="440" height="66" rx="14" class="card"/><use href="#i-shelf" x="381" y="526" width="23" height="23" class="ic-l"/><text x="412" y="544" class="nt">History shelf: from X</text><text x="382" y="567" class="ns">your tweets keep their original X dates, inside Totem</text><circle cx="791" cy="537" r="7" class="mk-built"/><path d="M791 530A7 7 0 0 1 791 544z" class="mk-built-f"/>
+<rect x="368" y="592" width="213" height="66" rx="14" class="card"/><use href="#i-bookmark" x="381" y="604" width="23" height="23" class="ic-l"/><text x="412" y="622" class="nt">Readwise, folders</text><text x="382" y="645" class="ns">long posts, short chunks</text><circle cx="564" cy="615" r="7" class="mk-live"/>
+<rect x="595" y="592" width="213" height="66" rx="14" class="card"/><use href="#i-mask" x="608" y="604" width="23" height="23" class="ic-l"/><text x="639" y="622" class="nt">Anon composer</text><text x="609" y="645" class="ns">owner's service only</text><circle cx="791" cy="615" r="7" class="mk-built"/><path d="M791 608A7 7 0 0 1 791 622z" class="mk-built-f"/>
+<rect x="368" y="670" width="213" height="66" rx="14" class="card"/><use href="#i-chart" x="381" y="682" width="23" height="23" class="ic-l"/><text x="412" y="700" class="nt">Influence, tiers</text><text x="382" y="723" class="ns">stakes and allowance</text><circle cx="564" cy="693" r="7" class="mk-built"/><path d="M564 686A7 7 0 0 1 564 700z" class="mk-built-f"/>
+<rect x="595" y="670" width="213" height="66" rx="14" class="card"/><use href="#i-sliders" x="608" y="682" width="23" height="23" class="ic-l"/><text x="639" y="700" class="nt">Feed controls</text><text x="609" y="723" class="ns">modes, rules, lenses, zones</text><circle cx="791" cy="693" r="7" class="mk-live"/>
+<rect x="368" y="748" width="213" height="66" rx="14" class="card"/><use href="#i-lock" x="381" y="760" width="23" height="23" class="ic-l"/><text x="412" y="778" class="nt">Private posts</text><text x="382" y="801" class="ns">sealed, kept in Totem</text><circle cx="564" cy="771" r="7" class="mk-live"/>
+<rect x="595" y="748" width="213" height="66" rx="14" class="card"/><use href="#i-friends" x="608" y="760" width="23" height="23" class="ic-l"/><text x="639" y="778" class="nt">Show to a friend</text><text x="609" y="801" class="ns">rings, ring notes, links</text><circle cx="791" cy="771" r="7" class="mk-built"/><path d="M791 764A7 7 0 0 1 791 778z" class="mk-built-f"/>
+<rect x="942" y="240" width="218" height="90" rx="14" class="card"/><use href="#i-check" x="955" y="252" width="23" height="23" class="ic-f"/><text x="986" y="270" class="nt">X verifications</text><text x="956" y="294" class="ns">about 397,000 accounts</text><text x="956" y="314" class="ns">have proved an X account</text><circle cx="1143" cy="263" r="7" class="mk-live"/>
+<rect x="942" y="346" width="218" height="80" rx="14" class="card-soon"/><use href="#i-link" x="955" y="358" width="23" height="23" class="ic-f"/><text x="986" y="376" class="nt">Main account</text><text x="956" y="400" class="ns">the one you have today</text><circle cx="1143" cy="369" r="7" class="mk-plan"/>
+<rect x="942" y="442" width="218" height="124" rx="14" class="card"/><use href="#i-person" x="955" y="454" width="23" height="23" class="ic-f"/><text x="986" y="472" class="nt">Persona accounts</text><text x="956" y="496" class="ns">each public persona</text><text x="956" y="516" class="ns">with its own name</text><text x="956" y="536" class="ns">owner's service only</text><circle cx="1143" cy="465" r="7" class="mk-built"/><path d="M1143 458A7 7 0 0 1 1143 472z" class="mk-built-f"/>
+<rect x="942" y="582" width="218" height="88" rx="14" class="card"/><use href="#i-mask" x="955" y="594" width="23" height="23" class="ic-f"/><text x="986" y="612" class="nt">The anon account</text><text x="956" y="636" class="ns">anoncast-style, no name</text><text x="956" y="656" class="ns">owner's service only</text><circle cx="1143" cy="605" r="7" class="mk-built"/><path d="M1143 598A7 7 0 0 1 1143 612z" class="mk-built-f"/>
+<rect x="942" y="686" width="218" height="128" rx="14" class="card"/><use href="#i-cast" x="955" y="698" width="23" height="23" class="ic-f"/><text x="986" y="716" class="nt">Public casts</text><text x="956" y="740" class="ns">casts, likes, follows,</text><text x="956" y="760" class="ns">profiles: what any</text><text x="956" y="780" class="ns">Farcaster app can read</text><circle cx="1143" cy="709" r="7" class="mk-live"/>
+<rect x="595" y="880" width="213" height="66" rx="14" class="card"/><use href="#i-friends" x="608" y="892" width="23" height="23" class="ic-m"/><text x="639" y="910" class="nt">Friends you pick</text><text x="609" y="933" class="ns">they see it in Totem only</text><circle cx="791" cy="903" r="7" class="mk-built"/><path d="M791 896A7 7 0 0 1 791 910z" class="mk-built-f"/>
+<text x="603" y="112" class="lbl" text-anchor="middle">you verify your X in the Farcaster app</text>
+<text x="24" y="872" class="kt">Status</text>
+<circle cx="33" cy="895" r="7" class="mk-live"/>
+<path d="M48 895H84" class="a"/>
+<text x="94" y="900" class="ns">Works live</text>
+<circle cx="279" cy="895" r="7" class="mk-built"/><path d="M279 888A7 7 0 0 1 279 902z" class="mk-built-f"/>
+<path d="M294 895H330" class="a"/>
+<text x="340" y="900" class="ns">Built, test data only</text>
+<circle cx="33" cy="927" r="7" class="mk-plan"/>
+<path d="M48 927H84" class="a a-plan"/>
+<text x="94" y="932" class="ns">Planned</text>
+<circle cx="279" cy="927" r="8.5" class="mk-paid"/><text x="279" y="927" dy=".36em" class="mk-paid-t">$</text>
+<path d="M294 927H330" class="a a-paid"/>
+<text x="340" y="932" class="ns">Paid, later</text>
+<text x="836" y="872" class="nf">Checked 2026-10-10 against the code and</text><text x="836" y="892" class="nf">both running Totem sites. “Built, test data</text><text x="836" y="912" class="nf">only” also covers parts that are built</text><text x="836" y="932" class="nf">and switched off.</text>
+<path d="M24 966H1176" class="rule"/>
+<text x="24" y="998" class="kt">The numbered arrows</text>
+<circle cx="39" cy="1033" r="14" class="b-live"/><text x="39" y="1033" dy=".36em" class="num">1</text>
+<text x="64" y="1038" class="kt">Verify your X</text>
+<text x="64" y="1058" class="kd">Done in the Farcaster app, which keeps the record. Works today.</text>
+<circle cx="39" cy="1085" r="14" class="b-built"/><text x="39" y="1085" dy=".36em" class="num">2</text>
+<text x="64" y="1090" class="kt">Show “X @handle, verified”</text>
+<text x="64" y="1110" class="kd">Totem reads that proof. Built on test data; the list is off for now.</text>
+<circle cx="39" cy="1137" r="14" class="b-built"/><text x="39" y="1137" dy=".36em" class="num">3</text>
+<text x="64" y="1142" class="kt">Find your X follows on Farcaster</text>
+<text x="64" y="1162" class="kd">Matched in your browser. Built on test data; following: planned.</text>
+<circle cx="39" cy="1189" r="14" class="b-built"/><text x="39" y="1189" dy=".36em" class="num">4</text>
+<text x="64" y="1194" class="kt">Import your X archive</text>
+<text x="64" y="1214" class="kd">Tweets keep their X dates on a shelf. Into readwise: planned.</text>
+<circle cx="39" cy="1241" r="14" class="b-plan"/><text x="39" y="1241" dy=".36em" class="num">5</text>
+<text x="64" y="1246" class="kt">Re-post one at a time</text>
+<text x="64" y="1266" class="kd">Dated today, labelled “originally on X, 3 May 2019”.</text>
+<circle cx="39" cy="1293" r="14" class="b-built"/><text x="39" y="1293" dy=".36em" class="num">6</text>
+<text x="64" y="1298" class="kt">A persona posts</text>
+<text x="64" y="1318" class="kd">As its own Farcaster account, on the owner's service.</text>
+<circle cx="627" cy="1033" r="14" class="b-built"/><text x="627" y="1033" dy=".36em" class="num">7</text>
+<text x="652" y="1038" class="kt">Post anonymously</text>
+<text x="652" y="1058" class="kd">Membership proof, a random wait, then the anon account.</text>
+<circle cx="627" cy="1085" r="14" class="b-built"/><text x="627" y="1085" dy=".36em" class="num">8</text>
+<text x="652" y="1090" class="kt">Show to a friend</text>
+<text x="652" y="1110" class="kd">Your rings see your personas and the anon posts you share. Test data.</text>
+<circle cx="627" cy="1137" r="14" class="b-plan"/><text x="627" y="1137" dy=".36em" class="num">9</text>
+<text x="652" y="1142" class="kt">Connect your main account</text>
+<text x="652" y="1162" class="kd">Post from Totem as the Farcaster account you already have.</text>
+<circle cx="627" cy="1189" r="14" class="b-built"/><text x="627" y="1189" dy=".36em" class="num">10</text>
+<text x="652" y="1194" class="kt">Read real casts</text>
+<text x="652" y="1214" class="kd">Read-only, through your own rules. Built, switched off.</text>
+<circle cx="627" cy="1241" r="14" class="b-paid"/><text x="627" y="1241" dy=".36em" class="num">11</text>
+<text x="652" y="1246" class="kt">Paid X features</text>
+<text x="652" y="1266" class="kd">Post to X, sync bookmarks, sign in with X. Waits for a yes.</text></g>
+<g mask="url(#cut)"><path d="M254 262H280Q300 262 300 242V142Q300 122 320 122H886Q906 122 906 142V238Q906 258 926 258H939" class="a" marker-end="url(#ah)"/>
+<path d="M940 300C875 300 875 284 811 284" class="a" marker-end="url(#ah)"/>
+<path d="M810 298C875 298 875 386 939 386" class="a a-plan" marker-end="url(#ah)"/>
+<path d="M810 336C875 336 875 482 939 482" class="a" marker-end="url(#ah)"/>
+<path d="M810 547C875 547 875 540 939 540" class="a a-plan" marker-end="url(#ah)"/>
+<path d="M810 626H939" class="a" marker-end="url(#ah)"/>
+<path d="M940 740C875 740 875 703 811 703" class="a" marker-end="url(#ah)"/>
+<path d="M256 469H366" class="a" marker-end="url(#ah)"/>
+<path d="M256 547H366" class="a" marker-end="url(#ah)"/>
+<path d="M258 626H366" class="a a-paid" marker-end="url(#ah)" marker-start="url(#ah)"/>
+<path d="M701 815V878" class="a" marker-end="url(#ah)"/></g>
+<g><circle cx="440" cy="122" r="15" class="b-live"/><text x="440" y="122" dy=".36em" class="num">1</text>
+<circle cx="875" cy="292" r="15" class="b-built"/><text x="875" y="292" dy=".36em" class="num">2</text>
+<circle cx="875" cy="342" r="15" class="b-plan"/><text x="875" y="342" dy=".36em" class="num">9</text>
+<circle cx="875" cy="409" r="15" class="b-built"/><text x="875" y="409" dy=".36em" class="num">6</text>
+<circle cx="875" cy="543.5" r="15" class="b-plan"/><text x="875" y="543.5" dy=".36em" class="num">5</text>
+<circle cx="840" cy="626" r="15" class="b-built"/><text x="840" y="626" dy=".36em" class="num">7</text>
+<circle cx="874" cy="626" r="12" class="glyph"/><use href="#i-shield" x="866" y="618" width="16" height="16" class="ic-m"/>
+<circle cx="905" cy="626" r="12" class="glyph"/><use href="#i-clock" x="897" y="618" width="16" height="16" class="ic-m"/>
+<circle cx="875" cy="721.5" r="15" class="b-built"/><text x="875" y="721.5" dy=".36em" class="num">10</text>
+<circle cx="311" cy="469" r="15" class="b-built"/><text x="311" y="469" dy=".36em" class="num">3</text>
+<circle cx="311" cy="547" r="15" class="b-built"/><text x="311" y="547" dy=".36em" class="num">4</text>
+<circle cx="311" cy="626" r="15" class="b-paid"/><text x="311" y="626" dy=".36em" class="num">11</text>
+<circle cx="701" cy="852" r="15" class="b-built"/><text x="701" y="852" dy=".36em" class="num">8</text></g>
+</svg>

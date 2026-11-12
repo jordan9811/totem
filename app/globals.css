@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Chirp cannot be licensed; Public Sans shares its Franklin-Gothic DNA.
+     Swapped for Inter (once) if the parity loop scores it higher. */
+  --font-primary: "Public Sans Variable";
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  @apply bg-white text-x-text font-chirp;
+  letter-spacing: -0.01em;
+  font-size: 15px;
+  line-height: 20px;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* X-style focus: none of the default blue outline noise */
+button:focus,
+a:focus,
+[tabindex]:focus {
+  outline: none;
+}
+button:focus-visible,
+a:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid #1d9bf0;
+  outline-offset: -2px;
+  border-radius: 4px;
+}
+
+::selection {
+  background: #8ecdf8;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  scrollbar-width: none;
+}
+
+/* skeleton shimmer — X pulses opacity rather than sweeping a gradient */
+.skeleton {
+  @apply bg-[#eff3f4] animate-shimmer;
+}
+
+/* the j/k keyboard selection state */
+.kb-selected {
+  box-shadow: inset 0 0 0 2px #1d9bf0;
+}
+
+/* text clamp helpers */
+.clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.clamp-9 {
+  display: -webkit-box;
+  -webkit-line-clamp: 9;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+.clamp-10 {
+  display: -webkit-box;
+  -webkit-line-clamp: 10;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* POST-DEPLOY Gate 2 — PERSONA TINT.
+   The wash goes on the app CHROME and never on content: it is painted as a
+   background-IMAGE so it layers over whatever background-color the chrome
+   already has (bg-white, bg-white/85) instead of fighting Tailwind for the
+   same property — and so a content card, which never carries this class, keeps
+   `background-image: none` for the suite to assert against.
+   The custom properties are set by the layout on the tint scope; with no scope
+   (a page outside the app group) both fall back to transparent and nothing
+   changes. */
+.persona-chrome {
+  background-image: linear-gradient(var(--persona-tint-wash, transparent), var(--persona-tint-wash, transparent));
+}
+/* The MODE signal, in a different channel from the persona one: a border
+   TREATMENT, readable in greyscale and by someone who cannot separate the
+   palette's hues at all. */
+.persona-mode-edge {
+  border-bottom-width: 2px;
+  border-bottom-style: var(--persona-mode-edge, solid);
+  border-bottom-color: var(--persona-tint, transparent);
+}

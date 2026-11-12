@@ -1,0 +1,49 @@
+{
+  "_comment": "MEGA PASS 2 Gate 5 — recorded DM shapes for the @totem inbox (X API v2 dm_events, reduced to the fields the hook reads). Pages by poll cursor. `$LINKED` is replaced at poll time by the first X handle attested in this device's state, so the linked-sender path exercises a real attestation; the other senders are never linked.",
+  "pages": [
+    [
+      {
+        "id": "dm_1001",
+        "senderHandle": "$LINKED",
+        "text": "save this for me https://x.com/gwei_whisperer/status/1720000000000000001",
+        "at": 1757000000000,
+        "tweetUrl": "https://x.com/gwei_whisperer/status/1720000000000000001",
+        "tweetId": "1720000000000000001",
+        "tweetAuthor": "gwei_whisperer",
+        "tweetText": "Restaking yields are converging on base staking rates as more AVSs go live — the premium was the scarcity of operators, not the risk. Thread on what that means for the next six months."
+      },
+      {
+        "id": "dm_1002",
+        "senderHandle": "randomstranger_88",
+        "text": "hey read this https://x.com/basisrisk/status/1720000000000000002",
+        "at": 1757000100000,
+        "tweetUrl": "https://x.com/basisrisk/status/1720000000000000002",
+        "tweetId": "1720000000000000002",
+        "tweetAuthor": "basisrisk",
+        "tweetText": "Basis trades look risk-free until the funding flips. A short history of every time it flipped."
+      }
+    ],
+    [
+      {
+        "id": "dm_1003",
+        "senderHandle": "$LINKED",
+        "text": "https://x.com/0xledgerline/status/1720000000000000003 — for the weekend",
+        "at": 1757000200000,
+        "tweetUrl": "https://x.com/0xledgerline/status/1720000000000000003",
+        "tweetId": "1720000000000000003",
+        "tweetAuthor": "0xledgerline",
+        "tweetText": "Ledger-level accounting for onchain treasuries: why marking to oracle price is a lie you tell your board, and what to do instead."
+      },
+      {
+        "id": "dm_1004",
+        "senderHandle": "$LINKED",
+        "text": "no link, just saying hi",
+        "at": 1757000300000,
+        "tweetUrl": null,
+        "tweetId": null,
+        "tweetAuthor": null,
+        "tweetText": null
+      }
+    ]
+  ]
+}

@@ -1,0 +1,82 @@
+<!doctype html>
+<!-- BROWSER KEYSTORE PASS Gate 1 stage 3 / Gate 5 — the device smoke page: boots the browser device against the
+     validator named in the query string (default http://127.0.0.1:4001) with a production-shaped environment, and
+     exposes window.__layersDevice for scripts/device-smoke.mjs. Not an app page; it holds no UI.
+     Gate 5 (research/attack-custody-1.md #8): this page declares the two rig flags (the debug members that expose
+     key material to the leak greps, and the fixture provider), so it boots ONLY on a loopback host. Served from any
+     other host it refuses to load the device at all.
+     PERSONA LAUNCH P7: loopback-only query knobs for the anonymous-posting suites (scripts/accept-anon-prod.mjs), each
+     validated and dropped when malformed: jmin / jmax (ZK_JITTER_MIN_MS / ZK_JITTER_MAX_MS, integers in ms), relay
+     (ZK_RELAY: direct | ohttp | tor), relayUrl (ZK_RELAY_URL: http(s) on a loopback host only), anon (ZK_ANON_POST:
+     on | off). `zk` (ZK_MODE) was already here. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Totem device smoke</title>
+    <script>
+      (function () {
+        var q = new URLSearchParams(location.search);
+        var loopback = /^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname);
+        if (!loopback) {
+          window.__LAYERS_SMOKE_REFUSED = "the smoke page boots only on a loopback host (this is " + location.hostname + ")";
+          return;
+        }
+        window.__LAYERS_DEVICE_ENV = {
+          NODE_ENV: "production",
+          VALIDATOR_URL: q.get("validator") || "http://127.0.0.1:4001",
+          APP_URL: location.origin,
+          KEYSTORE_DIR: "/keystore",
+          LAYERS_REQUIRE_SIG: "true",
+          ZK_MODE: q.get("zk") || "fixture",
+          ZK_PREFETCH_MS: "0",
+          ZK_DEV_HOOKS: "",
+          ENABLE_WRITE: "",
+          ENABLE_FC_WRITE: "",
+          ENABLE_X_WRITE: "",
+          ENABLE_X_READ: "",
+          DATA_SOURCE: "",
+          FID_ACQUIRE_ENABLED: "",
+          LAYERS_DEVICE_DEBUG: "1",
+          CUSTODY_FIXTURE_PROVIDER: "allow",
+        };
+        var env = window.__LAYERS_DEVICE_ENV;
+        var ms = function (v) { return /^[0-9]{1,9}$/.test(v || "") ? v : null; };
+        if (ms(q.get("jmin"))) env.ZK_JITTER_MIN_MS = q.get("jmin");
+        if (ms(q.get("jmax"))) env.ZK_JITTER_MAX_MS = q.get("jmax");
+        if (/^(direct|ohttp|tor)$/.test(q.get("relay") || "")) env.ZK_RELAY = q.get("relay");
+        try {
+          var ru = q.get("relayUrl") ? new URL(q.get("relayUrl")) : null;
+          if (ru && /^https?:$/.test(ru.protocol) && /^(localhost|127\.0\.0\.1|\[::1\])$/.test(ru.hostname) && !ru.username && !ru.password) env.ZK_RELAY_URL = ru.href;
+        } catch (e) {}
+        if (/^(on|off)$/.test(q.get("anon") || "")) env.ZK_ANON_POST = q.get("anon");
+      })();
+    </script>
+  </head>
+  <body>
+    <pre id="out">booting the device…</pre>
+    <script type="module">
+      const out = document.getElementById("out");
+      const load = (src, type) =>
+        new Promise((resolve, reject) => {
+          const s = document.createElement("script");
+          s.src = src;
+          if (type) s.type = type;
+          s.onload = () => resolve();
+          s.onerror = () => reject(new Error("failed to load " + src));
+          document.head.appendChild(s);
+        });
+      if (window.__LAYERS_SMOKE_REFUSED) {
+        out.textContent = window.__LAYERS_SMOKE_REFUSED;
+      } else {
+        try {
+          await load("/device/boot.js");
+          await load("/device/device.js", "module");
+          const info = await window.__layersDevice.ready;
+          out.textContent = "device ready: root " + info.rootId + ", personas " + info.personaIds.join(",") + (info.restored ? " (restored)" : " (ephemeral)");
+        } catch (e) {
+          out.textContent = "device boot failed: " + (e && e.message ? e.message : String(e));
+        }
+      }
+    </script>
+  </body>
+</html>

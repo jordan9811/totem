@@ -1,0 +1,49 @@
+{
+  "viewer": {
+    "fid": 9152,
+    "rootId": "root_viewer",
+    "personas": [
+      "persona_viewer_main",
+      "persona_viewer_alt"
+    ],
+    "activePersonaId": "persona_viewer_main",
+    "followingPersonaIds": [
+      "persona_acc_crypto_1",
+      "persona_acc_crypto_2",
+      "persona_acc_crypto_3",
+      "persona_acc_fantasy_1",
+      "persona_acc_fantasy_2",
+      "persona_acc_fantasy_3",
+      "persona_acc_astro_1",
+      "persona_acc_astro_2",
+      "persona_acc_astro_3",
+      "persona_acc_food_1",
+      "persona_acc_food_2",
+      "persona_acc_hist_1",
+      "persona_acc_hist_2",
+      "persona_acc_hist_3"
+    ],
+    "likedPostHashes": [
+      "0xcr0036",
+      "0xas0021",
+      "0xas0377",
+      "0xas0341",
+      "0xfa0382",
+      "0xcr0284",
+      "0xas0351",
+      "0xcr0261",
+      "0xcr0118",
+      "0xfa0016",
+      "0xas0278",
+      "0xfa0212"
+    ],
+    "bookmarkedPostHashes": [
+      "0xhi0010",
+      "0xcr0001",
+      "0xre0357",
+      "0xre0065",
+      "0xas0358",
+      "0xfa0272"
+    ]
+  }
+}

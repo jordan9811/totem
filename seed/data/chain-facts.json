@@ -1,0 +1,9 @@
+{
+  "_": "Attestation pass Gate 2 — recorded chain facts for the FIXTURE wallets. Each wallet's private key is keccak256(seed) (viem privateKeyToAccount); the address is derived at load, never stored here. firstTxAt is ms since epoch; ethWei is a decimal string; protocols are the tracked set; votes are Snapshot votes.",
+  "wallets": [
+    { "seed": "layers-chain-wallet/0", "facts": { "firstTxAt": 1546300800000, "ethWei": "2500000000000000000", "protocols": ["aave", "morpho", "uniswap"], "votes": 7 } },
+    { "seed": "layers-chain-wallet/1", "facts": { "firstTxAt": 1740787200000, "ethWei": "500000000000000000", "protocols": ["compound"], "votes": 0 } },
+    { "seed": "layers-chain-wallet/2", "facts": { "firstTxAt": 1609459200000, "ethWei": "15000000000000000000", "protocols": ["uniswap"], "votes": 22 } },
+    { "seed": "layers-chain-wallet/3", "facts": { "firstTxAt": null, "ethWei": "0", "protocols": [], "votes": 0 } }
+  ]
+}

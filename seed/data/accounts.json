@@ -1,0 +1,593 @@
+{
+  "roots": [
+    {
+      "id": "root_acc_crypto_1",
+      "fid": 5000000,
+      "signerUuid": "seed-signer-acc_crypto_1"
+    },
+    {
+      "id": "root_acc_crypto_2",
+      "fid": 5000001,
+      "signerUuid": "seed-signer-acc_crypto_2"
+    },
+    {
+      "id": "root_acc_crypto_3",
+      "fid": 5000002,
+      "signerUuid": "seed-signer-acc_crypto_3"
+    },
+    {
+      "id": "root_acc_crypto_4",
+      "fid": 5000003,
+      "signerUuid": "seed-signer-acc_crypto_4"
+    },
+    {
+      "id": "root_acc_crypto_5",
+      "fid": 5000004,
+      "signerUuid": "seed-signer-acc_crypto_5"
+    },
+    {
+      "id": "root_acc_crypto_6",
+      "fid": 5000005,
+      "signerUuid": "seed-signer-acc_crypto_6"
+    },
+    {
+      "id": "root_acc_fantasy_1",
+      "fid": 5000006,
+      "signerUuid": "seed-signer-acc_fantasy_1"
+    },
+    {
+      "id": "root_acc_fantasy_2",
+      "fid": 5000007,
+      "signerUuid": "seed-signer-acc_fantasy_2"
+    },
+    {
+      "id": "root_acc_fantasy_3",
+      "fid": 5000008,
+      "signerUuid": "seed-signer-acc_fantasy_3"
+    },
+    {
+      "id": "root_acc_fantasy_4",
+      "fid": 5000009,
+      "signerUuid": "seed-signer-acc_fantasy_4"
+    },
+    {
+      "id": "root_acc_fantasy_5",
+      "fid": 5000010,
+      "signerUuid": "seed-signer-acc_fantasy_5"
+    },
+    {
+      "id": "root_acc_astro_1",
+      "fid": 5000011,
+      "signerUuid": "seed-signer-acc_astro_1"
+    },
+    {
+      "id": "root_acc_astro_2",
+      "fid": 5000012,
+      "signerUuid": "seed-signer-acc_astro_2"
+    },
+    {
+      "id": "root_acc_astro_3",
+      "fid": 5000013,
+      "signerUuid": "seed-signer-acc_astro_3"
+    },
+    {
+      "id": "root_acc_astro_4",
+      "fid": 5000014,
+      "signerUuid": "seed-signer-acc_astro_4"
+    },
+    {
+      "id": "root_acc_food_1",
+      "fid": 5000015,
+      "signerUuid": "seed-signer-acc_food_1"
+    },
+    {
+      "id": "root_acc_food_2",
+      "fid": 5000016,
+      "signerUuid": "seed-signer-acc_food_2"
+    },
+    {
+      "id": "root_acc_food_3",
+      "fid": 5000017,
+      "signerUuid": "seed-signer-acc_food_3"
+    },
+    {
+      "id": "root_acc_food_4",
+      "fid": 5000018,
+      "signerUuid": "seed-signer-acc_food_4"
+    },
+    {
+      "id": "root_acc_hist_1",
+      "fid": 5000019,
+      "signerUuid": "seed-signer-acc_hist_1"
+    },
+    {
+      "id": "root_acc_hist_2",
+      "fid": 5000020,
+      "signerUuid": "seed-signer-acc_hist_2"
+    },
+    {
+      "id": "root_acc_hist_3",
+      "fid": 5000021,
+      "signerUuid": "seed-signer-acc_hist_3"
+    },
+    {
+      "id": "root_acc_hist_4",
+      "fid": 5000022,
+      "signerUuid": "seed-signer-acc_hist_4"
+    },
+    {
+      "id": "root_acc_hist_5",
+      "fid": 5000023,
+      "signerUuid": "seed-signer-acc_hist_5"
+    },
+    {
+      "id": "root_viewer",
+      "fid": 9152,
+      "signerUuid": "dev-signer-jordan"
+    }
+  ],
+  "personas": [
+    {
+      "id": "persona_acc_crypto_1",
+      "rootId": "root_acc_crypto_1",
+      "name": "Ledger Line",
+      "handle": "0xledgerline",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=ledgerline",
+      "bio": "settlement rails, mostly grumpy about them",
+      "cluster": "crypto",
+      "tier": 9,
+      "demoTags": [
+        "whale",
+        "long-form",
+        "note-author",
+        "channel-owner",
+        "breaking-news"
+      ]
+    },
+    {
+      "id": "persona_acc_crypto_2",
+      "rootId": "root_acc_crypto_2",
+      "name": "Basis Risk",
+      "handle": "basisrisk",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=basisrisk",
+      "bio": "perp funding rates and other forms of self-harm",
+      "cluster": "crypto",
+      "tier": 9,
+      "demoTags": [
+        "multi-persona",
+        "cross-persona-block",
+        "disclosure-linkage"
+      ]
+    },
+    {
+      "id": "persona_acc_crypto_2_alt",
+      "rootId": "root_acc_crypto_2",
+      "name": "Dusk Orbiter",
+      "handle": "duskorbiter",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=duskorbiter",
+      "bio": "amateur astronomer, city balcony edition",
+      "cluster": "astronomy",
+      "tier": 9,
+      "demoTags": [
+        "multi-persona",
+        "facet-follow",
+        "cross-persona-block"
+      ]
+    },
+    {
+      "id": "persona_acc_crypto_3",
+      "rootId": "root_acc_crypto_3",
+      "name": "gwei whisperer",
+      "handle": "gwei_whisperer",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=gweiwhisperer",
+      "bio": "L2 sequencer gossip",
+      "cluster": "crypto",
+      "tier": 6,
+      "demoTags": [
+        "mid",
+        "reply-chain",
+        "breaking-news-update"
+      ]
+    },
+    {
+      "id": "persona_acc_crypto_4",
+      "rootId": "root_acc_crypto_4",
+      "name": "Quiet Validator",
+      "handle": "quietvalidator",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=quietvalidator",
+      "bio": "runs nodes, rarely posts, always right",
+      "cluster": "crypto",
+      "tier": 4,
+      "demoTags": [
+        "mid",
+        "note-author",
+        "quote-post"
+      ]
+    },
+    {
+      "id": "persona_acc_crypto_5",
+      "rootId": "root_acc_crypto_5",
+      "name": "Restake Relle",
+      "handle": "restakerelle",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=restakerelle",
+      "bio": "yield is a rumor until it's realized",
+      "cluster": "crypto",
+      "tier": 6,
+      "demoTags": [
+        "mid",
+        "reply-chain"
+      ]
+    },
+    {
+      "id": "persona_acc_crypto_6",
+      "rootId": "root_acc_crypto_6",
+      "name": "Airdrop Intern",
+      "handle": "airdropintern",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=airdropintern",
+      "bio": "farming since before it was cringe",
+      "cluster": "crypto",
+      "tier": 1,
+      "demoTags": [
+        "tier-1",
+        "discovery-filtered"
+      ]
+    },
+    {
+      "id": "persona_acc_fantasy_1",
+      "rootId": "root_acc_fantasy_1",
+      "name": "Waiver Morning",
+      "handle": "waivermorning",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=waivermorning",
+      "bio": "I set my lineup at 11:58am like a coward",
+      "cluster": "fantasy",
+      "tier": 9,
+      "demoTags": [
+        "whale",
+        "long-form",
+        "room-host",
+        "argument-thread"
+      ]
+    },
+    {
+      "id": "persona_acc_fantasy_2",
+      "rootId": "root_acc_fantasy_2",
+      "name": "Start/Sit Sam",
+      "handle": "startsitsam",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=startsitsam",
+      "bio": "your flex spot is wrong and I can prove it",
+      "cluster": "fantasy",
+      "tier": 10,
+      "demoTags": [
+        "multi-persona",
+        "cross-persona-block",
+        "unlock-request"
+      ]
+    },
+    {
+      "id": "persona_acc_fantasy_2_alt",
+      "rootId": "root_acc_fantasy_2",
+      "name": "Deep History Dan",
+      "handle": "deephistorydan",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=deephistorydan",
+      "bio": "footnotes are the best part",
+      "cluster": "history",
+      "tier": 10,
+      "demoTags": [
+        "multi-persona",
+        "facet-follow"
+      ]
+    },
+    {
+      "id": "persona_acc_fantasy_3",
+      "rootId": "root_acc_fantasy_3",
+      "name": "Boom or Bust League",
+      "handle": "boomorbust_lg",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=boomorbustlg",
+      "bio": "12-team dynasty, zero chill",
+      "cluster": "fantasy",
+      "tier": 8,
+      "demoTags": [
+        "mid",
+        "quote-post",
+        "argument-thread"
+      ]
+    },
+    {
+      "id": "persona_acc_fantasy_4",
+      "rootId": "root_acc_fantasy_4",
+      "name": "Handcuff Hannah",
+      "handle": "handcuffhannah",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=handcuffhannah",
+      "bio": "insurance policy enjoyer",
+      "cluster": "fantasy",
+      "tier": 4,
+      "demoTags": [
+        "mid",
+        "reply-chain"
+      ]
+    },
+    {
+      "id": "persona_acc_fantasy_5",
+      "rootId": "root_acc_fantasy_5",
+      "name": "Waiver Wire Walt",
+      "handle": "waiver_wire_walt",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=waiverwirewalt",
+      "bio": "streaming defenses is a personality trait",
+      "cluster": "fantasy",
+      "tier": 1,
+      "demoTags": [
+        "tier-1",
+        "discovery-filtered"
+      ]
+    },
+    {
+      "id": "persona_acc_astro_1",
+      "rootId": "root_acc_astro_1",
+      "name": "Aperture Annie",
+      "handle": "aperture_annie",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=apertureannie",
+      "bio": "8-inch dob, light-polluted backyard, no regrets",
+      "cluster": "astronomy",
+      "tier": 10,
+      "demoTags": [
+        "whale",
+        "long-form",
+        "public-folder",
+        "channel-owner"
+      ]
+    },
+    {
+      "id": "persona_acc_astro_2",
+      "rootId": "root_acc_astro_2",
+      "name": "Collimation King",
+      "handle": "collimationking",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=collimationking",
+      "bio": "I will talk about laser collimators unprompted",
+      "cluster": "astronomy",
+      "tier": 9,
+      "demoTags": [
+        "whale",
+        "long-form",
+        "room-host",
+        "argument-thread"
+      ]
+    },
+    {
+      "id": "persona_acc_astro_3",
+      "rootId": "root_acc_astro_3",
+      "name": "Messier Hunter",
+      "handle": "messierhunter_",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=messierhunter",
+      "bio": "chasing all 110, currently at 63",
+      "cluster": "astronomy",
+      "tier": 5,
+      "demoTags": [
+        "mid",
+        "quote-post",
+        "reply-chain"
+      ]
+    },
+    {
+      "id": "persona_acc_astro_4",
+      "rootId": "root_acc_astro_4",
+      "name": "Faint Fuzzy Fan",
+      "handle": "faintfuzzyfan",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=faintfuzzyfan",
+      "bio": "galaxies over planets, always",
+      "cluster": "astronomy",
+      "tier": 2,
+      "demoTags": [
+        "tier-1",
+        "discovery-filtered"
+      ]
+    },
+    {
+      "id": "persona_acc_food_1",
+      "rootId": "root_acc_food_1",
+      "name": "Broth & Bones",
+      "handle": "brothandbones",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=brothandbones",
+      "bio": "ramen tourism as a lifestyle",
+      "cluster": "restaurants",
+      "tier": 9,
+      "demoTags": [
+        "multi-persona",
+        "facet-follow",
+        "public-folder"
+      ]
+    },
+    {
+      "id": "persona_acc_food_1_alt",
+      "rootId": "root_acc_food_1",
+      "name": "Line Score Luke",
+      "handle": "linescoreluke",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=linescoreluke",
+      "bio": "fantasy football, mostly regret",
+      "cluster": "fantasy",
+      "tier": 9,
+      "demoTags": [
+        "multi-persona",
+        "facet-follow"
+      ]
+    },
+    {
+      "id": "persona_acc_food_2",
+      "rootId": "root_acc_food_2",
+      "name": "Crust Critic",
+      "handle": "crustcritic",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=crustcritic",
+      "bio": "pizza is a load-bearing food group",
+      "cluster": "restaurants",
+      "tier": 10,
+      "demoTags": [
+        "whale",
+        "long-form",
+        "public-folder",
+        "argument-thread"
+      ]
+    },
+    {
+      "id": "persona_acc_food_3",
+      "rootId": "root_acc_food_3",
+      "name": "Second Helpings Sara",
+      "handle": "secondhelpingsara",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=secondhelpingsara",
+      "bio": "always orders one extra thing 'for the table'",
+      "cluster": "restaurants",
+      "tier": 7,
+      "demoTags": [
+        "mid",
+        "breaking-news",
+        "argument-thread"
+      ]
+    },
+    {
+      "id": "persona_acc_food_4",
+      "rootId": "root_acc_food_4",
+      "name": "Drive-Thru Dave",
+      "handle": "drivethru_dave",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=drivethrudave",
+      "bio": "unpopular fast food opinions, delivered calmly",
+      "cluster": "restaurants",
+      "tier": 2,
+      "demoTags": [
+        "tier-1",
+        "discovery-filtered"
+      ]
+    },
+    {
+      "id": "persona_acc_hist_1",
+      "rootId": "root_acc_hist_1",
+      "name": "Today in Ruins",
+      "handle": "todayinruins",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=todayinruins",
+      "bio": "history didn't happen in order, we just tell it that way",
+      "cluster": "history",
+      "tier": 9,
+      "demoTags": [
+        "whale",
+        "long-form",
+        "channel-owner",
+        "argument-thread"
+      ]
+    },
+    {
+      "id": "persona_acc_hist_2",
+      "rootId": "root_acc_hist_2",
+      "name": "Footnote Feiler",
+      "handle": "footnote_feiler",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=footnotefeiler",
+      "bio": "primary sources or it didn't happen",
+      "cluster": "history",
+      "tier": 9,
+      "demoTags": [
+        "whale",
+        "long-form",
+        "note-author",
+        "reply-chain"
+      ]
+    },
+    {
+      "id": "persona_acc_hist_3",
+      "rootId": "root_acc_hist_3",
+      "name": "Marginalia Mo",
+      "handle": "marginalia_mo",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=marginaliamo",
+      "bio": "reads the introductions, unlike you",
+      "cluster": "history",
+      "tier": 6,
+      "demoTags": [
+        "mid",
+        "note-author",
+        "reply-chain"
+      ]
+    },
+    {
+      "id": "persona_acc_hist_4",
+      "rootId": "root_acc_hist_4",
+      "name": "Archive Annette",
+      "handle": "archive_annette",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=archiveannette",
+      "bio": "microfilm has never let me down",
+      "cluster": "history",
+      "tier": 8,
+      "demoTags": [
+        "mid",
+        "breaking-news",
+        "reply-chain"
+      ]
+    },
+    {
+      "id": "persona_acc_hist_5",
+      "rootId": "root_acc_hist_5",
+      "name": "Gilded Age Greg",
+      "handle": "gilded_age_greg",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=gildedagegreg",
+      "bio": "everything is the Gilded Age if you squint",
+      "cluster": "history",
+      "tier": 2,
+      "demoTags": [
+        "tier-1",
+        "discovery-filtered"
+      ]
+    },
+    {
+      "id": "persona_viewer_main",
+      "rootId": "root_viewer",
+      "name": "jordan",
+      "handle": "yeak__",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=yeakmain",
+      "bio": "Delphi Research",
+      "cluster": "crypto",
+      "tier": 8,
+      "demoTags": [
+        "viewer",
+        "graph-owner",
+        "intent-buyer",
+        "earnings"
+      ]
+    },
+    {
+      "id": "persona_viewer_alt",
+      "rootId": "root_viewer",
+      "name": "Backyard Scope",
+      "handle": "backyard_scope",
+      "avatarUrl": "https://api.dicebear.com/7.x/notionists/svg?seed=yeakalt",
+      "bio": "light pollution enjoyer",
+      "cluster": "astronomy",
+      "tier": 8,
+      "demoTags": [
+        "viewer",
+        "second-persona",
+        "facet-follow"
+      ]
+    }
+  ],
+  "tiers": {
+    "root_acc_crypto_1": 9,
+    "root_acc_crypto_2": 9,
+    "root_acc_crypto_3": 6,
+    "root_acc_crypto_4": 4,
+    "root_acc_crypto_5": 6,
+    "root_acc_crypto_6": 1,
+    "root_acc_fantasy_1": 9,
+    "root_acc_fantasy_2": 10,
+    "root_acc_fantasy_3": 8,
+    "root_acc_fantasy_4": 4,
+    "root_acc_fantasy_5": 1,
+    "root_acc_astro_1": 10,
+    "root_acc_astro_2": 9,
+    "root_acc_astro_3": 5,
+    "root_acc_astro_4": 2,
+    "root_acc_food_1": 9,
+    "root_acc_food_2": 10,
+    "root_acc_food_3": 7,
+    "root_acc_food_4": 2,
+    "root_acc_hist_1": 9,
+    "root_acc_hist_2": 9,
+    "root_acc_hist_3": 6,
+    "root_acc_hist_4": 8,
+    "root_acc_hist_5": 2,
+    "root_viewer": 8
+  }
+}

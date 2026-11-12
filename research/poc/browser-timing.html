@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head><meta charset="utf-8"><title>semaphore browser timing poc</title></head>
+<body>
+<pre id="out">loading…</pre>
+<script type="module">
+const out = document.getElementById("out");
+const log = (s) => { out.textContent += "\n" + s; console.log(s); };
+window.__done = false;
+window.__results = {};
+try {
+  const t0 = performance.now();
+  const [{ Identity }, { Group }, { generateProof, verifyProof }] = await Promise.all([
+    import("https://esm.sh/@semaphore-protocol/identity@4.14.3"),
+    import("https://esm.sh/@semaphore-protocol/group@4.14.3"),
+    import("https://esm.sh/@semaphore-protocol/proof@4.14.3"),
+  ]);
+  log(`module load: ${(performance.now() - t0).toFixed(0)} ms`);
+  log(`crossOriginIsolated=${crossOriginIsolated} hardwareConcurrency=${navigator.hardwareConcurrency}`);
+  const identity = new Identity();
+  const members = [];
+  for (let i = 0; i < 512; i++) members.push(new Identity("m" + i).commitment);
+  members.push(identity.commitment);
+  const group = new Group(members);
+  const times = [];
+  for (let i = 0; i <= 3; i++) {
+    const a = performance.now();
+    const proof = await generateProof(identity, group, "layers-poc-message", "layers-poc-scope", 20);
+    const ms = performance.now() - a;
+    times.push(ms);
+    log(`${i === 0 ? "cold (incl. artifact fetch)" : "warm run " + i}: ${ms.toFixed(0)} ms`);
+    if (i === 0) {
+      const v = performance.now();
+      const ok = await verifyProof(proof);
+      log(`verify: ${(performance.now() - v).toFixed(0)} ms valid=${ok}`);
+    }
+  }
+  window.__results = { cold: times[0], warm: times.slice(1), crossOriginIsolated, hc: navigator.hardwareConcurrency };
+  log("DONE");
+} catch (e) {
+  log("ERROR: " + (e && e.message));
+  window.__results = { error: String(e) };
+}
+window.__done = true;
+</script>
+</body>
+</html>

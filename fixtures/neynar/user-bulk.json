@@ -1,0 +1,253 @@
+{
+  "users": [
+    {
+      "object": "user",
+      "fid": 3,
+      "username": "dwr",
+      "display_name": "Dan Romero",
+      "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bc698287-5adc-4cc5-a503-de16963ed900/original",
+      "custody_address": "0x6b0bda3f2ffed5efc83fa8c024acff1dd45793f1",
+      "registered_at": "2021-06-17T06:12:55.880Z",
+      "pro": {
+        "status": "unsubscribed",
+        "subscribed_at": "2025-06-16T17:21:25.000Z",
+        "expires_at": "2026-06-16T17:21:25.000Z"
+      },
+      "profile": {
+        "bio": {
+          "text": "Interested in technology and other stuff."
+        },
+        "banner": {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/dab99f37-561b-4bd2-6d73-86f828a76d00/original"
+        }
+      },
+      "follower_count": 630336,
+      "following_count": 77,
+      "verifications": [
+        "0x187c7b0393ebe86378128f2653d0930e33218899",
+        "0x6ce09ed5526de4afe4a981ad86d17b2f5c92fea5"
+      ],
+      "verified_addresses": {
+        "eth_addresses": [
+          "0x187c7b0393ebe86378128f2653d0930e33218899",
+          "0x6ce09ed5526de4afe4a981ad86d17b2f5c92fea5"
+        ],
+        "sol_addresses": [
+          "ExAqci8uUVKtqHqFW58fmwgMMY9PATfRGGyv6837j9Lx"
+        ],
+        "primary": {
+          "eth_address": "0x6ce09ed5526de4afe4a981ad86d17b2f5c92fea5",
+          "sol_address": "ExAqci8uUVKtqHqFW58fmwgMMY9PATfRGGyv6837j9Lx"
+        }
+      },
+      "auth_addresses": [
+        {
+          "address": "0x187c7b0393ebe86378128f2653d0930e33218899",
+          "app": {
+            "object": "user_dehydrated",
+            "fid": 9152
+          }
+        }
+      ],
+      "verified_accounts": [
+        {
+          "platform": "x",
+          "username": "dwr"
+        },
+        {
+          "platform": "github",
+          "username": "danromero"
+        }
+      ],
+      "url": "https://danromero.org",
+      "experimental": {
+        "neynar_user_score": 0.99,
+        "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+      },
+      "score": 0.99
+    },
+    {
+      "object": "user",
+      "fid": 2,
+      "username": "v",
+      "display_name": "Varun Srinivasan",
+      "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e3d80f99-f7c0-4b04-dcad-557593d85500/original",
+      "custody_address": "0x4114e33eb831858649ea3702e1c9a2db3f626446",
+      "registered_at": "2021-06-17T06:13:13.840Z",
+      "pro": {
+        "status": "unsubscribed",
+        "subscribed_at": "2025-06-16T17:21:25.000Z",
+        "expires_at": "2026-06-16T17:21:25.000Z"
+      },
+      "profile": {
+        "bio": {
+          "text": "Technowatermelon. Elder Millenial. Building Farcaster. \n\nnf.td/varun"
+        }
+      },
+      "follower_count": 482239,
+      "following_count": 1854,
+      "verifications": [
+        "0x91031dcfdea024b4d51e775486111d2b2a715871",
+        "0x182327170fc284caaa5b1bc3e3878233f529d741",
+        "0xf86a7a5b7c703b1fd8d93c500ac4cc75b67477f0",
+        "0x661e2209b9c6b06c1f32a0639f60d3294185ab35",
+        "0xd33fa9b999d59722b82c1cc52db9d74e109cda2f"
+      ],
+      "verified_addresses": {
+        "eth_addresses": [
+          "0x91031dcfdea024b4d51e775486111d2b2a715871",
+          "0x182327170fc284caaa5b1bc3e3878233f529d741",
+          "0xf86a7a5b7c703b1fd8d93c500ac4cc75b67477f0",
+          "0x661e2209b9c6b06c1f32a0639f60d3294185ab35",
+          "0xd33fa9b999d59722b82c1cc52db9d74e109cda2f"
+        ],
+        "sol_addresses": [
+          "9t92xZy9q5SyfKBH4rZwEDFXjaZKgzj5PgviPhKtBjyy",
+          "97c51MXLjrHBMzSZSNVWXmnXPzKWkQ6jSNWxJFPDdKuN"
+        ],
+        "primary": {
+          "eth_address": "0x661e2209b9c6b06c1f32a0639f60d3294185ab35",
+          "sol_address": "97c51MXLjrHBMzSZSNVWXmnXPzKWkQ6jSNWxJFPDdKuN"
+        }
+      },
+      "auth_addresses": [
+        {
+          "address": "0x661e2209b9c6b06c1f32a0639f60d3294185ab35",
+          "app": {
+            "object": "user_dehydrated",
+            "fid": 9152
+          }
+        }
+      ],
+      "verified_accounts": [
+        {
+          "platform": "github",
+          "username": "varunsrin"
+        },
+        {
+          "platform": "x",
+          "username": "varunsrin"
+        }
+      ],
+      "experimental": {
+        "neynar_user_score": 0.99,
+        "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+      },
+      "score": 0.99
+    },
+    {
+      "object": "user",
+      "fid": 1,
+      "username": "farcaster",
+      "display_name": "Farcaster",
+      "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6c7c4f60-8fb8-4d5e-5293-dfdca603b200/original",
+      "custody_address": "0x7071cfba18280fd0bc1142d98f8e67fb094d9544",
+      "registered_at": "2021-08-13T19:28:11.005Z",
+      "pro": {
+        "status": "subscribed",
+        "subscribed_at": "2025-09-07T22:27:29.000Z",
+        "expires_at": "2027-03-30T16:56:03.000Z"
+      },
+      "profile": {
+        "bio": {
+          "text": "tinkerers of open webs"
+        },
+        "banner": {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/549a8849-b988-4352-da0a-25a2831ba500/original"
+        }
+      },
+      "follower_count": 97664,
+      "following_count": 23,
+      "verifications": [
+        "0x86924c37a93734e8611eb081238928a9d18a63c0",
+        "0xdb83ae472f108049828db5f429595c4b5932b62c"
+      ],
+      "verified_addresses": {
+        "eth_addresses": [
+          "0x86924c37a93734e8611eb081238928a9d18a63c0",
+          "0xdb83ae472f108049828db5f429595c4b5932b62c"
+        ],
+        "sol_addresses": [
+          "4sqyRTn46QosW1QrzDsxC7Qrg5WXNmd11ezSSeo4N5yA"
+        ],
+        "primary": {
+          "eth_address": "0xdb83ae472f108049828db5f429595c4b5932b62c",
+          "sol_address": "4sqyRTn46QosW1QrzDsxC7Qrg5WXNmd11ezSSeo4N5yA"
+        }
+      },
+      "auth_addresses": [
+        {
+          "address": "0xdb83ae472f108049828db5f429595c4b5932b62c",
+          "app": {
+            "object": "user_dehydrated",
+            "fid": 9152
+          }
+        }
+      ],
+      "verified_accounts": [],
+      "experimental": {
+        "neynar_user_score": 0.98,
+        "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+      },
+      "score": 0.98
+    },
+    {
+      "object": "user",
+      "fid": 5650,
+      "username": "vitalik.eth",
+      "display_name": "Vitalik Buterin",
+      "pfp_url": "https://media.firefly.land/lens/126a045e-f7bb-44cc-80b1-2bd63ce9be58.png",
+      "custody_address": "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+      "registered_at": "2022-11-18T20:44:29.372Z",
+      "pro": {
+        "status": "subscribed",
+        "subscribed_at": "2025-10-11T11:57:27.000Z",
+        "expires_at": "2026-10-11T11:57:27.000Z"
+      },
+      "profile": {
+        "bio": {
+          "text": "hullo"
+        }
+      },
+      "follower_count": 537736,
+      "following_count": 110,
+      "verifications": [
+        "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+        "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+        "0x40e82a6269e6a98b852c8ebc5dcdc4f352dca6b7"
+      ],
+      "verified_addresses": {
+        "eth_addresses": [
+          "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+          "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+          "0x40e82a6269e6a98b852c8ebc5dcdc4f352dca6b7"
+        ],
+        "sol_addresses": [
+          "47aHBDrF5Uw6Qm4npXZb2GLckssnUKhTmbTBRPKJUCH2"
+        ],
+        "primary": {
+          "eth_address": "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+          "sol_address": "47aHBDrF5Uw6Qm4npXZb2GLckssnUKhTmbTBRPKJUCH2"
+        }
+      },
+      "auth_addresses": [
+        {
+          "address": "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+          "app": {
+            "object": "user_dehydrated",
+            "fid": 9152
+          }
+        }
+      ],
+      "verified_accounts": [],
+      "experimental": {
+        "neynar_user_score": 1,
+        "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+      },
+      "score": 1
+    }
+  ],
+  "next": {
+    "cursor": null
+  }
+}

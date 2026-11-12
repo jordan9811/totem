@@ -1,0 +1,86 @@
+[
+  {
+    "status": "UNCLEAR",
+    "text": "Early-to-content curve: keep, remove or reshape; the shipped curve is a conservative parameterized default behind a TUNE marker",
+    "area": "influence",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/reports/REPORT-MEGA2.md › GATE 1"
+  },
+  {
+    "status": "UNCLEAR",
+    "text": "Creator-economy tie-in for influence accrual (owner intent unspecified)",
+    "area": "influence",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/reports/REPORT-MEGA2.md › GATE 1"
+  },
+  {
+    "status": "SPECCED",
+    "text": "Call option A — ad-slot scrollbar control per mode (ads / no ads / targeted / generic) wired to the market layer and earnings",
+    "area": "market & ads",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/prompts/mega-pass-2-prompt.md › CALL OPTIONS"
+  },
+  {
+    "status": "SPECCED",
+    "text": "Call option B — influence-layer visualization: stake history over time; canonical-vs-lens accrual chart",
+    "area": "influence",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/prompts/mega-pass-2-prompt.md › CALL OPTIONS"
+  },
+  {
+    "status": "SPECCED",
+    "text": "Call option C — glossary + Mermaid diagrams for the docs",
+    "area": "docs & tooling",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/prompts/mega-pass-2-prompt.md › CALL OPTIONS"
+  },
+  {
+    "status": "SPECCED",
+    "text": "Scroll-zone calibration measured on real mobile devices (UNMEASURED this pass)",
+    "area": "ux & input",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/reports/REPORT-MEGA2.md › GATE 3"
+  },
+  {
+    "status": "SPECCED",
+    "text": "Unified search: a real on-device semantic model replacing the lexicon-and-hash embedding; a real consent-gated cloud provider",
+    "area": "ux & input",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/reports/REPORT-MEGA2.md › GATE 4"
+  },
+  {
+    "status": "SPECCED",
+    "text": "Live @layers DM inbox read under real X credentials and the spend ledger",
+    "area": "interop & network",
+    "passTitle": "Mega pass 2 (seeded)",
+    "source": "notes/reports/REPORT-MEGA2.md › GATE 5"
+  },
+  {
+    "status": "SPECCED",
+    "text": "Restoring block fan-out under zk (design memo, call option B of ZK pass 2)",
+    "area": "zk & attestations",
+    "passTitle": "ZK pass 2 (seeded)",
+    "source": "docs/fanout-under-zk.md"
+  },
+  {
+    "status": "IDEA",
+    "text": "Community-notes resurfacing",
+    "area": "social surfaces",
+    "passTitle": "Owner backlog",
+    "source": "owner backlog (not yet in a report)"
+  },
+  {
+    "status": "IDEA",
+    "text": "Close-friends timeline whitelist",
+    "area": "feed & algorithms",
+    "passTitle": "Owner backlog",
+    "source": "owner backlog (not yet in a report)"
+  },
+  {
+    "status": "IDEA",
+    "text": "Dutch-auction ad marketplace",
+    "area": "market & ads",
+    "passTitle": "Owner backlog",
+    "source": "owner backlog (not yet in a report)"
+  }
+]

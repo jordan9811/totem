@@ -1,0 +1,33 @@
+# PROD-LIVE (D-PRODLIVE-OWNER-SERVICE) — the OWNER APP image: the rig-shaped Next server that holds the owner's
+# keystore on a volume, exactly as the rig laptop holds it in .keystore/, so the owner's personas can own real
+# Farcaster accounts and publish real casts. Selected per service with
+# RAILWAY_DOCKERFILE_PATH=railway/Dockerfile.owner-app (Railway's config-as-code files cannot be adopted by NEW
+# services). The public preview's app is built by the platform's own Next.js builder and is unchanged.
+#
+# This image is rig-shaped BY CONSTRUCTION (ZK_DEV_HOOKS=true below, at build time and at run time), so it can never
+# be deployed as a public, keyless preview by accident — and instrumentation.ts refuses to start it on a hosted
+# platform without OWNER_ACCESS_SECRET (the owner gate in middleware.ts) and a private VALIDATOR_URL. Nothing secret
+# is baked in: .dockerignore keeps .env*, .keystore/ and the databases out of the build context, and no ARG pulls a
+# service variable into the build.
+FROM node:24-slim
+WORKDIR /app
+# full install: the build needs esbuild (the device bundle) and typescript (next build); no lifecycle scripts run
+# except esbuild's own binary check
+COPY package.json package-lock.json ./
+COPY validator/package.json ./validator/package.json
+RUN npm ci
+COPY . .
+# the rig shape at BUILD time too: a page prerendered here must be the rig's page, never the public shell
+ENV NODE_ENV=production \
+    ZK_DEV_HOOKS=true \
+    LAYERS_REQUIRE_SIG=true \
+    NEXT_TELEMETRY_DISABLED=1
+RUN npm run build
+# the owner's root seed, device key, envelope counters, sealed-namespace pins, the fixture roster and the zk
+# artifacts all live on the volume mounted at /data — a redeploy replaces the container, never the identity
+ENV KEYSTORE_DIR=/data/keystore \
+    ZK_ARTIFACT_DIR=/data/zk-artifacts \
+    LAYERS_APP_PORT=3001 \
+    PORT=3001
+EXPOSE 3001
+CMD ["node", "scripts/start-app.mjs", "start"]

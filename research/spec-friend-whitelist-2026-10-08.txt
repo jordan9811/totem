@@ -1,0 +1,298 @@
+SPEC
+# CROSS-DEPLOYMENT FRIEND WHITELIST ("Show my personas to a friend") — BUILD-READY SPEC
+Read-only research on the working tree as of 2026-10-08 (HEAD 8359c79 + uncommitted overnight builds). Nothing was edited, built, started or deployed. Every primitive and reused function below was checked on disk at the cited file:line.
+
+## 0. Verdict and shape
+
+Build the dead drop exactly as dx-critic.txt WHITELIST describes, with these settled details: one envelope format (HPKE PSK mode, fixed 2 KiB plaintext, 4128-hex ciphertext) used by three readers (a paired Layers device, a link-only /d card, and later X porting); a validator table with five columns and three token-gated or open routes; a 1-hour re-seal publisher on the owner service that pads the envelope count to buckets of four; a friend device that fetches the whole drop on the existing uniform prefetch tick and trial-opens with a 2-byte PRF hint so the per-tick cost stays in the milliseconds; a FID-keyed merge seam at the two places cast authors are already assembled. v1 tiers are per-friend subject lists plus named presets. v1 is deniable (no persona signatures). Everything that fails, fails toward LESS disclosure.
+
+Why this shape and not a route on the owner service: the owner app's middleware exempts only exact paths (middleware.ts:337-355) and the passphrase is the account (SECURITY-POSTURE §18); a friend-facing route there would be an ungated parser on the seed-holding process. The public validator already serves unauthenticated fetch-all reads (validator/zk.js:1067-1086 GET /zk/anon-casts) and CORS * (validator/server.js:85-90).
+
+## 1. Verified primitives and reused code (by file:line)
+
+Cryptography, all already in dependencies (package.json:152-157):
+- @hpke/core 1.9.0 (node_modules/@hpke/core/package.json:3). mod.d.ts:6-9 exports Aes256Gcm, CipherSuite, HkdfSha256, DhkemX25519HkdfSha256. CipherSuite.createSenderContext/createRecipientContext/seal/open: esm/src/cipherSuiteNative.d.ts:104,115,127,139.
+- PSK mode: @hpke/common 1.10.1 esm/src/interfaces/keyScheduleParams.d.ts:12 `psk?: PreSharedKey`, preSharedKey.d.ts `{id, key}` (ArrayBufferLike|ArrayBufferView), consts.d.ts:3 MINIMUM_PSK_LENGTH = 32, identifiers.d.ts:6 Mode Psk = 1. Both sender and recipient params extend KeyScheduleParams (senderContextParams.d.ts, recipientContextParams.d.ts), so `suite.seal({recipientPublicKey, info, psk}, pt)` and `suite.open({recipientKey, enc, info, psk}, ct)` are the whole API.
+- KEM: kemInterface.d.ts declares deriveKeyPair(ikm), serializePublicKey, deserializePublicKey, generateKeyPair. @hpke/core's X25519 is WebCrypto-backed (esm/src/kems/dhkemPrimitives/x25519.js:99-212: importKey raw/pkcs8/jwk, generateKey, deriveKeyPair via labeledExtract/Expand) — Node 20+ and current browsers; the browser device ALREADY ships this exact suite (lib/device/rootlink.ts:12,20; lib/device/linking.ts:9). @hpke/dhkem-x25519 1.8.0 (package.json:153) is the noble-backed fallback already installed and unused; feature-detect `crypto.subtle` X25519 at device boot and fall back to it only if the browser lacks it (VERIFY-YOURSELF: nothing in the tree imports it yet).
+- Hashes/HKDF/AES: lib/platform/crypto.ts createHash (:45-61), randomBytes (:64-68), hkdfSha256 (:85-88), aesGcmSeal/Open (:76-83) — one implementation for Node and the browser.
+- Ed25519 is NOT used by the envelope (deniability). verifyCanonical exists if v1.1 ever wants a designated-verifier MAC (lib/crypto/ed25519.ts:50-57).
+
+Reused Layers code:
+- KDF discipline: lib/crypto/kdf.ts:17 (info strings are assembled in kdf.ts and nowhere else), DOMAIN "layers/v1/" (:25), derive() (:27-34). New branches go here.
+- Seed confinement: lib/identity/keystore.ts seedBytes() (:189-193, throws on a linked device), vaultKeyBytes() (:327-331, the one symmetric key that leaves), keyMaterialForLeakTest (:441-466), linkMaterial/LinkedRoot (:61-69, :218-236), refuseOnAProductionServer (:102-110).
+- Sealed one-record namespace template: lib/identity/chrome.ts load() (:67-134: 404 vs empty-but-sealed via lib/vault/sealedPins.ts wasEverSealed :59, three retries, never fail open), save() (:147-164: adopt the cache only after flushVault succeeds, 1 KiB padding), resetChromeCache (:166). Same shape in lib/identity/roster.ts:24-35 and lib/device/rootlink.ts:93-108.
+- Vault: lib/vault/vault.ts encryptNamespace/decryptNamespace (:134-185), sealWhole 1 KiB steps (:199-206); lib/crypto/vaultCipher.ts:41-47 (AES-256-GCM, AAD = ns|id). Persist: lib/adapters/mock/persist.ts fetchState (:340-347), flushVault (loud, :408-426), flush (swallows, :383-398: never use it for these namespaces), ExtraNamespace union (:109).
+- Uniform fetch tick: lib/zk/prefetch.ts prefetchOnce (:80-110, the anonConfig pattern :99-106), runTick (:118-157, uniform tree set :139-148), ensurePrefetchLoop ±25% jitter (:169-183); cadence ZK_PREFETCH_MS default 600 000 ms, floor 1000 (lib/zk/config.ts:83). Anonymous GET through the relay adapter: lib/zk/anon/relay.ts RelayAdapter.get(path) (:39; direct :52-55, ohttp :83-90); config ZK_RELAY/ZK_RELAY_THIRD_PARTY (config.ts:44-50).
+- Never-fail-open read precedent: rootlink.ts linked() (:253-280: revoked === null → "neither shown nor dropped").
+- Resolver and merge seams: lib/identity/resolver.ts:61-105 (in-process, persona-id keyed); lib/fc/attribution.ts mergedAuthorFor (:100-110) returns `{merged:true, linked:{username, displayName, pfpUrl, tier}}`; callers lib/policy.ts attachPersonaLayer (:33-87; live casts returned bare at :66) and lib/feed.ts:1579-1587; rendering components/CastCard.tsx:990-1042 (split avatar :1001 via MediaImg; "linked" badge data-testid cast-merged-identity :1037-1042), components/LinkedIdentity.tsx (merged-badge :96-110, linked-identities :117-130), components/ProfileHeader.tsx network header (:83-162, data-testid network-profile-header). Network casts carry author.fid (lib/types.ts:2; RelayCast lib/fc/readRelay.server.ts:120-122; marker lib/adapters/neynar/content.ts:563-638; CastCard.tsx:88-93 isNetworkCast).
+- Owner-service gating pattern: lib/fc/connect.ts:45-48 and :59-61 (isPublicDeployment, ownerSecretProblem, isEmptyWorld, writeEnabled), app/(main)/settings/connect/page.tsx:14-31 (public-deployment refusal page), KEY_ENV dynamic-name trick (connect.ts:103). Subjects come from lib/fc/personaFid.ts: FidOrigin incl. "connected" (:28), ConnectedFacts.publicSelf (:32-34), PersonaFidRecord (:54-71), connectedRecords() (:375-376), ownAccountFids (:304-311), neverMainFids (:355).
+- Validator patterns: hourGrain (validator/server.js:17), per-address token bucket 300 burst/5 per s, dev hooks exempt (:134-155), mount order (:156-170: mountAnon, express.json() default 100 KB, caps, stakes, custody, link, rootlink), state routes (:511-570). Migrations array, last version 20 (validator/migrations.js:13, :704-721), WITHOUT ROWID precedent (:170-177). Token/shape checks and sweeps in validator/custody.js (:213-219, :28 clientAddress). Logging discipline: validator/anon.js:23-26. In-memory test harness: validator/test/device.test.js:8-26 (createApp(":memory:")).
+- Device: lib/device/entry.ts DeviceApi (:34-66, namespaces custody/linking/rootlink), components/device/DeviceApp.tsx linked-accounts section (:439-444), validator URL injection lib/device/deviceEnv.server.ts:28, fetch host lib/device/host.ts:28-38 (only same-origin /api/* is intercepted; validator calls go to the network), server-only route list scripts/device-routes.mjs:16 = public/device/boot.js:20.
+- Boot: instrumentation.ts register() (:12-77) is where the publisher loop starts; lib/platform/env-contract.ts MUST_NOT_SHIP (:7-26) mirrored in validator/env-contract.js:4-18 and asserted identical by scripts/accept-cu4.mjs:59.
+- Cache-reset lists that MUST gain entries: lib/device/boot.ts reloadIdentity (:162-201) and app/api/dev/route.ts resetSeed (:337-347).
+- QR: lift the inline-SVG QR encoder lib/fc/connect.ts builds for ConnectMainAccount (components/settings/ConnectMainAccount.tsx:328-340 renders session.approval.qr.{viewBox,path}) into lib/platform/qr.ts and reuse it for the friend's address.
+- Refuted item, no work: the "grants/unlockRequests plaintext" leak is refuted; persist.ts flush() seals every namespace (:383-387 sealWhole). Only the DisclosurePane relabel remains (components/settings/DisclosurePane.tsx:8-13).
+
+## 2. The envelope (lib/disclosure/envelope.ts — pure, isomorphic: device, owner server, /d page, tests)
+
+Suite: `new CipherSuite({ kem: new DhkemX25519HkdfSha256(), kdf: new HkdfSha256(), aead: new Aes256Gcm() })` (identical to rootlink.ts:20). INFO = utf8("layers-disclosure/envelope/v1"). Mode PSK: `psk = { id: addrIdBytes(16), key: psk(32) }`.
+
+Statement (plaintext JSON, then padded):
+```
+{ v: 1, addrId: hex16, seq: int>=0, issuedAt: ms, expiresAt: ms,
+  subjects: [{ fid: int>0, fname: string(<=64, fname or .eth rule), display: string(<=48), kind: "main"|"persona" }] (1..8),
+  label: string(<=48)   // how the owner wants to be named on the friend's card
+  pad: string }         // spaces, so utf8 length === PLAINTEXT_BYTES
+```
+Constants: PLAINTEXT_BYTES = 2048 (8 subjects at ~120 bytes each plus header fit with margin; a statement that does not fit is REFUSED at seal time, never truncated). ct = AES-256-GCM over 2048 bytes = 2064 bytes → CT_HEX_LEN = 4128. enc = 32-byte X25519 encapsulation → 64 hex. Row id = 16 random bytes (32 hex). Delete token = 32 random bytes (64 hex); del_hash = sha256(token) hex.
+
+Hint (trial-open accelerator): `hint = hex(hkdfSha256(ikm = psk, salt = encBytes, info = "layers-disclosure/hint/v1", 2))` (4 hex). The operator cannot compute it without the PSK; enc is fresh per envelope, so hints never link one recipient's envelopes across generations. A device checks 1 HKDF per (address,row) and does the X25519 only on a hint match (1/65536 false positives, harmless). Without the hint, 32 addresses × 512 rows = 16k WebCrypto X25519 ops per tick; with it, ~16k HKDFs (milliseconds).
+
+Dummy rows (count padding): a real ephemeral keypair's serialized public key as enc, 2064 random bytes as ct, 4 random hex as hint, a fresh token and the same expiry window. Indistinguishable by construction.
+
+addrId = sha256("layers-disclosure/addr/v1|" + pkHex).slice(0, 32). The PSK id in the key schedule is the addrId bytes, so an envelope sealed for address A fails to open under address B even if the PSK leaked between them.
+
+Address string (what the friend hands the owner): `LD1.` + base64url(addrId(16) || pk(32) || psk(32)) (107 chars). Also offered as a link `https://<public app>/d/pair#LD1....` (the fragment never reaches a server) and as a QR.
+
+Link-friend key (plain Farcaster users): key = 32 random bytes (generated by the owner). Recipient keypair = suite.kem.deriveKeyPair(hkdfSha256(key, empty, "layers-disclosure/link/kem/v1", 32)); psk = hkdfSha256(key, empty, "layers-disclosure/link/psk/v1", 32); addrId from pk as above. Link = `https://<public app>/d#<keyHex>` (64 hex; no row id, so republishing does not break it). One format, one open path.
+
+## 3. The drop (public validator)
+
+Migration 21 "disclosure_drop" (validator/migrations.js, appended after version 20):
+```
+CREATE TABLE IF NOT EXISTS disclosure_drop (
+  id TEXT PRIMARY KEY,          -- 32 hex, random, fresh per generation
+  enc TEXT NOT NULL,            -- 64 hex
+  ct TEXT NOT NULL,             -- exactly 4128 hex (fixed size)
+  hint TEXT NOT NULL,           -- 4 hex (PRF under the recipient PSK)
+  expires_hour INTEGER NOT NULL,-- hour index: floor(expiresAt / 3600000)
+  del_hash TEXT NOT NULL        -- sha256(delete token)
+) WITHOUT ROWID;                -- no arrival order at rest (anon.js discipline)
+CREATE INDEX IF NOT EXISTS disclosure_drop_exp ON disclosure_drop(expires_hour);
+```
+down(): DROP TABLE. No anchor, fid, recipient, writer or mode column. `hint` is the one deliberate addition to the critic's column list; it is a PRF output, never recipient-identifying, and it is named in the posture (A-DROP-HINT-IS-A-PRF).
+
+validator/disclosure.js `mountDisclosureDrop(app, db)` mounted in server.js after express.json() beside mountCaps (:162-163). Shapes: ID /^[0-9a-f]{32}$/, ENC /^[0-9a-f]{64}$/, CT /^[0-9a-f]{4128}$/, HINT /^[0-9a-f]{4}$/, HASH /^[0-9a-f]{64}$/, TOKEN /^[0-9a-f]{64}$/. MAX_LEASE_HOURS = 168. Config by name: DISCLOSURE_DROP_WRITE_TOKEN_SHA256 (64 hex; absent = unarmed), DISCLOSURE_DROP_MAX_ROWS (default 512), DISCLOSURE_DROP_WRITES_PER_HOUR (default 600, per token hash, in-memory bucket like caps.js:72-86).
+
+- PUT /disclosure/drop — header x-layers-drop-token; body {id, enc, ct, hint, expiresHour, delHash}. 503 drop_unarmed (no hash configured); 401 (sha256(token) != configured, timingSafeEqual); 429 + Retry-After (per-token hourly cap); 400 (any shape, expiresHour <= nowHour, or > nowHour + 168); 409 (id exists: never overwrite); 413 drop_full (count >= MAX_ROWS); 201 {ok:true}. The device envelope headers are ignored on this route (the owner app's device is enrolled on the OWNER validator, not here).
+- GET /disclosure/drop — no auth, no required header. Sweep expired, then `SELECT id, enc, ct, hint, expires_hour WHERE expires_hour > nowHour`, Fisher-Yates shuffle with crypto randomness, answer `{ armed: boolean, nowHour, count, rows: [{id, enc, ct, hint, expiresHour}] }`, Cache-Control: no-store. Nothing else is ever added to a row. Per-address token bucket already applies (server.js:134-155).
+- DELETE /disclosure/drop/:id — header x-layers-drop-delete (64 hex). 400 shape; 403 when sha256(token) != row.del_hash; 200 {ok:true} on delete AND when the row is absent (idempotent; ids are public via GET, so absence is not an oracle).
+- Sweep: `DELETE WHERE expires_hour < nowHour` on every GET and once a minute (custody.js:213-214 pattern).
+- Logging: nothing per request; one aggregate line per minute, counts only (caps.js:34-42 style).
+- Tests: validator/test/disclosure.test.js in `test:validator` (package.json:16), createApp(":memory:") like device.test.js:18-26.
+
+Env contract: add "DISCLOSURE_DROP_WRITE_TOKEN" to MUST_NOT_SHIP in BOTH lib/platform/env-contract.ts:7-26 and validator/env-contract.js:4-18 (accept-cu4 asserts identity). The public validator legitimately holds only the SHA256 name, which is on no refuse list.
+
+## 4. Friend side (the browser device on the public site; the same code runs on the rig and the owner service)
+
+4a. KDF + keystore. lib/crypto/kdf.ts: `disclosureInboxSeed(seed, nonce) = derive(seed, "disclosure-inbox/1/" + nonce)` (ikm for deriveKeyPair) and `disclosurePskSeed(seed, nonce) = derive(seed, "disclosure-psk/1/" + nonce)` (two branches, independent secrets). lib/identity/keystore.ts: `disclosureInboxMaterial(nonce): { ikm: Uint8Array; psk: Uint8Array }` with vaultKeyBytes' confinement (memory only, never serialized, never in a response); `disclosureMaterialForLeakTest(nonces: string[])` feeding the device's needles() (lib/device/entry.ts:30). v1: a linked device (keystore :189-193 throws) cannot pair or read; the UI says "open this on the device that holds your identity"; delivering the material through linkMaterial()/LinkedRoot (:61-69, :218-236) is v1.1.
+
+4b. Pairing store lib/disclosure/inbox.ts, namespace `disclosureInbox` (add to ExtraNamespace persist.ts:109; one opaque padded record, chrome.ts template). Doc `{ addresses: { [addrId]: { nonce: hex16, label, createdAt, forgottenAt|null } } }`, at most 32 addresses. API: `createAddress(label) → { addrId, address, link, qr }` (nonce = randomBytes(16); keypair = suite.kem.deriveKeyPair(ikm); pk serialized; psk; addrId from pk); `listAddresses()`; `forgetAddress(addrId)` (also drops its received record). Recovery: after lib/identity/roster.ts recoverIdentity (:67-107) the vault key re-derives, this namespace decrypts, and the nonces re-derive the same keys — the 24 words recover the inbox. Exposed on window.__layersDevice as `disclosure.{createAddress, listAddresses, forgetAddress, received, status}` (entry.ts:34-66 pattern) and rendered on the /device page as "Private addresses for friends" beside the linked-accounts section (DeviceApp.tsx:439-444): label, the address, copy, QR, "send it over Signal or in person; whoever holds it can write notes to you".
+
+4c. Received store lib/disclosure/received.ts, namespace `receivedDisclosures` (ExtraNamespace, opaque padded record). Doc `{ records: { [addrId]: { seq, issuedAt, expiresAt, subjects, label, seenAt } }, lastFullFetchAt, lastTickOk, lastFetchError, malformed }`. `applyFetch(result, nowMs)` implements, in this order:
+1. FULL iff HTTP 200, JSON parses, rows is an array, every row shape-valid (the §3 regexes), rows.length === count. Otherwise FAILED: lastTickOk=false, lastFetchError set, records untouched, nothing rendered until a later FULL fetch.
+2. For each row × active address: compute the hint; on match, suite.open; parse; validate v===1, addrId === the address used, seq a safe integer >= 0, issuedAt <= now + 5 min, expiresAt > now, expiresAt - issuedAt <= 168 h, 1..8 subjects with fid 1..2^31, fname rule, display <= 48, kind in {main, persona}. Invalid → ignored and counted in `malformed`.
+3. Monotonic seq per addrId: accept iff no record or seq > stored.seq; seq === stored.seq with identical content → seenAt refreshed; seq < stored.seq → ignored (a re-served older generation).
+4. After all rows: a stored record whose addrId had NO openable envelope in this FULL fetch is DROPPED (revoked or not renewed). This is safe because the publisher PUTs the new generation before deleting the old (§5c).
+5. Expired records are dropped at tick and at read.
+6. The doc is sealed only when it changed (new seq, drop), through flushVault with chrome.ts:147-164's adopt-after-success rule; a failed vault write discards the tick's result (no ghost state) and is retried next tick.
+Render predicate `disclosedForFid(fid)`: lastTickOk && record.seenAt === lastFullFetchAt && expiresAt > now → `{ label, subjects, addrId }`, else null. So: unknown (latest tick failed) = kept but not shown; missing from a full fetch = dropped; present = shown. Never a network call from this module.
+
+4d. Tick integration (lib/zk/prefetch.ts). In prefetchOnce after anonConfig (:99-106): `drop = await fetchDisclosureDrop()` for EVERY client, addresses or not (uniform fetch pattern; the cadence carries no information), errors captured as `dropError`, never thrown. fetchDisclosureDrop (lib/disclosure/fetch.ts) uses relay.get("/disclosure/drop") when ZK_RELAY=ohttp (relay.ts:39,83-90) else a plain `fetch(VALIDATOR_URL + "/disclosure/drop", {cache:"no-store"})` (validatorClient.ts:53-62 shape) with NO signed-read headers (an unauthenticated read by design: no device id on the wire). In runTick after runWantedProofs (:149): `await applyDisclosureFetch(snap.drop, snap.dropError)` (dynamic import). Revocation latency ≤ one cadence (10 min default) when online; the lease bounds an offline device.
+
+4e. Resolver path lib/disclosure/resolveFid.ts: `mergedAuthorForFid(fid)` → `{ merged: true, linked: { username: otherSubject.fname, displayName: otherSubject.display, pfpUrl: "", tier: "whitelist" }, disclosed: { label, subjectCount, expiresAt } } | null` (the first OTHER subject; the hover lists all). Seams: lib/policy.ts attachPersonaLayer — before `if (cast.live) return cast;` (:66) merge for `cast.author.fid > 0` when a disclosure exists; lib/feed.ts loop (:1582-1587) — add the fid branch for cards without personaId. Add optional `disclosed?: { label: string; expiresAt: number }` to the author type (lib/types.ts). CastCard.tsx:1001: when linked.pfpUrl === "" render the blank disc, never a MediaImg (no sibling avatar fetch, ever); the badge tooltip says "shared with you by <label> · until <date>". Profiles: ProfileIsland for a network profile asks the device route GET /api/identity/disclosed?fid= (new, device-served) and renders LinkedIdentitiesSection with copy "Shared with you by <label>", names only, with the one-line warning that opening both profiles shows the pair to the relay (SECURITY-POSTURE §19 A-FCREAD-OPERATOR-SEES-READS). Compartment mode (lib/identity/chrome.ts viewScope) hides the badge like every cross-persona surface.
+
+4f. The /d card for plain-Farcaster friends: app/d/page.tsx (outside app/(main), like app/help; no device boot, no root minted) + components/disclosure/DropCard.tsx (client). It reads `location.hash` (`#<keyHex>`), derives the link keypair/psk/addrId (§2), fetches GET /disclosure/drop from the validator URL the server component passes as a prop (deviceEnv.server.ts:28 rule), trial-opens by hint, renders: "<label> says these accounts are the same person: @a (main), @b … · private note, until <date>", plain external links to farcaster.xyz/<fname> (a click is the friend's choice; nothing is prefetched). States: no fragment → "this link is incomplete"; no row opens → "expired or withdrawn"; fetch failed → "couldn't check right now" (never "withdrawn"). Optional "Keep this in Layers" door is v1.1. On the owner service the page sits behind the gate and is unused.
+
+## 5. Owner side (owner service only)
+
+5a. Gate (lib/disclosure/outbound.ts, module entry): refuse unless `!isPublicDeployment()` (env-contract.ts:31-33), `typeof window === "undefined"` (never the browser device), ZK_DEV_HOOKS === "true", and, on a hosted platform (isHostedPlatform :73-76), ownerSecretProblem() === null — the connect.ts:45-48/:59-61 pattern. Route folders `disclosure/outbound` and `disclosure/publish` go on scripts/device-routes.mjs SERVER_ONLY (:16) and public/device/boot.js (:20) so the PSK-handling code never enters the public bundle (the lists must stay equal).
+
+5b. Store: namespace `outboundDisclosures` (ExtraNamespace; opaque padded record; chrome.ts template). Doc:
+```
+{ grants: { [grantId]: { kind: "address"|"link", addrId, pkHex, pskHex, linkKeyHex?, label, preset?: string,
+    subjects: Subject[], leaseHours (24..168, default 72), autoRenew: true, seq, createdAt, revokedAt|null,
+    current: { rowId, tokenHex, expiresHour, publishedAt }|null, previous: { rowId, tokenHex }|null, lastError|null } },
+  presets: { [name]: Subject[] },   // the v1 "tiers"
+  dummies: { current: [{rowId, tokenHex}], previous: [{rowId, tokenHex}] },
+  lastPublishAt, lastError }
+```
+Subjects are drawn ONLY from the vault's own records: main = connectedRecords() (personaFid.ts:375-376; origin "connected", publicSelf) as kind "main"; public keystore personas with a LIVE record (origin "layers-fid-pass", mode live) as kind "persona"; on the laptop rig (not hosted) origin "fixture" records are admitted so suites can run. Refused: private personas (keystore kind "private"), FC_TEST_FID, the anon fid (anonAccountFid / FC_ANON_FID), FC_RESERVED_FIDS, any fid not in the vault. The pane never accepts a typed fid.
+
+5c. Publisher lib/disclosure/publisher.ts: `ensurePublisherLoop()` started from instrumentation.ts register() (nodejs runtime) when the §5a gate holds AND DISCLOSURE_DROP_URL + DISCLOSURE_DROP_WRITE_TOKEN are set (read by name at call time; boot line names only). Cadence DISCLOSURE_PUBLISH_MS default 3 600 000 (±25% jitter, floor 60 000 for tests), first run 2-5 min after boot, never on a click. `publishOnce()` (serialized like prefetch's chain): for each live grant → seq+1, statement, seal, PUT with fresh id/token → on 201 previous := current, current := new (doc sealed after each success; a failed flushVault rolls back and aborts the run); then pad: bucket = ceil(max(liveCount,1)/DISCLOSURE_COUNT_BUCKET)*bucket (default 4), PUT (bucket - live) dummies; THEN delete every `previous` row and previous dummies by token. A PUT failure leaves the old row live until its expiry and surfaces as lastError; a DELETE failure is retried each run and the row expires by itself. `revoke(grantId)`: revokedAt = now, DELETE current and previous immediately (visible as a write at click time — named A-DROP-REVOKE-IS-VISIBLE; a "quiet revoke at the next batch" toggle is v1.1), omitted from the next generation. Auto-renew: every live grant is re-sealed every run with expiresAt = now + leaseHours, so a 72 h lease survives up to 72 h of owner-service downtime and then lapses on the friend's side.
+
+5d. Routes (owner app; refused elsewhere): app/api/disclosure/outbound/route.ts GET → grants (label, subjects, lease, next publish, current expiry, lastError), presets, publisher status {armed, cadenceMs, lastPublishAt, lastError}; never pskHex, linkKeyHex or tokens. POST actions: `subjects` (the admissible list), `grant` {address} | {link:true}, label, subjectFids[], leaseHours, preset?; `revoke` {grantId}; `preset` {name, subjectFids[]}. The link-kind grant answers the `/d#<keyHex>` link exactly once. Forced publish for suites: app/api/dev/route.ts action "disclosurePublish" (the :67-308 action pattern; /api/dev answers 403 on public deployments).
+
+5e. Pane: app/(main)/settings/friends/page.tsx + components/settings/ShowToFriendPane.tsx; SETTINGS_SECTIONS row after Privacy & Disclosure (Chrome.tsx:17): `{ href: "/settings/friends", label: "Show to a friend", blurb: "Let a friend see which accounts are you; 3-day leases that renew" }`. Two halves: "Friends who shared with you" (every surface: addresses, received notes, last check time, "unknown" state) and "Show to a friend" (owner service only; the public site renders the connect-page style notice). Owner flow: paste address (validate LD1., base64url, 80 bytes) or "make a link instead" → label → subjects checklist (main first; "connect your main account first" when none) → lease 24/72/168 h, auto-renew on → Share → row with next publish time, lease end, Revoke; the warning "send it over Signal or in person: whoever holds the address or link can read the note". Relabel the legacy DisclosurePane title "Not active yet — this does not change what others see" (dx-critic IMMEDIATE).
+
+5f. Arm script scripts/owner/arm-friend-drop.ps1 (OwnerCommon style, arm-live-reads.ps1:1-98): generate a 32-byte token locally (never printed), set DISCLOSURE_DROP_WRITE_TOKEN_SHA256 on the PUBLIC validator service and DISCLOSURE_DROP_URL + DISCLOSURE_DROP_WRITE_TOKEN on the OWNER app via stdin with read-back, explicit project/environment/service, one redeploy each, verify GET <public validator>/disclosure/drop reports armed:true and the owner app's /api/disclosure/outbound reports the publisher armed; -Rotate; -Disarm (delete the raw token from the owner app; the hash may stay); -WhatIf. Refuse: the raw token on any public service, a token equal to any other secret.
+
+## 6. Device vs server split (what may run where, and why)
+
+| Piece | Browser device (public site) | Owner service (rig shape) | Public validator | Why |
+|---|---|---|---|---|
+| Envelope seal/open | open only (and /d open) | seal | never | the PSK and inbox key are root/vault material; the validator holds ciphertext only |
+| Inbox key + PSK derivation | yes (from the seed) | n/a in v1 | never | keystore confinement (keystore.ts:189-193, 327-331) |
+| Drop GET | every tick, uniformly | every tick too (uniform) | serves | the fetch pattern must not mark friends |
+| Drop PUT/DELETE | never | publisher, token | serves | a visitor's device holds no write token (MUST_NOT_SHIP) |
+| Subjects (fid lists) | only inside received ciphertext | from its own vault records | never | the validator must not learn fid pairs |
+| Merge rendering | yes, from envelope data only | yes | never | no sibling fetch, ever |
+| /d card | runs in the friend's browser with no identity | gated, unused | serves rows | the key lives in the fragment |
+
+## 7. Tiers ("each tier gets a deeper version of you")
+
+v1 data model: a grant = (friend address, subject list, lease). A tier = a named PRESET of subjects in `presets` (e.g. "Inner" = main + every public alt, "Close" = main + two alts, "Acquaintance" = main only is pointless and the UI says so). Choosing a preset snapshots its subjects into the grant; editing a preset re-snapshots every grant that references it on the next publish (seq+1). The ladder (tier k ⊇ tier k+1) is a UI hint, not enforced. Deferred, named as such in Help/docs: tiers governing private-post audiences across deployments (the same envelope could carry an audience key: v1.1), "this anon cast is mine" private reveals through the same envelope (v1.1, after the anon reveal addition closes its 3 reviews/4 sweeps), group management across the owner's devices, designated-verifier proofs of control per alt (v1.1, needs F25 KeyRegistry lookup), and the "blanked anon" view (see §8).
+
+## 8. What plain Farcaster viewers see
+
+Nothing changes on Farcaster: the subjects stay separate accounts; no cast, reaction, follow, profile field or onchain write carries the link; Neynar and the hubs are not called by this feature (0 credits). "Posts appear as blanked anon" is the anon account (the anoncast pattern, SECURITY-POSTURE §14.1/§20): posts the owner makes through it are the anon fid's posts for everyone, whitelisted or not; Layers cannot blank posts a plain client shows. Non-whitelisted Layers users see bare personas (resolver.ts:42-51), byte-identical to a stock client. A plain-Farcaster friend gets the /d card on the public site; nothing appears inside Warpcast or any client.
+
+## 9. Env names (never values)
+
+Owner app: DISCLOSURE_DROP_URL, DISCLOSURE_DROP_WRITE_TOKEN (secret; MUST_NOT_SHIP), DISCLOSURE_PUBLISH_MS (optional), DISCLOSURE_LEASE_HOURS_DEFAULT (optional, 72, max 168), DISCLOSURE_COUNT_BUCKET (optional, 4). Public validator: DISCLOSURE_DROP_WRITE_TOKEN_SHA256, DISCLOSURE_DROP_MAX_ROWS (512), DISCLOSURE_DROP_WRITES_PER_HOUR (600). Public app/device: nothing new (ZK_RELAY=ohttp routes the GET through the relay when it is live). Tests: DISCLOSURE_PUBLISH_MS low on the rig; FC_READ_RIG=stub for live cards.
+
+## 10. Privacy analysis
+
+What each party learns. Public validator operator: that one token-authenticated writer exists; row counts in buckets of 4 and their hour-grained expiries; fixed-size ciphertext; the writer's batch times (hourly) and immediate revoke deletes; every reader's IP and tick times (every device fetches, so a fetch marks nobody as a friend); 4-hex hints that are pseudorandom without the PSK. Never: any fid, fname, persona id, anchor, which rows belong to whom, whether a reader holds an address, or the exact friend count. Owner service (the owner): its own data plus each friend's pk/psk (it can write to that friend until they re-pair). Friend's device: the subjects (fids, names), the owner's label, the lease; nothing about other friends. Farcaster/Neynar/hubs: nothing new. Public app server: `/d` path hits without the key (fragment), nothing else; the device talks to the validator directly.
+
+Leak predicate "my hidden thing". Owner: "fid A and fid B are one person" exists only (a) inside ciphertext under a friend's key, (b) in the owner's sealed outboundDisclosures record, (c) in the friend's sealed receivedDisclosures record. It never appears in a DB column, a URL path, a log line, a request header, or a network fetch that names both accounts together (the badge draws from the envelope; the /d card prefetches nothing). The greps assert: no validator row joins two subject fids; no fname, persona id, anchor or token beside drop rows; namespace sizes are padded. Friend: "I am whitelisted by X" has no column, a uniform fetch, a sealed vault, and an IP indistinguishable from any visitor's.
+
+## 11. Failure modes (never fail open)
+
+Validator unreachable, non-200, malformed, count mismatch → tick FAILED → badges not rendered (unknown), nothing dropped, status visible in Settings › Show to a friend, retried next tick. receivedDisclosures unreadable or empty-but-sealed → throw like chrome.ts:89-113, render nothing, status says so. Vault write fails → doc rolled back, tick result discarded, retry. Envelope opens but is invalid → ignored, counted. Publisher PUT fails → old row stays live until its expiry, lastError shown, retry next run; DELETE of the old generation only after all new PUTs succeeded. Revoke DELETE fails → retried each run; the pane says the old note stays readable until <expiry> unless the delete goes through. 413 drop_full → loud in the pane, no silent skip. Token absent/invalid → publisher "unarmed", the pane names owner step H. Public deployment → outbound/publisher refuse at module entry; the env contract refuses the raw token at boot. /d → the three honest states in §4f. Clock skew → issuedAt > now + 5 min ignored; the server compares hour indexes only.
+
+## 12. Tests (each with a positive control so no refusal is vacuous)
+
+1. Node-only harness scripts/unit-disclosure.mjs (`npm run test:disclosure-unit`; esbuild bundle of lib/disclosure/*.ts with `server-only` shimmed, like scripts/unit-fcread-relay.mjs:63-80; the validator in-process via createApp(":memory:") like validator/test/device.test.js:18-26; fetch replaced by a recorder; nothing leaves the machine). Cases: U1 positive control — seal, PUT, GET, hint match, open, statement round-trips bit-exact; U2 ct length is 4128 hex for 1 and for 8 subjects, and a 9-subject or oversize statement is refused at seal; U3 wrong PSK, wrong address (same PSK), tampered ct, tampered enc, wrong info all fail to open; U4 dummies never open under any address and are byte-shaped like real rows; U5 monotonic seq (older generation ignored, equal refreshes seenAt, newer replaces); U6 expiry (expiresAt <= now dropped; lease > 168 h refused); U7 FULL vs FAILED fetch: a 500, a truncated body, a count mismatch, a bad row shape each leave records kept and `disclosedForFid` null, and the next FULL fetch restores rendering without a new publish; U8 missing-from-full-fetch drops the record; U9 publisher order: PUT new → PUT dummies → DELETE old, and a PUT failure leaves `current` untouched and deletes nothing; U10 bucket padding (1 live → 4 rows, 5 live → 8 rows); U11 validator: token hash check (wrong token 401, constant-time), unarmed 503, 409 on id reuse, 413 at MAX_ROWS, DELETE idempotent, sweep removes expired, per-token cap 429; U12 the link path: /d key → same addrId/psk on both sides, opens; U13 leak: the recorder's request log and the in-memory DB contain no subject fid, fname, persona id or token outside ct.
+2. validator/test/disclosure.test.js (node --test) in test:validator.
+3. Rig suite scripts/accept-disclosure.mjs (`npm run test:disclosure`, added to scripts/sweep-x.sh:19 SUITES). Preconditions (INFRA, not PASS, when unmet): /api/dev answers 200; validator health is the signed Layers payload; FC_READ_RIG=stub serves a stub network cast whose author fid equals a subject fid (otherwise the badge check is vacuous). Steps: friend device (Playwright, /device/smoke.html as accept-cu3.mjs:42-70) creates an address; owner (the rig server) grants via /api/disclosure/outbound; /api/dev disclosurePublish; DB scan (accept-cu3.mjs:25-37 style): disclosure_drop rows have exactly the six columns, ct length 4128, count a multiple of 4, and no subject fid, fname, persona id, anchor or token anywhere in the DB except inside ct (accept-fid5.mjs:235-299 greps extended); forced friend tick (the action that calls prefetchTick at app/api/zk/route.ts:701); /home shows the stub card with data-testid cast-merged-identity and data-linked = the other subject's fname; the network profile shows "Shared with you"; the Playwright request log shows zero requests naming the sibling (fname or fid); revoke → DELETE observed → next tick → badge gone and record dropped; Playwright route-abort of the validator GET → badge hidden, record kept (status "unknown"), restore → badge back with no new publish; forgetAddress → nothing renders. The run leaves the validator with only expired or deleted rows.
+4. Prod-shape suite scripts/accept-disclosure-prod.mjs under scripts/run-prod-shape.sh: ABORT unless /api/dev answers 403 (accept-prodlive.mjs:81-85) and the root budget rule (:15-20) holds. Checks: a fresh device with NO addresses issues GET /disclosure/drop on its first tick (uniformity, from the request log); /api/disclosure/outbound reaches the Next server and answers 404/403 (server-only, not device-served); /d#<key> renders a card for a row the test PUT directly with a test token hash in the pair's env, WITHOUT minting a root (validator /health roots count unchanged); GET rows carry exactly five fields; the contract lists DISCLOSURE_DROP_WRITE_TOKEN (read from validator/env-contract.js like accept-cu4.mjs:409-410).
+5. scripts/smoke-deployed.mjs check 9: GET <validator>/disclosure/drop → 200, shape-valid, EXPECT_DROP=armed|unarmed matches `armed`.
+6. Leak greps: scripts/root-leak.mjs needles += inbox ikm/psk hex and the write token; the device's needles() aggregates disclosureMaterialForLeakTest; docs:check and docs:sync stay green.
+
+## 13. Docs and status rows to update
+
+lib/status/features.ts:218-229 "show-to-a-friend": after the build and the rig/prod-shape suites → public "fixture" ("Built and tested on a local copy of the public site: a friend's browser pairs, reads the drop, and shows the badge on test casts; not yet checked on the deployed site"), owner "fixture" ("Built: Settings › Show to a friend publishes sealed notes to the public server on a schedule; no real friend has read one yet"); missing: "one real pair on the deployed sites, live reads armed on the public site so the badge has real casts to sit beside, and main's connection"; sources add lib/disclosure/*, validator/disclosure.js, scripts/accept-disclosure.mjs. Flip to "live" only after a real friend sees the badge on the deployed public site. "who-sees-what" (:205-216) notes: tiers exist as presets; the Top-16 ladder beyond that is still coming. docs/mechanism/linkage-and-disclosure.md:107-118 "Designed, not built" → "Built, test data only" with the §2-§5 shapes and cites to the new report; :140-146 answers updated. docs/features/who-sees-what.md:71 [SPECCED] → [SHIPPED-FIXTURE]; :57-59 residuals paragraph gains the revoke-visibility and PSK-held-by-owner sentences. docs/roadmap/index.md:88 row moves from Coming soon to the built-on-test-data table. docs/mechanism/index.md:88,113 and docs/start/who-sees-what.md:75 wording. docs/technical/env.md: new rows under App server (:46) and Validator (:136). docs/technical/data-flows.md: the drop flow. docs/start/what-works-generated.md and docs/internal/roadmap-data.json regenerate via docs:generate; docs/.cite-lock.json via docs:sync --update. SECURITY-POSTURE.md: new §21 "The friend drop" after §20 (:2382) with the A-DROP-* ids below; docs/custody-model.md:237 correction (root_link_grants exists, per the whitelist map). notes/runbooks/GO-LIVE-FARCASTER.md: new section (j) after (i) (:878) and the variables reference (:1046). notes/runbooks/OWNER-CHECKLIST.md: step H in the file's existing lettered style. Help page copy (components/help/HelpPage.tsx) reads the status file; add the obvious question "Can a friend prove it to someone else? No: the note carries no signature."
+
+## 14. Linkage review items and the three adversarial lenses
+
+Name in SECURITY-POSTURE §21: A-DROP-COUNT-REVEALS-FRIENDS (bucketed to 4; changes show at batch time); A-DROP-RESERVED-ENVELOPE (a deleted but unexpired row re-served by the operator stays valid until expiry; seq stops it overriding a newer one); A-DROP-NO-FORWARD-SECRECY (static inbox key + PSK per address; re-pair to rotate); A-DROP-READER-IP (every device's IP on every tick; OHTTP when ZK_RELAY=ohttp and A-RELAY-THIRD-PARTY); A-DROP-SINGLE-WRITER (v1 token = the owner service; the operator learns one writer's cadence); A-DROP-REVOKE-IS-VISIBLE (immediate delete at click time); A-DROP-OWNER-HOLDS-FRIEND-PSK (owner-vault compromise forges deniable notes to friends until re-pair); A-DROP-HINT-IS-A-PRF (4 hex under the PSK, salted by enc); A-DROP-LINK-IS-THE-CHANNEL (a /d key is as private as the message that carried it; Farcaster DCs are not assumed end-to-end encrypted — VERIFY-YOURSELF). Add disclosure_drop to the linkage DB greps (accept-fid5 family) and the drop fetch to the uniform-set assertions.
+
+Lenses to run after the build (one agent each, findings by id, fixed or assumed):
+1. The operator lens: from the public validator's DB, logs and wire alone, try to learn friend count, which rows are one recipient's, who reads, when a grant or revoke happened; try re-serve, withhold, reorder, flood (MAX_ROWS), enc swap, old-generation replay; measure what each hourly batch reveals.
+2. The betraying-friend and owner-vault lens: leak an envelope (deniability: could the friend have produced the bytes? yes); forge to another friend (needs their PSK: no); with the owner's outboundDisclosures in hand, forge, re-point or extend leases; does re-pairing fully invalidate; does the /d key survive in browser history, referrers or the app server's logs.
+3. The friend-client linkage lens: does rendering ever fetch the sibling (avatar, profile, KeyRegistry, Neynar) — assert zero; do ticks differ between devices with and without addresses (timing, size, CPU, the vault write that follows a tick) — writes only on change, padded; does compartment mode hide it per persona; does the device's needles() cover the inbox material; does a wrong-seed recovery ever render another root's received notes (the reloadIdentity reset list).
+
+## 15. Build order, gates, size
+
+Gate 1 (validator + envelope + unit harness; one agent): migration 21, validator/disclosure.js, lib/disclosure/envelope.ts, kdf/keystore branches, node-only harness green. Gate 2 (friend side; one agent): inbox, received, tick, resolveFid, seams in policy.ts/feed.ts/CastCard/ProfileIsland, /device UI, /d page, device entry + reset lists. Gate 3 (owner side; one agent): outbound, publisher, routes, pane, settings row, dev hook, arm script, env contract, SERVER_ONLY lists. Gate 4 (integration): rig suite, prod-shape suite, smoke check 9, leak greps, docs/status/posture rows; then the three reviews and four clean sweeps per the standing bar. Gates 1-3 run in parallel; 2 and 3 share only lib/disclosure/envelope.ts and the ExtraNamespace union.
+
+Honest size: ~3.5k lines (validator ~250 + 180 test; envelope/kdf/keystore ~250; friend side ~600; owner side ~750; /d ~150; arm script ~200; suites ~900; docs/posture ~400). One pass of four gates, three reviews, four sweeps: about three agent-days of build plus one of review/sweeps. Money: $0 new infrastructure (the drop rides the public validator), 0 Neynar credits. Dependencies that gate "live": Connect Main (main as a subject; the connector fid is the owner's open ~$1 decision) and armed live reads on the public site (OWNER-CHECKLIST G) so the badge has real casts to sit beside; without them the feature is complete but shows only persona subjects next to stub/test casts.
+
+Traps carried over: ZK_PREFETCH_MS floor is 1 s, not 0 (config.ts:83); a sealed namespace added without a reset entry in boot.ts:162-201 and dev/route.ts:337-347 is the root-mixing bug again; SERVER_ONLY and boot.js lists must stay equal; MUST_NOT_SHIP lists must stay identical (accept-cu4); re-run scripts/device-routes.mjs after adding routes; use flushVault, never flush, for the three new namespaces.
+
+FILES
+- CREATE validator/disclosure.js (mountDisclosureDrop: PUT/GET/DELETE /disclosure/drop, token hash check, per-token cap, sweep, aggregate-only log)
+- MODIFY validator/migrations.js (append version 21 disclosure_drop, WITHOUT ROWID, with down())
+- MODIFY validator/server.js (mount mountDisclosureDrop after express.json()/mountCaps at :162-163)
+- CREATE validator/test/disclosure.test.js (node --test, createApp(":memory:"))
+- MODIFY package.json (test:validator list; scripts test:disclosure-unit, test:disclosure, test:disclosure-prod)
+- MODIFY validator/env-contract.js and lib/platform/env-contract.ts (MUST_NOT_SHIP += DISCLOSURE_DROP_WRITE_TOKEN, both lists)
+- CREATE lib/disclosure/envelope.ts (suite, INFO, statement, 2048-byte padding, hint, dummies, address + link key derivation, addrId)
+- CREATE lib/disclosure/fetch.ts (GET /disclosure/drop via relay.get or plain fetch; FULL/FAILED classification)
+- CREATE lib/disclosure/inbox.ts (disclosureInbox namespace: createAddress/listAddresses/forgetAddress, QR)
+- CREATE lib/disclosure/received.ts (receivedDisclosures namespace: applyFetch rules, disclosedForFid, status, resetReceivedCache)
+- CREATE lib/disclosure/resolveFid.ts (mergedAuthorForFid)
+- CREATE lib/disclosure/outbound.ts (owner-only gate, outboundDisclosures namespace, subjects from personaFid records, presets, grant/revoke)
+- CREATE lib/disclosure/publisher.ts (ensurePublisherLoop, publishOnce: PUT new, PUT dummies, DELETE old; revoke delete)
+- MODIFY lib/crypto/kdf.ts (disclosureInboxSeed, disclosurePskSeed branches)
+- MODIFY lib/identity/keystore.ts (disclosureInboxMaterial, disclosureMaterialForLeakTest)
+- MODIFY lib/adapters/mock/persist.ts (ExtraNamespace += disclosureInbox | receivedDisclosures | outboundDisclosures)
+- MODIFY lib/zk/prefetch.ts (drop fetch in prefetchOnce; applyDisclosureFetch in runTick)
+- MODIFY lib/policy.ts (attachPersonaLayer: fid-keyed merge before the live return at :66)
+- MODIFY lib/feed.ts (merged loop :1579-1587 gains the author.fid branch)
+- MODIFY lib/types.ts (author.disclosed optional field)
+- MODIFY components/CastCard.tsx (blank disc when linked.pfpUrl === ""; tooltip with label/lease)
+- MODIFY components/LinkedIdentity.tsx ("Shared with you by <label>" copy, warning line)
+- MODIFY components/profile/ProfileIsland.tsx (network profile asks GET /api/identity/disclosed?fid=)
+- CREATE app/api/identity/disclosed/route.ts (device-served; reads received store only)
+- CREATE app/api/disclosure/outbound/route.ts (owner-only GET/POST: subjects, grant, revoke, preset)
+- MODIFY app/api/dev/route.ts (action disclosurePublish; resetSeed resets the three new caches)
+- MODIFY lib/device/boot.ts (reloadIdentity resets inbox/received caches)
+- MODIFY lib/device/entry.ts (DeviceApi.disclosure namespace; needles aggregate inbox material)
+- MODIFY components/device/DeviceApp.tsx ("Private addresses for friends" section)
+- CREATE app/d/page.tsx and components/disclosure/DropCard.tsx (link-friend card, no device boot)
+- CREATE app/(main)/settings/friends/page.tsx and components/settings/ShowToFriendPane.tsx
+- MODIFY components/settings/Chrome.tsx (SETTINGS_SECTIONS row /settings/friends)
+- MODIFY components/settings/DisclosurePane.tsx (relabel: not active yet)
+- CREATE lib/platform/qr.ts (lift the inline-SVG QR encoder out of lib/fc/connect.ts)
+- MODIFY scripts/device-routes.mjs and public/device/boot.js (SERVER_ONLY += disclosure/outbound, disclosure/publish; regenerate lib/device/routes.generated.ts)
+- MODIFY instrumentation.ts (start ensurePublisherLoop under the owner-service gate; boot line names only)
+- CREATE scripts/owner/arm-friend-drop.ps1 (OwnerCommon style; token hash to the public validator, URL+token to the owner app; -Rotate, -Disarm, -WhatIf)
+- CREATE scripts/unit-disclosure.mjs (node-only esbuild harness U1-U13)
+- CREATE scripts/accept-disclosure.mjs (rig suite; added to scripts/sweep-x.sh SUITES)
+- CREATE scripts/accept-disclosure-prod.mjs (prod-shape suite via scripts/run-prod-shape.sh)
+- MODIFY scripts/smoke-deployed.mjs (check 9: GET /disclosure/drop shape; EXPECT_DROP)
+- MODIFY scripts/root-leak.mjs and the accept-fid5-family DB greps (new needles; disclosure_drop table)
+- MODIFY lib/status/features.ts (show-to-a-friend and who-sees-what rows)
+- MODIFY SECURITY-POSTURE.md (new section 21, A-DROP-* ids)
+- MODIFY docs/mechanism/linkage-and-disclosure.md, docs/features/who-sees-what.md, docs/roadmap/index.md, docs/mechanism/index.md, docs/start/who-sees-what.md, docs/technical/env.md, docs/technical/data-flows.md, docs/custody-model.md:237; regenerate docs/start/what-works-generated.md, docs/internal/roadmap-data.json, docs/.cite-lock.json
+- MODIFY notes/runbooks/GO-LIVE-FARCASTER.md (section (j) + variables reference) and notes/runbooks/OWNER-CHECKLIST.md (step H)
+- MODIFY components/help/HelpPage.tsx (one obvious question: a friend cannot prove it)
+
+OWNER DECISIONS
+- Where the drop lives: on the existing public validator (recommended: $0, no new service, the same operator) versus a separate tiny service. Default: the public validator.
+- Publish cadence and lease: re-seal every 1 hour, leases of 72 hours that renew automatically (recommended; a 6-hour cadence would make a friend wait up to 6 hours after you share). Default: 1 h / 72 h.
+- Who may publish in v1: only your owner service, with one write token (recommended). The cost: the public server can see that one writer exists and roughly how many notes it keeps, in groups of four. Open publishing for every visitor (with a per-window membership proof) is a later pass.
+- Deniable by default (recommended): a note carries no signature, so a friend who leaks it leaks a claim, not proof. A transferable proof would be an explicit opt-in later; a proof only the friend can verify is v1.1.
+- Who the grantee is: the friend's whole Layers identity (every persona of theirs sees the badge; recommended) versus one specific friend persona. Default: whole identity; compartment mode still hides it per persona view.
+- Plain-Farcaster friends in v1 (recommended yes): they get a private link that opens a card on the public site; nothing appears inside their Farcaster app, and the link is only as private as the message that carried it (send it over Signal or in person).
+- Revoking: immediate deletion at the moment you click (recommended; the public server sees a write at that moment) versus a quiet withdrawal at the next hourly batch. Default: immediate.
+- Main account as a subject waits on Connect Main (the connector account, about $1, already your open decision). Recommended: build this pass now with persona subjects; your main joins the list automatically once connected. No new money is needed for this pass: $0 infrastructure, 0 Neynar credits.
+
+RISKS
+- Browser support for X25519 in WebCrypto: @hpke/core's X25519 is WebCrypto-backed; the device already ships it for rootlink/linking, but an older browser could lack it. Feature-detect at boot and fall back to @hpke/dhkem-x25519 1.8.0 (installed, unused) — not yet exercised in this tree.
+- The badge has nothing to attach to on the public site until live reads are armed (FC-READ dormant since 2026-09-27) and the owner's accounts appear in discovery or are looked up by name; until then the feature is complete but visible only on test casts.
+- Main cannot be a subject until Connect Main lands (connector fid, owner decision); v1 ships with persona subjects only.
+- The hint column is a deliberate addition to the critic's column list; its security rests on HKDF under the PSK salted by a fresh enc. Review lens 1 must attack it (correlation across generations, distinguishability of dummies).
+- A re-served deleted envelope stays valid until expiry; the lease (72 h) is the only bound. Shorter leases cost more publish traffic.
+- Immediate revoke deletes are a click-time write the public operator can see; the quiet-revoke toggle is v1.1.
+- The owner's vault holds every friend's PSK; an owner-service compromise (already A-PRODLIVE-THE-PASSPHRASE-IS-THE-ACCOUNT) lets an attacker write deniable notes to friends until they re-pair.
+- Linked devices (no seed) cannot pair or read in v1; delivering inbox material through linkMaterial()/LinkedRoot is v1.1.
+- The forced-tick dev action name in app/api/zk/route.ts (the one calling prefetchTick at :701) and the QR encoder's function name in lib/fc/connect.ts were located but not read in full; the builder must confirm both before wiring the suites.
+- GET /disclosure/drop grows with the row cap (512 rows ≈ 2.2 MB worst case); the default owner footprint is a few KB per tick, but MAX_ROWS must not be raised casually on a deployment.
+- Both SERVER_ONLY lists and both MUST_NOT_SHIP lists must stay byte-equal (accept-cu4 and the device fetch patch), and every new sealed namespace needs reset entries in boot.ts reloadIdentity and dev/route.ts resetSeed, or the root-mixing bug returns.
+- Farcaster direct casts are not assumed end-to-end encrypted; a /d link sent by DC hands the note to that operator. The pane must steer to Signal or in person (VERIFY-YOURSELF).
+
+CITATIONS
+- package.json:152-157 (@hpke/core 1.9.0, @hpke/dhkem-x25519 1.8.0, @noble/ciphers, @noble/curves 1.9.1, @noble/hashes 1.8.0)
+- node_modules/@hpke/core/package.json:3; node_modules/@hpke/core/esm/mod.d.ts:6-9; node_modules/@hpke/core/esm/src/cipherSuiteNative.d.ts:104,115,127,139
+- node_modules/@hpke/common (1.10.1) esm/src/interfaces/keyScheduleParams.d.ts:12, preSharedKey.d.ts, senderContextParams.d.ts, recipientContextParams.d.ts, kemInterface.d.ts (deriveKeyPair/serializePublicKey/deserializePublicKey), consts.d.ts:3, identifiers.d.ts:6,8
+- node_modules/@hpke/core/esm/src/kems/dhkemX25519.d.ts; esm/src/kems/dhkemPrimitives/x25519.js:99-212 (WebCrypto-backed)
+- lib/device/rootlink.ts:12,20 (suite), :77 (info), :93-108 (readGrants/writeGrants), :131-142 (seal/open), :253-280 (linked(): unknown = neither shown nor dropped)
+- lib/device/linking.ts:9; lib/zk/anon/ohttp.ts:17; validator/anon.js:29 (other @hpke/core users)
+- lib/crypto/kdf.ts:17,25,27-34,44-46,56-58
+- lib/identity/keystore.ts:61-69,102-110,189-193,218-236,327-331,441-466,470
+- lib/vault/vault.ts:44-115,134-185,199-206,210-218; lib/crypto/vaultCipher.ts:41-47
+- lib/adapters/mock/persist.ts:109,119-127,272-275,340-347,383-398,408-426
+- lib/identity/chrome.ts:67-134,147-164,166; lib/vault/sealedPins.ts:59,68; lib/identity/roster.ts:24-35,67-107
+- lib/zk/prefetch.ts:80-110,118-157,139-148,169-183; lib/zk/config.ts:44-50,83; lib/zk/validatorClient.ts:53-62; lib/zk/anon/relay.ts:32-40,52-55,83-90
+- lib/identity/resolver.ts:42-51,61-105; lib/identity/grants.ts:38-49,150-191; lib/identity/verifiedGrants.ts:43-45
+- lib/fc/attribution.ts:100-110; lib/policy.ts:33-87 (:66 live return); lib/feed.ts:1579-1587; lib/types.ts:2,14,49-51,58
+- components/CastCard.tsx:88-93,127-175,990-1042 (:1001 split avatar, :1037-1042 badge); components/LinkedIdentity.tsx:55-130; components/ProfileHeader.tsx:83-162
+- lib/fc/readRelay.server.ts:118-136; lib/adapters/neynar/content.ts:563-638
+- lib/fc/personaFid.ts:21-22,28,32-34,54-71,304-311,355,375-376
+- lib/fc/connect.ts:45-48,59-61,103; app/(main)/settings/connect/page.tsx:14-31; components/settings/ConnectMainAccount.tsx:328-340 (QR svg)
+- validator/server.js:17,85-90,134-155,156-170,511-570; validator/migrations.js:13,170-177,704-721; validator/custody.js:28,32-43,213-219,293; validator/anon.js:23-26,35-47; validator/caps.js:13-18,34-42,72-89; validator/zk.js:1067-1086; validator/test/device.test.js:8-26
+- lib/platform/env-contract.ts:7-26,31-33,73-76,79-84; validator/env-contract.js:4-18,25-27; scripts/accept-cu4.mjs:59,409-410
+- instrumentation.ts:12-77; lib/world.ts:41,126-193; middleware.ts:337-355
+- lib/device/entry.ts:30,34-66,106-115; lib/device/boot.ts:41-44,53-147,162-201; lib/device/host.ts:28-38; lib/device/deviceEnv.server.ts:28; scripts/device-routes.mjs:16; public/device/boot.js:20; components/device/DeviceApp.tsx:439-444
+- app/api/dev/route.ts:67-308 (action pattern), :337-347 (resetSeed cache resets); app/api/zk/route.ts:701 (prefetchTick)
+- components/settings/Chrome.tsx:10-30,52-53; components/settings/DisclosurePane.tsx:8-13; lib/adapters/registry.ts:103-104
+- lib/status/features.ts:30,205-216,218-229,283-294
+- scripts/unit-fcread-relay.mjs:33-80; scripts/accept-prodlive.mjs:12-20,81-85; scripts/smoke-deployed.mjs:1-29; scripts/accept-cu3.mjs:25-37,42-70; scripts/accept-fid5.mjs:235-299; scripts/sweep-x.sh:19; scripts/run-prod-shape.sh:1-25; scripts/owner/arm-live-reads.ps1:1-98
+- SECURITY-POSTURE.md:239 (A-RELAY-THIRD-PARTY), :1577-1588 (root_link_grants acknowledged), :2026-2095 (section 19 relay contract format), :2382 (section 20, last)
+- docs/mechanism/linkage-and-disclosure.md:100-118,140-146; docs/features/who-sees-what.md:57-59,69-72; docs/roadmap/index.md:80-93; docs/mechanism/index.md:88,113; docs/start/who-sees-what.md:75; docs/start/glossary.md:34; docs/technical/env.md:46,136; docs/internal/roadmap-data.json:1-30
+- notes/runbooks/GO-LIVE-FARCASTER.md:819 (h), :878 (i), :1046 (variables reference)
+- scratchpad dx-critic.txt (WHITELIST, X PLAN, CONNECT MAIN, OWNER DECISIONS); dx-whitelist.txt (options, data flow, findings, OPEN); dx-x-interop.txt; postconnect-results.txt (connect build state, FC_ANON_FID, NEYNAR_VIEWER_FID guard)
+- memory: layers_pitch_and_docs.md (MySpace Top 16 pitch; honesty rule), feedback_no_seedphrase_ux.md (passkeys + QR, never seed phrases)

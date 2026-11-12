@@ -1,0 +1,88 @@
+{
+  "_what": "ZK PASS 1 Gate 0 safety-set item: the Semaphore v4 artifacts the prover downloads, hashed and verified against the ceremony's OWN published outputs and independent public attestations. Every value below was computed or fetched on 2026-09-04 by scripts in this pass; SOURCES lists where each fact came from. Anything not verifiable is under ASSUMPTIONS, not here.",
+  "artifactsShipped": {
+    "library": "@semaphore-protocol/proof@4.14.3 -> @zk-kit/artifacts@2.0.1",
+    "artifactVersionHardcodedInProof": "4.13.0",
+    "downloadBaseUrl": "https://snark-artifacts.pse.dev/semaphore/4.13.0/",
+    "depth": 20,
+    "wasm": {
+      "file": "semaphore-20.wasm",
+      "bytes": 1847949,
+      "sha256": "6f71e55586929e520e76027ebe067daac8b41e2f4b8057313a5fd0304e1e44ee",
+      "blake2b512": "c6b5e351c3d00c816407dabe3950e14a7628f5649a31f0a367391151a913f49451885447959ddf2182cf263af367ef1bdc1efde3fb99c90f49e040da4091d094"
+    },
+    "zkey": {
+      "file": "semaphore-20.zkey",
+      "bytes": 3890175,
+      "sha256": "33f9a067a80c7daf90e085449073613a9559a1904dd40aeb6d603afb7988c2cc",
+      "blake2b512": "456ed7884aac44c3357ace20172104464f073a05eee623a3c8c6ecacc478fda241a4a99f34243f1ad73474420b0c304b0919e4ad6a1e0653fc3d7af95f26869a"
+    },
+    "verificationKeyBundle": {
+      "file": "node_modules/@semaphore-protocol/proof/src/verification-keys.json",
+      "bytes": 57550,
+      "sha256": "d96ec60593b6fc2334f1f04e008e07425d5536d7777f6ac21d996fc80779b3c9",
+      "note": "Per-depth vk_delta_2[] and IC[] arrays for depths 1..32; alpha/beta/gamma shared. Pinned in the client build (lib/zk/ceremony.ts) AND THE KEY BOTH VERIFIERS USE: lib/zk/prover/semaphore-worker.mjs and validator/zk.js each read THIS file, hash the bytes they read against this pin, slice the depth-20 key from the same bytes and call snarkjs.groth16.verify directly. @semaphore-protocol/proof's verifyProof() — which verifies against a copy inlined in its dist bundle that no pin covered (attack-2 finding 2) — is not called by any verifier."
+    }
+  },
+  "ceremony": {
+    "name": "Semaphore Binary Merkle Root Fix",
+    "host": "https://ceremony.pse.dev/projects/Semaphore%20Binary%20Merkle%20Root%20Fix",
+    "status": "FINALIZED",
+    "finalizedDateShown": "2025-07-23",
+    "why": "Re-ceremony after the under-constrained BinaryMerkleRoot bug (OtterSec, reported 2025-05-28; zk-kit binary-merkle-root.circom v2.0.0 released 2025-06-30). The July-2024 'Semaphore V4 Ceremony' (docs anchor: Etherscan block 20300394) produced artifacts for the VULNERABLE circuit and is NOT what 4.13.0+ ships.",
+    "circuitTemplate": "https://github.com/semaphore-protocol/semaphore/blob/fix/under-constrained-bug-binary-merkle-root/packages/circuits/src/semaphore.circom",
+    "circuitCommit": "3521c96b5a766f65f46ee33fe87917513d67c0cf",
+    "bucket": "https://semaphore-binary-merkle-root-fix-pse-p0tion-production.s3.eu-central-1.amazonaws.com",
+    "finalZkeyUrl": "https://semaphore-binary-merkle-root-fix-pse-p0tion-production.s3.eu-central-1.amazonaws.com/circuits/semaphore-20/contributions/semaphore-20_final.zkey",
+    "powersOfTau": {
+      "url": "https://semaphore-binary-merkle-root-fix-pse-p0tion-production.s3.eu-central-1.amazonaws.com/pot/ppot_0080_13.ptau",
+      "sha256": "ccee28086e4b81d81a6e16fdee054d1dbd5276362e2662d4205d31de45cb930f",
+      "bytes": 9530514,
+      "identicalToPublicPpot": "https://pse-trusted-setup-ppot.s3.eu-central-1.amazonaws.com/pot28_0080/ppot_0080_13.ptau"
+    }
+  },
+  "verified": {
+    "ceremonyFinalZkeyByteIdenticalToCdnZkey_depth20": true,
+    "ceremonyFinalZkeyByteIdenticalToCdnZkey_depth1": true,
+    "cdnZkeyDepth1Sha256": "471a978875f91411b21ba5a2fbea41df30ec45eb23e3ac045edf7f30a2846a08",
+    "embeddedTranscript_depth20": {
+      "contributions": 386,
+      "firstContributor": "vplasencia-52170174",
+      "lastContributionIsBeacon": true,
+      "coordinator": "mpc-dev-121107909",
+      "beaconHash": "633881ca07fc1183e7d23ea58c7250bd699a71d783f545378a8474261ee134f7",
+      "beaconNumIterationsExp": 10,
+      "finalContributionHash": "1e6f9a1eea7bb35a59e255bcfb0abb83b9b70e7eaa9b786c0193d5f89d42b86366c82cd2433abe29f2563f2c8d17f1bba78de86e53a9229e33872ba17dbd446f",
+      "ceremonyPageLastContributorZkey": "semaphore-20_00385.zkey (385 contributions + 1 beacon = 386, matches)"
+    },
+    "embeddedTranscript_depth1": { "contributions": 1288, "ceremonyPageLastContributorZkey": "semaphore-1_01287.zkey (1287 + beacon = 1288, matches)" },
+    "independentAttestationInTranscript": {
+      "gist": "https://gist.github.com/qpzm/3b314d4189b5c219ab103471388b0f63",
+      "contributor": "qpzm-18223805",
+      "circuit": "semaphore-20",
+      "contributionIndex": 87,
+      "contributionHash": "eb516be304be910188c8bffc65620fa076177ba6aa10ed0cd1f5ed599dfc63cd9fd02883007428d076be5d904c3417eba20bea0cb1fa1b9ab52c3b9c1b72a116",
+      "presentInShippedZkeyTranscript": true
+    },
+    "zkeyDerivedVkeyEqualsBundledVkey_depth20": { "alpha_1": true, "beta_2": true, "gamma_2": true, "delta_2": true, "IC": true },
+    "ceremonyCircuitSourceIdenticalToInstalled": {
+      "installed": "@semaphore-protocol/circuits@4.14.3/src/semaphore.circom",
+      "includedBinaryMerkleRoot": "@zk-kit/binary-merkle-root.circom@2.0.0 (the fixed template)",
+      "identical": true
+    }
+  },
+  "assumptions": {
+    "A-ZKEY-VERIFY": "snarkjs `zkey verify r1cs ptau zkey` was NOT run to completion: the ceremony's r1cs is not publicly readable (403 in the bucket) and a WASM circom (circom2@0.2.23) compiles the identical source to 15,896 constraints where the ceremony's circuit fits pot 13 (<= 8,192), i.e. a different compiler/optimizer. What IS established: the shipped zkey is byte-identical to the ceremony's published final zkey and its transcript embeds independently published contribution hashes. What is NOT mechanically established here: that the zkey's embedded circuit hash corresponds to the audited source (a malicious coordinator could in principle have finalized a zkey for a different circuit). TO CLOSE: obtain circom at the ceremony's compiler version (p0tion config, not public in DefinitelySetup), compile packages/circuits/src/semaphore.circom @ 3521c96b with MAX_DEPTH=20, then run `snarkjs zkey verify main.r1cs ppot_0080_13.ptau semaphore-20.zkey` and expect `ZKey Ok!` with a 386-entry contribution list ending in the beacon above.",
+    "A-AUDIT-SCOPE": "PSE's internal March-2024 audit covered v4.0.0; the BinaryMerkleRoot bug shows post-audit soundness issues occur. The 4.14.3 circuit is the post-fix circuit; no third-party audit of the fixed circuit was located (F7).",
+    "A-HOST-INTEGRITY": "snark-artifacts.pse.dev ships no checksums (its repo, archived 2026-08-19, lists 'File integrity' as not provided). The pins above are OURS; the live prover refuses any artifact whose sha256 differs."
+  },
+  "sources": [
+    "https://docs.semaphore.pse.dev/ (ceremony link + 400-participant statement + block 20300394 anchor)",
+    "https://ceremony.pse.dev/projects/Semaphore%20Binary%20Merkle%20Root%20Fix (rendered in a real browser; Download ZKey tab hrefs; About tab commit link)",
+    "https://pse.dev/blog/under-constrained-bug-in-binary-merkle-root-circuit-fixed-in-v200 (2025-06-30, ZK-Kit team)",
+    "https://github.com/semaphore-protocol/semaphore/releases/tag/v4.13.0 ('Add production semaphore v4 zk artifacts')",
+    "https://gist.github.com/qpzm/3b314d4189b5c219ab103471388b0f63 (independent contributor attestation)",
+    "https://raw.githubusercontent.com/privacy-scaling-explorations/DefinitelySetup/main/ceremonies/semaphore-v4-ceremony/p0tionConfig.json (the 2024 ceremony config — for the record of what 4.13.0 is NOT)",
+    "snarkjs zkey section-10 (MPC params) parsed with @iden3/binfileutils using snarkjs's own readContribution() layout"
+  ]
+}

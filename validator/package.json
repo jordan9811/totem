@@ -1,0 +1,15 @@
+{
+  "name": "layers-validator",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Trusted persona + reputation validator for Totem (phase 1)",
+  "main": "server.js",
+  "dependencies": {
+    "@hpke/core": "1.9.0",
+    "@semaphore-protocol/group": "4.14.3",
+    "@semaphore-protocol/identity": "4.14.3",
+    "@semaphore-protocol/proof": "4.14.3",
+    "express": "^4.19.2",
+    "poseidon-lite": "0.3.0"
+  }
+}

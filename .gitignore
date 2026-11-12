@@ -1,0 +1,68 @@
+# --- secrets and device-held key material: NEVER committed ---
+.env
+.env.*
+!.env.example
+.keystore/
+*.pem
+*.key
+
+# --- operator/runtime state ---
+validator/*.db
+validator/*.db-wal
+validator/*.db-shm
+# PERSONA LAUNCH P2 (BYX): the X index the validator builds beside its database (validator/xindex.js)
+validator/x-index/
+.zk-artifacts/
+*.log
+
+# --- build output / dependencies ---
+node_modules/
+.next/
+out/
+dist/
+tsconfig.tsbuildinfo
+*.tsbuildinfo
+
+# --- test/tooling residue ---
+playwright-report/
+test-results/
+.claude/settings.local.json
+.claude/scheduled_tasks.lock
+shots/**/*.png
+shots/**/*.jpg
+shots/**/*.webm
+
+# --- OS / editor ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/
+
+# --- browser-tool residue ---
+.playwright-mcp/
+
+# --- deployment CLI state (project/service ids the platform writes locally) ---
+.railway/
+
+# --- MULTI-FID pass: the live recorders' output is a linkage table (attack-fid-1 #14) ---
+research/live-fid*.json
+
+# --- MEGA PASS 2 Gate 8: the docs site's cache and build output ---
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+# DOCS UNDER APP: the docs the app serves at /docs, built by npm run build (scripts/build-docs.mjs), never committed
+.docs-site/
+
+# the browser device bundle is a build artifact (npm run build:device)
+public/device/device.js
+# PERSONA LAUNCH P7: the browser prover (prover.js + its LICENSE file) and the proving files copied beside it are build
+# artifacts too (scripts/build-device.mjs); the proving files are never committed
+public/device/prover.js*
+public/device/zk/
+# PERSONA LAUNCH GO-LIVE (A-GPL-SOURCE-OFFER): prover.js's GPL-3.0 source offer, written by scripts/build-device.mjs from the
+# committed files on every build (scripts/lib/gpl-source.mjs) — generated, never committed, never hand-copied
+public/device/source/
+
+# the PUBLIC deployment env template carries names only (BROWSER KEYSTORE PASS Gate 4) — tracked on purpose
+!.env.production.example

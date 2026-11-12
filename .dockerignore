@@ -1,0 +1,38 @@
+# what never enters a container image: secrets, device-held key material, runtime state, build residue, research
+.env
+.env.*
+!.env.production.example
+.keystore/
+*.pem
+*.key
+validator/*.db
+validator/*.db-wal
+validator/*.db-shm
+validator/deaths.log
+# PUBLIC GO-LIVE (A-BROWSER-ARTIFACTS-ABSENT-ON-DEPLOY): .zk-artifacts/ is NO LONGER excluded. The pinned Semaphore v4
+# depth-20 proving files (semaphore-20.wasm + .zkey, ~5.7 MB) must reach the APP's build, where scripts/build-device.mjs
+# checks them against their pins (bytes, sha256, blake2b-512 — lib/zk/ceremonyPins.ts) and copies them to
+# public/device/zk/; with REQUIRE_ZK_ARTIFACTS=1 on the app the build FAILS when they are absent or off-pin, and
+# ZK_ARTIFACT_FETCH=1 fetches them first from the pinned host (SEMAPHORE_ARTIFACT_BASE) when the upload did not carry them
+# (they are gitignored, and `railway up` honours .gitignore). The validator image is unaffected: Dockerfile.validator
+# copies explicit paths only. Nothing secret lives there: the files are public ceremony artifacts.
+*.log
+node_modules/
+.next/
+out/
+dist/
+docs/.vitepress/cache/
+docs/.vitepress/dist/
+# DOCS UNDER APP: a deployment builds its own docs (npm run build); a local build, possibly with the internal pages, never uploads.
+# docs/ itself must NOT be listed here: the app build renders the site from it.
+.docs-site/
+playwright-report/
+test-results/
+shots/
+# research/ is NOT excluded: the platform's manifest lists every tracked file and its builders resolve content
+# through this file, so excluding a tracked path here makes the other service's build fail on a missing file
+# ("/research/poc/package.json": not found). What enters the validator image is decided by the Dockerfile's explicit
+# COPY lines, not by this list.
+.git/
+.claude/
+.playwright-mcp/

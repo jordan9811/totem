@@ -1,0 +1,60 @@
+{
+  "v": 1,
+  "version": 1,
+  "policy": "totem-ad-policy/1",
+  "about": "Totem's ad lot list (Phase 1 of docs/roadmap/ad-auction.md): the same list for everyone, shipped inside the app and served read-only at /ads/lots.json. Each device picks from it for the mode it is in; nobody is told which ad a device showed. TO CHANGE THE HOUSE AD: edit the advertiser and creative of both lots below, run `npm run ads:approve` to see them against the policy, then `npm run ads:approve -- --yes` to sign the new words (until it is signed again an edited lot is not shown), then rebuild and deploy.",
+  "lots": [
+    {
+      "id": "house-following",
+      "placement": "following",
+      "audience": {
+        "kind": "generic"
+      },
+      "house": true,
+      "advertiser": {
+        "id": "house",
+        "name": "Totem",
+        "handle": "ontotem"
+      },
+      "creative": {
+        "headline": "Your project could be here",
+        "body": "A house ad: the slot Totem keeps for its own projects. Ads here are picked on your device for the mode you're in, and you set how many per mode in Settings.",
+        "url": "https://ontotem.com/docs/features/ad-market",
+        "cta": "How ads work"
+      },
+      "review": {
+        "decision": "approved",
+        "policy": "totem-ad-policy/1",
+        "reviewer": "4c6ba4d482e3a107b21ecb70b4daa31da6b85eb8a14ea6a33d60357f4a53fa7f",
+        "reviewedAt": "2026-11-07",
+        "sig": "cb6504ffd312308b74e16990fdd3159e255189033758f4c15cba5f8503123194f97564b0bd4eeaa5253f6c6b212c616c9e3ca9ded3d4bf18313f0b7affcfcd09"
+      }
+    },
+    {
+      "id": "house-foryou",
+      "placement": "forYou",
+      "audience": {
+        "kind": "generic"
+      },
+      "house": true,
+      "advertiser": {
+        "id": "house",
+        "name": "Totem",
+        "handle": "ontotem"
+      },
+      "creative": {
+        "headline": "Your project could be here",
+        "body": "A house ad: the slot Totem keeps for its own projects. Ads here are picked on your device for the mode you're in, and you set how many per mode in Settings.",
+        "url": "https://ontotem.com/docs/features/ad-market",
+        "cta": "How ads work"
+      },
+      "review": {
+        "decision": "approved",
+        "policy": "totem-ad-policy/1",
+        "reviewer": "4c6ba4d482e3a107b21ecb70b4daa31da6b85eb8a14ea6a33d60357f4a53fa7f",
+        "reviewedAt": "2026-11-07",
+        "sig": "61ee4ba8b05579d576ac4d1fea8e7b0e176656a411758a0d9fd2ac5cb3b5c86aa44f73becf977e72ed56b388adf28571bcedd5fbebd8ed6cf53b57966b77210d"
+      }
+    }
+  ]
+}

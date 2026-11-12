@@ -1,0 +1,28 @@
+{
+  "accounts": [
+    {
+      "handle": "yeak_layers",
+      "facts": { "basedIn": { "granularity": "country", "value": "United States" }, "vpnCaveat": false, "joinedAt": 1425168000000, "usernameChanges": 0 }
+    },
+    {
+      "handle": "vpn_traveler",
+      "facts": { "basedIn": { "granularity": "country", "value": "Germany" }, "vpnCaveat": true, "joinedAt": 1546300800000, "usernameChanges": 0 }
+    },
+    {
+      "handle": "renamed_often",
+      "facts": { "basedIn": { "granularity": "region", "value": "Europe" }, "vpnCaveat": false, "joinedAt": 1330560000000, "usernameChanges": 3 }
+    },
+    {
+      "handle": "fresh_account",
+      "facts": { "basedIn": { "granularity": "country", "value": "Brazil" }, "vpnCaveat": false, "joinedAt": 1785542400000, "usernameChanges": 0 }
+    },
+    {
+      "handle": "apac_regional",
+      "facts": { "basedIn": { "granularity": "region", "value": "Asia-Pacific" }, "vpnCaveat": false, "joinedAt": 1483228800000, "usernameChanges": 0 }
+    },
+    {
+      "handle": "no_location",
+      "facts": { "basedIn": null, "vpnCaveat": false, "joinedAt": 1483228800000, "usernameChanges": 0 }
+    }
+  ]
+}

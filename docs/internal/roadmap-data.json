@@ -1,0 +1,2527 @@
+{
+  "generatedAt": "2026-11-12",
+  "statuses": [
+    "SHIPPED",
+    "SHIPPED-FIXTURE",
+    "SPECCED",
+    "IDEA",
+    "KNOWN-BROKEN",
+    "UNCLEAR"
+  ],
+  "areas": [
+    "docs & tooling",
+    "feed & algorithms",
+    "identity",
+    "influence",
+    "interop & network",
+    "market & ads",
+    "other",
+    "social surfaces",
+    "ux & input",
+    "zk & attestations"
+  ],
+  "counts": {
+    "SHIPPED": 202,
+    "SHIPPED-FIXTURE": 46,
+    "KNOWN-BROKEN": 33,
+    "SPECCED": 18,
+    "UNCLEAR": 2,
+    "IDEA": 3
+  },
+  "distance": [
+    {
+      "concept": "Root & personas",
+      "counts": {
+        "SHIPPED": 61,
+        "SHIPPED-FIXTURE": 17,
+        "KNOWN-BROKEN": 2,
+        "SPECCED": 6
+      },
+      "total": 86
+    },
+    {
+      "concept": "Disclosure & grants",
+      "counts": {
+        "SHIPPED": 12,
+        "KNOWN-BROKEN": 4,
+        "SPECCED": 1,
+        "SHIPPED-FIXTURE": 3
+      },
+      "total": 20
+    },
+    {
+      "concept": "Forking",
+      "counts": {
+        "KNOWN-BROKEN": 1,
+        "SHIPPED": 6,
+        "SPECCED": 3,
+        "SHIPPED-FIXTURE": 2
+      },
+      "total": 12
+    },
+    {
+      "concept": "Reputation & UBI",
+      "counts": {
+        "SHIPPED": 16,
+        "SHIPPED-FIXTURE": 7,
+        "KNOWN-BROKEN": 2,
+        "UNCLEAR": 1,
+        "SPECCED": 1
+      },
+      "total": 27
+    },
+    {
+      "concept": "Attestations",
+      "counts": {
+        "SHIPPED-FIXTURE": 3,
+        "SHIPPED": 18,
+        "SPECCED": 2
+      },
+      "total": 23
+    },
+    {
+      "concept": "Lenses",
+      "counts": {
+        "SHIPPED": 9,
+        "KNOWN-BROKEN": 1,
+        "SHIPPED-FIXTURE": 5,
+        "SPECCED": 1
+      },
+      "total": 16
+    }
+  ],
+  "items": [
+    {
+      "status": "SHIPPED",
+      "text": "A Farcaster client with X visual parity plus a persona/reputation layer via a local trusted validator, as phase 1 of a larger protocol.",
+      "area": "identity",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Layers — Build Report (phase 1: X visual parity)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Every graded surface built light-mode-first (refs are logged-in and entirely light mode), with a dark theme left as a token swap not part of the graded build.",
+      "area": "feed & algorithms",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "2026-style nav (Home, Explore, Notifications, Chat, SuperGrok, Premium+, Money, History, Creator Studio, Articles, Profile, More), with SuperGrok/Premium+/Money/etc. as stub surfaces.",
+      "area": "social surfaces",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "SQLite via `node:sqlite` (built into Node 24) instead of a native npm binding, to avoid native-build risk on Windows; Express as specified.",
+      "area": "ux & input",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Handle rules relaxed to `^[A-Za-z0-9_]{1,15}$` (X-style mixed case) to match mixed-case handles shown in refs.",
+      "area": "interop & network",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Dev identity seeded as jordan/@yeak__ (fid 9152) matching the logged-in refs; personas resolve through the validator like any other root, with the first persona auto-selected and no login wall on reads.",
+      "area": "identity",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Tier-1 discovery filter exempts the viewer's own persona so a fresh account can still see its own posts in For You.",
+      "area": "identity",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Fixture authors seeded as validator roots/personas (one root per fixture account, rep scaled to follower counts, @tier1grinder pinned to tier 1) so tier badges and discovery filtering are live end-to-end in fixture mode.",
+      "area": "identity",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Casts publish under the root signer with a trailing `layers:persona:<id>` marker that the client resolves and strips at render (phase 2 moves this into signed cast metadata).",
+      "area": "identity",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "The Neynar client (`lib/data.ts`) implements real v2 endpoints (trending feed, user, cast, conversation, channels, cast publish via managed signer), but this build ran entirely on the fixture dataset (`lib/fixtures/data.json`) because no `NEYNAR_API_KEY` was available in this environment.",
+      "area": "feed & algorithms",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Live-mode Neynar code paths are written but unverified against the real API.",
+      "area": "feed & algorithms",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Decisions made without asking (spec ambiguities & conflicts)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Grok/Premium/Money/Chat/Articles/Creator Studio are stub pages, out of phase-1 scope (nav parity only); search executes no queries (visual parity only); mobile drawer nav is simplified vs X's full drawer.",
+      "area": "interop & network",
+      "pass": "01-build",
+      "passTitle": "Build Report (phase 1: X visual parity)",
+      "source": "notes/reports/REPORT.md › Known gaps"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "All four gates closed, 35/35 cumulative checks green, and 4/4 consecutive full-suite runs fully green (140 checks, zero failures) via `npm run test:stability`.",
+      "area": "docs & tooling",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Layers — Gated Pass Report (Gates 0–3)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0 — versioned in-place migrations on the validator's existing SQLite file (`validator/migrations.js`); migration 002 adds `adapter_state(namespace, key, value, updated_at)` plus `GET/PUT /state[/:ns]` and `DELETE /state`; client-side `mock/persist.ts` + `store.ts` hydrate once per process and write through after every mutation.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 0 — Housekeeping — CLOSED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0 — seed tagging via `demoTags: string[]` on all 29 personas (`seed/content/demoTags.mjs`), mapping existing accounts to what they demonstrate, with no new accounts invented.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 0 — Housekeeping — CLOSED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0 — `npm run seed` preserves user state by default; `--wipe` clears it via `DELETE /state`.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 0 — Housekeeping — CLOSED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 (Wave 4, 5/5) — narrowcast channels (open/request/invite) built on the rules engine and disclosure primitives, with `visibleChannelIds` gating both the main feed eligibility pass and the health-card `visible()` filter in one place.",
+      "area": "identity",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 1 — Wave 4: Social Surfaces — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — public bookmark folders with a Pinterest-style grid, follow-a-folder, and a seeded private folder as the negative control.",
+      "area": "social surfaces",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 1 — Wave 4: Social Surfaces — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — text spaces with deterministic scripted liveness on the controllable clock, host controls (pin/mute/mark-highlight), and an AV stage stub slot.",
+      "area": "market & ads",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 1 — Wave 4: Social Surfaces — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — highlight extraction compiling host-marked highlights into a reel card with full attribution injected into topic-matched timelines.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 1 — Wave 4: Social Surfaces — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — a unified injection queue (`lib/injection.ts`) handling readwise chunks, corrections, sends, folder cards, highlight reels, and (Gate 3) ads, with cross-type de-duplication by source hash and a per-type cap, built proactively rather than after a collision.",
+      "area": "feed & algorithms",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 1 — Wave 4: Social Surfaces — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 (Wave 5, 4/4) — graph builder with standard categories one-tap claimable and sensitive categories (health, finances, politics) behind a per-category opt-in, default OFF, where \"claim all\" only touches standard categories and withdrawing consent immediately deactivates that category's claims.",
+      "area": "feed & algorithms",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 2 — Wave 5: Context Graph — CLOSED (4/4)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 2 — mock imports (card spend, wearable, watch history) are multi-step with visible progress and land attested claims marked with issuer + timestamp, rendered distinctly from self-declared ones.",
+      "area": "zk & attestations",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 2 — Wave 5: Context Graph — CLOSED (4/4)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — the \"What ads would I see\" transparency screen, using a match index precomputed at seed time so a claim toggle recomputes without a spinner.",
+      "area": "market & ads",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 2 — Wave 5: Context Graph — CLOSED (4/4)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 2 — earnings reads mock settlement with a deterministic seeded history; totals equal the exact sum of events.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 2 — Wave 5: Context Graph — CLOSED (4/4)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 (Wave 6, 6/6) — an escrow intent auction with a create-intent flow, pitch slots, a live countdown, deterministic scripted advertiser bids on the controllable clock, and both resolution paths (pick a winner, or let the window lapse) firing settlement and updating earnings.",
+      "area": "identity",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 3 — Wave 6: Market Layer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — an advertiser console whose audience builder is the rules engine itself (same `RuleGroup` shape, same `describeGroup` helper), with `graph.claim` added as a first-class `RuleField` rather than a parallel predicate type.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 3 — Wave 6: Market Layer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — the k-floor invariant enforced independently in both the UI (disables submit, shows the reason) and `POST /api/market/campaign` (re-checks, returns 422 regardless of UI state).",
+      "area": "market & ads",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 3 — Wave 6: Market Layer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — in-feed ad units matching X's promoted-post anatomy plus a disclosure label and one working mini-app embed, surfacing only for graph-matched viewers and only in modes that allow ads (Event Safe Space sets `allowAds: false` as a mode property the feed reads).",
+      "area": "identity",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 3 — Wave 6: Market Layer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — a measurement dashboard exposing aggregates with deterministic seeded DP noise, asserted on payload shape (an allow-list of keys plus a scan for identifier-shaped substrings) and exact agreement across two reads.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › GATE 3 — Wave 6: Market Layer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "The stability suite runs against a production server (`next build` + `next start`) rather than `next dev`, since the `next dev` server (not the application) proved unstable in this OneDrive-synced directory.",
+      "area": "docs & tooling",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Stability across consecutive runs — the most instructive part of the pass"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Notification policy is set, displayed, and round-tripped by modes, but the notifications surface does not filter on it — still open, not on any gate's exit criteria.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Known gaps — dispositions"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Action-button bindings are stored per mode but neither the composer nor the nav rail reads them back yet — still open.",
+      "area": "feed & algorithms",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Known gaps — dispositions"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "`hasMedia` is always false in seed data, so rules on that field are sound but inert — still open.",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Known gaps — dispositions"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Search does not filter blocked personas because search executes no queries at all (inherited phase-1 gap); closing this needs a real search implementation, which no gate required.",
+      "area": "ux & input",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Known gaps — dispositions"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Live Neynar mode remains unverified — no API key in this environment.",
+      "area": "feed & algorithms",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Known gaps — dispositions"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Channel request/invite approval flow: `join` records `requested`/`invited` status but there is no owner-side approval UI, so a requested member stays requested (enforcement is correct; the approval affordance is missing).",
+      "area": "other",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Known gaps — dispositions"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "The advertiser console is single-clause — it exposes one claim plus one tier clause, though the underlying `RuleGroup` supports full AND/OR/NOT nesting as the feed rule builder does.",
+      "area": "feed & algorithms",
+      "pass": "02-gated",
+      "passTitle": "Gated Pass Report (Gates 0–3)",
+      "source": "notes/reports/REPORT-G.md › Known gaps — dispositions"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Adapter interfaces, a deterministic seed engine, Identity & Modes, Reputation & Rules, Feed Health, and a settings overhaul, built on top of the phase-1 X-parity client.",
+      "area": "feed & algorithms",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Layers — Major Pass Report (Waves 1–3)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The adapter layer (`lib/adapters/types.ts`) was written first, before any feature code, defining PersonaAdapter, RepAdapter, DisclosureAdapter, ModeAdapter, RulesAdapter, AttestationAdapter, and FeedHealthAdapter, with no UI reaching around an adapter.",
+      "area": "other",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › What shipped"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Every mock adapter method goes through `withMockLatency()` (randomized 200-1500ms plus a 2% synthetic failure rate), forcing every consuming surface to have loading and error states from first render.",
+      "area": "other",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A seed engine (`npm run seed` -> `/seed/generate.mjs`) using a seeded mulberry32 PRNG with no `Date.now()`/`Math.random()` anywhere, verified byte-identical on rerun, producing 25 roots / 29 personas across 5 clusters, 400 posts, 5 community notes, and the seeded test user.",
+      "area": "social surfaces",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Wave 1 (Identity & Modes) — persona create/switch; disclosure grants (public/followers/inner circle/hidden) with mock enforcement; mutual-consent unlock with both-or-nothing reveal; layered facet following; and Modes bundling persona, ranking weights, filter rules, notification policy, and action-button bindings, with four presets (Default, Work, Event Safe Space, Curate) plus create/edit/duplicate/delete.",
+      "area": "identity",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Wave 2 (Reputation & Rules) — one rules engine (`lib/rules/evaluate.ts`), a serializable predicate over (post, author, viewer, context) with AND/OR/NOT, consumed identically by modes, feed filters, and the rule builder; tier badges tap through to an explainer; cross-persona blocking fans out to the root; a graduation panel; a 3-issuer attestation catalogue.",
+      "area": "identity",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Wave 3 (Feed Health) — readwise-in-timeline with sentence-boundary-aware ~280-word chunking and a fast-forward dev control; send-to-timeline with a receiver permission gate; topic saturation with an \"I'm caught up\" control where `is_update` posts still break through; community-notes reinjection gated on note-author tier >= 3 and >= 2 endorsements; a debunk indicator.",
+      "area": "feed & algorithms",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A settings overhaul with seven sections (Account & Personas, Modes, Rules & Filters, Feed Health, Privacy & Disclosure, Attestations, Developer), the Developer pane showing which implementation each adapter resolves to and toggling latency injection, seed reset, and readwise fast-forward.",
+      "area": "identity",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The phase-1 fixture timeline is preserved and reachable at `/home?feed=classic`, kept alive rather than deleted so the validator-backed persona-to-cast-to-block flow does not silently regress.",
+      "area": "identity",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Decisions made without asking"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Server-side retry (up to 3x) on transient adapter failures, surfacing an error state only on persistent failure (`lib/adapters/retry.ts`), rather than weakening the required 2% synthetic failure injection.",
+      "area": "other",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Decisions made without asking"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "\"Hide replies\" implemented as a mode flag rather than a rule, since the rules engine evaluates a post's own fields and reply-ness is a property of the feed graph.",
+      "area": "feed & algorithms",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Decisions made without asking"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "An author-diversity pass on ranking, pushing a post down a slot if the same author occupies either of the previous two slots.",
+      "area": "market & ads",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Decisions made without asking"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Dicebear avatars built by URL construction so seed generation has no runtime network dependency.",
+      "area": "other",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Decisions made without asking"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Mock state is process-lifetime: modes, rules, grants, blocks, and schedules live in memory and reset when the dev server restarts, even though the spec asked for SQLite-or-localStorage persistence and every adapter method is already async and failure-capable.",
+      "area": "other",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Known gaps"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Notification policy is stored, displayed, and round-tripped by a mode, but the notifications surface does not yet filter on it.",
+      "area": "feed & algorithms",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Known gaps"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Action-button bindings persist per mode in the composer and nav slots, but neither the composer nor the nav rail reads them back yet.",
+      "area": "feed & algorithms",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Known gaps"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "`hasMedia` is always false in seed data (posts carry no image embeds), so rules on that field are structurally sound but currently inert.",
+      "area": "other",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Known gaps"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Search does not filter blocked personas because search executes no queries at all (inherited phase-1 gap); acceptance test 3 verifies block fan-out across feed and profile, not search.",
+      "area": "feed & algorithms",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Known gaps"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Live Neynar mode remains implemented but unverified (no API key available).",
+      "area": "feed & algorithms",
+      "pass": "03-waves",
+      "passTitle": "Major Pass Report (Waves 1–3)",
+      "source": "notes/reports/REPORT-WAVES.md › Known gaps"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Four gates — relationship event log, portable algorithms, caught-up banner, curator subscriptions — plus two call options, all closed.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › TIER A — CLOSED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — a closed-union event log (`lib/eventlog/types.ts`) of twelve event types (graph edges, moderation, the user's own interactions, and the derived first-interaction pair), with no view/impression/dwell/seen/scroll type, enforced both by a static grep and a runtime rejection in the adapter's write path.",
+      "area": "ux & input",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped (iteration 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — exactly-one write semantics: routes mint each event (id + timestamp) once, `record()` is an idempotent put-by-id, and the write retries through the mocks' injected failures.",
+      "area": "other",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped (iteration 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — `/api/follow` returns 503 if the event cannot be recorded, since an edge action whose history silently failed to record is unrecoverable loss.",
+      "area": "social surfaces",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped (iteration 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — follow became real: seed baseline plus persisted deltas behind one `followingFor()` helper shared by the feed, routes, and tests, replacing prior client-side `useState` chrome with no endpoint.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › Judgment calls made before building"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — call sites wired to the log across both block routes (seed-backed and validator-backed), facet follow/unfollow, likes, replies, and the follow route itself; the room-participant mute was deliberately left unwired since it is host moderation, not the user's own graph.",
+      "area": "social surfaces",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped (iteration 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — co-interaction detection in both directions (reply-then-follow, like-an-already-followed-author), consulting only the user's own recorded actions.",
+      "area": "social surfaces",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped (iteration 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — backfill gives every seeded follow a synthetic origin (`backfilled: true`, `context: \"backfill\"`, timestamp 0), written directly to the store at seed time to avoid ~20s of injected latency on reset.",
+      "area": "social surfaces",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped (iteration 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — the root-leak sweep now scans every payload for event ids (`ev_` prefix) and event-schema field names, with exactly one sanctioned surface (`/api/eventlog`, actor fixed server-side).",
+      "area": "identity",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped (iteration 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — a signed, portable algorithm artifact (`lib/algo/artifact.ts`) with rules embedded in full (ids are meaningless off-device) and provenance (`forkedFrom`) inside the signature so a forged lineage breaks verification.",
+      "area": "identity",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — guardrails in the rules evaluator itself (`validateRuleGroup()`) refuse by name any rule touching the disclosure/grant layer, the k-floor, correction delivery, or composer chrome, called by both the import sanitizer and `buildFeed`; a protected-namespace rule kills the whole import.",
+      "area": "identity",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — a hostile-artifact safety test imports one artifact attempting all four attacks and asserts refusal names every attack while all four protected surfaces keep functioning.",
+      "area": "docs & tooling",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — `previewArtifact` runs through the same `buildFeed` activation uses (with `modeOverride` + `inlineRules`), so preview numbers structurally equal post-activation reality.",
+      "area": "other",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — provenance forks on edit (`mode.update` flips `modifiedLocally`, rendered as \"modified from @author's algo vN\") and a marketplace-lite Algo Shelf folder holds published algorithms through the ordinary folder mechanism.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › GATE 2 — Portable algorithms — CLOSED pending regression (2 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — the caught-up banner is a hard stop structurally: the exhausted branch of `buildFeed` returns a fixed card order with no code path able to place a ranked post, ad, or anything else below the banner.",
+      "area": "market & ads",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › GATE 3 — Caught-up banner — CLOSED (2 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — calibration (off / after new content / aggressive) lives on the mode and mode builder, with aggressive counting saturated stories as seen, measurably reducing posts above the banner; Safe Space composes correctly because exhaustion is computed on the post-rules eligible set.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › GATE 3 — Caught-up banner — CLOSED (2 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 — real multisig verification for curator annotations: a signer counts only if listed on the desk and carrying a signature verifying against the annotation's canonical form; a sub-threshold annotation is entirely absent, not merely styled smaller.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 — curator annotations ride the existing correction cards and debunk indicator with no parallel display system, tagged \"Annotation from {desk}\" plus an evidence link.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 — viewer actions (badge only by default, demote, auto-block composing with cross-persona blocking) are all derived at read time from valid annotations, so unsubscribing reverses everything on the next render.",
+      "area": "identity",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › What shipped"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Call Option A — typed refutation/probe edges (author-declared or curator-attested), a standing rule where a claim holds standing unless refuted by an equal-or-higher tier author or a subscribed desk, and a `kingOfTheHill` seeded algo card (engagement weight zero) demonstrating lost-standing posts sinking in the window.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › CALL OPTION A — Refutation edges — OPENED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Call Option A — concur/dispute one-tap voting on annotation cards feeding a per-curator accuracy tally in subscription settings, and distinct thread treatment for author-declared versus curator-attested refutations.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › CALL OPTION A — Refutation edges — OPENED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Call Option B — a relationship history section on every non-own profile (why-you-follow with a receipt cast, first interaction, engagement count, strike history), and a per-user 3-strike auto-mute toggle defaulting OFF, requiring a triggering cast per strike.",
+      "area": "social surfaces",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › CALL OPTION B — Relationship history UI + 3-strike — CLOSED (1 iteration)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Signatures are mock primitives throughout (grants, algo artifacts, annotations, all `H(key ‖ canonical)`); canonical forms are real and tested, the primitive is not — same deferral as the mega pass.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "`views` on seeded posts is fixture data; live mode omits it since Farcaster has no impression metric.",
+      "area": "feed & algorithms",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Author-declared refutation edges accept any `fromCastId` — the route does not verify the asserter authored the from-cast, though the standing math itself is unaffected; a hostile client could declare edges in its own name against arbitrary casts.",
+      "area": "interop & network",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "KOTH standing consults only in-window posts — a claim outside the 40-post window is neither standing nor sunk, it is simply absent.",
+      "area": "other",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Concur/dispute tallies are per-annotation and unweighted (one persona, one vote, no tier weighting), deliberately, since weighting by tier would let high-tier accounts define curator reputations.",
+      "area": "identity",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "The Wave-6 advertiser estimate remains timing-sensitive under injected latency; g3 test 12 now polls for settle, but up to ~5s of pending UX on a bad latency roll is mock-latency behavior, not a product defect.",
+      "area": "docs & tooling",
+      "pass": "04-tier-a",
+      "passTitle": "Tier A Report",
+      "source": "notes/reports/REPORT-A.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Five gates — cleanup (safety-set), network-state filter packs, the crosspost composer, InfoFi market extensions, curator issuance — all closed green with no plateau invocations.",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › KNOWN-BROKEN (Tier B)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0 — refutation authorship enforced in `declareEdge`/`holdsStanding`: an author edge verifies only when the declarer is the from-cast's author; unverified edges are recorded as testimony but never touch standing.",
+      "area": "interop & network",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 0 — Cleanup — IN PROGRESS"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0 — the injection queue now guarantees every distinct tenant its first slot before any tenant takes a second, fixing the per-type cap that couldn't distinguish community notes from curator annotations sharing the `correction` type.",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 0 — Cleanup — IN PROGRESS"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 (5/5) — a seeded \"Longform Standard\" filter pack on the algo shelf; importing a pack stores it as a pack with no mode created, and attachment to a mode is a separate, default-OFF, explicit act.",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 1 — Network-state filter packs — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — per-mode pack attachment (Work runs its attached pack while Default doesn't) with a builder round-trip (export -> preview with exact hide counts -> import) that is byte-stable through the sanitizer.",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 1 — Network-state filter packs — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — all four Tier A import guardrails hold on the pack path plus a new predicate-shape refusal: a predicate carrying anything beyond claim+mode kills the import.",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 1 — Network-state filter packs — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 — a read API contract (`GET /api/packs`, `GET /api/packs?packId=X&personaId=Y`) returning only a boolean `pass`, with no reason or matched predicate, identical response shape for pass and fail so it cannot become an oracle over private graph facts.",
+      "area": "interop & network",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 1 — Network-state filter packs — CLOSED (5/5)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 (6/6) — external-account binding follows the active persona; the private persona binds nothing by construction; unbound publish is a server-side 403.",
+      "area": "identity",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 2 — Crosspost composer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — a cost estimate ($0.015 plain, $0.195 link, exactly 13x) surfaced in the composer before send.",
+      "area": "social surfaces",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 2 — Crosspost composer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — a degradation preview that equals what the mock destination actually received, asserted against the destination's own record rather than the preview describing itself; the published draft IS the degraded draft.",
+      "area": "other",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 2 — Crosspost composer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — crosspost lands in the relationship event log with its external ref, as a deliberate closed-union extension (publishing is an action taken).",
+      "area": "other",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 2 — Crosspost composer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 — collapse behavior: an overlapping viewer sees one copy plus a \"probably seen there\" chip, a non-overlapping viewer sees the original plus an attributed mirror, and a viewer preference can disable collapsing entirely.",
+      "area": "other",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 2 — Crosspost composer — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 (7/7) — request-priced reads, pay-to-DM, pledge-to-action, and tip-gated channels all ride one escrow ledger (`lib/market/escrow.ts`) and the controllable market clock, with funds moving only through `hold()`/`resolve()`/`resolvePot()`.",
+      "area": "identity",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 3 — InfoFi market extensions — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — `resolve()` throws on a second resolution, `resolvePot()` refuses any distribution that doesn't sum to the pot to the cent, and the conservation identity `Δ(balances + held) === 1000 × Δ(accounts)` is asserted across every suite.",
+      "area": "docs & tooling",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 3 — InfoFi market extensions — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — request-priced reads use a per-entity-class rate card (mutuals 0 / extended 2 / randoms 5 / businesses 25 default); dwell past 8s settles to the reader, unread past 1h refunds, and `recordDwell` is idempotent under client retry.",
+      "area": "other",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 3 — InfoFi market extensions — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — pay-to-DM escrows the recipient's price for non-mutuals; a reply refunds, ignoring past the window keeps the fee as a spam slash settled to the recipient, and mutuals bypass with no escrow.",
+      "area": "identity",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 3 — InfoFi market extensions — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — pledge-to-action awards a qualifying replier inside a 2h window; after it closes the award path refuses by name and the sweep draws deterministically via `sha256(\"lottery:\"+pledgeId)` mod the sorted replier pool, independently recomputed and matched by the suite; no repliers means a refund, never an invented winner.",
+      "area": "docs & tooling",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 3 — InfoFi market extensions — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 — tip-gated channels escrow tips into an epoch pot; likes are read from the store at close, split quadratically with floor-2dp and the remainder to the highest weight, matching a hand-computed split exactly.",
+      "area": "identity",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 3 — InfoFi market extensions — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 (7/7) — curator issuance: creating a draft signs it as its author with the canonical body frozen at creation; forged/off-desk signatures never count toward threshold; at exactly threshold the annotation appends into the feed's list with zero new display code; 1-of-1 desks issue at creation; signing an already-issued draft is a no-op.",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 4 — Curator issuance — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 — a draft is visible only to its author and invited co-signers, verified adversarially: off-desk curator sees nothing, civilian sees nothing, claim text appears in no non-invited payload, and an uninvited sign attempt is a 403 leaving the draft untouched.",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 4 — Curator issuance — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 — \"Curating as @handle\" chrome on the desk page, with payloads carrying persona ids and handles only; the root-leak grep scans `/api/curators` plus the pack, crosspost, and InfoFi surfaces (36 payloads, clean).",
+      "area": "identity",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 4 — Curator issuance — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 — the curator's public accuracy record rides the Tier A annotationVotes tallies; issuing a draft moves the author's issued count by exactly one; `curatorFeeds` and `annotationDrafts` were both changed to persist (previously seed-derived and unpersisted).",
+      "area": "feed & algorithms",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 4 — Curator issuance — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The destination adapter spec (`lib/crosspost/destinations.ts`) exposes only capabilities, costs, and refs to the composer, with `publish`, `costEstimate`, and a `degradeFor` contract computing the delivered draft before send.",
+      "area": "social surfaces",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › THE DESTINATION ADAPTER SPEC (the interop pass implements against this)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Earnings records can be lost if `settle.record` fails persistently after an escrow resolves; the ledger stays correct and authoritative, but the earnings-record entry for that settlement is lost — a real settlement adapter needs put-by-id so the record path can be retried idempotently too.",
+      "area": "identity",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › GATE 3 — InfoFi market extensions — CLOSED (7/7)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Broken filter packs fail OPEN at the feed layer by design (a pack that cannot evaluate filters nothing), since packs are a curation convenience, not a safety surface, unlike the disclosure-wins pack read API and import guardrails which fail closed.",
+      "area": "identity",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › KNOWN-BROKEN (Tier B)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Entity classification for read pricing is coarse (business = ran ads in the seed, mutual/extended/randoms by graph proximity) pending a real graph for non-viewer personas.",
+      "area": "market & ads",
+      "pass": "05-tier-b",
+      "passTitle": "Tier B Report",
+      "source": "notes/reports/REPORT-B.md › KNOWN-BROKEN (Tier B)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: identity substrate rework — a root-confined keystore, persona derivation via real SHA-256, and the grant as the atom of disclosure across four tiers (public, opt-in, whitelist, hidden-as-absence).",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › GATE 0 — Identity substrate rework — **CLOSED** (1 iteration, 3 donated)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Blocking reworked to pairwise persona-to-persona records, fanned out at read time only over the siblings a viewer can actually resolve through grants.",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › The substantive semantic change: blocking"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: PersonaResolver renders merged identity and fails closed to the bare persona on any error, plus `viewAs` to occupy another seeded persona's seat for demo and page-level testing.",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › GATE 1 — Disclosure tiers — **CLOSED** (2 iterations, 3 donated forward)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: a fork wizard and a \"moved card\" in the injection queue, with forward pointers resolving only when both a `kind` field and membership in the fork's recorded id set hold.",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › GATE 2 — Forking — **CLOSED** (2 iterations, 2 donated forward)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: private personas as a product — private posts reachable through exactly one chokepoint (`lib/private/visibility.ts`), `notificationPolicy` and `actionButtonSlots` enforced, a mode-pinned persona, and search made to never distinguish \"no results\" from \"not permitted.\"",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › GATE 3 — Private personas as a product — **CLOSED** (3 iterations)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4: live read-only Neynar integration — `buildFeed` sources real casts, the fabricated `views` field is dropped (Farcaster has no impression metric), and `power_badge` is no longer treated as verification.",
+      "area": "interop & network",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › GATE 4 — Neynar read-only — **CLOSED** (2 iterations) — **LIVE**, not fixture-verified"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4's verified fallback: with the API key removed, the same 10/10 mapping suite runs against recorded fixture responses and labels itself FIXTURE-VERIFIED rather than claiming an unearned pass.",
+      "area": "docs & tooling",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › GATE 4 — Neynar read-only — **CLOSED** (2 iterations) — **LIVE**, not fixture-verified"
+    },
+    {
+      "status": "SPECCED",
+      "text": "The circuit spec: persona derivation, the grant's canonical signing form, the three resolution predicates (linkage, forward, audience), and fork operations, each stated as the exact predicate a future ZK circuit must prove.",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › THE CIRCUIT SPEC"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "No zero-knowledge anything — the server evaluates every disclosure predicate in the clear and is trusted.",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › Deliberately not built (crypto deferred, per standing direction)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Grant signatures are `H(key ‖ canonical)`, not a real signature scheme, and `verifyGrant` has zero callers today.",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › Deliberately not built (crypto deferred, per standing direction)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "Live mode maps only image and link embeds; frames, videos and quoted casts are skipped rather than mapped badly.",
+      "area": "feed & algorithms",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › Incomplete"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "No persona layer exists on live authors — real Farcaster accounts get no grant or linkage resolution, so the two halves of the product sit side by side rather than fused.",
+      "area": "identity",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › Incomplete"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "The k-anonymity floor logic is real, but the audience estimate it checks against is a mock.",
+      "area": "other",
+      "pass": "06-mega",
+      "passTitle": "Mega Pass — The Disclosure Model",
+      "source": "notes/reports/REPORT-MEGA.md › Sharp edges"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: put-by-id settlement records — `settle.record` accepts a client-supplied `recordId`, every InfoFi call site derives ids deterministically, and every retry path re-puts, proven exactly-once under three forced persistent failures.",
+      "area": "other",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 0 — put-by-id settlement records — CLOSED (4/4) — N/A live/fixture (mock-layer)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 1: account linking via OAuth 2.0 PKCE behind an adapter — the fixture plays a recorded exchange matching real X API v2 shapes; the live implementation exists but requires `X_API_CLIENT_ID`, which is absent.",
+      "area": "interop & network",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 1 — Account linking — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The attestation shape `{platform, handle, personaId, verifiedAt, method, proofRef}`, where `proofRef` is a reference (`users/me:<id>`), never token material; one persona per handle; private personas refused at the adapter.",
+      "area": "identity",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 1 — Account linking — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 2: archive import across all four X export lanes (account, tweets, likes, bookmarks, following, personalization) via per-file streaming ingestion with resumable sessions; no real archive exists, so a constructed fixture matches X's export structure exactly.",
+      "area": "interop & network",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 2 — Archive import — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Original timestamps preserved on import, so imports render as history and never as fresh feed content — adversarially asserted against the discovery feed.",
+      "area": "feed & algorithms",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 2 — Archive import — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The following list is hashed-only at rest, verified by grepping the validator's actual SQLite state for the raw fixture ids.",
+      "area": "other",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 2 — Archive import — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Sensitive personalization items queue behind the existing per-category graph consent — nowhere until opt-in, and a direct import without consent is a 409.",
+      "area": "interop & network",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 2 — Archive import — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 3: live X destination + spend controls — a spend ledger with per-action, per-day and per-run caps, a double-post guard via publish idempotency keys, and a rate card with `lastVerified`, all FIXTURE-VERIFIED; live-write SKIPPED, real spend $0.00.",
+      "area": "interop & network",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 3 — Live X destination + spend controls — CLOSED (8/8) — FIXTURE-VERIFIED (live-write SKIPPED, real spend $0.00)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "An adversarial 50-send loop lands exactly 5 sends before the $1 run cap, produces 45 loud refusals, and zero sends after the first refusal.",
+      "area": "other",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 3 — Live X destination + spend controls — CLOSED (8/8) — FIXTURE-VERIFIED (live-write SKIPPED, real spend $0.00)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "An attested handle replaces the mock X destination with the real \"x\" destination for that persona only, and a zkTLS upgrade path is documented on the attestation's `method` field (`\"oauth\" | \"web-proof\"`).",
+      "area": "identity",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 1 — Account linking — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Unlinking removes the attestation and destination binding, restores the mock binding, frees the handle, and tombstones it so a later archive import can render \"source unlinked.\"",
+      "area": "zk & attestations",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 1 — Account linking — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Verified badging is earned, not assumed: an archive's handle must match the persona's OAuth attestation, or the import renders \"unverified import.\"",
+      "area": "identity",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 2 — Archive import — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Bookmarks land in a real \"X import\" bookmark folder riding the same slot as algo cards, and benign interests land as claims with source \"x-inferred\" — a third provenance, never conflated with self-declared or attested.",
+      "area": "feed & algorithms",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 2 — Archive import — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Re-importing the same archive is idempotent, landing zero new records via composite persona+platform-id keys.",
+      "area": "identity",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 2 — Archive import — CLOSED (8/8) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A double-post guard uses publish idempotency keys (`x:castHash`) with check-before-retry: an injected failure plus a client retry converges to one external ref and one spend entry, and a deliberate duplicate returns the same ref marked deduped.",
+      "area": "interop & network",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 3 — Live X destination + spend controls — CLOSED (8/8) — FIXTURE-VERIFIED (live-write SKIPPED, real spend $0.00)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Owned-reads sync runs on-demand only (no background polling), incremental via cursor so a second sync pulls zero, and refuses without a linked account.",
+      "area": "interop & network",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 3 — Live X destination + spend controls — CLOSED (8/8) — FIXTURE-VERIFIED (live-write SKIPPED, real spend $0.00)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The rate card (`lib/x/ratecard.json`) carries `lastVerified`, and the composer shows \"(rates verified 2026-08-01)\" on the estimate so a stale card is visible rather than silent.",
+      "area": "social surfaces",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 3 — Live X destination + spend controls — CLOSED (8/8) — FIXTURE-VERIFIED (live-write SKIPPED, real spend $0.00)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4: follow migration + deferred auto-follow — matching consults account attestations only (hashed platform ids), a single confirm executes the whole batch (\"N of your X follows are here\"), and already-followed matches clear from pending without a duplicate edge.",
+      "area": "social surfaces",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 4 — Follow migration + deferred auto-follow — CLOSED (6/6) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Non-matches stay a hashed pending list, asserted at rest in the validator's SQLite and on the wire — the migrate surface carries counts and handles, never hashes or raw ids.",
+      "area": "other",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 4 — Follow migration + deferred auto-follow — CLOSED (6/6) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A deferred auto-follow, controllable on/off with an excluded-handles list, fires through the injection queue with its own reserved floor when a new attestation matches a pending entry.",
+      "area": "zk & attestations",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › GATE 4 — Follow migration + deferred auto-follow — CLOSED (6/6) — FIXTURE-VERIFIED"
+    },
+    {
+      "status": "SPECCED",
+      "text": "The delta list: what a second platform adapter (Instagram/TikTok) inherits verbatim (the destination contract, the spend ledger, account attestations, the import session machinery, follow migration) versus what it must build itself (OAuth endpoints, the archive parser, the rate card, sensitive-category mapping, overlap semantics).",
+      "area": "social surfaces",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › THE DELTA LIST — what Instagram/TikTok adapters inherit vs must build"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "none — all five gates closed green with no plateau invocations; the live-write path is unreached only because no credentials exist, a design limitation rather than breakage.",
+      "area": "other",
+      "pass": "07-x-interop",
+      "passTitle": "X Interop Pass",
+      "source": "notes/reports/REPORT-X.md › KNOWN-BROKEN (X interop)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: imported X posts resurface through the same injection-queue mechanism as \"sent\" cards, capped at 3 per build, with an explicit \"Resurfaced from your X import\" attribution line; `createdAt` is never touched by resurfacing.",
+      "area": "interop & network",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 0 — Import behavior fix — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Per-post and bulk resurface toggles, owner-only, idempotent against re-import.",
+      "area": "interop & network",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 0 — Import behavior fix — CLOSED (6/6)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: a full persona × mode matrix — mode-swipe without a persona switch, mode-forces-persona pinning, persona-default-mode on explicit switch, and a \"more specific wins\" session-scoped override that beats both.",
+      "area": "identity",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 1 — Persona × mode matrix, act-as-any-persona — CLOSED (13/13)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Time/context auto-switch reuses the existing rules evaluator verbatim, off by default, checked lazily at the top of `buildFeed`.",
+      "area": "other",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › The two binding directions"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Act-as-any-persona: server-side allowlist validation identical to real persona-switching, a dedicated seeded-system picker route kept separate from the phase-1 identity context, and reply/quote/recast logged to the acting persona with a `viaActAs` marker when it differs.",
+      "area": "identity",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › Act-as-any-persona"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: timeline refresh undo via a client-side, depth-capped sessionStorage stack keyed per (persona, mode), restoring both the card set and the exact scroll position.",
+      "area": "identity",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 2 — Timeline refresh undo — CLOSED (8/8)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: selective bookmark/thread resolution integrated into the existing readwise chunking/populator via a minimal synthetic `SeedPost`, with zero changes to the chunker, loop, or card renderer.",
+      "area": "feed & algorithms",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 3 — Selective bookmark / thread resolution — CLOSED (9/9)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Cold-resolution state survives restart via a replay-hook/purge-hook pair mirroring the existing forked-persona pattern, proven by a real kill-and-restart cycle.",
+      "area": "identity",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 3 — Selective bookmark / thread resolution — CLOSED (9/9)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Resolution batches are atomic and idempotent: one cap check over the whole batch before any item is marked resolved, and an empty pending set short-circuits before the ledger is touched at all.",
+      "area": "other",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 3 — Selective bookmark / thread resolution — CLOSED (9/9)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4: data backpack + Ad Match Score, reusing Wave 5's existing import mechanism — three of four source types needed zero new import-flow code.",
+      "area": "interop & network",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 4 — Data backpack + Ad Match Score — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The score reads the exact same `claimsForMatching()` call the ad marketplace uses, and `TRUST_PERCENT` gives a flat 10x gap between self-declared and attested claims.",
+      "area": "market & ads",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 4 — Data backpack + Ad Match Score — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The k-floor/audience-size check has no wire into the score at all, so a higher score cannot buy past the audience floor — proven by both a refusal test and an unlock test.",
+      "area": "docs & tooling",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › GATE 4 — Data backpack + Ad Match Score — CLOSED (7/7)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Call Option A, X alt linking: opened and closed 9/9, fixture-only — a disclaimer gate, a daily cap of 3, and a randomized synchronous delay always in [3000, 12000)ms.",
+      "area": "interop & network",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › CALL OPTION A — X alt linking — OPENED, CLOSED (9/9)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The alt-link disclosure reuses the existing `adapters.identity.issueGrant` call with `fromPersona === toPersona`, landing in the persona's real, revocable grant list.",
+      "area": "identity",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › CALL OPTION A — X alt linking — OPENED, CLOSED (9/9)"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Extension-connected alt linking (the other half of \"OAuth-linked or extension-connected\") was not built — no extension-linking concept exists anywhere in the codebase to plug into.",
+      "area": "other",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "SPECCED",
+      "text": "A per-category anti-spam cap on the Ad Match Score was not built; the stated exit criterion is a single-add marginal-delta invariant, which the design satisfies exactly.",
+      "area": "market & ads",
+      "pass": "08-ux",
+      "passTitle": "Experimental + UX Pass",
+      "source": "notes/reports/REPORT-UX.md › KNOWN-BROKEN"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: a shared content-completeness retry helper (`retryContent`, `pollUntil`) adopted across 30 of 35 accept-*/functional/restart-survival/root-leak suites, replacing earlier per-suite local patches.",
+      "area": "identity",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 0 — Land the UX pass properly — IN PROGRESS"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: live reads promoted to first-class — a runtime data-source override that is a session switch rather than an env restart, bounded backoff plus a never-evicted stale shelf with an explicit `stale` flag, and coverage across live casts, conversations, notifications, channel feed, trending, channel list, and user-by-username.",
+      "area": "feed & algorithms",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 2 — Live reads — BUILT (verification follows Gate 0 sweeps + rebuild)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The mega pass's duplicate phase-1 Neynar path — a separate fetch with no cache, no backoff, and a `liveMode` const frozen at module load — was found and retired; all six call sites now route through one adapter layer.",
+      "area": "interop & network",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 2 — Live reads — BUILT (verification follows Gate 0 sweeps + rebuild)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Live casts run through the same rules engine and mode ranking as seeded content, with sentinel author fields evaluating false so an unsatisfiable clause hides unknown-author casts — the fail-closed direction.",
+      "area": "feed & algorithms",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 2 — Live reads — BUILT (verification follows Gate 0 sweeps + rebuild)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 3: a write ledger mirroring the X spend ledger (pending-before-network, settle sent/failed, caps checked before the ledger opens), a HARD IDENTITY RULE refusing any non-throwaway fid/signer or a merely-present foreign signer credential, and check-before-retry via content-hash query.",
+      "area": "feed & algorithms",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 3 — Real writes — BUILT, FIXTURE-VERIFIED (live half awaits Gate 1)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4: a `{castHash → personaId}` attribution index recorded at publish time, disclosure gated through the same `canViewPrivate` chokepoint as private posts, and blocklists composing through attribution in the live feed.",
+      "area": "identity",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 4 — Persona attribution — BUILT, FIXTURE-VERIFIED (live demo awaits Gate 1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1 closed: a real, registered Farcaster account acquired live (FID 3348985, fname layers-test-852c) via Neynar-sponsored registration, credentials written to `.env.local`, private keys never echoed to any log or transcript.",
+      "area": "interop & network",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 1 — CLOSED (2026-08-29). Real FID acquired."
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3 live: the full 6-write lifecycle (cast, reply, like, recast, delete reply, delete cast) run against the real network, 9/9, with the reply's real parent hash verified on the network.",
+      "area": "social surfaces",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › Gate 3 — the full lifecycle, live (`npm run live:fc3`) — 9/9"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4 live: two personas' casts published live through the one shared throwaway FID, the client showing attributed identities while the public Warpcast/farcaster.xyz URLs both show the bare fid — disclosure held correctly in both directions.",
+      "area": "identity",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › Gate 4 — the attribution asymmetry, live (`npm run live:fc4`) — 9/9"
+    },
+    {
+      "status": "SPECCED",
+      "text": "What v0 punts to the real anoncast-fork phase: multi-FID support, a real signer-per-persona (a second signature layer), an independent attribution-index service, and public verifiability of attribution.",
+      "area": "identity",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › GATE 4 — Persona attribution — BUILT, FIXTURE-VERIFIED (live demo awaits Gate 1)"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "none — the safety set (identity rule, write ledger and caps, check-before-retry, labeled test casts, fail-closed attribution, leak greps) never tripped, and nothing shipped degraded.",
+      "area": "feed & algorithms",
+      "pass": "09-farcaster-live",
+      "passTitle": "Real Farcaster Pass",
+      "source": "notes/reports/REPORT-FC.md › /VERIFY — FINAL RESULTS"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0 selective resolution confirmed already done by the UX pass — no new code, recon confirmed the gate's requirements were already met.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 0 — Selective resolution — ALREADY DONE (UX pass)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: a preview step before commit — `advanceImport` now lands on a `preview` status and writes nothing, and a new `commitImport(jobId)` is the only thing that writes claims, re-deriving the preview against consent as of commit time.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 1 — Data backpack import surface — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "`commitImport` is idempotent (a completed job returns unchanged) and refuses to commit a job that isn't in preview.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 1 — Data backpack import surface — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Per-claim provenance: `GraphClaim` gained a `method` field, and a new `ClaimProvenance` component shows every claim with tier, method, issuer, and date, sorted attested to inferred to self.",
+      "area": "zk & attestations",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 1 — Data backpack import surface — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Imported claims flush to the vault as ciphertext on commit.",
+      "area": "identity",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 1 — Data backpack import surface — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Trust topology: three provenance tiers (self at 10%, x-inferred at 50%, attested at 100%) act as a straight multiplier — the anti-gaming property made literal, tested as an exact marginal delta.",
+      "area": "interop & network",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › Trust topology (every grep hangs on it)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: `rawTotal` is surfaced so the breakdown sums to it exactly and `score = min(100, rawTotal)`, making the 100-point cap a real, disclosed clamp rather than a silent one.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 2 — Ad Match Score — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Honest suggestions: each connector's suggested delta excludes any un-consented sensitive yield and is clamped to the remaining headroom below 100.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 2 — Ad Match Score — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The k-floor still holds regardless of score — a k-floor-violating audience is refused with a 422 no matter how high the creating persona's score is.",
+      "area": "identity",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 2 — Ad Match Score — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A claim carries `method` (`self-declared`, `w3c-vc`, `did-control`, `platform-export`, `x-archive`) and an `issuer` — the how and who of provenance, kept separate from the trust-tier multiplier.",
+      "area": "zk & attestations",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › Trust topology (every grep hangs on it)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The preview UI walks to a preview state before showing a confirm/cancel panel; each preview row exposes its value, tier, method, and withheld state, and withheld sensitive rows are called out explicitly.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 1 — Data backpack import surface — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Suggestions are ranked by delta descending, and a wholly-sensitive connector doesn't appear at all until its category is opted in.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › GATE 2 — Ad Match Score — BUILT"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "none beyond the pass's explicit out-of-scope items — crypto transfers remain out of scope and non-executable by the assistant per the standing safety set.",
+      "area": "other",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › KNOWN-BROKEN / not in scope"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The suite (`accept-bp`, 8 checks) asserts: nothing written until commit and preview matches what lands exactly; a sensitive yield stays withheld until opted in; per-claim provenance is inspectable and rendered; the anti-gaming marginal delta holds at explicit thresholds; the breakdown sums to `rawTotal` exactly with the cap disclosed; suggestions never surface an un-opted sensitive category; a high score cannot bypass the k-floor; and an imported claim is ciphertext on the validator, never plaintext.",
+      "area": "docs & tooling",
+      "pass": "10-backpack",
+      "passTitle": "Data Backpack + Selective Resolution Pass",
+      "source": "notes/reports/REPORT-BACKPACK.md › Suite"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Key hierarchy: a single 32-byte seed (the v3 root secret, kept byte-identical) derives persona Ed25519 sign keys via HKDF, an AES-256-GCM vault key, and a device-auth branch, while device keys are generated randomly per device and authorized by root-signed delegation.",
+      "area": "identity",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 0 DESIGN — the key hierarchy"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0 closed 8/8 on the first run, armed: validator migration 003 plus `/device/*` endpoints, envelope signing enforced (`LAYERS_REQUIRE_SIG=true`), and fixture roots signing seeded-world grants for real.",
+      "area": "identity",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 0 — CLOSED (2026-08-29). 8/8, first run, ARMED."
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The validator's own verification uses only `node:crypto` Ed25519 (OpenSSL, RFC 8410 SPKI wrap) — zero new dependencies — and it never holds a private key.",
+      "area": "other",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 0 — BUILT (source complete; validator chain unit-verified 7/7;"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: real Ed25519 replaces sha256-keyed-by-public-id signatures across five signature types — grants, artifacts/filter packs, curator annotations, refutation author edges (newly signed; previously just a stored boolean), and the FC attribution index — verified at every decision gate, fail closed.",
+      "area": "feed & algorithms",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 1 — BUILT (2026-08-29). Real Ed25519 at every signature site;"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Revocation of a grant re-signs it with the issuer's key rather than needing separate revocation-cert machinery, because `revokedAt` is inside the signed canonical form.",
+      "area": "identity",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 1 — BUILT (2026-08-29). Real Ed25519 at every signature site;"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: the vault — the validator holds ciphertext only (AES-256-GCM, per-record nonce + AAD) for private posts, grants, resolution requests, forks, edge events, graph claims/consent, imports, `xImportedPrivate`, and `sessionHandles`; encrypt-at-flush/decrypt-at-hydrate with zero read-site changes.",
+      "area": "identity",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 2 — THE VAULT — BUILT (2026-08-29). accept-c2 7/7."
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: multi-device linking without copying the seed — a delegation and the vault key cross an out-of-band-secret-sealed channel; the seed and every persona signing key stay on the origin device.",
+      "area": "identity",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 3 — DEVICE LINKING — BUILT (2026-08-29). accept-c3 5/5."
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4: recovery via a 24-word BIP39 mnemonic (baseline) and an encrypted passphrase escrow (scrypt + AES-256-GCM, the stronger option); the whole identity roster, not just the seed, is mirrored into the vault so recovery rebuilds every persona key bit-identically.",
+      "area": "identity",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 4 — RECOVERY — BUILT (2026-08-29). accept-c4 7/7."
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "The noble/scure cryptography libraries (already transitive via viem) were promoted to declared, version-pinned dependencies rather than newly installed, verified working by direct probe.",
+      "area": "other",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › Recon findings (Gate 0 groundwork)"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Shamir/SLIP-39 social recovery was the spec's nominal default but was not built — no vetted implementation exists on disk — and is deliberately deferred as the next step once a library can be vetted.",
+      "area": "identity",
+      "pass": "11-persona-crypto",
+      "passTitle": "Persona Crypto + Custody + Vault Pass",
+      "source": "notes/reports/REPORT-CRYPTO.md › GATE 4 — RECOVERY — BUILT (2026-08-29). accept-c4 7/7."
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: a Semaphore v4 identity/nullifier foundation — a per-root Semaphore identity derived via an HKDF branch, the nullifier formula matching the audited circuit exactly, a frozen and versioned scope registry, and signed device-auth registration on the validator.",
+      "area": "identity",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › GATE 0 — BUILT + CLOSED. accept-z0 11/11 (first run, ARMED)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Ceremony-artifact verification: the shipped Semaphore v4.13.0 keys were traced to the \"Semaphore Binary Merkle Root Fix\" ceremony (finalized 2025-07-23, after the OtterSec under-constrained-circuit report), with hashes matching byte-for-byte against the ceremony's own published outputs and a third party's public attestation.",
+      "area": "identity",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › The finding that reshaped Gate 0 before it started"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Public per-(mode, epoch) Merkle trees on the validator (`valid`, `tier-1..10`, `attest:<issuer>` scaffolded) with signed placements and a signed, hash-chained, append-only root history that the client TOFU-pins and anchors in its vault.",
+      "area": "identity",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › GATE 0 — BUILT + CLOSED. accept-z0 11/11 (first run, ARMED)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A live prover (stock Semaphore in an isolated worker) producing real Groth16 proofs, with artifacts re-hashed against build pins on every load and the proof self-verified before it leaves the process.",
+      "area": "zk & attestations",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › GATE 0 — BUILT + CLOSED. accept-z0 11/11 (first run, ARMED)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: an anonymous submission channel (`POST /zk/anon/submit`) with an allowlisted header set, stateless hashcash proof-of-work rate limiting, constant-shape/constant-time responses, and an OHTTP (RFC 9458) relay path so the validator only ever sees a gateway, not a submitter's identity.",
+      "area": "zk & attestations",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › GATE 1 — The anonymous submission channel (F1, the blocker) — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: For You discovery gated on a proven reputation tier (`ADAPTER_REP=zk`) rather than a persona's root-linked reputation — proof-mediated eligibility, with a frozen-epoch invariant so a rebuilt tree can never diverge from its signed history root.",
+      "area": "identity",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › GATE 2 — The tier-threshold membership gate on For You — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: a computed, eight-condition privacy label (`PrivacyLabel.tsx` / `SECURITY-POSTURE.md`) that renders the exact narrow claim only when every condition holds in-process, and otherwise a named \"DEMO — not yet private\" state.",
+      "area": "other",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › GATE 3 — The computed privacy label + SECURITY-POSTURE.md — BUILT"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4: an operator-view linkage test plus three fresh-context adversarial reviews, with every one of 34 findings across the reviews fixed in this pass or recorded as a named assumption in SECURITY-POSTURE.md.",
+      "area": "zk & attestations",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › GATE 4 — Operator-view linkage test + adversarial review — BUILT"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "The four consecutive closing sweeps (348 checks each) that closed the pass ran fixture-only transport, never proving live; the one live end-to-end proof (`live:z2`) ran once, separately, and is explicitly \"never in sweeps.\"",
+      "area": "zk & attestations",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › VERIFICATION — the fix iteration, on the rebuilt armed bundle"
+    },
+    {
+      "status": "KNOWN-BROKEN",
+      "text": "The call option — revocation via epoch re-issuance — was not exercised in this pass; recorded as A-REVOCATION-NOT-BUILT.",
+      "area": "zk & attestations",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › Closure, stated exactly"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Fork continuity, root-blind persona registration, and ending the validator's plaintext persona→root link are scoped as \"Step 2\" work this pass hands off but does not build.",
+      "area": "identity",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › WHAT THE NEXT STEPS NEED — written from what this pass actually built"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Issuer-backed attestation trees (`attest:<issuer>`) are scaffolded — the tree namespace, a reserved `one-human-attest` scope, and budget partitioning — but no issuer or issuance path exists yet.",
+      "area": "zk & attestations",
+      "pass": "12-zk-1",
+      "passTitle": "ZK Pass 1: Foundation + First Private Gate",
+      "source": "notes/reports/REPORT-Z1.md › Step 4 — attestations (`attest:<issuer>` trees)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: a fixed-schedule prefetch replaces on-demand fetching for eligibility data — every client fetches epoch, leaves, history and key on a jittered cadence regardless of intent to prove, and the render path only marks a persona WANTED, with proving happening on the next tick from a snapshot.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › GATE 0 — the cheap residuals from Pass 1's rebuttal"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: a second, anonymous-channel viewpoint on the root history (`GET /zk/anon/head`) that the client cross-checks against the identified path before proving, catching a validator that forks history per identity.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › GATE 0 — the cheap residuals from Pass 1's rebuttal"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: a supervised validator (`npm run validator:supervised`) that records exit code, signal, uptime and recent log lines to `validator/deaths.log` on any exit and restarts with backoff.",
+      "area": "other",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › GATE 0 — the cheap residuals from Pass 1's rebuttal"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: every persona-level reputation read (the switcher, the classic-feed persona layer, profile pages, every feed card type, `/api/tier`) now goes through one proof-mediated resolver, with \"unproven\" rendered as a real tier-0 state rather than a fallback default.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 1 — every reputation read proof-mediated under zk"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2 (migration 006): the validator's `personas` table no longer carries `root_id` at all; root-level `blocks` became persona-level (`blocks_v2`); `/personas/root/:rootId`, `/personas/by-fid/:fid` and `/rep/:personaId` all answer 410.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 2 — migration 006: the validator stops knowing persona → root"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A device-side root roster (vault-sealed) replaces the validator column for everything that used to read it — `personasForRoot`, `personasByFid`, `tierFor` by root, session, the classic-feed persona layer, and zk registration.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 2 — migration 006: the validator stops knowing persona → root"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A tested, transactional rollback path (`migrate-down`) restores `root_id` exactly from a pre-migration roster export, refusing an incomplete roster or an unknown root and quarantining — never deleting — unattributable personas.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 2 — migration 006: the validator stops knowing persona → root"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: fork continuity is now a proof — the new persona proves membership in the gate's tier tree bound to a fork commitment, carrying the tier forward without any separate stamp.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 3 — fork continuity as a proof, revocation via epoch re-issuance, attestation scaffolding"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: revocation via epoch re-issuance (revoke the old commitment, bump to the next identity index, register the new one), effective next epoch, append-only.",
+      "area": "zk & attestations",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 3 — fork continuity as a proof, revocation via epoch re-issuance, attestation scaffolding"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: attestation trees, a claim kind, and a mock issuer are scaffolded behind a dev-hooks flag; the real issuer is deferred to the next pass.",
+      "area": "zk & attestations",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 3 — fork continuity as a proof, revocation via epoch re-issuance, attestation scaffolding"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4: linkage test v2 run over four epochs including a fork, an expiring attestation, a revocation/re-issuance, and a block, plus three fresh-context adversarial reviews whose findings (34 across the three reports, each mapped by id) were each fixed or recorded as a named assumption.",
+      "area": "identity",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › Gate 4 — linkage test v2 + three adversarial reviews"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "The closing sweeps that met the bar (54 suites, 383 checks, four times) ran against the supervised validator on fixture transport; no live proof ran inside a sweep.",
+      "area": "zk & attestations",
+      "pass": "13-zk-2",
+      "passTitle": "ZK Pass 2: the validator stops holding persona → root",
+      "source": "notes/reports/REPORT-Z2.md › /verify — CLOSED: four consecutive clean sweeps (2026-09-05)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: pinned, non-default ports (app 3001, validator 4001) as a single source of truth across every entry point, plus a signed liveness contract (`GET /api/health`, `GET /health`) the sweep runner verifies before ever launching a suite.",
+      "area": "feed & algorithms",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 0 — port pinning + the runner's liveness contract"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: exit-code classification pinned in a dedicated runner-test suite, so a suite that crashes with no verdict is always INFRA, never silently ok.",
+      "area": "docs & tooling",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 0 — port pinning + the runner's liveness contract"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: a small-order-key signature-forgery hole was found and fixed in all three Ed25519 verifiers on the strength of the liveness contract's own test — a zero public key with a zero signature verified on roughly a quarter of messages under `node:crypto` before the fix.",
+      "area": "docs & tooling",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 0 — port pinning + the runner's liveness contract"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: an open issuer interface — anyone can register as an issuer under a self-signed, namespaced id; trust is entirely the subscriber's choice (`ATTEST_HONORED_ISSUERS`), not part of the protocol.",
+      "area": "zk & attestations",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 1 — the open issuer interface"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: attestation trees are keyed per (issuer, bucket), so the validator learns only bucket membership of a commitment, never the underlying fact — the exact value, nonce and issuer signature live only in the subject's own vault.",
+      "area": "identity",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 1 — the open issuer interface"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: a real reference issuer family, `onchain.*` — wallet age, ETH holdings, protocol history (Aave, Morpho, Compound, Uniswap), and governance votes — reading exact facts through a chain-facts adapter and signing only a coarse bucket, letting exact values die with the request.",
+      "area": "zk & attestations",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 2 — the onchain-facts reference issuer"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: wallet ownership is bound by an EIP-191-signed, one-time, ten-minute challenge; multiple wallets aggregate at the root (max age, summed holdings, union of protocols, summed votes), and the validator never sees the wallet set or its size.",
+      "area": "identity",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 2 — the onchain-facts reference issuer"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: an `attest.holds` rule field wired into the rules engine, mode builder, feed contexts, filter packs, and the advertiser audience matcher, evaluated only against what a persona proved this epoch — never satisfiable by holding an issuance a persona hasn't proven.",
+      "area": "identity",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 3 — attestation-gated surfaces + the label"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: a ninth privacy-label condition for attestation-gated surfaces, and one floor computation (the higher of the zk floor and the market's k-floor) shared by the API route, the console, and the builder.",
+      "area": "zk & attestations",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 3 — attestation-gated surfaces + the label"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 4: linkage test v3 — nine operator-side attacks across a 120-decoy cohort attesting all four claim kinds — found no successful linkage, including across nullifiers, cross-kind intersection, timing, expiry partitioning, and revocation.",
+      "area": "zk & attestations",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 4 — linkage test v3 + the adversarial review"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "A live, read-only run against the real chain (`live-att1`) verified a real wallet signature and read real facts from three chains plus Snapshot; every issuer correctly refused to vouch because the test wallet's facts didn't clear any bucket.",
+      "area": "zk & attestations",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 4 — linkage test v3 + the adversarial review"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "The four closing sweeps that met the bar (427 checks, 58 suites) ran fixture transport only — no spend, no post, no deploy, no live proof.",
+      "area": "zk & attestations",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › Series 5 — `f10278e`"
+    },
+    {
+      "status": "SPECCED",
+      "text": "A second, Farcaster-native issuer (the pass's call option) was not attempted — the closing sweeps took the remaining iteration budget instead.",
+      "area": "zk & attestations",
+      "pass": "14-attestation",
+      "passTitle": "Attestation pass: the open issuer interface + the onchain-facts reference issuer",
+      "source": "notes/reports/REPORT-ATT.md › GATE 4 — linkage test v3 + the adversarial review"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 0: a boot check that refuses to start when a LOCAL validator URL's port disagrees with the pinned one, reading both the environment and `.env.local`, with a named reason and a check-only mode the suite uses as its oracle.",
+      "area": "feed & algorithms",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 0 — Housekeeping + onboarding issuers"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 0: three identity-binding issuers behind the existing issuer interface — `x.account-region`, `x.account-age` and `neynar.score` — each binding one identity to one root through salted retention, each honoured by key rather than by name.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 0 — Housekeeping + onboarding issuers"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 0: an OR-gate onboarding disjunction over (issuer pattern, buckets) that reads only what a persona has PROVEN this epoch, making it eligible for the gated discovery surface below the gate tier without changing the tier it shows.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 0 — Housekeeping + onboarding issuers"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: the persona ↔ fid model — a sealed, padded vault record per persona (fid, fname, origin, custody address, signer reference, registrant, funder, mode), one persona to one fid enforced on write.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 1 — Persona ↔ FID model + signer custody"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: both Farcaster keys derived from the root — the signer on Ed25519 and the custody key on secp256k1, each derived, used and dropped inside the keystore, both private seeds added to the leak-test needles.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 1 — Persona ↔ FID model + signer custody"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 1: a signer-custody adapter with two implementations (a managed signer per fid, and a self-custody path that adds the DERIVED key), selected by configuration, and a registrant-linkage assertion in the safety set that refuses two persona fids sharing a registrant, funder or custody address that is not the sponsor.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 1 — Persona ↔ FID model + signer custody"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: the identity rule extended to the accounts this pass creates — a fid named with the wrong signer, a record of foreign origin, a persona named with another persona's fid, and a foreign signer in the environment are all refused.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 1 — Persona ↔ FID model + signer custody"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: the capped, dry-run-first acquisition command — an itemized cost sheet and no billable call by default, one confirmation variable to arm it, aborting above the cap, before any network call without credentials, and when the fid reservation is about to lapse.",
+      "area": "interop & network",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 2 — Live: two real persona accounts"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 2: custody signatures pinned to exactly two EIP-712 shapes — a transfer to THIS persona's own custody address and a signed key request for THIS persona's own derived signer key — with everything else refused and the signing itself inside the keystore.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 2 — Live: two real persona accounts"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 2: the three-way view — the network sees a persona's cast under its own fid with no persona in the record, a non-granted viewer sees the bare persona, and a granted viewer sees the merged identity on the attribution payload and on the rendered cast card.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 2 — Live: two real persona accounts"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 3: a fork mints the new persona's own fid and leaves the old one live as a decoy — no transfer, no rename and no key rotation between them, because any onchain relation between the two accounts is exactly the linkage the fork exists to break.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 3 — Fork → new FID, surface regression in both modes"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: the forward pointer hands a carried holder the new account to follow and hands a dropped holder or a stranger neither the move nor any fid.",
+      "area": "social surfaces",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 3 — Fork → new FID, surface regression in both modes"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 3: a block is a client-side read filter over persona ids, never a network write — Farcaster has no block a hub read honours, and a block that reached the network would itself be an attributable action by the blocker's account.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 3 — Fork → new FID, surface regression in both modes"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4: anon posting as the ROOT's membership proof in the configured gate tree — the public signal carries a constant where a persona id would be, and the scope omits the persona, so a root posts anonymously once per window and nothing about a persona is proven, sent or stored.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 4 — Anon-post mode (the anoncast pattern, inside Layers)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4: the proof authorises exactly one text — the cast hash rides the canonical public signal and the validator recomputes it, so a tampered payload, a re-hashed cast, a foreign tree or a persona on the signal is refused before any nullifier is consumed.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 4 — Anon-post mode (the anoncast pattern, inside Layers)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4: the relay records nothing identifying — the cast row holds no persona, no root, no nullifier and no address, its time is hour-grained, and the app writes no attribution entry, no edge event and no ledger row, because there is no one to attribute to.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 4 — Anon-post mode (the anoncast pattern, inside Layers)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 5: linkage test v4, a safety-set suite that attacks the operator's own data — anon to persona by nullifier, anon to submitter by row shape, fid map to root, old to new across a fork, act-as across personas, the wire, and the whole database beside every cast.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 5 — Linkage test v4 + three adversarial reviews + posture \"Network identities\""
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 5: the store-and-forward relay — on live the validator never posts at submission time; accepted rows are pending and relayed in random order at the top of its own interval, so the network timestamp is the slot rather than the moment.",
+      "area": "zk & attestations",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › GATE 5 — Linkage test v4 + three adversarial reviews + posture \"Network identities\""
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The anoncast reveal, added after the pass closed: every anon post mints a fresh secret on the posting device before anything leaves the process, seals it in the vault, and binds only its hash into the proof's message.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › ADDITION (after the pass closed) — anon-post ATTRIBUTION: the anoncast reveal pattern"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The reveal is signed by the attributing fid's own signer key over every swappable part, so a signature cannot be lifted onto another cast, fid, universe or key; the validator verifies the preimage and the signature and stores the key it verified under.",
+      "area": "interop & network",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › ADDITION 2 — the reveal is signed (posture §14.2)"
+    },
+    {
+      "status": "SPECCED",
+      "text": "The live half — two real persona accounts and one real anonymous cast — is the user's own command, at a $10 cap and two accounts, and was not run by the session.",
+      "area": "identity",
+      "pass": "15-multi-fid",
+      "passTitle": "Multi-FID pass: one real Farcaster account per persona + anon posting",
+      "source": "notes/reports/REPORT-FID.md › /verify — the closing bar"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 1: reputation UBI — every root gets a recurring, non-transferable allowance of influence per epoch, spent as a signed per-persona STAKE carrying a direction on a spectrum, with the balance held as one opaque padded sealed vault record the validator never sees.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 1 — Reputation UBI (the backbone; single-threaded)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 1: no transfer exists as a matter of type — the `InfluenceAdapter` contract names no second account and a type-level assertion makes adding `transfer`/`send`/`move` fail `tsc` before it fails a test, with the grep over the contract, the modules and the API as a second line.",
+      "area": "docs & tooling",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 1 — Reputation UBI (the backbone; single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 1: the allowance is computed at recharge from the HIGHEST tier any of the root's personas PROVED this epoch, an unproven persona has no tier and therefore no allowance, and an unreachable rep adapter throws rather than granting on a guess.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 1 — Reputation UBI (the backbone; single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 1: reserve-then-send-then-refund — the stake leaves the balance before the send and comes back if the validator refuses, so the balance never goes negative and an overdraw is a typed 409 rather than a negative number.",
+      "area": "influence",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 1 — Reputation UBI (the backbone; single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 1: accrual is a pure function over the validator's public rows, so anyone can recompute any persona's accrual under any curve set, and it lands on the ROOT through the existing rep path as an idempotent `stewardship` event — no new claim kind, no new scope, no new primitive.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 1 — Reputation UBI (the backbone; single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 2: a lens IS an `AlgoArtifact` — same signature, same mandatory preview, same guardrails, same provenance chain — so sharing a weighting rides the portable-algorithm pipeline that already existed rather than a second one.",
+      "area": "feed & algorithms",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 2 — Lenses: the algo through different curves (single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 2: the preview is the same feed ranked without and with the lens through the identical `buildFeed` path activation uses, so the counts are exact, plus the influence delta computed by the same pure evaluator.",
+      "area": "influence",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 2 — Lenses: the algo through different curves (single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 2: guardrails by name are fatal — a lens key reaching for the destination indicator, correction cards, disclosure, the k-floor or the overdraw rule kills the whole import, while any other unknown key or out-of-range weight is stripped and reported by name.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 2 — Lenses: the algo through different curves (single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 3: scroll zones as layout config the cards consume — rects in percent of the viewport, a pure hit-test routing wheel and touch, and no zones means no listener attached at all, which is the X-parity default.",
+      "area": "interop & network",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 3 — Scroll zones + configurable action buttons"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 3: calibration is drawn, not typed — a live scaled preview of the user's own screen with a draggable zone body, a resize handle, a hit-test overlay saying what each point would scroll, hatched inset bands, and four presets.",
+      "area": "ux & input",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 3 — Scroll zones + configurable action buttons"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 3: the action row binds per mode and X's row is what a mode without one returns, with the Default row's DOM — tags, attributes, inline SVG — asserted identical to a baseline captured from the pre-Gate-3 build.",
+      "area": "feed & algorithms",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 3 — Scroll zones + configurable action buttons"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4: unified search over the device's own records, built in the process that holds the decrypted vault, re-derived on demand rather than stored, and still answering with the validator's port closed.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 4 — Unified search (vault-local, keyword + AI)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4: the full-text engine is a dependency-free inverted index with BM25 and light stemming, and the \"local model\" is a shipped synonym-cluster lexicon at 512 dims run in a worker thread, pinned by the suite to the in-process arithmetic.",
+      "area": "social surfaces",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 4 — Unified search (vault-local, keyword + AI)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 4: the cloud path is off by default and a query first returns a named-consent prompt carrying the provider, the snippet count and the query hash; only a consent matching all three runs the provider, which in this build is a fixture reranker.",
+      "area": "other",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 4 — Unified search (vault-local, keyword + AI)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 5: the @layers DM-to-bookmark hook — an inbox adapter polled on demand behind a button, never a background loop, every poll one itemized read through the existing spend ledger and its run cap.",
+      "area": "interop & network",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 5 — @layers on X: the DM-to-bookmark hook"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 5: a linked sender's link lands as a sealed private record with `x-dm` provenance, keyed by a synthetic post hash so the folder, the readwise schedule and the vault record all name one thing, idempotent by tweet id and replayed on hydrate.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 5 — @layers on X: the DM-to-bookmark hook"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 6: relationship porting on X issues the REAL linkage grant from source to counterpart through the same `issueGrant` every disclosure uses, so their client resolves the merged identity through the ordinary resolver and nothing new is signed.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 6 — Relationship porting on X (extends alt-linking)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Gate 6: a counterpart nobody has attested gets a PENDING port sealed in the vault, resolved the moment a persona links that handle, with the synchronized-like breadcrumb reusing the alt-link scheduler's constants, disclaimer and shared daily cap.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 6 — Relationship porting on X (extends alt-linking)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 7: linkage test v5, a session judged only from what the operator holds — every row of every table, the state namespaces, the validator's log and the timing of its own writes — with nothing the app returns to the device counting as evidence either way.",
+      "area": "identity",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 7 — Linkage test v5 + adversarial review"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 7: three fresh-context reviewers on a bounded brief with one focus each and a fixed report shape, every surviving finding either fixed with a check added to a suite or written into the posture as an assumption carrying the reviewer's finding id.",
+      "area": "docs & tooling",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 7 — Linkage test v5 + adversarial review"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 8: the docs site on VitePress with its own pinned port and no deploy, markdown-native so the check tooling and the site read the same tree.",
+      "area": "zk & attestations",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 8 — Docs site: scaffold, sections, piping, historical pages"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 8: the cite token as the contract — three tools read the same cite-token form, a file name and the exact heading it points at, so a heading that moves breaks the citation loudly and a section that changes under a locked citation flags as drift.",
+      "area": "other",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 8 — Docs site: scaffold, sections, piping, historical pages"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 8: the from-source pages — adapters, zk scopes, the data model, the roadmap data and the KNOWN-BROKEN outline — are generated at every build and carry a banner, with the suite asserting their counts equal the source's.",
+      "area": "zk & attestations",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 8 — Docs site: scaffold, sections, piping, historical pages"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Gate 8: fourteen historical pass pages written by three subagents against one fixed template, assembled and checked by the orchestrator, with 747 citations resolving on the first pass.",
+      "area": "other",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 8 — Docs site: scaffold, sections, piping, historical pages"
+    },
+    {
+      "status": "SPECCED",
+      "text": "The one live read the pass permitted — a real DM poll at the Layers account, read-only and under a $1 cap — never ran: no X credentials exist on the machine, so the gate is fixture-verified and the spend is $0.00.",
+      "area": "interop & network",
+      "pass": "16-mega-2",
+      "passTitle": "Mega pass 2 — the rails are open",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 5 — @layers on X: the DM-to-bookmark hook"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The custody model: the server never holds a root, a seed, a vault key or a persona private key — it holds ciphertext, commitments, public keys and public state.",
+      "area": "identity",
+      "pass": "17-custody",
+      "passTitle": "Browser keystore pass — the keystore moves into the visitor's browser",
+      "source": "notes/reports/REPORT-CUSTODY.md › GATE 0 — The custody model (design gate)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The keystore in the browser: one crypto implementation for Node and the browser, a many-tenant validator whose every namespace is one opaque record, and the device bundle that answers the app's own API routes in the page.",
+      "area": "identity",
+      "pass": "17-custody",
+      "passTitle": "Browser keystore pass — the keystore moves into the visitor's browser",
+      "source": "notes/reports/REPORT-CUSTODY.md › GATE 1 — Keystore in the browser (crypto-touching; single-threaded)"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Ephemeral onboarding: an identity that lives in the tab until it is saved, a passkey on the PRF path or the server-released wrap path, a provider adapter for social login, attaching a second way in, and the 24 words.",
+      "area": "other",
+      "pass": "17-custody",
+      "passTitle": "Browser keystore pass — the keystore moves into the visitor's browser",
+      "source": "notes/reports/REPORT-CUSTODY.md › GATE 2 — Ephemeral onboarding + passkey + social login (crypto-touching; single-threaded)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The empty-account fork, device linking that never carries the seed, and root linking as a co-signed grant — linked, not merged.",
+      "area": "identity",
+      "pass": "17-custody",
+      "passTitle": "Browser keystore pass — the keystore moves into the visitor's browser",
+      "source": "notes/reports/REPORT-CUSTODY.md › GATE 3 — The empty-account fork + device linking + root linking (crypto-touching; single-threaded)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The production environment contract with a boot refusal on both processes, and rate limits on every route of each.",
+      "area": "other",
+      "pass": "17-custody",
+      "passTitle": "Browser keystore pass — the keystore moves into the visitor's browser",
+      "source": "notes/reports/REPORT-CUSTODY.md › GATE 4 — Re-run the readiness audit; close findings 2–5"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Three fresh-context adversarial reviews, every finding fixed or carried as an assumption by id.",
+      "area": "other",
+      "pass": "17-custody",
+      "passTitle": "Browser keystore pass — the keystore moves into the visitor's browser",
+      "source": "notes/reports/REPORT-CUSTODY.md › GATE 5 — Three adversarial reviews (fresh context, Opus ×2 + Sonnet ×1)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "The public preview, deployed: a landing page, the device mounted on every app page of a public deployment, a kill switch, abuse caps, scheduled backups, and a smoke suite that passes against the deployed URLs — including two browser profiles getting two independent identities.",
+      "area": "identity",
+      "pass": "17-custody",
+      "passTitle": "Browser keystore pass — the keystore moves into the visitor's browser",
+      "source": "notes/reports/REPORT-CUSTODY.md › GATE 6 — The public preview gates (notes/prompts/public-preview-prompt.md Gates 1–6, on the browser topology)"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Hygiene carried from prior passes: the four preference namespaces proven sealed rather than sealed again, a general leak needle instead of a list of names, a relationship-port offer the issuing persona must confirm, and the anoncast reveal labelled below-bar in the posture.",
+      "area": "identity",
+      "pass": "18-post-deploy",
+      "passTitle": "Post-deploy pass — persona ergonomics, readwise, hygiene",
+      "source": "notes/reports/REPORT-POST.md › GATE 0 — Hygiene carried from prior passes"
+    },
+    {
+      "status": "SHIPPED",
+      "text": "Persona cloning: modes, rules and folders copied as new artifacts with new ids, a copied mode arriving unpinned and un-armed, follows reported as shared rather than faked as copyable — and the three disagreeing persona rosters made one.",
+      "area": "identity",
+      "pass": "18-post-deploy",
+      "passTitle": "Post-deploy pass — persona ergonomics, readwise, hygiene",
+      "source": "notes/reports/REPORT-POST.md › GATE 1 — Persona cloning"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Persona tint + the unified cross-persona view: a measured eight-accent palette with a collision refusal under dichromat simulation, the persona pill rendered by the layout, and a compartment scope enforced at the route by one chokepoint.",
+      "area": "identity",
+      "pass": "18-post-deploy",
+      "passTitle": "Post-deploy pass — persona ergonomics, readwise, hygiene",
+      "source": "notes/reports/REPORT-POST.md › GATE 2 — Persona tint + unified cross-persona view"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Per-account delivery tiers: five compiled rules keyed by (mode, persona) with the account never entering a rule, normal stored as the absence of a row, one pinned post per account capped at a quarter of the page, and `pin` / `banner` refused by name in imported algorithms.",
+      "area": "identity",
+      "pass": "18-post-deploy",
+      "passTitle": "Post-deploy pass — persona ergonomics, readwise, hygiene",
+      "source": "notes/reports/REPORT-POST.md › GATE 3 — Per-account delivery tiers"
+    },
+    {
+      "status": "SHIPPED-FIXTURE",
+      "text": "Readwise: the knobs and the dwell mechanic — a read threshold that is arithmetic on chunk length, dwell written straight into a sealed record no adapter method can carry, a dismissal bin that restores, and re-cutting that states its cost.",
+      "area": "feed & algorithms",
+      "pass": "18-post-deploy",
+      "passTitle": "Post-deploy pass — persona ergonomics, readwise, hygiene",
+      "source": "notes/reports/REPORT-POST.md › GATE 4 — Readwise: the knobs and the dwell mechanic"
+    },
+    {
+      "status": "UNCLEAR",
+      "text": "Early-to-content curve: keep, remove or reshape; the shipped curve is a conservative parameterized default behind a TUNE marker",
+      "area": "influence",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 1"
+    },
+    {
+      "status": "UNCLEAR",
+      "text": "Creator-economy tie-in for influence accrual (owner intent unspecified)",
+      "area": "influence",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 1"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Call option A — ad-slot scrollbar control per mode (ads / no ads / targeted / generic) wired to the market layer and earnings",
+      "area": "market & ads",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/prompts/mega-pass-2-prompt.md › CALL OPTIONS"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Call option B — influence-layer visualization: stake history over time; canonical-vs-lens accrual chart",
+      "area": "influence",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/prompts/mega-pass-2-prompt.md › CALL OPTIONS"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Call option C — glossary + Mermaid diagrams for the docs",
+      "area": "docs & tooling",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/prompts/mega-pass-2-prompt.md › CALL OPTIONS"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Scroll-zone calibration measured on real mobile devices (UNMEASURED this pass)",
+      "area": "ux & input",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 3"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Unified search: a real on-device semantic model replacing the lexicon-and-hash embedding; a real consent-gated cloud provider",
+      "area": "ux & input",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 4"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Live @layers DM inbox read under real X credentials and the spend ledger",
+      "area": "interop & network",
+      "pass": "seeded",
+      "passTitle": "Mega pass 2 (seeded)",
+      "source": "notes/reports/REPORT-MEGA2.md › GATE 5"
+    },
+    {
+      "status": "SPECCED",
+      "text": "Restoring block fan-out under zk (design memo, call option B of ZK pass 2)",
+      "area": "zk & attestations",
+      "pass": "seeded",
+      "passTitle": "ZK pass 2 (seeded)",
+      "source": "docs/fanout-under-zk.md"
+    },
+    {
+      "status": "IDEA",
+      "text": "Community-notes resurfacing",
+      "area": "social surfaces",
+      "pass": "seeded",
+      "passTitle": "Owner backlog",
+      "source": "owner backlog (not yet in a report)"
+    },
+    {
+      "status": "IDEA",
+      "text": "Close-friends timeline whitelist",
+      "area": "feed & algorithms",
+      "pass": "seeded",
+      "passTitle": "Owner backlog",
+      "source": "owner backlog (not yet in a report)"
+    },
+    {
+      "status": "IDEA",
+      "text": "Dutch-auction ad marketplace",
+      "area": "market & ads",
+      "pass": "seeded",
+      "passTitle": "Owner backlog",
+      "source": "owner backlog (not yet in a report)"
+    }
+  ]
+}

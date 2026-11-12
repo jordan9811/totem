@@ -1,0 +1,21 @@
+{
+  "_what": "PERSONA LAUNCH GO-LIVE (A-WEB-PROXY-HOP-HEADERS): the request headers Railway's edge adds to every request it forwards to a service, as Railway DOCUMENTS them. DOCUMENTED, NOT RECORDED: no request was captured from a real deployment (no network call is made by any test). The values are dummies (RFC 5737 / RFC 2606 addresses and names). validator/test/anonweb.test.js replays this set on /zk/anon/web and /zk/anon/web/head (accepted only with TRUST_PROXY=true) and on the rate limiter; scripts/smoke-deployed.mjs check 10 re-checks the REAL edge on the first deploy and every deploy after it.",
+  "source": "https://docs.railway.com/networking/public-networking/specs-and-limits",
+  "read": "2026-10-17",
+  "documented": {
+    "x-real-ip": "203.0.113.9",
+    "x-forwarded-proto": "https",
+    "x-forwarded-host": "validator-production-0000.up.railway.app",
+    "x-railway-edge": "railway/us-east4-eqdc4a",
+    "x-request-start": "1760700000000",
+    "x-railway-request-id": "ZgxR4dHVQbWJ3LmV4YW1wbGUu"
+  },
+  "observed_not_documented": {
+    "_why": "not on Railway's specs page, but present on Railway-forwarded requests per Railway's own staff answers (station.railway.com); tolerated by the same x-forwarded- prefix",
+    "x-forwarded-for": "203.0.113.9"
+  },
+  "not_added_by_railway": {
+    "_why": "headers this set deliberately does NOT contain: Railway documents no Cloudflare (cf-*) header, and X-Railway-Debug is a header a CLIENT sends (it asks for debug response headers). PUBLIC GO-LIVE: validator/anon.js refuses x-railway-debug outright (WEB_REFUSED_HEADERS), although the x-railway- hop prefix covers its spelling; validator/test/anonweb.test.js replays every name below beside the documented set and expects a refusal (re-read on the source page 2026-10-17: the six documented names above, no X-Forwarded-For, X-Railway-Debug as the only client-sent header)",
+    "names": ["cf-connecting-ip", "cf-ray", "x-railway-debug"]
+  }
+}

@@ -1,0 +1,6 @@
+* text=auto
+*.png binary
+*.jpg binary
+*.wasm binary
+*.zkey binary
+*.db binary

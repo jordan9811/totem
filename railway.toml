@@ -1,0 +1,20 @@
+# Railway config-as-code, shared by both services of the preview (PUBLIC PREVIEW Gates 2–4, run as BROWSER KEYSTORE
+# PASS Gate 6). The builder is chosen per service: the validator sets RAILWAY_DOCKERFILE_PATH=Dockerfile.validator;
+# the app is auto-detected as Next.js (`npm run build`, `npm start`). Deploys are pushed with `railway up` from a
+# checkout, so a commit never triggers a build by itself; if a service is ever connected to GitHub, these watch
+# paths keep GitBook's write-backs (docs/, root *.md, .gitbook) and the research and screenshot trees from
+# rebuilding or redeploying the app (public-preview Gate 2, "GitHub safety").
+[build]
+# No buildCommand: the platform's own default (`npm run build`) is right, because that script now produces the
+# browser device bundle before `next build` — the bundle is a build artifact, not tracked, and the app cannot boot a
+# device without it. DOCS UNDER APP: it also builds the public docs (scripts/build-docs.mjs into .docs-site/, served
+# at /docs) and runs their guard (scripts/docs-guard.mjs) before `next build`, so the upload must carry docs/ — it
+# does: .dockerignore excludes only the docs' local build output. A docs-only change ships with the app's next
+# `railway up`; the watch patterns below matter only if a service is ever connected to GitHub, and would then keep a
+# docs-only commit from redeploying (deploy by hand to publish it). A Dockerfile-built service (the validator) has its
+# own image build and ignores this section.
+watchPatterns = ["**/*", "!docs/**", "!**/*.md", "!.gitbook/**", "!.gitbook.yaml", "!research/**", "!shots/**"]
+
+[deploy]
+restartPolicyType = "ON_FAILURE"
+restartPolicyMaxRetries = 10

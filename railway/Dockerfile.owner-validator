@@ -1,0 +1,43 @@
+# PROD-LIVE (D-PRODLIVE-OWNER-SERVICE) — the OWNER VALIDATOR image: the rig's validator (dev hooks ON) for the owner
+# service, selected per service with RAILWAY_DOCKERFILE_PATH=railway/Dockerfile.owner-validator (Railway's config-as-
+# code files cannot be adopted by NEW services, so the image carries the configuration instead). The public preview's
+# validator is Dockerfile.validator and is unchanged.
+#
+# NEVER attach a public domain or a TCP proxy to this service. The rig validator answers unsigned state reads,
+# unsigned rep events and unsigned root registration (validator/server.js, dev hooks) — notes/runbooks/PREVIEW-READINESS.md §3's
+# list of what makes a validator "not a public server". The owner app reaches it over Railway's private network at
+# http://owner-validator.railway.internal:4001. The boot step below REFUSES to start (exit 78) on a hosted platform
+# unless LAYERS_PRIVATE_NETWORK_ONLY=true is set AND the platform reports no public domain / TCP proxy for it.
+#
+# First boot on an empty volume: validator/seed.js inserts the rig's fixture world (the same one `npm run setup` makes
+# on the laptop) and writes the device-side roster that pairs with it to /data/fixture-roster.json; on every later
+# boot it sees roots and skips. That roster belongs to the APP (its keystore directory) — notes/runbooks/GO-LIVE-FARCASTER.md has the
+# one-time copy. With LAYERS_WORLD=empty (lib/world.ts) an empty database is NOT seeded (it stays empty; no roster is
+# written), --force is refused, and a database that already holds rows is skipped as before — never deleted.
+# Secrets are never baked in: the environment is the platform's.
+FROM node:24-slim
+ENV NODE_ENV=production
+WORKDIR /app
+# the validator is a workspace package; both manifests must be present for `npm ci` — production dependencies only,
+# no lifecycle scripts (same as Dockerfile.validator)
+COPY package.json package-lock.json ./
+COPY validator/package.json ./validator/package.json
+RUN npm ci --omit=dev --ignore-scripts
+COPY validator ./validator
+COPY scripts/validator-supervisor.mjs ./scripts/validator-supervisor.mjs
+# validator/zk.js pins the ceremony record it verifies against
+COPY research/zk-ceremony-verification.json ./research/zk-ceremony-verification.json
+# validator/seed.js reads the fixture world it inserts (the rig's, byte for byte)
+COPY lib/fixtures/data.json ./lib/fixtures/data.json
+# the rig shape, by construction of this image; the database, death log and backups live on the volume at /data
+ENV ZK_DEV_HOOKS=true \
+    LAYERS_REQUIRE_SIG=true \
+    VALIDATOR_DB=/data/layers.db \
+    VALIDATOR_DEATHS_LOG=/data/deaths.log \
+    VALIDATOR_BACKUP_DIR=/data/backups \
+    LAYERS_VALIDATOR_PORT=4001 \
+    PORT=4001
+EXPOSE 4001
+# 1. the boot contract as its own step (it fails the deployment before anything starts; the supervisor also exits
+#    78 on a refused boot now instead of restarting it); 2. seed an empty database once; 3. the supervised validator
+CMD ["sh", "-c", "node validator/env-contract.js && node validator/seed.js --roster /data/fixture-roster.json && exec node scripts/validator-supervisor.mjs"]

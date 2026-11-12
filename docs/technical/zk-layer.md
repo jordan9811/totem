@@ -1,0 +1,12 @@
+# ZK layer
+
+- The foundation: Semaphore v4 membership, the anonymous submission channel, the tier gate on For You. {cite: notes/reports/REPORT-Z1.md > "GATE 1 — The anonymous submission channel (F1, the blocker) — BUILT"} {cite: notes/reports/REPORT-Z1.md > "GATE 2 — The tier-threshold membership gate on For You — BUILT"}
+- The ceremony check and what it could not establish. {cite: notes/reports/REPORT-Z1.md > "What the ceremony check established (and what it could not)"}
+- Migration 006: the validator stops knowing persona → root. {cite: notes/reports/REPORT-Z2.md > "Gate 2 — migration 006: the validator stops knowing persona → root"}
+- Fork continuity as a proof; revocation via epoch re-issuance. {cite: notes/reports/REPORT-Z2.md > "Gate 3 — fork continuity as a proof, revocation via epoch re-issuance, attestation scaffolding"}
+- What zk cost: root-level block fan-out, and the memo on restoring it. {cite: SECURITY-POSTURE.md > "10. What zk cost us: root-level block fan-out (ZK Pass 2, Gate 2)"}
+- The claim → scope registry is rendered from source on the scopes page; wave 3 adds `x-anon-post`, an X copy's own scope.
+- Persona launch P7 (built, test data only, not deployed): the prover in a Web Worker in the visitor's tab (`public/device/prover.js`), the browser anonymous channel (direct, OHTTP-ready), one availability switch for the whole site, and the bundle budget: `device.js` at most 4,718,592 bytes and free of snarkjs, `prover.js` at most 1,572,864 bytes (built: 4,370,917 and 441,369). {cite: SECURITY-POSTURE.md > "27. Anonymous posting from the public site (Persona launch P7): the prover in your browser, the web channel, and what the operator sees"}
+- The GPL-3.0 duty of serving `prover.js` (snarkjs 0.7.5, ffjavascript 0.3.1 and their GPL-3.0 dependencies): the banner, `/device/prover.js.LICENSE.txt`, and the source served at `/device/source/` (A-GPL-SOURCE-OFFER, resolved by the go-live build). {cite: SECURITY-POSTURE.md > "5. The GPL-3 note"}
+- Proving time in a browser, measured on a desktop and a throttled stand-in, not a phone: 1.41 s in the worker on a desktop (1.24 s to prove); 6.6 s and 10.6 s on a page thread slowed 4 and 6 times. {cite: SECURITY-POSTURE.md > "6. Mobile proving"}
+- Persona launch P8: the `x-anon-post` claim for the @totem X outbox, its own slots and its moderation queue. {cite: SECURITY-POSTURE.md > "28. The @layers X outbox (Persona launch P8): anonymous copies to X, moderated first, on a test transport"}

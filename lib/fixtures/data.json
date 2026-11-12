@@ -1,0 +1,767 @@
+{
+  "self": {
+    "fid": 9152,
+    "username": "yeak__",
+    "displayName": "jordan",
+    "pfpUrl": "https://i.pravatar.cc/160?img=12",
+    "bannerUrl": "https://picsum.photos/seed/layersbanner/1500/500",
+    "bio": "Delphi Research",
+    "followerCount": 4242,
+    "followingCount": 1162,
+    "postCount": 3034,
+    "joined": "June 2018",
+    "verified": true
+  },
+  "users": [
+    {
+      "fid": 1000001,
+      "username": "0xdanwu",
+      "displayName": "0xdanwu.eth",
+      "pfpUrl": "https://i.pravatar.cc/160?img=33",
+      "bio": "settlement infrastructure. prev @jumptrading",
+      "followerCount": 48211,
+      "followingCount": 412,
+      "verified": true
+    },
+    {
+      "fid": 1000002,
+      "username": "tessajlin",
+      "displayName": "Tessa",
+      "pfpUrl": "https://i.pravatar.cc/160?img=45",
+      "bio": "mechanism design, reluctantly",
+      "followerCount": 31872,
+      "followingCount": 890,
+      "verified": true
+    },
+    {
+      "fid": 1000003,
+      "username": "mevcapital",
+      "displayName": "MEV Capital",
+      "pfpUrl": "https://i.pravatar.cc/160?img=60",
+      "bio": "research desk. long tail, short patience",
+      "followerCount": 102455,
+      "followingCount": 51,
+      "verified": true
+    },
+    {
+      "fid": 1000004,
+      "username": "jansenteng",
+      "displayName": "Jansen",
+      "pfpUrl": "https://i.pravatar.cc/160?img=15",
+      "bio": "building perps somewhere",
+      "followerCount": 8123,
+      "followingCount": 1544,
+      "verified": false
+    },
+    {
+      "fid": 1000005,
+      "username": "clairvoyantcap",
+      "displayName": "clairvoyant",
+      "pfpUrl": "https://i.pravatar.cc/160?img=8",
+      "bio": "macro tourist, micro resident",
+      "followerCount": 56102,
+      "followingCount": 233,
+      "verified": true
+    },
+    {
+      "fid": 1000006,
+      "username": "pavlovsdog_",
+      "displayName": "pav",
+      "pfpUrl": "https://i.pravatar.cc/160?img=22",
+      "bio": "ring the bell",
+      "followerCount": 12894,
+      "followingCount": 2011,
+      "verified": false
+    },
+    {
+      "fid": 1000007,
+      "username": "danaexplains",
+      "displayName": "Dansplaining",
+      "pfpUrl": "https://i.pravatar.cc/160?img=47",
+      "bio": "film, markets, film about markets",
+      "followerCount": 22450,
+      "followingCount": 731,
+      "verified": false
+    },
+    {
+      "fid": 1000008,
+      "username": "haobai_",
+      "displayName": "haobai",
+      "pfpUrl": "https://i.pravatar.cc/160?img=51",
+      "bio": "payments researcher",
+      "followerCount": 19233,
+      "followingCount": 508,
+      "verified": true
+    },
+    {
+      "fid": 1000009,
+      "username": "jessetrust",
+      "displayName": "Jesse",
+      "pfpUrl": "https://i.pravatar.cc/160?img=13",
+      "bio": "writing The Meter",
+      "followerCount": 40109,
+      "followingCount": 377,
+      "verified": true
+    },
+    {
+      "fid": 1000010,
+      "username": "kevbuilds",
+      "displayName": "kev",
+      "pfpUrl": "https://i.pravatar.cc/160?img=68",
+      "bio": "agent payments @ somewhere",
+      "followerCount": 15877,
+      "followingCount": 933,
+      "verified": true
+    },
+    {
+      "fid": 1000011,
+      "username": "sarelle",
+      "displayName": "Sarelle",
+      "pfpUrl": "https://i.pravatar.cc/160?img=25",
+      "bio": "onchain consumer, offchain skeptic",
+      "followerCount": 6710,
+      "followingCount": 1204,
+      "verified": false
+    },
+    {
+      "fid": 1000012,
+      "username": "gmatteo",
+      "displayName": "Matteo",
+      "pfpUrl": "https://i.pravatar.cc/160?img=59",
+      "bio": "eu regs, us vibes",
+      "followerCount": 9834,
+      "followingCount": 655,
+      "verified": false
+    },
+    {
+      "fid": 1000013,
+      "username": "chainpilled",
+      "displayName": "ChainPilled",
+      "pfpUrl": "https://i.pravatar.cc/160?img=3",
+      "bio": "daily onchain data threads",
+      "followerCount": 71203,
+      "followingCount": 140,
+      "verified": true
+    },
+    {
+      "fid": 1000014,
+      "username": "lotusintern",
+      "displayName": "lotus intern",
+      "pfpUrl": "https://i.pravatar.cc/160?img=31",
+      "bio": "the intern is the alpha",
+      "followerCount": 30122,
+      "followingCount": 1802,
+      "verified": false
+    },
+    {
+      "fid": 1000015,
+      "username": "tier1grinder",
+      "displayName": "gm gm",
+      "pfpUrl": "https://i.pravatar.cc/160?img=7",
+      "bio": "gm. engagement is a ladder",
+      "followerCount": 112,
+      "followingCount": 4980,
+      "verified": false
+    },
+    {
+      "fid": 1000021,
+      "username": "_sholtodouglas",
+      "displayName": "Sholto Douglas",
+      "pfpUrl": "https://i.pravatar.cc/160?img=11",
+      "bio": "scaling",
+      "followerCount": 88211,
+      "followingCount": 300,
+      "verified": true
+    },
+    {
+      "fid": 1000022,
+      "username": "karpathy",
+      "displayName": "Andrej Karpathy",
+      "pfpUrl": "https://i.pravatar.cc/160?img=65",
+      "bio": "building",
+      "followerCount": 990211,
+      "followingCount": 800,
+      "verified": true
+    },
+    {
+      "fid": 1000023,
+      "username": "dcarmitage",
+      "displayName": "daniel",
+      "pfpUrl": "https://i.pravatar.cc/160?img=18",
+      "bio": "",
+      "followerCount": 41022,
+      "followingCount": 512,
+      "verified": true
+    },
+    {
+      "fid": 1000031,
+      "username": "kimmo",
+      "displayName": "kimmo",
+      "pfpUrl": "https://i.pravatar.cc/160?img=40",
+      "bio": "crypto social, intents",
+      "followerCount": 20112,
+      "followingCount": 610,
+      "verified": true
+    },
+    {
+      "fid": 1000032,
+      "username": "evanskate",
+      "displayName": "Evans Kate",
+      "pfpUrl": "https://i.pravatar.cc/160?img=26",
+      "bio": "",
+      "followerCount": 3111,
+      "followingCount": 902,
+      "verified": false
+    },
+    {
+      "fid": 1000033,
+      "username": "martyexe",
+      "displayName": "Ξ Marty",
+      "pfpUrl": "https://i.pravatar.cc/160?img=55",
+      "bio": "",
+      "followerCount": 15022,
+      "followingCount": 388,
+      "verified": true
+    },
+    {
+      "fid": 1000034,
+      "username": "michaellwy",
+      "displayName": "michaellwy",
+      "pfpUrl": "https://i.pravatar.cc/160?img=36",
+      "bio": "",
+      "followerCount": 27311,
+      "followingCount": 745,
+      "verified": true
+    },
+    {
+      "fid": 1000035,
+      "username": "RobMcStodda",
+      "displayName": "McDavid",
+      "pfpUrl": "https://i.pravatar.cc/160?img=62",
+      "bio": "",
+      "followerCount": 802,
+      "followingCount": 1211,
+      "verified": false
+    },
+    {
+      "fid": 1000036,
+      "username": "RocketLeague",
+      "displayName": "Rocket League",
+      "pfpUrl": "https://i.pravatar.cc/160?img=49",
+      "bio": "",
+      "followerCount": 2100455,
+      "followingCount": 12,
+      "verified": true
+    }
+  ],
+  "casts": [
+    {
+      "hash": "0xa1b2c301",
+      "authorFid": 1000001,
+      "minutesAgo": 720,
+      "text": "The stablecoin settlement stack is quietly consolidating. Three of the top five issuers now clear through the same two prime brokers, and nobody seems to think this is a problem.\n\nFor anyone who watched the 2008 tri-party repo unwind up close: this is that, with fewer adults in the room.",
+      "replies": 6,
+      "likes": 1312,
+      "recasts": 54,
+      "views": 18400,
+      "embeds": [
+        {
+          "type": "quote",
+          "quote": {
+            "hash": "0xq1000001",
+            "authorFid": 1000003,
+            "minutesAgo": 4320,
+            "text": "In 1781 terms this is the insurance chapter, not the shipping chapter. We traced Q2 cross-domain arb flow: over 60% routed through three builders.\n\nThe Auction and the Aqueduct, our new piece with…",
+            "embeds": [
+              {
+                "type": "image",
+                "url": "https://picsum.photos/seed/aqueduct/1200/675"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "hash": "0xa1b2c302",
+      "authorFid": 1000007,
+      "minutesAgo": 840,
+      "text": "the committee meeting where they decided every chart in every deck must go up and to the right",
+      "replies": 41,
+      "likes": 3921,
+      "recasts": 402,
+      "views": 220100,
+      "embeds": [
+        {
+          "type": "image",
+          "url": "https://picsum.photos/seed/danafilm/1200/675"
+        }
+      ]
+    },
+    {
+      "hash": "0xa1b2c303",
+      "authorFid": 1000008,
+      "minutesAgo": 780,
+      "text": "I saw this article all over the timeline today and thought the big lab wrote an explainer on x402. how crazy! so i gave it a read\n\nwrong expectation. this is not them shilling x402.\n\nwhat it actually is: a jupyter notebook walkthrough showing how to build a controlled spending layer around agent payments, with the protocol as the settlement rail. the interesting part is the budget attestation loop, which nobody is talking about",
+      "replies": 2,
+      "likes": 16,
+      "recasts": 1,
+      "views": 1500,
+      "embeds": [
+        {
+          "type": "quote",
+          "quote": {
+            "hash": "0xq1000002",
+            "authorFid": 1000010,
+            "minutesAgo": 2880,
+            "text": "Great x402 blog this week!\n\nThe post leans into the x402 payment flow via the AgentCore Payment implementation. Check it out!!",
+            "embeds": []
+          }
+        }
+      ]
+    },
+    {
+      "hash": "0xa1b2c304",
+      "authorFid": 1000009,
+      "minutesAgo": 600,
+      "recastedByFid": 1000004,
+      "text": "A full deep dive on this exact subject if you are interested",
+      "replies": 3,
+      "likes": 187,
+      "recasts": 22,
+      "views": 29500,
+      "embeds": [
+        {
+          "type": "link",
+          "url": "https://themeter.xyz/mandate",
+          "domain": "themeter.xyz",
+          "title": "The Meter and the Mandate",
+          "description": "Why the payments giant wants both an inference router and a wallet network. The same company, built twice. The first time, the inventory was NFTs.",
+          "image": "https://picsum.photos/seed/meterarticle/1200/675",
+          "article": true
+        }
+      ]
+    },
+    {
+      "hash": "0xa1b2c305",
+      "authorFid": 1000005,
+      "minutesAgo": 300,
+      "threadCount": 3,
+      "text": "1/ Everyone is pricing the rate cut. Nobody is pricing the collateral migration that follows it.\n\nA thread on what happens to onchain money markets when T-bill yield stops being the risk-free benchmark:",
+      "replies": 18,
+      "likes": 892,
+      "recasts": 143,
+      "views": 96200,
+      "embeds": []
+    },
+    {
+      "hash": "0xa1b2c306",
+      "authorFid": 1000013,
+      "minutesAgo": 240,
+      "text": "Daily: DEX/CEX spot ratio printed 31%, a new high.\n\nThe interesting part is WHERE it came from. Not majors. Long-tail pairs that simply do not exist on centralized venues anymore. The listings pipeline moved onchain and nobody sent a press release.",
+      "replies": 12,
+      "likes": 640,
+      "recasts": 88,
+      "views": 51900,
+      "embeds": [
+        {
+          "type": "image",
+          "url": "https://picsum.photos/seed/dexdata/1200/675"
+        }
+      ]
+    },
+    {
+      "hash": "0xa1b2c307",
+      "authorFid": 1000014,
+      "minutesAgo": 180,
+      "text": "intern got yelled at for saying the quiet part: most \"institutional adoption\" announcements are a custody agreement and a blog post",
+      "replies": 27,
+      "likes": 2210,
+      "recasts": 310,
+      "views": 187000,
+      "embeds": []
+    },
+    {
+      "hash": "0xa1b2c308",
+      "authorFid": 1000002,
+      "minutesAgo": 1140,
+      "text": "Every successful marketplace has winners and losers.\n\nBut some participants make it more of a dark forest than a cheerful bazaar. We find some direct evidence for this — and some simple math that predicts who defects first.",
+      "replies": 9,
+      "likes": 421,
+      "recasts": 67,
+      "views": 40300,
+      "embeds": [
+        {
+          "type": "link",
+          "url": "https://openrouter.example/caching-cheaters",
+          "domain": "researchhub.xyz",
+          "title": "Caching Cheaters on OpenRouter",
+          "description": "The full essay — with a more philosophical market-structure frame, the economics of open source, and the complete analysis and appendices referenced — can be found here.",
+          "image": "https://picsum.photos/seed/cachingcheat/1200/675",
+          "article": true
+        }
+      ]
+    },
+    {
+      "hash": "0xa1b2c309",
+      "authorFid": 1000012,
+      "minutesAgo": 1080,
+      "text": "MiCA enforcement update: the first fine finally landed and it is... €40k. For a firm doing €2B annual volume.\n\nCompliance departments across the continent breathing out simultaneously",
+      "replies": 5,
+      "likes": 233,
+      "recasts": 19,
+      "views": 21700,
+      "embeds": []
+    },
+    {
+      "hash": "0xa1b2c310",
+      "authorFid": 1000006,
+      "minutesAgo": 90,
+      "text": "ok the agent payments demos are getting good. watched one negotiate a bulk API discount, split settlement across two chains, and file the receipt into accounting. 40 seconds end to end.\n\nthe boring plumbing era was the whole point",
+      "replies": 14,
+      "likes": 505,
+      "recasts": 61,
+      "views": 33800,
+      "embeds": []
+    },
+    {
+      "hash": "0xa1b2c311",
+      "authorFid": 1000011,
+      "minutesAgo": 60,
+      "recastedByFid": 1000002,
+      "text": "consumer crypto lesson #47: nobody wants to \"own their social graph\". they want their group chat to stop dying every 18 months. ship that",
+      "replies": 8,
+      "likes": 1104,
+      "recasts": 201,
+      "views": 88100,
+      "embeds": []
+    },
+    {
+      "hash": "0xa1b2c312",
+      "authorFid": 1000004,
+      "minutesAgo": 30,
+      "text": "We just hired @kevbuilds to help with bizdev",
+      "replies": 6,
+      "likes": 55,
+      "recasts": 6,
+      "views": 3800,
+      "embeds": []
+    },
+    {
+      "hash": "0xa1b2c313",
+      "authorFid": 1000003,
+      "minutesAgo": 1320,
+      "text": "Quarterly letter is out. TL;DR: we were early on restaking exits, late on prediction markets, and exactly on time for the only trade that mattered (staying solvent).\n\nFull letter for LPs, thread version for everyone else tomorrow.",
+      "replies": 21,
+      "likes": 1877,
+      "recasts": 240,
+      "views": 154000,
+      "embeds": [
+        {
+          "type": "image",
+          "url": "https://picsum.photos/seed/quarterly/1200/675"
+        }
+      ]
+    },
+    {
+      "hash": "0xa1b2c314",
+      "authorFid": 1000015,
+      "minutesAgo": 15,
+      "text": "gm 🌅 grinding never stops. like + repost and I follow back instantly. road to 1k 🚀🚀",
+      "replies": 0,
+      "likes": 2,
+      "recasts": 0,
+      "views": 140,
+      "embeds": []
+    },
+    {
+      "hash": "0xa1b2c315",
+      "authorFid": 1000010,
+      "minutesAgo": 2880,
+      "text": "Great x402 blog this week!\n\nThe post leans into the x402 payment flow via the AgentCore Payment implementation. Check it out!!\n\nWalks through budget scoping, per-tool spending caps, and the settlement callback pattern. If you build agents that touch money, this is the reference.",
+      "replies": 2,
+      "likes": 16,
+      "recasts": 1,
+      "views": 1500,
+      "embeds": []
+    }
+  ],
+  "selfCasts": [
+    {
+      "hash": "0xself0001",
+      "authorFid": 9152,
+      "minutesAgo": 4560,
+      "text": "I understand the pushback against Claude watermarks, but it's more product gap/short term nuisance than a real issue.\n\nThe end state is a provenance layer with hashes of your content & prompts, attesting that your input predates Claude's and makes up X% of the output.\n\nBasically a receipts system for authorship. The models get good enough that \"did a human write this\" becomes the wrong question, and \"which human commissioned it\" becomes the right one.",
+      "replies": 1,
+      "likes": 7,
+      "recasts": 0,
+      "views": 667,
+      "embeds": [],
+      "truncate": true,
+      "viewerLiked": true
+    },
+    {
+      "hash": "0xself0002",
+      "authorFid": 9152,
+      "minutesAgo": 5760,
+      "text": "Can't remember the last time a new L1/L2 was announced. Do we finally have enough chains?",
+      "replies": 4,
+      "likes": 14,
+      "recasts": 0,
+      "views": 798,
+      "embeds": [],
+      "viewerLiked": true
+    },
+    {
+      "hash": "0xself0003",
+      "authorFid": 9152,
+      "minutesAgo": 18720,
+      "text": "I miss when CT had a new mechanism design nerdsnipe every day. So here's my submission: a fun idea from the archives",
+      "replies": 6,
+      "likes": 39,
+      "recasts": 3,
+      "views": 7000,
+      "embeds": [
+        {
+          "type": "image",
+          "url": "https://picsum.photos/seed/nerdsnipe/1200/675"
+        }
+      ],
+      "viewerLiked": true
+    }
+  ],
+  "threads": {
+    "0xa1b2c301": [
+      {
+        "hash": "0xr0000001",
+        "authorFid": 1000005,
+        "minutesAgo": 700,
+        "text": "The repo comparison undersells it. At least tri-party had a Fed backstop. Who is the lender of last resort when a prime broker for stablecoin float gets margin called?",
+        "replies": 2,
+        "likes": 214,
+        "recasts": 12,
+        "views": 8100,
+        "embeds": []
+      },
+      {
+        "hash": "0xr0000002",
+        "authorFid": 9152,
+        "minutesAgo": 690,
+        "text": "Crypto social, intents — the whole settlement conversation keeps routing around the actual counterparty risk. Good post.",
+        "replies": 1,
+        "likes": 44,
+        "recasts": 1,
+        "views": 2600,
+        "embeds": []
+      },
+      {
+        "hash": "0xr0000003",
+        "authorFid": 1000001,
+        "minutesAgo": 680,
+        "parentIsSelf": true,
+        "text": "Right — and the backstop question is the piece I left out on purpose. That's its own post. The short version: there isn't one, and the two candidates who could become one both have conflicts.",
+        "replies": 1,
+        "likes": 98,
+        "recasts": 4,
+        "views": 6900,
+        "embeds": []
+      },
+      {
+        "hash": "0xr0000004",
+        "authorFid": 1000006,
+        "minutesAgo": 500,
+        "text": "this is the most 2008 sentence written this year and it's about magic internet dollars. incredible timeline",
+        "replies": 0,
+        "likes": 67,
+        "recasts": 2,
+        "views": 4100,
+        "embeds": []
+      },
+      {
+        "hash": "0xr0000005",
+        "authorFid": 1000012,
+        "minutesAgo": 420,
+        "text": "EU angle: MiCA treats the issuers as the risk surface, not the brokers. The consolidation you describe is formally invisible to the regulation designed for it.",
+        "replies": 0,
+        "likes": 51,
+        "recasts": 3,
+        "views": 3900,
+        "embeds": []
+      }
+    ]
+  },
+  "notifications": [
+    {
+      "id": "n1",
+      "type": "like",
+      "actorFids": [
+        1000031
+      ],
+      "minutesAgo": 360,
+      "text": "liked your reply",
+      "preview": "Crypto social, intents"
+    },
+    {
+      "id": "n2",
+      "type": "new_post",
+      "actorFids": [
+        1000036
+      ],
+      "minutesAgo": 840,
+      "text": "New post notifications for Rocket League 🏆"
+    },
+    {
+      "id": "n3",
+      "type": "like",
+      "actorFids": [
+        1000032
+      ],
+      "minutesAgo": 2880,
+      "text": "liked your post",
+      "articleCard": {
+        "title": "Fixing Liquity's Flywheel",
+        "description": "TL;DR: A liquid wrapper for LQTY + a friendly fork that lists it as collateral. Together they let you lever a carry trade with a ceiling on borrow costs while levering the token that enables it. An…",
+        "image": "https://picsum.photos/seed/liquity/1200/675"
+      }
+    },
+    {
+      "id": "n4",
+      "type": "like",
+      "actorFids": [
+        1000033,
+        1000034
+      ],
+      "minutesAgo": 3060,
+      "text": "liked your post",
+      "preview": "I understand the pushback against Claude watermarks, but it's more product gap/short term nuisance than a real issue.\n…"
+    },
+    {
+      "id": "n5",
+      "type": "like",
+      "actorFids": [
+        1000034
+      ],
+      "minutesAgo": 4200,
+      "text": "liked your reply",
+      "preview": "Watermarking is actually quite interesting, highly recommend this episode from zero knowledge podcast. They were a year early, ggs best pod open.spotify.com/episode/6OA4CM…"
+    },
+    {
+      "id": "n6",
+      "type": "reply",
+      "actorFids": [
+        1000035
+      ],
+      "minutesAgo": 4380,
+      "replyingTo": "@yeak__",
+      "text": "robin hood…",
+      "views": 46,
+      "replies": 1
+    },
+    {
+      "id": "n7",
+      "type": "follow",
+      "actorFids": [
+        1000011,
+        1000014
+      ],
+      "minutesAgo": 5000,
+      "text": "followed you"
+    },
+    {
+      "id": "n8",
+      "type": "recast",
+      "actorFids": [
+        1000002
+      ],
+      "minutesAgo": 5400,
+      "text": "reposted your post",
+      "preview": "Can't remember the last time a new L1/L2 was announced. Do we finally have enough chains?"
+    }
+  ],
+  "trends": [
+    {
+      "kind": "promoted",
+      "title": "NBA 2K27 Game Reveal",
+      "sub": "Learn more about NBA 2K27",
+      "promotedBy": "NBA 2K"
+    },
+    {
+      "kind": "trend",
+      "category": "Only on X · Trending",
+      "title": "#ThickTrunkTuesday"
+    },
+    {
+      "kind": "trend",
+      "category": "Entertainment · Trending",
+      "title": "Kyle Chandler"
+    },
+    {
+      "kind": "trend",
+      "category": "Only on X · Trending",
+      "title": "#TuesdayMotivation"
+    }
+  ],
+  "news": [
+    {
+      "title": "Flock Safety Cameras Face Vandalism and Shutdowns Over Surveillance Fears",
+      "meta": "1 hour ago · News · 855 posts",
+      "avatarFids": [
+        1000001,
+        1000013
+      ]
+    },
+    {
+      "title": "Halloween 'De-Flock America' Push Targets License Plate Cameras",
+      "meta": "2 days ago · News · 38.5K posts",
+      "avatarFids": [
+        1000007,
+        1000033
+      ]
+    },
+    {
+      "title": "Rockefeller's Breast Milk Routine Sparks Debate on Past vs. Present Wealth",
+      "meta": "21 hours ago · Other · 2,618 posts",
+      "avatarFids": [
+        1000014,
+        1000032
+      ]
+    }
+  ],
+  "liveOnX": [
+    {
+      "hostFid": 1000003,
+      "host": "PsyopAnime",
+      "verified": true,
+      "action": "is hosting",
+      "title": "PsyopAnime Declassified",
+      "viewers": "+8.2K",
+      "avatarFids": [
+        1000003
+      ]
+    },
+    {
+      "title": "#FinanceDaily Yields🔥; Futures📉; CC delinque…",
+      "viewers": "+1K",
+      "avatarFids": [
+        1000004,
+        1000009,
+        1000010
+      ]
+    }
+  ],
+  "whoToFollow": [
+    1000021,
+    1000022,
+    1000023
+  ],
+  "channels": [
+    {
+      "id": "crypto",
+      "name": "Crypto"
+    },
+    {
+      "id": "defi",
+      "name": "DEFI"
+    }
+  ]
+}

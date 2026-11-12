@@ -1,0 +1,4957 @@
+{
+  "casts": [
+    {
+      "object": "cast",
+      "hash": "0x2702f0c801eb8375f4da1013196ea98101224ad6",
+      "author": {
+        "object": "user",
+        "fid": 194,
+        "username": "rish",
+        "display_name": "rish",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/465b734a-da85-44ce-3456-11fedac46100/original",
+        "custody_address": "0xb95dc10483be18f7c69ddf78d4baafecc01c5530",
+        "registered_at": "2021-10-01T00:34:58.143Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:19:23.000Z",
+          "expires_at": "2027-06-17T14:40:13.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "i do customer support around here"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/729ccc5f-6337-475a-cd78-4fc6afe5e700/original"
+          }
+        },
+        "follower_count": 299373,
+        "following_count": 1275,
+        "verifications": [
+          "0x5a927ac639636e534b678e81768ca19e2c6280b7",
+          "0xe9e261852ea62150eee685807df8fe3f211310a0",
+          "0xa84bc380aeb35836500216c243ab16ef24f9f2f0",
+          "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+          "0x8cb13a5967d4a9f84bab350ae8328db195b1e173"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x5a927ac639636e534b678e81768ca19e2c6280b7",
+            "0xe9e261852ea62150eee685807df8fe3f211310a0",
+            "0xa84bc380aeb35836500216c243ab16ef24f9f2f0",
+            "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+            "0x8cb13a5967d4a9f84bab350ae8328db195b1e173"
+          ],
+          "sol_addresses": [
+            "7EeGPnP1dqjXhPwqLmTR1h89txKwLuuciJH6yFPHThCE",
+            "9HVQS8Q4cR2yTdTcwDJKG4GBkp9wKVMwmHkzXfER62ik"
+          ],
+          "primary": {
+            "eth_address": "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+            "sol_address": "9HVQS8Q4cR2yTdTcwDJKG4GBkp9wKVMwmHkzXfER62ik"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xe1fac64cebe0855d984ac7c3feb8b7612c6b4176",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          },
+          {
+            "address": "0x33560629a00b2ed47f9eaeb3a18d41af69181f43",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "rish_neynar"
+          },
+          {
+            "platform": "github",
+            "username": "rishavmukherji"
+          }
+        ],
+        "url": "https://rish.org",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x2702f0c801eb8375f4da1013196ea98101224ad6",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "did a full 24h+ \n\nrunner’s back\n\nfun fact - farcasters front ran chainrunners in 2021",
+      "timestamp": "2026-08-21T21:54:14.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 194,
+            "hash": "0x746470e4e2f4e9b061fe3a511bb5086970bc9607"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0x746470e4e2f4e9b061fe3a511bb5086970bc9607",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 194,
+              "username": "rish",
+              "display_name": "rish",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/465b734a-da85-44ce-3456-11fedac46100/original",
+              "custody_address": "0xb95dc10483be18f7c69ddf78d4baafecc01c5530"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x746470e4e2f4e9b061fe3a511bb5086970bc9607",
+            "parent_hash": null,
+            "parent_url": null,
+            "root_parent_url": null,
+            "parent_author": {
+              "fid": null
+            },
+            "text": "sigh ok",
+            "timestamp": "2026-08-20T16:15:41.000Z",
+            "embeds": [
+              {
+                "cast_id": {
+                  "fid": 1725,
+                  "hash": "0xb3637c00c3343914d29e62301ee57c8cf65292ff"
+                },
+                "cast": {
+                  "object": "cast_dehydrated",
+                  "hash": "0xb3637c00c3343914d29e62301ee57c8cf65292ff",
+                  "author": {
+                    "object": "user_dehydrated",
+                    "fid": 1725
+                  },
+                  "app": {
+                    "object": "user_dehydrated",
+                    "fid": 9152
+                  }
+                }
+              }
+            ],
+            "channel": null
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 10,
+        "recasts_count": 1,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xfaf19d29bfdc88ac21b402dd970593203be57e79",
+      "author": {
+        "object": "user",
+        "fid": 7143,
+        "username": "six",
+        "display_name": "six",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/76988c98-31b9-4540-377e-628f39107f00/original",
+        "custody_address": "0xe7339c6f99c1026b0e43cbb5f6fa1d6da6bc4579",
+        "registered_at": "2022-12-18T22:33:48.117Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:18:11.000Z",
+          "expires_at": "2026-06-16T17:18:11.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": ""
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d75abafd-83e2-471b-79d9-c6e4c809bb00/original"
+          }
+        },
+        "follower_count": 158142,
+        "following_count": 1620,
+        "verifications": [
+          "0x44b1b486ce8d9c82f605626347a7b1f74add11de",
+          "0x889743fc78f763a7d8cdba35eed499b23a1fb522",
+          "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x44b1b486ce8d9c82f605626347a7b1f74add11de",
+            "0x889743fc78f763a7d8cdba35eed499b23a1fb522",
+            "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3"
+          ],
+          "sol_addresses": [
+            "4txeM85pbxQE5FyjPuCG3u1CvNRJXmZBG2pdgvv1M39n"
+          ],
+          "primary": {
+            "eth_address": "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3",
+            "sol_address": null
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [],
+        "url": "https://infinite.games",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.98,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.98
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xfaf19d29bfdc88ac21b402dd970593203be57e79",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "imo people overindex on how new technology can or cannot solve existing problems better/faster and underindex on how it can shape new behaviors",
+      "timestamp": "2026-08-21T21:47:37.000Z",
+      "embeds": [],
+      "channel": null,
+      "reactions": {
+        "likes_count": 3,
+        "recasts_count": 2,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 0
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xeb118cdf56bdb1817bd73873f60350890bb7eddb",
+      "author": {
+        "object": "user",
+        "fid": 4167,
+        "username": "nounishprof",
+        "display_name": "Nounish Prof ⌐◧-◧🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/eb81be76-395a-4acd-910d-48cd5290d500/original",
+        "custody_address": "0xbb54a63ad8241710eba3a98af224080b611ff8e9",
+        "registered_at": "2022-10-23T23:45:30.538Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:17:41.000Z",
+          "expires_at": "2027-06-18T09:59:51.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "building /gmfarcaster network |\nblockchain ENT prof |  ⌐◧-◧",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "gmfarcaster",
+                "name": "GM Farcaster (podcast)",
+                "image_url": "https://i.imgur.com/8OMHbYB.jpg"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 9,
+                "end": 21
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1bc84933-1f44-46c1-be8c-2aa1c8e81100/original"
+          }
+        },
+        "follower_count": 132568,
+        "following_count": 4142,
+        "verifications": [
+          "0xceed9585854f12f81a0103861b83b995a64ad915",
+          "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+          "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+          "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+          "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+          "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xceed9585854f12f81a0103861b83b995a64ad915",
+            "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+            "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+            "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+            "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+          ],
+          "sol_addresses": [
+            "G7LU4fomCvLnDeZgnJX3XL3ZGzWFkqT77tApbkrw3n5A",
+            "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          ],
+          "primary": {
+            "eth_address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "sol_address": "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xdad9478b3889eebaea59e6727e6835f84e765a39",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          },
+          {
+            "address": "0xe3f09ae05e295555eac84c8bbbfc23c6a254d434",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x2a309a64bc50c40c5b66431a87df49f4cfa90949",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x784b6c4b6675957085ecafd5198afc47dc13e052",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "profwerder"
+          }
+        ],
+        "url": "https://gmfarcaster.com/",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xeb118cdf56bdb1817bd73873f60350890bb7eddb",
+      "parent_hash": null,
+      "parent_url": "https://warpcast.com/~/channel/popcorn",
+      "root_parent_url": "https://warpcast.com/~/channel/popcorn",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "They didn’t accept her offer but she inspired a mini app \n\nhttps://farcaster.xyz/nikolaii.eth/0x412e5ddc",
+      "timestamp": "2026-08-21T21:43:00.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 5818,
+            "hash": "0xac784d4df3e3e52b4694921daef7f044cadfba52"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0xac784d4df3e3e52b4694921daef7f044cadfba52",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 5818,
+              "username": "adrienne",
+              "display_name": "adrienne",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/900a94b3-ae49-41c3-7c8c-ebff96a99700/original",
+              "custody_address": "0x1243516408ee976b34573678f2aa029b69de4f00"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0xac784d4df3e3e52b4694921daef7f044cadfba52",
+            "parent_hash": null,
+            "parent_url": null,
+            "root_parent_url": null,
+            "parent_author": {
+              "fid": null
+            },
+            "text": "@rish Here’s my all-popcorn offer to buy farcaster. Last and final. Do we have a deal?",
+            "timestamp": "2026-08-21T00:58:42.000Z",
+            "embeds": [
+              {
+                "cast_id": {
+                  "fid": 194,
+                  "hash": "0x78fcd034f29a89c7aa0cca86fcf00e7a8795116b"
+                },
+                "cast": {
+                  "object": "cast_dehydrated",
+                  "hash": "0x78fcd034f29a89c7aa0cca86fcf00e7a8795116b",
+                  "author": {
+                    "object": "user_dehydrated",
+                    "fid": 194
+                  },
+                  "app": {
+                    "object": "user_dehydrated",
+                    "fid": 9152
+                  }
+                }
+              },
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e1aa13c0-4fc9-4c6f-bdd0-fa5a848ae300/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              }
+            ],
+            "channel": null
+          }
+        },
+        {
+          "cast_id": {
+            "fid": 366713,
+            "hash": "0x412e5ddc21bd3cee153e07585b303db56a3f428b"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0x412e5ddc21bd3cee153e07585b303db56a3f428b",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 366713,
+              "username": "nikolaii.eth",
+              "display_name": "nikolaii.eth 🚀",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/28c4fd01-4edf-42ca-0d63-28b2f43f1400/original",
+              "custody_address": "0x9e9218794b6024b0e92db1cfb306801678092045"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x412e5ddc21bd3cee153e07585b303db56a3f428b",
+            "parent_hash": null,
+            "parent_url": null,
+            "root_parent_url": null,
+            "parent_author": {
+              "fid": null
+            },
+            "text": "We're at pop 2. Can you hit today's secret number?\n\ncreated by @1dolinski with @viniapp",
+            "timestamp": "2026-08-21T20:25:44.000Z",
+            "embeds": [
+              {
+                "url": "https://popcorn-omega-lilac.vercel.app",
+                "metadata": {
+                  "_status": "RESOLVED",
+                  "html": {
+                    "ogUrl": "https://popcorn-omega-lilac.vercel.app",
+                    "ogTitle": "POPCORN",
+                    "ogDescription": "Tap the kernel and hit the secret daily pop.",
+                    "ogSiteName": "popcorn-omega-lilac.vercel.app",
+                    "ogImage": [
+                      {
+                        "url": "https://popcorn-omega-lilac.vercel.app/opengraph-image?dc27d2a36db14092"
+                      }
+                    ]
+                  },
+                  "frame": {
+                    "version": "1",
+                    "title": "POPCORN",
+                    "image": "https://popcorn-omega-lilac.vercel.app/opengraph-image",
+                    "frames_url": "https://popcorn-omega-lilac.vercel.app/"
+                  }
+                }
+              },
+              {
+                "url": "https://farcaster.xyz/~/c/base:0x299db5953FD627b995B6f7c78fB4d6AC3c434a54",
+                "metadata": {
+                  "_status": "RESOLVED",
+                  "html": {
+                    "ogUrl": "https://farcaster.xyz/~/c/base:0x299db5953FD627b995B6f7c78fB4d6AC3c434a54",
+                    "ogTitle": "Farcaster: a decentralized social network",
+                    "ogDescription": "Farcaster is the best place to find new people and express yourself through software. A decentralized social network where you own your identity.",
+                    "ogSiteName": "farcaster.xyz",
+                    "ogImage": [
+                      {
+                        "url": "https://farcaster.xyz/opengraph.png"
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "channel": null
+          }
+        }
+      ],
+      "channel": {
+        "object": "channel_dehydrated",
+        "id": "popcorn",
+        "name": "Popcorn",
+        "image_url": "https://i.imgur.com/Qfwe9DU.jpg",
+        "viewer_context": {
+          "following": false
+        }
+      },
+      "reactions": {
+        "likes_count": 2,
+        "recasts_count": 0,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 0
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      },
+      "author_channel_context": {
+        "following": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x436d3fee9d2351abaa33e5b956921193d0ef30a2",
+      "author": {
+        "object": "user",
+        "fid": 4167,
+        "username": "nounishprof",
+        "display_name": "Nounish Prof ⌐◧-◧🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/eb81be76-395a-4acd-910d-48cd5290d500/original",
+        "custody_address": "0xbb54a63ad8241710eba3a98af224080b611ff8e9",
+        "registered_at": "2022-10-23T23:45:30.538Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:17:41.000Z",
+          "expires_at": "2027-06-18T09:59:51.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "building /gmfarcaster network |\nblockchain ENT prof |  ⌐◧-◧",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "gmfarcaster",
+                "name": "GM Farcaster (podcast)",
+                "image_url": "https://i.imgur.com/8OMHbYB.jpg"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 9,
+                "end": 21
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1bc84933-1f44-46c1-be8c-2aa1c8e81100/original"
+          }
+        },
+        "follower_count": 132568,
+        "following_count": 4142,
+        "verifications": [
+          "0xceed9585854f12f81a0103861b83b995a64ad915",
+          "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+          "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+          "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+          "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+          "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xceed9585854f12f81a0103861b83b995a64ad915",
+            "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+            "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+            "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+            "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+          ],
+          "sol_addresses": [
+            "G7LU4fomCvLnDeZgnJX3XL3ZGzWFkqT77tApbkrw3n5A",
+            "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          ],
+          "primary": {
+            "eth_address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "sol_address": "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xdad9478b3889eebaea59e6727e6835f84e765a39",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          },
+          {
+            "address": "0xe3f09ae05e295555eac84c8bbbfc23c6a254d434",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x2a309a64bc50c40c5b66431a87df49f4cfa90949",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x784b6c4b6675957085ecafd5198afc47dc13e052",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "profwerder"
+          }
+        ],
+        "url": "https://gmfarcaster.com/",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x436d3fee9d2351abaa33e5b956921193d0ef30a2",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "🤔",
+      "timestamp": "2026-08-21T21:34:45.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 1035587,
+            "hash": "0x4578143b88afe96b3793b128ce7f895cccd7453e"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0x4578143b88afe96b3793b128ce7f895cccd7453e",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 1035587,
+              "username": "flanneldonut",
+              "display_name": "Flannel Donut",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6cd012eb-4712-431c-f9a1-9847fa75cb00/rectcrop3",
+              "custody_address": "0x1969f7a444e2b4efe9899f0cf77493bdd352abdf"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x4578143b88afe96b3793b128ce7f895cccd7453e",
+            "parent_hash": null,
+            "parent_url": "https://farcaster.xyz/~/channel/garden-project",
+            "root_parent_url": "https://farcaster.xyz/~/channel/garden-project",
+            "parent_author": {
+              "fid": null
+            },
+            "text": "I didn’t know he was in here until I went to start the vacuum 🫣",
+            "timestamp": "2026-08-21T19:55:22.000Z",
+            "embeds": [
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/fe8e4e37-996a-42b2-2218-11f86725b300/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              }
+            ],
+            "channel": {
+              "object": "channel_dehydrated",
+              "id": "garden-project",
+              "name": "garden-project",
+              "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/4b6452c9-bc59-4caf-40f5-8c3ff865b100/original",
+              "viewer_context": {
+                "following": false
+              }
+            }
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 1,
+        "recasts_count": 0,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 0
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xa827d15bc5db5cec3c52f26e0881ce8f9dca49cc",
+      "author": {
+        "object": "user",
+        "fid": 3621,
+        "username": "horsefacts.eth",
+        "display_name": "horsefacts",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3288e269-1610-4d7e-9fe5-f09399247500/original",
+        "custody_address": "0x2cd85a093261f59270804a6ea697cea4cebecafe",
+        "registered_at": "2022-10-16T22:57:04.316Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:21:25.000Z",
+          "expires_at": "2026-07-16T17:21:25.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "I work at the posts office."
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/709c5d59-7025-4840-7c8d-8adc4095b000/original"
+          }
+        },
+        "follower_count": 389939,
+        "following_count": 6502,
+        "verifications": [
+          "0x79d31bfca5fda7a4f15b36763d2e44c99d811a6c",
+          "0x4d940b31dee0db0ce75af30878d9ce30dc7bd109",
+          "0x1a8b7cee23e54d8c3891fcc5409842c9cde345e1",
+          "0xcfe57ca65bca3c9218bb379065cddfb69bd1dcb4",
+          "0x3f56e996934c952a074672ffdbe51042e046c80a",
+          "0x075b108fc0a6426f9dec9a5c18e87eb577d1346a",
+          "0xe36d2f95a9b69df60dbf029bf7c4fa7d1ff56b90",
+          "0x13a0120d2c9baed53ccca01c49cf5cea97f933b8",
+          "0xe8c088f750544b434573825769a5fc79d96cc83a",
+          "0xbc134b792dc96954607ae43668e39c134351cb74",
+          "0x514d66d5091b94b91976be8f44d7e4022bf42d5b"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x79d31bfca5fda7a4f15b36763d2e44c99d811a6c",
+            "0x4d940b31dee0db0ce75af30878d9ce30dc7bd109",
+            "0x1a8b7cee23e54d8c3891fcc5409842c9cde345e1",
+            "0xcfe57ca65bca3c9218bb379065cddfb69bd1dcb4",
+            "0x3f56e996934c952a074672ffdbe51042e046c80a",
+            "0x075b108fc0a6426f9dec9a5c18e87eb577d1346a",
+            "0xe36d2f95a9b69df60dbf029bf7c4fa7d1ff56b90",
+            "0x13a0120d2c9baed53ccca01c49cf5cea97f933b8",
+            "0xe8c088f750544b434573825769a5fc79d96cc83a",
+            "0xbc134b792dc96954607ae43668e39c134351cb74",
+            "0x514d66d5091b94b91976be8f44d7e4022bf42d5b"
+          ],
+          "sol_addresses": [
+            "GAR98Ray1ewPvCrhayunzSaV6N39nckGsD3dKh5UwG4n",
+            "4NzbDQK773ni6J1jnNTRPLe1zQHtaTwEPp6mnKV8bFrK"
+          ],
+          "primary": {
+            "eth_address": "0xe36d2f95a9b69df60dbf029bf7c4fa7d1ff56b90",
+            "sol_address": "4NzbDQK773ni6J1jnNTRPLe1zQHtaTwEPp6mnKV8bFrK"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xe36d2f95a9b69df60dbf029bf7c4fa7d1ff56b90",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xe8c088f750544b434573825769a5fc79d96cc83a",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "github",
+            "username": "horsefacts"
+          },
+          {
+            "platform": "x",
+            "username": "eth_call"
+          }
+        ],
+        "url": "https://terminally.online",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xa827d15bc5db5cec3c52f26e0881ce8f9dca49cc",
+      "parent_hash": null,
+      "parent_url": "https://warpcast.com/~/channel/brypto",
+      "root_parent_url": "https://warpcast.com/~/channel/brypto",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "you're not bullish enough because your conviction is determined by red and green candles instead of the fundamental reasons any of this technology exists, you don't see where the puck is going you skate there after everybody else",
+      "timestamp": "2026-08-21T21:31:22.000Z",
+      "embeds": [],
+      "channel": {
+        "object": "channel_dehydrated",
+        "id": "brypto",
+        "name": "brypto",
+        "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/f5200b23-e328-4f32-31f2-4f6985e40700/original",
+        "viewer_context": {
+          "following": false
+        }
+      },
+      "reactions": {
+        "likes_count": 14,
+        "recasts_count": 2,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 2
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      },
+      "author_channel_context": {
+        "role": "member",
+        "following": true
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xb65b913b90106cb9532c1adcae0f5bcaa553a384",
+      "author": {
+        "object": "user",
+        "fid": 7143,
+        "username": "six",
+        "display_name": "six",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/76988c98-31b9-4540-377e-628f39107f00/original",
+        "custody_address": "0xe7339c6f99c1026b0e43cbb5f6fa1d6da6bc4579",
+        "registered_at": "2022-12-18T22:33:48.117Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:18:11.000Z",
+          "expires_at": "2026-06-16T17:18:11.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": ""
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d75abafd-83e2-471b-79d9-c6e4c809bb00/original"
+          }
+        },
+        "follower_count": 158142,
+        "following_count": 1620,
+        "verifications": [
+          "0x44b1b486ce8d9c82f605626347a7b1f74add11de",
+          "0x889743fc78f763a7d8cdba35eed499b23a1fb522",
+          "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x44b1b486ce8d9c82f605626347a7b1f74add11de",
+            "0x889743fc78f763a7d8cdba35eed499b23a1fb522",
+            "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3"
+          ],
+          "sol_addresses": [
+            "4txeM85pbxQE5FyjPuCG3u1CvNRJXmZBG2pdgvv1M39n"
+          ],
+          "primary": {
+            "eth_address": "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3",
+            "sol_address": null
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x4caf576d86e238f5765e0b002186b8bae8fa6ea3",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [],
+        "url": "https://infinite.games",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.98,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.98
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xb65b913b90106cb9532c1adcae0f5bcaa553a384",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "gm Hypertoadz enjoyers\n\nDay 3 and mutations are starting to slowly scale up. \n\n@garrett leads the Party Nuol auction with a few hours to go and a .0317 ETH bid. We also have 7 eligible mutations today, with a few opening around 7pm ET and the rest around 7:30pm ET.\n\nFollow along or participate at https://hypertoadz.com",
+      "timestamp": "2026-08-21T20:54:07.000Z",
+      "embeds": [
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/7ffb7fd7-a691-4d63-4cdc-fcc500d0e400/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        },
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d51e9db4-f978-4ad4-339e-bef8161db700/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 11,
+        "recasts_count": 4,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [
+        {
+          "object": "user",
+          "fid": 2802,
+          "username": "garrett",
+          "display_name": "Garrett",
+          "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/c131c034-0090-4610-45a4-acda4b805000/rectcrop3",
+          "custody_address": "0xb3b4c5d8a76b33d5db8f94b44444563b9038a7a3",
+          "registered_at": "2022-10-04T21:56:29.400Z",
+          "pro": {
+            "status": "subscribed",
+            "subscribed_at": "2025-06-16T17:18:11.000Z",
+            "expires_at": "2027-07-01T18:45:21.000Z"
+          },
+          "profile": {
+            "bio": {
+              "text": "Head of Crypto at https://www.lazertechnologies.com/  // Founder @skycastle // based at @basedevo // Conductor at @choochoo // Always working on cool shit",
+              "mentioned_profiles": [
+                {
+                  "object": "user_dehydrated",
+                  "fid": 1322716,
+                  "username": "skycastle",
+                  "display_name": "SKYCASTLE",
+                  "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/cdff3e04-fa02-4f9c-bacf-4815f16c1000/original",
+                  "custody_address": "0x13db91aba1d13f8a136296c4148484877101a49b"
+                },
+                {
+                  "object": "user_dehydrated",
+                  "fid": 656051,
+                  "username": "basedevo",
+                  "display_name": "based",
+                  "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3f6e8fd2-16ca-43fb-8d50-70aba777e200/original",
+                  "custody_address": "0xf88b070a670ea999f109e3913bf83bcf3362347b"
+                },
+                {
+                  "object": "user_dehydrated",
+                  "fid": 1158417,
+                  "username": "choochoo",
+                  "display_name": "Choo Choo",
+                  "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/062680f6-079c-41ac-f1bd-5fa666859300/original",
+                  "custody_address": "0x817f9b79611f1f22d8826afb1e2ce61c4d3c12a2"
+                }
+              ],
+              "mentioned_profiles_ranges": [
+                {
+                  "start": 65,
+                  "end": 75
+                },
+                {
+                  "start": 88,
+                  "end": 97
+                },
+                {
+                  "start": 114,
+                  "end": 123
+                }
+              ]
+            },
+            "banner": {
+              "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/931988ce-b72e-45a0-16be-ebd611b70c00/original"
+            }
+          },
+          "follower_count": 88129,
+          "following_count": 4253,
+          "verifications": [
+            "0x45db9d3457c2cb05c4bfc7334a33cee6e19d508f",
+            "0x01b4a4543d6d06307a501029bc1cb6bc3abd039c",
+            "0xceab0087c5fbc22fb19293bd0be5fa9b23789da9",
+            "0xda56a75cbf4cec6983bd075778686e44c34df8e8",
+            "0x77273b9b1454824e5802a3eaba51686c1e98157c"
+          ],
+          "verified_addresses": {
+            "eth_addresses": [
+              "0x45db9d3457c2cb05c4bfc7334a33cee6e19d508f",
+              "0x01b4a4543d6d06307a501029bc1cb6bc3abd039c",
+              "0xceab0087c5fbc22fb19293bd0be5fa9b23789da9",
+              "0xda56a75cbf4cec6983bd075778686e44c34df8e8",
+              "0x77273b9b1454824e5802a3eaba51686c1e98157c"
+            ],
+            "sol_addresses": [
+              "GBoV4dY33PwzvoTkCaHRwqAsAcBBv9qfgTXexqZBzopk",
+              "3gh63HSCX5stJsRHgsQ2iWk2GRwFTubhj5A4jBb6L2hZ"
+            ],
+            "primary": {
+              "eth_address": "0xceab0087c5fbc22fb19293bd0be5fa9b23789da9",
+              "sol_address": "3gh63HSCX5stJsRHgsQ2iWk2GRwFTubhj5A4jBb6L2hZ"
+            }
+          },
+          "auth_addresses": [
+            {
+              "address": "0xceab0087c5fbc22fb19293bd0be5fa9b23789da9",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 9152
+              }
+            },
+            {
+              "address": "0x01b4a4543d6d06307a501029bc1cb6bc3abd039c",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 827605
+              }
+            },
+            {
+              "address": "0xda56a75cbf4cec6983bd075778686e44c34df8e8",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 309857
+              }
+            }
+          ],
+          "verified_accounts": [
+            {
+              "platform": "x",
+              "username": "gskrovina"
+            },
+            {
+              "platform": "github",
+              "username": "gskrovina"
+            }
+          ],
+          "viewer_context": {
+            "following": false,
+            "followed_by": true,
+            "blocking": false,
+            "blocked_by": false
+          },
+          "experimental": {
+            "neynar_user_score": 0.99,
+            "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+          },
+          "score": 0.99
+        }
+      ],
+      "mentioned_profiles_ranges": [
+        {
+          "start": 79,
+          "end": 87
+        }
+      ],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x2bec294001c69a95b4c20f7046499fe940db3edd",
+      "author": {
+        "object": "user",
+        "fid": 617,
+        "username": "cameron",
+        "display_name": "Cameron Armstrong",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/0f06ae7e-c3b7-4632-79fc-c87fb6b9a200/original",
+        "custody_address": "0x70844dc4c5084a3fabbfede2b49c4038ddfe66a3",
+        "registered_at": "2022-05-28T02:40:35.291Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:17:47.000Z",
+          "expires_at": "2026-06-16T17:17:47.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "my love of man, machine, and mud abounds"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e2267fc9-02a8-46cd-2f4d-922fb0e35300/original"
+          }
+        },
+        "follower_count": 271828,
+        "following_count": 1088,
+        "verifications": [
+          "0x19ce57b670121e73e43be6c2fea5c254bb4c8760",
+          "0x96c89d27436ac80e91aa7fa08cf0fda38f4e6ef2",
+          "0xc82a9d91089781636f790c674e8f44cf8f1f30fc"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x19ce57b670121e73e43be6c2fea5c254bb4c8760",
+            "0x96c89d27436ac80e91aa7fa08cf0fda38f4e6ef2",
+            "0xc82a9d91089781636f790c674e8f44cf8f1f30fc"
+          ],
+          "sol_addresses": [
+            "ywvvbZNoZf15wUtDgMdVUozGSP5N3pzBRh7GTRrKbKA"
+          ],
+          "primary": {
+            "eth_address": "0xc82a9d91089781636f790c674e8f44cf8f1f30fc",
+            "sol_address": "ywvvbZNoZf15wUtDgMdVUozGSP5N3pzBRh7GTRrKbKA"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xc82a9d91089781636f790c674e8f44cf8f1f30fc",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "cameronspirals"
+          }
+        ],
+        "url": "https://cameronarmstrong.org",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x2bec294001c69a95b4c20f7046499fe940db3edd",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "Just learned that “nut graf” is a real term \n\nUs writers are fundamentally unserious people",
+      "timestamp": "2026-08-21T19:36:38.000Z",
+      "embeds": [],
+      "channel": null,
+      "reactions": {
+        "likes_count": 7,
+        "recasts_count": 1,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 2
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x073162a61d00a94d170b0615a2500ab6bbe26210",
+      "author": {
+        "object": "user",
+        "fid": 18723,
+        "username": "brixbounty",
+        "display_name": "BrixBountyFarm 🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9f56c07a-c0fd-46aa-f99f-958ab78fee00/original",
+        "custody_address": "0xe0d350e0913c34b8a226b1c49f92af9f0a4e40c3",
+        "registered_at": "2023-08-26T23:50:55.985Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:20:45.000Z",
+          "expires_at": "2027-07-22T20:43:09.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Growing veggies for the fine folks of Southeastern Massachusetts, w/ a focus on nutrient quality. Always interested in the evolution of digital payments.  🎩"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/819f59dc-d6b9-4f7b-0a4f-24cd365b2d00/original"
+          }
+        },
+        "follower_count": 46729,
+        "following_count": 3634,
+        "verifications": [
+          "0xdbee1cfa10d706ef868dd2dff97246cb6d73b530",
+          "0x0503225c1dc0cdff3a2ebb33b5d95f20abb38298",
+          "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xdbee1cfa10d706ef868dd2dff97246cb6d73b530",
+            "0x0503225c1dc0cdff3a2ebb33b5d95f20abb38298",
+            "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d"
+          ],
+          "sol_addresses": [
+            "FfUorQzrbyhknGqh5SDLGWWPpEg2F46r8fGQRgrn1PsG",
+            "62QjnL4SxzNAhHeTpkboXgdEYzb8ecddFDs8Q219Z5N7"
+          ],
+          "primary": {
+            "eth_address": "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d",
+            "sol_address": "62QjnL4SxzNAhHeTpkboXgdEYzb8ecddFDs8Q219Z5N7"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xf81a90c252e583d51f6cc248d14d52a1d1763fd8",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "brix_farm"
+          }
+        ],
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x073162a61d00a94d170b0615a2500ab6bbe26210",
+      "parent_hash": null,
+      "parent_url": "eip155:8453/erc20:0x3ec2156d4c0a9cbdab4a016633b7bcf6a8d68ea2",
+      "root_parent_url": "eip155:8453/erc20:0x3ec2156d4c0a9cbdab4a016633b7bcf6a8d68ea2",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "Yup\n\n$DRB with a candle.",
+      "timestamp": "2026-08-21T19:05:25.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 18723,
+            "hash": "0x266679257ffb79082b2b7603ae5c789bb40cf90e"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0x266679257ffb79082b2b7603ae5c789bb40cf90e",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 18723,
+              "username": "brixbounty",
+              "display_name": "BrixBountyFarm 🎩",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9f56c07a-c0fd-46aa-f99f-958ab78fee00/original",
+              "custody_address": "0xe0d350e0913c34b8a226b1c49f92af9f0a4e40c3"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x266679257ffb79082b2b7603ae5c789bb40cf90e",
+            "parent_hash": null,
+            "parent_url": "eip155:8453/erc20:0x3ec2156d4c0a9cbdab4a016633b7bcf6a8d68ea2",
+            "root_parent_url": "eip155:8453/erc20:0x3ec2156d4c0a9cbdab4a016633b7bcf6a8d68ea2",
+            "parent_author": {
+              "fid": null
+            },
+            "text": "Guess $DRB is catching a bid…",
+            "timestamp": "2026-08-20T17:13:02.000Z",
+            "embeds": [],
+            "channel": null
+          }
+        },
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/ab43409b-59fa-4092-0c09-6076e23caf00/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 21,
+        "recasts_count": 2,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 7
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xd53f8de94e37f2b26434d8afe5af26d60360d820",
+      "author": {
+        "object": "user",
+        "fid": 18723,
+        "username": "brixbounty",
+        "display_name": "BrixBountyFarm 🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9f56c07a-c0fd-46aa-f99f-958ab78fee00/original",
+        "custody_address": "0xe0d350e0913c34b8a226b1c49f92af9f0a4e40c3",
+        "registered_at": "2023-08-26T23:50:55.985Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:20:45.000Z",
+          "expires_at": "2027-07-22T20:43:09.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Growing veggies for the fine folks of Southeastern Massachusetts, w/ a focus on nutrient quality. Always interested in the evolution of digital payments.  🎩"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/819f59dc-d6b9-4f7b-0a4f-24cd365b2d00/original"
+          }
+        },
+        "follower_count": 46729,
+        "following_count": 3634,
+        "verifications": [
+          "0xdbee1cfa10d706ef868dd2dff97246cb6d73b530",
+          "0x0503225c1dc0cdff3a2ebb33b5d95f20abb38298",
+          "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xdbee1cfa10d706ef868dd2dff97246cb6d73b530",
+            "0x0503225c1dc0cdff3a2ebb33b5d95f20abb38298",
+            "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d"
+          ],
+          "sol_addresses": [
+            "FfUorQzrbyhknGqh5SDLGWWPpEg2F46r8fGQRgrn1PsG",
+            "62QjnL4SxzNAhHeTpkboXgdEYzb8ecddFDs8Q219Z5N7"
+          ],
+          "primary": {
+            "eth_address": "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d",
+            "sol_address": "62QjnL4SxzNAhHeTpkboXgdEYzb8ecddFDs8Q219Z5N7"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xf81a90c252e583d51f6cc248d14d52a1d1763fd8",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "brix_farm"
+          }
+        ],
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xd53f8de94e37f2b26434d8afe5af26d60360d820",
+      "parent_hash": null,
+      "parent_url": "https://warpcast.com/~/channel/ag",
+      "root_parent_url": "https://warpcast.com/~/channel/ag",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "Checking in on farmer sentiment around this announcement",
+      "timestamp": "2026-08-21T19:02:50.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 190218,
+            "hash": "0x4de9f30ab5f6c295774bcf2889bdcf96f500d5c4"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0x4de9f30ab5f6c295774bcf2889bdcf96f500d5c4",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 190218,
+              "username": "icetoad.eth",
+              "display_name": "Icetoad 🍕 🎩 🐈",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/26db32f8-1002-4283-d91b-fae521891a00/original",
+              "custody_address": "0x5598e4b1dacfc4b17ccd693943ea462b32fb85ba"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x4de9f30ab5f6c295774bcf2889bdcf96f500d5c4",
+            "parent_hash": null,
+            "parent_url": "https://warpcast.com/~/channel/politics",
+            "root_parent_url": "https://warpcast.com/~/channel/politics",
+            "parent_author": {
+              "fid": null
+            },
+            "text": "Riiight, Biden did it, of course. Didn't Trump say the tariffs were being paid by other countries? If that were the case then he wouldn't need to allow tariff free beef imports to lower prices.\n\nU.S. cattle herds have shrunk to a multi-decade low due to multi-year droughts, high operational and feed costs, and industry consolidation. High market prices have also led ranchers to sell off breeding stock for immediate cash rather than rebuild numbers.",
+            "timestamp": "2026-08-21T16:36:00.000Z",
+            "embeds": [
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/cf7da7e3-b1b5-47a9-da8e-9ce94f62c500/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              },
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1a204245-a6c5-48e6-17ce-2da69b38d900/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              }
+            ],
+            "channel": {
+              "object": "channel_dehydrated",
+              "id": "politics",
+              "name": "𝕻𝖔𝖑𝖎𝖙𝖎𝖈𝖘",
+              "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d6983b3b-92e5-44c7-b7b7-eacc510d9b00/original",
+              "viewer_context": {
+                "following": false
+              }
+            }
+          }
+        },
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/df7e3fe8-efd1-4c15-be42-1b8240ae8f00/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": {
+        "object": "channel_dehydrated",
+        "id": "ag",
+        "name": "ag",
+        "image_url": "https://i.imgur.com/mIrb64k.jpg",
+        "viewer_context": {
+          "following": false
+        }
+      },
+      "reactions": {
+        "likes_count": 4,
+        "recasts_count": 0,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      },
+      "author_channel_context": {
+        "role": "owner",
+        "following": true
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x8d3a78dccb0fe1ed2831f429001dd34306233374",
+      "author": {
+        "object": "user",
+        "fid": 18723,
+        "username": "brixbounty",
+        "display_name": "BrixBountyFarm 🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9f56c07a-c0fd-46aa-f99f-958ab78fee00/original",
+        "custody_address": "0xe0d350e0913c34b8a226b1c49f92af9f0a4e40c3",
+        "registered_at": "2023-08-26T23:50:55.985Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:20:45.000Z",
+          "expires_at": "2027-07-22T20:43:09.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Growing veggies for the fine folks of Southeastern Massachusetts, w/ a focus on nutrient quality. Always interested in the evolution of digital payments.  🎩"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/819f59dc-d6b9-4f7b-0a4f-24cd365b2d00/original"
+          }
+        },
+        "follower_count": 46729,
+        "following_count": 3634,
+        "verifications": [
+          "0xdbee1cfa10d706ef868dd2dff97246cb6d73b530",
+          "0x0503225c1dc0cdff3a2ebb33b5d95f20abb38298",
+          "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xdbee1cfa10d706ef868dd2dff97246cb6d73b530",
+            "0x0503225c1dc0cdff3a2ebb33b5d95f20abb38298",
+            "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d"
+          ],
+          "sol_addresses": [
+            "FfUorQzrbyhknGqh5SDLGWWPpEg2F46r8fGQRgrn1PsG",
+            "62QjnL4SxzNAhHeTpkboXgdEYzb8ecddFDs8Q219Z5N7"
+          ],
+          "primary": {
+            "eth_address": "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d",
+            "sol_address": "62QjnL4SxzNAhHeTpkboXgdEYzb8ecddFDs8Q219Z5N7"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xc2fef20f7e8d2dd0d27f56389c731bd2943aa43d",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xf81a90c252e583d51f6cc248d14d52a1d1763fd8",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "brix_farm"
+          }
+        ],
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x8d3a78dccb0fe1ed2831f429001dd34306233374",
+      "parent_hash": null,
+      "parent_url": "https://warpcast.com/~/channel/politics",
+      "root_parent_url": "https://warpcast.com/~/channel/politics",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "slight difference.",
+      "timestamp": "2026-08-21T18:59:57.000Z",
+      "embeds": [
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/8e7909eb-6dda-4785-96d0-060910ad1c00/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": {
+        "object": "channel_dehydrated",
+        "id": "politics",
+        "name": "𝕻𝖔𝖑𝖎𝖙𝖎𝖈𝖘",
+        "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d6983b3b-92e5-44c7-b7b7-eacc510d9b00/original",
+        "viewer_context": {
+          "following": false
+        }
+      },
+      "reactions": {
+        "likes_count": 2,
+        "recasts_count": 0,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      },
+      "author_channel_context": {
+        "role": "member",
+        "following": true
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x31bd24130a3646c5a700c8f97fbb058a83eaac99",
+      "author": {
+        "object": "user",
+        "fid": 4167,
+        "username": "nounishprof",
+        "display_name": "Nounish Prof ⌐◧-◧🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/eb81be76-395a-4acd-910d-48cd5290d500/original",
+        "custody_address": "0xbb54a63ad8241710eba3a98af224080b611ff8e9",
+        "registered_at": "2022-10-23T23:45:30.538Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:17:41.000Z",
+          "expires_at": "2027-06-18T09:59:51.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "building /gmfarcaster network |\nblockchain ENT prof |  ⌐◧-◧",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "gmfarcaster",
+                "name": "GM Farcaster (podcast)",
+                "image_url": "https://i.imgur.com/8OMHbYB.jpg"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 9,
+                "end": 21
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1bc84933-1f44-46c1-be8c-2aa1c8e81100/original"
+          }
+        },
+        "follower_count": 132568,
+        "following_count": 4142,
+        "verifications": [
+          "0xceed9585854f12f81a0103861b83b995a64ad915",
+          "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+          "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+          "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+          "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+          "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xceed9585854f12f81a0103861b83b995a64ad915",
+            "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+            "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+            "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+            "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+          ],
+          "sol_addresses": [
+            "G7LU4fomCvLnDeZgnJX3XL3ZGzWFkqT77tApbkrw3n5A",
+            "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          ],
+          "primary": {
+            "eth_address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "sol_address": "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xdad9478b3889eebaea59e6727e6835f84e765a39",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          },
+          {
+            "address": "0xe3f09ae05e295555eac84c8bbbfc23c6a254d434",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x2a309a64bc50c40c5b66431a87df49f4cfa90949",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x784b6c4b6675957085ecafd5198afc47dc13e052",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "profwerder"
+          }
+        ],
+        "url": "https://gmfarcaster.com/",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x31bd24130a3646c5a700c8f97fbb058a83eaac99",
+      "parent_hash": null,
+      "parent_url": "https://farcaster.xyz/~/channel/word-a-day",
+      "root_parent_url": "https://farcaster.xyz/~/channel/word-a-day",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "For a couple semesters I taught a Venture Funding class. My focus tended towards the legal aspects and I had a VC General Manager co-teacher to bring that side of the experience. \n\nOne big piece we always focused on was the fiduciary duty of founders to their investors. Legally, founders who accept investor capital owe fiduciary duties of care to act in good faith and to manage funds to maximize profits or, until revenue generating, to at least minimize downside in order to extend runway. \n\nEven in a wind down or exit, returning funds is a priority otherwise there can be serious legal consequences.",
+      "timestamp": "2026-08-21T18:43:13.000Z",
+      "embeds": [
+        {
+          "url": "https://miniapp.word-a-day.com//daily/2026-08-21",
+          "metadata": {
+            "_status": "RESOLVED",
+            "html": {
+              "ogUrl": "https://miniapp.word-a-day.com//daily/2026-08-21",
+              "ogTitle": "Word-A-Day",
+              "ogDescription": "Casts that make you smarter",
+              "ogSiteName": "miniapp.word-a-day.com"
+            },
+            "frame": {
+              "version": "1",
+              "title": "Learn Today's Word",
+              "image": "https://miniapp.word-a-day.com/api/share-image?type=home&date=2026-08-21",
+              "frames_url": "https://miniapp.word-a-day.com//daily/2026-08-21"
+            }
+          }
+        }
+      ],
+      "channel": {
+        "object": "channel_dehydrated",
+        "id": "word-a-day",
+        "name": "word-a-day",
+        "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/4ec51d95-f483-4f60-df1a-b94ac0ce1000/original",
+        "viewer_context": {
+          "following": false
+        }
+      },
+      "reactions": {
+        "likes_count": 9,
+        "recasts_count": 1,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      },
+      "author_channel_context": {
+        "following": true
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xf0385b529e5b257c800860796a381d822ef07192",
+      "author": {
+        "object": "user",
+        "fid": 3642,
+        "username": "toadyhawk.eth",
+        "display_name": "Toady Hawk",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6925ce3a-8373-40bc-5ed1-b552db2c3000/original",
+        "custody_address": "0xe9787add64f50909eb9c7a2de5992cd4510907c9",
+        "registered_at": "2022-10-17T04:35:24.132Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:18:11.000Z",
+          "expires_at": "2026-09-20T18:13:11.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "onchain experimentation maxi @betrmint, @zerorightsmedia, the /yellow collective",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 1047658,
+                "username": "betrmint",
+                "display_name": "BETRMINT",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/77a0ecdf-dae2-45bc-a6e2-22607075b700/original",
+                "custody_address": "0x0fcb5e52ae5d29c31c3be94a46ba8cffcb77e8b6"
+              },
+              {
+                "object": "user_dehydrated",
+                "fid": 938256,
+                "username": "zerorightsmedia",
+                "display_name": "Zero Rights Media",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bbf28abf-b613-4063-3c50-7c971f7e9600/rectcrop3",
+                "custody_address": "0x87e5af409fbcea2dfbd4b18825a39b1e0e4dd66b"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 29,
+                "end": 38
+              },
+              {
+                "start": 40,
+                "end": 56
+              }
+            ],
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "yellow",
+                "name": "The Yellow Collective on Base",
+                "image_url": "https://i.imgur.com/4Wu19x5.png"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 62,
+                "end": 69
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/5af4e7ff-698d-4889-de5d-7f20e55dc900/original"
+          }
+        },
+        "follower_count": 218227,
+        "following_count": 3260,
+        "verifications": [
+          "0x5d802e2fe48392c104ce0401c7eca8a4456f1f16",
+          "0x392759706e41af5e1d69147bf7d513f799cdbd60",
+          "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+          "0x49fcf7fd8bced178a3c65d3341f61821eef76423"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x5d802e2fe48392c104ce0401c7eca8a4456f1f16",
+            "0x392759706e41af5e1d69147bf7d513f799cdbd60",
+            "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+            "0x49fcf7fd8bced178a3c65d3341f61821eef76423"
+          ],
+          "sol_addresses": [
+            "B6uMFEtbZWyvvWaQQWtVfodyi9YGEBMeWNF1qLnPSZee",
+            "HQ6cY3MGV1HT722gMxdc1fu2obFMo9j4ehpQ6FurSy86"
+          ],
+          "primary": {
+            "eth_address": "0x49fcf7fd8bced178a3c65d3341f61821eef76423",
+            "sol_address": "HQ6cY3MGV1HT722gMxdc1fu2obFMo9j4ehpQ6FurSy86"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x49fcf7fd8bced178a3c65d3341f61821eef76423",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "toady_hawk"
+          }
+        ],
+        "url": "https://farcaster.xyz/miniapps/yG210D-5eNqL/betrmint",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xf0385b529e5b257c800860796a381d822ef07192",
+      "parent_hash": null,
+      "parent_url": "eip155:8453/erc20:0x051024b653e8ec69e72693f776c41c2a9401fb07",
+      "root_parent_url": "eip155:8453/erc20:0x051024b653e8ec69e72693f776c41c2a9401fb07",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "since ETH szn is in full swing and @base.base.eth szn likely isn’t far behind, now feels like a good time to remind you that @netnose and I have continued building @betrmint all throughout the bear.\n\nand we’re still cooking!\n\nBETRMINT.fun is a gamified, gacha-style app where you can discover new artists and builders every day, support their work, and spin to win token packs worth up to 100x the $1 spin cost.\n\ndespite farcaster falling quite a bit in recent months, we’ve continued to grow our user base outside the purple app and still see 500–600 mints and spins every day on the Neon Flywheel.\n\nwe’ve built a strong community of supporters, and nearly half of the entire $BETR supply is currently staked.\n\nstakers earn a flat 2% APY funded by spin revenue, while any surplus is used to buy and permanently burn $BETR.\n\nsince introducing the buy-and-burn program last month, we’ve already burned more than 1% of the total supply, and we’re just getting started.\n\nthe bear market has definitely taken its toll, leaving $BETR at a market cap of just $75K. but you’d be hard-pressed to find many token projects at this valuation whose founders are still consistently iterating and shipping.\n\nwith attention returning to the Base ecosystem, and other gacha projects like CARDS and FWA stepping into the spotlight, BETR feels poised for a comeback imo. \n\nI’m obviously biased, but if I’m allowed to call the bottom on my own token, I’m calling it now.\n\nthe bull is back, and winning together is BETR (always has been)",
+      "timestamp": "2026-08-21T18:17:05.000Z",
+      "embeds": [
+        {
+          "url": "https://BETRMINT.fun/",
+          "metadata": {
+            "_status": "RESOLVED",
+            "html": {
+              "ogUrl": "https://BETRMINT.fun/",
+              "ogTitle": "BETRMINT",
+              "ogDescription": "Winning Together is BETR!",
+              "ogSiteName": "betrmint.fun",
+              "ogImage": [
+                {
+                  "url": "https://betrmint.fun/images/og-image.png"
+                }
+              ]
+            },
+            "frame": {
+              "version": "next",
+              "title": "Winning Together is BETR!",
+              "image": "https://betrmint.fun/images/fc-image.png",
+              "frames_url": "https://betrmint.fun/"
+            }
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 17,
+        "recasts_count": 6,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 3
+      },
+      "mentioned_profiles": [
+        {
+          "object": "user",
+          "fid": 12142,
+          "username": "base.base.eth",
+          "display_name": "Base",
+          "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/ce5460f6-40a2-4486-47c1-7801e4033e00/original",
+          "custody_address": "0x04e6f111ebf6fd25576d480480962435dc3aa8d8",
+          "registered_at": "2023-04-15T21:56:18.063Z",
+          "pro": {
+            "status": "unsubscribed",
+            "subscribed_at": "2025-06-16T17:19:51.000Z",
+            "expires_at": "2026-06-16T17:19:51.000Z"
+          },
+          "profile": {
+            "bio": {
+              "text": "base.org | Collects ≤ $5 of creator coins to support artists · Not financial advice wallet.coinbase.com/purchases-disclaimer"
+            },
+            "banner": {
+              "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3b9ded00-f4a1-43ba-8bbf-300542c24400/original"
+            }
+          },
+          "follower_count": 194538,
+          "following_count": 226,
+          "verifications": [
+            "0x9652721d02b9db43f4311102820158abb4ecc95b",
+            "0x302a1eda13b2539c962733b8ba817c2569fedec7",
+            "0x97bcd93504d89d9d236e773e8f5c20feae466e72"
+          ],
+          "verified_addresses": {
+            "eth_addresses": [
+              "0x9652721d02b9db43f4311102820158abb4ecc95b",
+              "0x302a1eda13b2539c962733b8ba817c2569fedec7",
+              "0x97bcd93504d89d9d236e773e8f5c20feae466e72"
+            ],
+            "sol_addresses": [
+              "DrN7Cfuxbctb31hftKiUpy3JpRDcXsaYmLHH2D3vBVYz"
+            ],
+            "primary": {
+              "eth_address": "0x302a1eda13b2539c962733b8ba817c2569fedec7",
+              "sol_address": "DrN7Cfuxbctb31hftKiUpy3JpRDcXsaYmLHH2D3vBVYz"
+            }
+          },
+          "auth_addresses": [
+            {
+              "address": "0x302a1eda13b2539c962733b8ba817c2569fedec7",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 9152
+              }
+            },
+            {
+              "address": "0x97bcd93504d89d9d236e773e8f5c20feae466e72",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 309857
+              }
+            }
+          ],
+          "verified_accounts": [],
+          "viewer_context": {
+            "following": false,
+            "followed_by": true,
+            "blocking": false,
+            "blocked_by": false
+          },
+          "experimental": {
+            "neynar_user_score": 0.98,
+            "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+          },
+          "score": 0.98
+        },
+        {
+          "object": "user",
+          "fid": 206967,
+          "username": "netnose",
+          "display_name": "Mirko 🔵🟡 .⌐◨-◨",
+          "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/998136d4-792c-481b-363e-6a369c116500/original",
+          "custody_address": "0x895d6d226ab780fb59beb5ad2eca2587a03c2934",
+          "registered_at": "2023-12-10T08:28:53.639Z",
+          "pro": {
+            "status": "subscribed",
+            "subscribed_at": "2025-06-16T17:18:25.000Z",
+            "expires_at": "2027-06-16T17:18:25.000Z"
+          },
+          "profile": {
+            "bio": {
+              "text": "Developer…not enough? // Working on @betrmint // /yellow collective noun #63",
+              "mentioned_profiles": [
+                {
+                  "object": "user_dehydrated",
+                  "fid": 1047658,
+                  "username": "betrmint",
+                  "display_name": "BETRMINT",
+                  "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/77a0ecdf-dae2-45bc-a6e2-22607075b700/original",
+                  "custody_address": "0x0fcb5e52ae5d29c31c3be94a46ba8cffcb77e8b6"
+                }
+              ],
+              "mentioned_profiles_ranges": [
+                {
+                  "start": 38,
+                  "end": 47
+                }
+              ],
+              "mentioned_channels": [
+                {
+                  "object": "channel_dehydrated",
+                  "id": "yellow",
+                  "name": "The Yellow Collective on Base",
+                  "image_url": "https://i.imgur.com/4Wu19x5.png"
+                }
+              ],
+              "mentioned_channels_ranges": [
+                {
+                  "start": 51,
+                  "end": 58
+                }
+              ]
+            }
+          },
+          "follower_count": 3593,
+          "following_count": 1101,
+          "verifications": [
+            "0x4d1fd46f87449ffe235e3fce21df8a9bf8bd9206",
+            "0x8d225974a44c45e339dc16950cd6e5562649c71e",
+            "0xacd8de8008289ddbf042cc8cc7738bbfdbb27a02",
+            "0xd5953408717bea2e5d0f88b579edb938bdfc61b3",
+            "0x00744695715dce1be921ed0b8ff05d89dae50198"
+          ],
+          "verified_addresses": {
+            "eth_addresses": [
+              "0x4d1fd46f87449ffe235e3fce21df8a9bf8bd9206",
+              "0x8d225974a44c45e339dc16950cd6e5562649c71e",
+              "0xacd8de8008289ddbf042cc8cc7738bbfdbb27a02",
+              "0xd5953408717bea2e5d0f88b579edb938bdfc61b3",
+              "0x00744695715dce1be921ed0b8ff05d89dae50198"
+            ],
+            "sol_addresses": [
+              "FKC5Dvxtu3cUU9J6LJCPj1kMhSKU8ugijaB1JWJr4iBt",
+              "H1Qm8M2ZjpK6EmwaJWykHMgDGftxhAxhPkUosxpSWTVA",
+              "49iFLcwWa2gixh1SbMNK1rjPmDq1P4p6HCDT7BwyhVhF"
+            ],
+            "primary": {
+              "eth_address": "0x4d1fd46f87449ffe235e3fce21df8a9bf8bd9206",
+              "sol_address": "H1Qm8M2ZjpK6EmwaJWykHMgDGftxhAxhPkUosxpSWTVA"
+            }
+          },
+          "auth_addresses": [
+            {
+              "address": "0x8d225974a44c45e339dc16950cd6e5562649c71e",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 9152
+              }
+            },
+            {
+              "address": "0xacd8de8008289ddbf042cc8cc7738bbfdbb27a02",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 309857
+              }
+            }
+          ],
+          "verified_accounts": [
+            {
+              "platform": "x",
+              "username": "netnose"
+            },
+            {
+              "platform": "github",
+              "username": "netnose"
+            }
+          ],
+          "viewer_context": {
+            "following": false,
+            "followed_by": true,
+            "blocking": false,
+            "blocked_by": false
+          },
+          "experimental": {
+            "neynar_user_score": 0.99,
+            "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+          },
+          "score": 0.99
+        },
+        {
+          "object": "user",
+          "fid": 1047658,
+          "username": "betrmint",
+          "display_name": "BETRMINT",
+          "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/77a0ecdf-dae2-45bc-a6e2-22607075b700/original",
+          "custody_address": "0x0fcb5e52ae5d29c31c3be94a46ba8cffcb77e8b6",
+          "registered_at": "2025-04-13T03:21:25.140Z",
+          "pro": {
+            "status": "unsubscribed",
+            "subscribed_at": "2025-06-16T17:18:11.000Z",
+            "expires_at": "2026-06-16T17:18:11.000Z"
+          },
+          "profile": {
+            "bio": {
+              "text": "the neon arcade where people get paid | stake $BETR to own the infinite flywheel | CA on Base: 0x051024B653E8ec69E72693F776c41C2A9401FB07"
+            },
+            "banner": {
+              "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/76b7df01-03e3-4687-66ef-41f6dc034600/original"
+            }
+          },
+          "follower_count": 21523,
+          "following_count": 9,
+          "verifications": [
+            "0xae57679fd25eecfa7a34f91183e25e50a24d8e4d",
+            "0x30a9193b6f4d22533c2987aa136c01122611dc69"
+          ],
+          "verified_addresses": {
+            "eth_addresses": [
+              "0xae57679fd25eecfa7a34f91183e25e50a24d8e4d",
+              "0x30a9193b6f4d22533c2987aa136c01122611dc69"
+            ],
+            "sol_addresses": [
+              "7XaDm4gnZMFP3Lo6BmfG361tcMS8VkTxZmZzG2yx2Drb"
+            ],
+            "primary": {
+              "eth_address": "0xae57679fd25eecfa7a34f91183e25e50a24d8e4d",
+              "sol_address": "7XaDm4gnZMFP3Lo6BmfG361tcMS8VkTxZmZzG2yx2Drb"
+            }
+          },
+          "auth_addresses": [
+            {
+              "address": "0xae57679fd25eecfa7a34f91183e25e50a24d8e4d",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 9152
+              }
+            }
+          ],
+          "verified_accounts": [
+            {
+              "platform": "x",
+              "username": "betrmint"
+            }
+          ],
+          "url": "https://farcaster.xyz/miniapps/yG210D-5eNqL/betrmint",
+          "viewer_context": {
+            "following": false,
+            "followed_by": true,
+            "blocking": false,
+            "blocked_by": false
+          },
+          "experimental": {
+            "neynar_user_score": 0.8,
+            "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+          },
+          "score": 0.8
+        }
+      ],
+      "mentioned_profiles_ranges": [
+        {
+          "start": 35,
+          "end": 49
+        },
+        {
+          "start": 127,
+          "end": 135
+        },
+        {
+          "start": 166,
+          "end": 175
+        }
+      ],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x8ff7bd13eb4ec70594dd62a10fed1b33fb4364ea",
+      "author": {
+        "object": "user",
+        "fid": 3642,
+        "username": "toadyhawk.eth",
+        "display_name": "Toady Hawk",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6925ce3a-8373-40bc-5ed1-b552db2c3000/original",
+        "custody_address": "0xe9787add64f50909eb9c7a2de5992cd4510907c9",
+        "registered_at": "2022-10-17T04:35:24.132Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:18:11.000Z",
+          "expires_at": "2026-09-20T18:13:11.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "onchain experimentation maxi @betrmint, @zerorightsmedia, the /yellow collective",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 1047658,
+                "username": "betrmint",
+                "display_name": "BETRMINT",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/77a0ecdf-dae2-45bc-a6e2-22607075b700/original",
+                "custody_address": "0x0fcb5e52ae5d29c31c3be94a46ba8cffcb77e8b6"
+              },
+              {
+                "object": "user_dehydrated",
+                "fid": 938256,
+                "username": "zerorightsmedia",
+                "display_name": "Zero Rights Media",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bbf28abf-b613-4063-3c50-7c971f7e9600/rectcrop3",
+                "custody_address": "0x87e5af409fbcea2dfbd4b18825a39b1e0e4dd66b"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 29,
+                "end": 38
+              },
+              {
+                "start": 40,
+                "end": 56
+              }
+            ],
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "yellow",
+                "name": "The Yellow Collective on Base",
+                "image_url": "https://i.imgur.com/4Wu19x5.png"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 62,
+                "end": 69
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/5af4e7ff-698d-4889-de5d-7f20e55dc900/original"
+          }
+        },
+        "follower_count": 218227,
+        "following_count": 3260,
+        "verifications": [
+          "0x5d802e2fe48392c104ce0401c7eca8a4456f1f16",
+          "0x392759706e41af5e1d69147bf7d513f799cdbd60",
+          "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+          "0x49fcf7fd8bced178a3c65d3341f61821eef76423"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x5d802e2fe48392c104ce0401c7eca8a4456f1f16",
+            "0x392759706e41af5e1d69147bf7d513f799cdbd60",
+            "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+            "0x49fcf7fd8bced178a3c65d3341f61821eef76423"
+          ],
+          "sol_addresses": [
+            "B6uMFEtbZWyvvWaQQWtVfodyi9YGEBMeWNF1qLnPSZee",
+            "HQ6cY3MGV1HT722gMxdc1fu2obFMo9j4ehpQ6FurSy86"
+          ],
+          "primary": {
+            "eth_address": "0x49fcf7fd8bced178a3c65d3341f61821eef76423",
+            "sol_address": "HQ6cY3MGV1HT722gMxdc1fu2obFMo9j4ehpQ6FurSy86"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x49fcf7fd8bced178a3c65d3341f61821eef76423",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "toady_hawk"
+          }
+        ],
+        "url": "https://farcaster.xyz/miniapps/yG210D-5eNqL/betrmint",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x8ff7bd13eb4ec70594dd62a10fed1b33fb4364ea",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "why can’t I upgrade to pro anymore @rish my verbose ass needs to write a long post",
+      "timestamp": "2026-08-21T18:05:26.000Z",
+      "embeds": [],
+      "channel": null,
+      "reactions": {
+        "likes_count": 26,
+        "recasts_count": 5,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 7
+      },
+      "mentioned_profiles": [
+        {
+          "object": "user",
+          "fid": 194,
+          "username": "rish",
+          "display_name": "rish",
+          "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/465b734a-da85-44ce-3456-11fedac46100/original",
+          "custody_address": "0xb95dc10483be18f7c69ddf78d4baafecc01c5530",
+          "registered_at": "2021-10-01T00:34:58.143Z",
+          "pro": {
+            "status": "subscribed",
+            "subscribed_at": "2025-06-16T17:19:23.000Z",
+            "expires_at": "2027-06-17T14:40:13.000Z"
+          },
+          "profile": {
+            "bio": {
+              "text": "i do customer support around here"
+            },
+            "banner": {
+              "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/729ccc5f-6337-475a-cd78-4fc6afe5e700/original"
+            }
+          },
+          "follower_count": 299373,
+          "following_count": 1275,
+          "verifications": [
+            "0x5a927ac639636e534b678e81768ca19e2c6280b7",
+            "0xe9e261852ea62150eee685807df8fe3f211310a0",
+            "0xa84bc380aeb35836500216c243ab16ef24f9f2f0",
+            "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+            "0x8cb13a5967d4a9f84bab350ae8328db195b1e173"
+          ],
+          "verified_addresses": {
+            "eth_addresses": [
+              "0x5a927ac639636e534b678e81768ca19e2c6280b7",
+              "0xe9e261852ea62150eee685807df8fe3f211310a0",
+              "0xa84bc380aeb35836500216c243ab16ef24f9f2f0",
+              "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+              "0x8cb13a5967d4a9f84bab350ae8328db195b1e173"
+            ],
+            "sol_addresses": [
+              "7EeGPnP1dqjXhPwqLmTR1h89txKwLuuciJH6yFPHThCE",
+              "9HVQS8Q4cR2yTdTcwDJKG4GBkp9wKVMwmHkzXfER62ik"
+            ],
+            "primary": {
+              "eth_address": "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+              "sol_address": "9HVQS8Q4cR2yTdTcwDJKG4GBkp9wKVMwmHkzXfER62ik"
+            }
+          },
+          "auth_addresses": [
+            {
+              "address": "0x11d5d3f2feccb882947bf8ff6599beb823986e75",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 9152
+              }
+            },
+            {
+              "address": "0xe1fac64cebe0855d984ac7c3feb8b7612c6b4176",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 309857
+              }
+            },
+            {
+              "address": "0x33560629a00b2ed47f9eaeb3a18d41af69181f43",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            }
+          ],
+          "verified_accounts": [
+            {
+              "platform": "x",
+              "username": "rish_neynar"
+            },
+            {
+              "platform": "github",
+              "username": "rishavmukherji"
+            }
+          ],
+          "url": "https://rish.org",
+          "viewer_context": {
+            "following": true,
+            "followed_by": true,
+            "blocking": false,
+            "blocked_by": false
+          },
+          "experimental": {
+            "neynar_user_score": 0.99,
+            "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+          },
+          "score": 0.99
+        }
+      ],
+      "mentioned_profiles_ranges": [
+        {
+          "start": 37,
+          "end": 42
+        }
+      ],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x52cfad0d192fe69d36342b637a9d6847c9f807ff",
+      "author": {
+        "object": "user",
+        "fid": 539,
+        "username": "ace",
+        "display_name": "Ace",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d3a77f98-49fe-4ac1-afee-17bd76d32f00/original",
+        "custody_address": "0x71503b1309d6797bc4c4fbfde973adc2c191834b",
+        "registered_at": "2022-04-11T15:47:01.484Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:18:03.000Z",
+          "expires_at": "2026-06-16T17:18:03.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "⛩️"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/c90ff1f7-3ca2-40ae-3c65-fbbe1895ce00/original"
+          }
+        },
+        "follower_count": 134677,
+        "following_count": 2900,
+        "verifications": [
+          "0xe978bdbc3347feb6ed10c9845bbdc298604f80ca",
+          "0x36622b024b86636ab95bd71a5a1b8dc17f9bd9e4"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xe978bdbc3347feb6ed10c9845bbdc298604f80ca",
+            "0x36622b024b86636ab95bd71a5a1b8dc17f9bd9e4"
+          ],
+          "sol_addresses": [
+            "AfSxytKwpdvpS4anQ1d8jHXtRMHEUZzrJvCY9HYJGEEY"
+          ],
+          "primary": {
+            "eth_address": "0x36622b024b86636ab95bd71a5a1b8dc17f9bd9e4",
+            "sol_address": null
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x36622b024b86636ab95bd71a5a1b8dc17f9bd9e4",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xa27db7f6f17a65d8c914b0c35417160f8b2bf062",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "startupoppa"
+          }
+        ],
+        "url": "https://x.com/startupoppa/status/2075608957725597972?s=46&t=ud-jFJ5v6eGAXzpCFZzFkA",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.98,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.98
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x52cfad0d192fe69d36342b637a9d6847c9f807ff",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "spiritual runway. i felt this",
+      "timestamp": "2026-08-21T16:48:44.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 194,
+            "hash": "0xa5a0ef873b51dffbbc0847e54eff4ac3fece2a91"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0xa5a0ef873b51dffbbc0847e54eff4ac3fece2a91",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 194,
+              "username": "rish",
+              "display_name": "rish",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/465b734a-da85-44ce-3456-11fedac46100/original",
+              "custody_address": "0xb95dc10483be18f7c69ddf78d4baafecc01c5530"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x4b031b661992602550ebffc6741d7d5ab6453672",
+            "parent_hash": "0x4b031b661992602550ebffc6741d7d5ab6453672",
+            "parent_url": null,
+            "root_parent_url": null,
+            "parent_author": {
+              "fid": 1237
+            },
+            "text": "wasn’t a financial decision \n\nit’s much harder to raise energy than capital",
+            "timestamp": "2026-08-18T00:24:54.000Z",
+            "embeds": [],
+            "channel": null
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 14,
+        "recasts_count": 1,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 2
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xbbac1f0e6e9e26a5c98e7fb3ee4e6c0933955a4b",
+      "author": {
+        "object": "user",
+        "fid": 15983,
+        "username": "jacek",
+        "display_name": "Jacek.degen.eth 🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/2b8be2c4-e54f-4c12-3079-d35ce08df100/original",
+        "custody_address": "0x10501b5e63f24b3d8a4f2de44352faac53feb3ac",
+        "registered_at": "2023-07-11T06:31:22.937Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:20:51.000Z",
+          "expires_at": "2027-08-14T15:25:51.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Lead $DEGEN"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e72e1893-c7dd-4f72-a265-0bb62ae4f500/original"
+          }
+        },
+        "follower_count": 146944,
+        "following_count": 407,
+        "verifications": [
+          "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+          "0xea3d333b28e421ad6d0094562092e697d41309b9"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+            "0xea3d333b28e421ad6d0094562092e697d41309b9"
+          ],
+          "sol_addresses": [
+            "7MrhfthztJXyv2bM15NWQeQfrX2JgWhwAvVCgywQaYwq"
+          ],
+          "primary": {
+            "eth_address": "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+            "sol_address": "7MrhfthztJXyv2bM15NWQeQfrX2JgWhwAvVCgywQaYwq"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0x1638220e7d75cd30aaa6fadbd749de4353d699c8",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "degentokenbase"
+          }
+        ],
+        "url": "https://www.degen.tips/",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.98,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.98
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xbbac1f0e6e9e26a5c98e7fb3ee4e6c0933955a4b",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "Got that DEGEN in me.",
+      "timestamp": "2026-08-21T16:35:47.000Z",
+      "embeds": [
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3c628b5c-2010-4334-3977-5eef45d35e00/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 67,
+        "recasts_count": 13,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 9
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x2ddf0935191db0a897b8ce5338e8aaacd70c5296",
+      "author": {
+        "object": "user",
+        "fid": 4167,
+        "username": "nounishprof",
+        "display_name": "Nounish Prof ⌐◧-◧🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/eb81be76-395a-4acd-910d-48cd5290d500/original",
+        "custody_address": "0xbb54a63ad8241710eba3a98af224080b611ff8e9",
+        "registered_at": "2022-10-23T23:45:30.538Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:17:41.000Z",
+          "expires_at": "2027-06-18T09:59:51.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "building /gmfarcaster network |\nblockchain ENT prof |  ⌐◧-◧",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "gmfarcaster",
+                "name": "GM Farcaster (podcast)",
+                "image_url": "https://i.imgur.com/8OMHbYB.jpg"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 9,
+                "end": 21
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1bc84933-1f44-46c1-be8c-2aa1c8e81100/original"
+          }
+        },
+        "follower_count": 132568,
+        "following_count": 4142,
+        "verifications": [
+          "0xceed9585854f12f81a0103861b83b995a64ad915",
+          "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+          "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+          "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+          "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+          "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xceed9585854f12f81a0103861b83b995a64ad915",
+            "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+            "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+            "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+            "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+          ],
+          "sol_addresses": [
+            "G7LU4fomCvLnDeZgnJX3XL3ZGzWFkqT77tApbkrw3n5A",
+            "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          ],
+          "primary": {
+            "eth_address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "sol_address": "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xdad9478b3889eebaea59e6727e6835f84e765a39",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          },
+          {
+            "address": "0xe3f09ae05e295555eac84c8bbbfc23c6a254d434",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x2a309a64bc50c40c5b66431a87df49f4cfa90949",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x784b6c4b6675957085ecafd5198afc47dc13e052",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "profwerder"
+          }
+        ],
+        "url": "https://gmfarcaster.com/",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x2ddf0935191db0a897b8ce5338e8aaacd70c5296",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "That was a fun walk down memory lane of Saturday morning cartoon dogs 🐕 (thinking of you @brettdrawsstuff )\n\nGoing to miss the next one unfortunately so gl @bradq lol",
+      "timestamp": "2026-08-21T16:09:26.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 2855299,
+            "hash": "0xf828e27e6340485c88a0b2cdecb446b0560c5684"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0xf828e27e6340485c88a0b2cdecb446b0560c5684",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 2855299,
+              "username": "burrintern",
+              "display_name": "burrintern",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d46860e8-ba50-4269-e290-f3998c063100/original",
+              "custody_address": "0xeaa341746b386b85bf0aaacd3b59f72dcc80e111"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 6131,
+              "username": "neynar",
+              "display_name": "Neynar",
+              "pfp_url": "https://i.imgur.com/UjBZ3pV.png",
+              "custody_address": "0xa6a8736f18f383f1cc2d938576933e5ea7df01a1"
+            },
+            "thread_hash": "0xf828e27e6340485c88a0b2cdecb446b0560c5684",
+            "parent_hash": null,
+            "parent_url": "https://farcaster.xyz/~/channel/betr",
+            "root_parent_url": "https://farcaster.xyz/~/channel/betr",
+            "parent_author": {
+              "fid": null
+            },
+            "text": "🏆 Trivia — complete results:\n🥇 @nounishprof — 500K $BETR\n🥈 @ginajara — 300K $BETR\n🥉 @listen2mm.eth — 200K $BETR",
+            "timestamp": "2026-08-21T16:06:20.000Z",
+            "embeds": [
+              {
+                "url": "https://burrfriends.vercel.app/api/og/winners-circle/trivia/f2a181b4-8925-4dd2-adb3-36032d828437",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              }
+            ],
+            "channel": {
+              "object": "channel_dehydrated",
+              "id": "betr",
+              "name": "BETR & BETRMINT",
+              "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/86a2efcf-add7-4467-6973-a9e6ed14b100/original",
+              "viewer_context": {
+                "following": false
+              }
+            }
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 17,
+        "recasts_count": 5,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 3
+      },
+      "mentioned_profiles": [
+        {
+          "object": "user",
+          "fid": 20198,
+          "username": "brettdrawsstuff",
+          "display_name": "Brett",
+          "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/36ddee81-edd3-418c-ffc0-065e91ad5a00/original",
+          "custody_address": "0xb057ce70d6c3cad08fa7545f95aef7ae85f3d792",
+          "registered_at": "2023-09-20T03:19:01.000Z",
+          "pro": {
+            "status": "unsubscribed",
+            "subscribed_at": "2025-10-27T21:04:35.000Z",
+            "expires_at": "2025-11-26T21:04:35.000Z"
+          },
+          "profile": {
+            "bio": {
+              "text": "I draw stuff"
+            },
+            "banner": {
+              "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e32f3043-7f4c-4460-b3c3-cc3bae893900/original"
+            }
+          },
+          "follower_count": 4655,
+          "following_count": 431,
+          "verifications": [
+            "0x9c87a1065994f156f0b7b87aaa8b3c5f7bd67e02",
+            "0xf791a9ea6b44c1349760f69eff62e9e3b9781c4f"
+          ],
+          "verified_addresses": {
+            "eth_addresses": [
+              "0x9c87a1065994f156f0b7b87aaa8b3c5f7bd67e02",
+              "0xf791a9ea6b44c1349760f69eff62e9e3b9781c4f"
+            ],
+            "sol_addresses": [
+              "8w46VyFuSKVGWgh23FMzhLMjzCojia22r6RgNRbWyTFE"
+            ],
+            "primary": {
+              "eth_address": "0xf791a9ea6b44c1349760f69eff62e9e3b9781c4f",
+              "sol_address": "8w46VyFuSKVGWgh23FMzhLMjzCojia22r6RgNRbWyTFE"
+            }
+          },
+          "auth_addresses": [
+            {
+              "address": "0xf791a9ea6b44c1349760f69eff62e9e3b9781c4f",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 9152
+              }
+            },
+            {
+              "address": "0xf293ca4e3f13307e54ceaa2e8bd5addcf6b0fb54",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            },
+            {
+              "address": "0xaa4eb743a46debb0b9f0554ee6d3763bff2b25ea",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            },
+            {
+              "address": "0xc50ca2431ad5353dcb8e8be06d591c0c877790a9",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            },
+            {
+              "address": "0x57adbcc730131d48d76f1e7f46012f6639fc91f5",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            },
+            {
+              "address": "0x9549df64c73e93e51e0552d0d65f4643dd334659",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            },
+            {
+              "address": "0x7a56585736a85cf33165efb2d1b9dfbf57db0e43",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            },
+            {
+              "address": "0x6fadc64b57cbcf968938e65cd2ed6ff17adfa11a",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 16999
+              }
+            }
+          ],
+          "verified_accounts": [
+            {
+              "platform": "x",
+              "username": "brettdrawsstuff"
+            }
+          ],
+          "url": "https://brettdrawsstuff.art",
+          "viewer_context": {
+            "following": false,
+            "followed_by": false,
+            "blocking": false,
+            "blocked_by": false
+          },
+          "experimental": {
+            "neynar_user_score": 0.96,
+            "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+          },
+          "score": 0.96
+        },
+        {
+          "object": "user",
+          "fid": 5406,
+          "username": "bradq",
+          "display_name": "bradq",
+          "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/3a21e0f2-9a08-4eb8-7d0a-85b60523a000/original",
+          "custody_address": "0x8c954dbbb315ea039a954467cc43d43de60e9d3f",
+          "registered_at": "2022-11-16T15:30:22.559Z",
+          "pro": {
+            "status": "unsubscribed",
+            "subscribed_at": "2025-06-16T17:17:55.000Z",
+            "expires_at": "2026-06-16T17:17:55.000Z"
+          },
+          "profile": {
+            "bio": {
+              "text": "On a web3 journey. Guiding friends & allies on adventures in the new world |\n\nNouncil | web3 storytelling |"
+            }
+          },
+          "follower_count": 22691,
+          "following_count": 420,
+          "verifications": [
+            "0xa7f49efdc904e8906817afbec3e2ae73e2a4e113",
+            "0xe0e5f3a8d9a23e004ff4ce5397abd70acf9b4cc5"
+          ],
+          "verified_addresses": {
+            "eth_addresses": [
+              "0xa7f49efdc904e8906817afbec3e2ae73e2a4e113",
+              "0xe0e5f3a8d9a23e004ff4ce5397abd70acf9b4cc5"
+            ],
+            "sol_addresses": [
+              "FrwHiimTcat1Baoui6iarU9e894wVPDpjCCfuSu9hQ1s",
+              "CSQRCckiaTNzJunyqKRDNokataYpTwm9zAQZJajWsuDE"
+            ],
+            "primary": {
+              "eth_address": "0xe0e5f3a8d9a23e004ff4ce5397abd70acf9b4cc5",
+              "sol_address": "CSQRCckiaTNzJunyqKRDNokataYpTwm9zAQZJajWsuDE"
+            }
+          },
+          "auth_addresses": [
+            {
+              "address": "0xe0e5f3a8d9a23e004ff4ce5397abd70acf9b4cc5",
+              "app": {
+                "object": "user_dehydrated",
+                "fid": 9152
+              }
+            }
+          ],
+          "verified_accounts": [
+            {
+              "platform": "x",
+              "username": "iambradq"
+            }
+          ],
+          "viewer_context": {
+            "following": false,
+            "followed_by": true,
+            "blocking": false,
+            "blocked_by": false
+          },
+          "experimental": {
+            "neynar_user_score": 1,
+            "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+          },
+          "score": 1
+        }
+      ],
+      "mentioned_profiles_ranges": [
+        {
+          "start": 92,
+          "end": 108
+        },
+        {
+          "start": 159,
+          "end": 165
+        }
+      ],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x8d6e221e74d7cfa23834f4b8892cffd1bbe51408",
+      "author": {
+        "object": "user",
+        "fid": 12,
+        "username": "linda",
+        "display_name": "Linda Xie",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6aa18817-6238-4b25-086f-1edd0c438f00/original",
+        "custody_address": "0xb43575d58c49d2be880e0f821ddf51d15c13c376",
+        "registered_at": "2021-06-17T06:16:00.704Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:21:25.000Z",
+          "expires_at": "2026-06-16T17:21:25.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "taking a break to self study physics. previously: dev eco @farcaster, cofounder \n@bountycaster and scalar capital, early @coinbase, coproducer @ethereumfilm",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 1,
+                "username": "farcaster",
+                "display_name": "Farcaster",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6c7c4f60-8fb8-4d5e-5293-dfdca603b200/original",
+                "custody_address": "0x7071cfba18280fd0bc1142d98f8e67fb094d9544"
+              },
+              {
+                "object": "user_dehydrated",
+                "fid": 20589,
+                "username": "bountycaster",
+                "display_name": "Bountycaster",
+                "pfp_url": "https://i.imgur.com/QcV4VJu.jpg",
+                "custody_address": "0xd9af94bafd588ab897c5b6aa1de151a010de4775"
+              },
+              {
+                "object": "user_dehydrated",
+                "fid": 21773,
+                "username": "coinbase",
+                "display_name": "Coinbase",
+                "pfp_url": "https://i.imgur.com/Rdj8kks.jpg",
+                "custody_address": "0xaa0cdffda98f9d8b360cbd6eb353faaf1d20e46f"
+              },
+              {
+                "object": "user_dehydrated",
+                "fid": 668912,
+                "username": "ethereumfilm",
+                "display_name": "Vitalik: An Ethereum Story",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/fce5800f-9cf3-4acf-e4d6-f581235dff00/original",
+                "custody_address": "0x5b1baa68c0642b076aeaeca1cb59d19a55715c50"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 58,
+                "end": 68
+              },
+              {
+                "start": 81,
+                "end": 94
+              },
+              {
+                "start": 121,
+                "end": 130
+              },
+              {
+                "start": 143,
+                "end": 156
+              }
+            ]
+          }
+        },
+        "follower_count": 474126,
+        "following_count": 1341,
+        "verifications": [
+          "0x5e349eca2dc61abcd9dd99ce94d04136151a09ee",
+          "0x54d06a08ffdf44258a9f9bd2f4b4cdd6692a900f",
+          "0xc940cb58e505f2f9e409197ffb436a12bf1cce1e"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x5e349eca2dc61abcd9dd99ce94d04136151a09ee",
+            "0x54d06a08ffdf44258a9f9bd2f4b4cdd6692a900f",
+            "0xc940cb58e505f2f9e409197ffb436a12bf1cce1e"
+          ],
+          "sol_addresses": [
+            "AAobwFcj4HtJBaCBq5btL55rMPUZMQSwRbFJ9vTYDpcT",
+            "AadKLCLCANFbuLBmvUkqejyDcnADA6z1qZimWsGj4uCP"
+          ],
+          "primary": {
+            "eth_address": "0x54d06a08ffdf44258a9f9bd2f4b4cdd6692a900f",
+            "sol_address": "AadKLCLCANFbuLBmvUkqejyDcnADA6z1qZimWsGj4uCP"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x54d06a08ffdf44258a9f9bd2f4b4cdd6692a900f",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0x4f1e520bca320b8bf3709e2fb7a17b6ea9e18f49",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "lindaxie"
+          }
+        ],
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x8d6e221e74d7cfa23834f4b8892cffd1bbe51408",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "always worth taking a shot to reach out! https://x.com/c_valenzuelab/status/2090627234889416934",
+      "timestamp": "2026-08-21T15:29:19.000Z",
+      "embeds": [
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bb7dfecc-451c-44f7-500b-3d1ae99c6300/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        },
+        {
+          "url": "https://x.com/c_valenzuelab/status/2090627234889416934",
+          "metadata": {
+            "_status": "RESOLVED",
+            "html": {
+              "ogUrl": "https://x.com/c_valenzuelab/status/2090627234889416934",
+              "ogTitle": "Cristóbal Valenzuela (@c_valenzuelab) on X",
+              "ogDescription": "warm intros are low agency. you can just reach out",
+              "ogSiteName": "x.com",
+              "ogImage": [
+                {
+                  "url": "https://pbs.twimg.com/media/HQNmXjAWQAApyEM.jpg:large"
+                }
+              ]
+            }
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 31,
+        "recasts_count": 3,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 0
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x2a00141cc4878df1ecd8882234027534e482b171",
+      "author": {
+        "object": "user",
+        "fid": 4167,
+        "username": "nounishprof",
+        "display_name": "Nounish Prof ⌐◧-◧🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/eb81be76-395a-4acd-910d-48cd5290d500/original",
+        "custody_address": "0xbb54a63ad8241710eba3a98af224080b611ff8e9",
+        "registered_at": "2022-10-23T23:45:30.538Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:17:41.000Z",
+          "expires_at": "2027-06-18T09:59:51.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "building /gmfarcaster network |\nblockchain ENT prof |  ⌐◧-◧",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "gmfarcaster",
+                "name": "GM Farcaster (podcast)",
+                "image_url": "https://i.imgur.com/8OMHbYB.jpg"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 9,
+                "end": 21
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1bc84933-1f44-46c1-be8c-2aa1c8e81100/original"
+          }
+        },
+        "follower_count": 132568,
+        "following_count": 4142,
+        "verifications": [
+          "0xceed9585854f12f81a0103861b83b995a64ad915",
+          "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+          "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+          "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+          "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+          "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xceed9585854f12f81a0103861b83b995a64ad915",
+            "0x554aaa13361123c45dae97b4155dfce5827e39cf",
+            "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "0x72a980640a6f3b284d0ffdba4857865fc7e0ee79",
+            "0xd19b676d39170ea25a8bd73647561f5efcf1b7c7",
+            "0xdad9478b3889eebaea59e6727e6835f84e765a39"
+          ],
+          "sol_addresses": [
+            "G7LU4fomCvLnDeZgnJX3XL3ZGzWFkqT77tApbkrw3n5A",
+            "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          ],
+          "primary": {
+            "eth_address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "sol_address": "HxtJ8asbVDKi3aPZqzeY1vw3naWak1G9rKAXge4nipz8"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x9353cc2583356ce6ea8f92e239d7c9eb8412acaf",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xdad9478b3889eebaea59e6727e6835f84e765a39",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          },
+          {
+            "address": "0xe3f09ae05e295555eac84c8bbbfc23c6a254d434",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x2a309a64bc50c40c5b66431a87df49f4cfa90949",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          },
+          {
+            "address": "0x784b6c4b6675957085ecafd5198afc47dc13e052",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "profwerder"
+          }
+        ],
+        "url": "https://gmfarcaster.com/",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x2a00141cc4878df1ecd8882234027534e482b171",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "in Prince’s funky name, amen",
+      "timestamp": "2026-08-21T13:40:22.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 4167,
+            "hash": "0x7dc2afc1cea8058a03850eae48ef05c073dd3677"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0x7dc2afc1cea8058a03850eae48ef05c073dd3677",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 4167,
+              "username": "nounishprof",
+              "display_name": "Nounish Prof ⌐◧-◧🎩",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/eb81be76-395a-4acd-910d-48cd5290d500/original",
+              "custody_address": "0xbb54a63ad8241710eba3a98af224080b611ff8e9"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x7dc2afc1cea8058a03850eae48ef05c073dd3677",
+            "parent_hash": null,
+            "parent_url": null,
+            "root_parent_url": null,
+            "parent_author": {
+              "fid": null
+            },
+            "text": "Season 1: invitation only (start to Oct 2023) aka the good ‘ol days and the old arch\n\nSeason 2: Permissionless/Degen/Frames/Base/new arch/Warplet cc0 intro (Oct 2023-Dec 2025 a multi episode season)\n\nSeason 3: Neynar — age of the intern\n\nSeason 4: whatever comes next \n\nY’all can we all agree on this? Cuz it’s getting confusing. (and this is why NFTs are helpful)",
+            "timestamp": "2026-08-21T09:09:35.000Z",
+            "embeds": [
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/28b8d4d9-7858-44cf-a3a8-b32c11601f00/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              },
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/d0f3de2c-bf42-466a-aba5-555e98f1d800/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              },
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/95848c91-4162-4a46-0235-d5d64060cb00/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              }
+            ],
+            "channel": null
+          }
+        },
+        {
+          "url": "https://stream.farcaster.xyz/v1/video/01a0248c-26f6-4605-d427-459e2d895cca.m3u8",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 24,
+        "recasts_count": 2,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x26021f857564a1bf06ffdc0a6499939062a79c1d",
+      "author": {
+        "object": "user",
+        "fid": 7479,
+        "username": "chaskin.eth",
+        "display_name": ".",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/f6f2c8e0-5474-4d8d-8563-8ea180e31200/original",
+        "custody_address": "0x66ccc908f2f0fcd385da1b4ccbb0ccbefbbea90b",
+        "registered_at": "2022-12-20T19:04:06.526Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:18:19.000Z",
+          "expires_at": "2026-06-16T17:18:19.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "/ethereum foundation | opinions are my own but more than likely they come from Vitalik's blog |\n\nrun AI locally → privateai.how",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "ethereum",
+                "name": "Ethereum",
+                "image_url": "https://warpcast.com/~/channel-images/ethereum.png"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 0,
+                "end": 9
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/56e8dce7-8be0-4802-2c4f-b5d57f7e2e00/original"
+          }
+        },
+        "follower_count": 80347,
+        "following_count": 1446,
+        "verifications": [
+          "0xee0b53ac9578cbc6e0cee0ac6e18cfb7118b5cb3",
+          "0x355efbcbcdb96ab72b91cfca2114cd43f93e90ed",
+          "0x9c8fd85673de5e51fdc9ae4a074250494c9882e9"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xee0b53ac9578cbc6e0cee0ac6e18cfb7118b5cb3",
+            "0x355efbcbcdb96ab72b91cfca2114cd43f93e90ed",
+            "0x9c8fd85673de5e51fdc9ae4a074250494c9882e9"
+          ],
+          "sol_addresses": [
+            "7Uvg455omARrPg2zaTDKcFpc2PLsWPMjKAced9UDGUiz"
+          ],
+          "primary": {
+            "eth_address": "0x355efbcbcdb96ab72b91cfca2114cd43f93e90ed",
+            "sol_address": "7Uvg455omARrPg2zaTDKcFpc2PLsWPMjKAced9UDGUiz"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x355efbcbcdb96ab72b91cfca2114cd43f93e90ed",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0x7a4546c6016922f8533d89f4a85ff2bb627a4a2e",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "jchaskin22"
+          }
+        ],
+        "url": "https://chaskin.eth.limo",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 1,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 1
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x26021f857564a1bf06ffdc0a6499939062a79c1d",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "I updated www.privateai.how\n\nIt now dynamically updates whenever new open source AI models are released, so its recs stay current\n\nIf you haven’t tried local AI yet, it’ll walk you through the setup. The new Qwen models are amazing and can easily run on your laptop",
+      "timestamp": "2026-08-21T13:33:33.000Z",
+      "embeds": [
+        {
+          "url": "https://www.privateai.how/",
+          "metadata": {
+            "_status": "RESOLVED",
+            "html": {
+              "ogUrl": "https://www.privateai.how/",
+              "ogTitle": "PrivateAI — Your AI Conversations, Seen By No One",
+              "ogDescription": "Run powerful open-source AI models on your own computer — private by design, free forever. No subscriptions, no data collection, nobody reading your chats. Step-by-step setup, even if you’ve never used a terminal.",
+              "ogSiteName": "privateai.how"
+            }
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 15,
+        "recasts_count": 2,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 2
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xd0f2262bdd70b2c2bbb00b79ea715677067f4443",
+      "author": {
+        "object": "user",
+        "fid": 5818,
+        "username": "adrienne",
+        "display_name": "adrienne",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/900a94b3-ae49-41c3-7c8c-ebff96a99700/original",
+        "custody_address": "0x1243516408ee976b34573678f2aa029b69de4f00",
+        "registered_at": "2022-11-21T00:04:21.615Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:18:25.000Z",
+          "expires_at": "2026-08-15T17:18:25.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Co-founder of /gmfarcaster, Farcaster's #1 news show.  Co-founder Tenger Ways, bringing modern tech practices to traditional IT. Engineer. Mom x 3.",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "gmfarcaster",
+                "name": "GM Farcaster (podcast)",
+                "image_url": "https://i.imgur.com/8OMHbYB.jpg"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 14,
+                "end": 26
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/2aa2a1b9-3c0a-4bb7-c57b-f218adfee800/original"
+          }
+        },
+        "follower_count": 158654,
+        "following_count": 2720,
+        "verifications": [
+          "0xaea4a0dedb94ba5b2b8ed9477a8a54379c584542",
+          "0x4034cf13452dfb37749515ecec26256243cb5cfe",
+          "0xb1b21884afe6581f3c4997b0320465f18e9682c0",
+          "0xf4b84af45bca0a143dcbe77c3b278e6bd9c88e89"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xaea4a0dedb94ba5b2b8ed9477a8a54379c584542",
+            "0x4034cf13452dfb37749515ecec26256243cb5cfe",
+            "0xb1b21884afe6581f3c4997b0320465f18e9682c0",
+            "0xf4b84af45bca0a143dcbe77c3b278e6bd9c88e89"
+          ],
+          "sol_addresses": [
+            "GjNgEhnenChwxo1agzzaWPU2ABnRpSz19MGcoki9ouyu",
+            "EPz66cL8i4kNojkQSdWGpnKDktB35gpm5Gciw1bDqkzC"
+          ],
+          "primary": {
+            "eth_address": "0xb1b21884afe6581f3c4997b0320465f18e9682c0",
+            "sol_address": "EPz66cL8i4kNojkQSdWGpnKDktB35gpm5Gciw1bDqkzC"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xb1b21884afe6581f3c4997b0320465f18e9682c0",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xf4b84af45bca0a143dcbe77c3b278e6bd9c88e89",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "age_shulman"
+          },
+          {
+            "platform": "github",
+            "username": "atenger"
+          }
+        ],
+        "url": "https://www.gmfarcaster.com",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0xd0f2262bdd70b2c2bbb00b79ea715677067f4443",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "Some are calling it MUST WATCH FC",
+      "timestamp": "2026-08-21T13:25:03.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 409857,
+            "hash": "0xfd194841f0d48d04a3021555b4a2df1730b0550d"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0xfd194841f0d48d04a3021555b4a2df1730b0550d",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 409857,
+              "username": "yerbearserker",
+              "display_name": "yerbearserker.base.eth 🏛️",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/7a12f36e-a012-4d3f-981a-d44a2e5ccd00/original",
+              "custody_address": "0xb5120cd056353732744c61836a6a045e3bed376c"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0xfd194841f0d48d04a3021555b4a2df1730b0550d",
+            "parent_hash": null,
+            "parent_url": "https://farcaster.xyz/~/channel/gmyerb",
+            "root_parent_url": "https://farcaster.xyz/~/channel/gmyerb",
+            "parent_author": {
+              "fid": null
+            },
+            "text": "Feels good to be watching @gmfarcaster again, even if it's not live. \nThough makes me so miss watching it live where I can YerbSpam the chat 😂\n\nBut seriously... absolutely \"Must Watch FC\" 🔥\n\nKudos to @nounishprof & @adrienne for continuing to put out the #1 News Show on @farcaster 🫡\n\nAlso... I did not change my PFP to my Warplet during this recent hoo ha 😇\n\nWatch yesterday's episode here: https://www.youtube.com/watch?v=Q_l3ZLYyZgc",
+            "timestamp": "2026-08-21T13:14:35.000Z",
+            "embeds": [
+              {
+                "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/ac5025af-0a08-4815-e8eb-68a3102adf00/original",
+                "metadata": {
+                  "_status": "PENDING"
+                }
+              },
+              {
+                "url": "https://www.youtube.com/watch?v=Q_l3ZLYyZgc",
+                "metadata": {
+                  "_status": "RESOLVED",
+                  "html": {
+                    "ogUrl": "https://www.youtube.com/watch?v=Q_l3ZLYyZgc",
+                    "ogTitle": "Not Dead Yet (Again): GM Farcaster ep382 Thursday August 20, 2026",
+                    "ogDescription": "Not Dead Yet (Again): GM Farcaster ep382 Thursday August 20, 2026 \n\nThank you Clanker for sponsoring today’s episode! Check out Clanker.World to learn more.\n\nTLDR: ☕ GM 💀 Farcaster is not dead yet 🏠 Farcaster, Clanker & Neynar seek a new home 📉 The changing case for decentralized social 📞 acquisition chatter 🐦 Everyone suddenly remembers the purple arch 🏹 Robinhood distribution vs Base 🏛️ New SEC crypto rules 💸 Splits experiments with onchain fundraising 🪙 Low-FID memecoin drama 🌎 GoCab language …",
+                    "ogSiteName": "youtube.com",
+                    "ogImage": [
+                      {
+                        "url": "https://i.ytimg.com/vi/Q_l3ZLYyZgc/sddefault.jpg"
+                      }
+                    ]
+                  }
+                }
+              }
+            ],
+            "channel": {
+              "object": "channel_dehydrated",
+              "id": "gmyerb",
+              "name": "GMYerb",
+              "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/9bd5c48d-7c20-4798-092b-56267860a600/original",
+              "viewer_context": {
+                "following": false
+              }
+            }
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 43,
+        "recasts_count": 11,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x50e099183cd9981f91c7b7e36ac581e7e33778ef",
+      "author": {
+        "object": "user",
+        "fid": 3642,
+        "username": "toadyhawk.eth",
+        "display_name": "Toady Hawk",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6925ce3a-8373-40bc-5ed1-b552db2c3000/original",
+        "custody_address": "0xe9787add64f50909eb9c7a2de5992cd4510907c9",
+        "registered_at": "2022-10-17T04:35:24.132Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:18:11.000Z",
+          "expires_at": "2026-09-20T18:13:11.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "onchain experimentation maxi @betrmint, @zerorightsmedia, the /yellow collective",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 1047658,
+                "username": "betrmint",
+                "display_name": "BETRMINT",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/77a0ecdf-dae2-45bc-a6e2-22607075b700/original",
+                "custody_address": "0x0fcb5e52ae5d29c31c3be94a46ba8cffcb77e8b6"
+              },
+              {
+                "object": "user_dehydrated",
+                "fid": 938256,
+                "username": "zerorightsmedia",
+                "display_name": "Zero Rights Media",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bbf28abf-b613-4063-3c50-7c971f7e9600/rectcrop3",
+                "custody_address": "0x87e5af409fbcea2dfbd4b18825a39b1e0e4dd66b"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 29,
+                "end": 38
+              },
+              {
+                "start": 40,
+                "end": 56
+              }
+            ],
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "yellow",
+                "name": "The Yellow Collective on Base",
+                "image_url": "https://i.imgur.com/4Wu19x5.png"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 62,
+                "end": 69
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/5af4e7ff-698d-4889-de5d-7f20e55dc900/original"
+          }
+        },
+        "follower_count": 218227,
+        "following_count": 3260,
+        "verifications": [
+          "0x5d802e2fe48392c104ce0401c7eca8a4456f1f16",
+          "0x392759706e41af5e1d69147bf7d513f799cdbd60",
+          "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+          "0x49fcf7fd8bced178a3c65d3341f61821eef76423"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x5d802e2fe48392c104ce0401c7eca8a4456f1f16",
+            "0x392759706e41af5e1d69147bf7d513f799cdbd60",
+            "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+            "0x49fcf7fd8bced178a3c65d3341f61821eef76423"
+          ],
+          "sol_addresses": [
+            "B6uMFEtbZWyvvWaQQWtVfodyi9YGEBMeWNF1qLnPSZee",
+            "HQ6cY3MGV1HT722gMxdc1fu2obFMo9j4ehpQ6FurSy86"
+          ],
+          "primary": {
+            "eth_address": "0x49fcf7fd8bced178a3c65d3341f61821eef76423",
+            "sol_address": "HQ6cY3MGV1HT722gMxdc1fu2obFMo9j4ehpQ6FurSy86"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x49fcf7fd8bced178a3c65d3341f61821eef76423",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xf2e71136f191ab1a4db2883f40526424e34f8771",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "toady_hawk"
+          }
+        ],
+        "url": "https://farcaster.xyz/miniapps/yG210D-5eNqL/betrmint",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x50e099183cd9981f91c7b7e36ac581e7e33778ef",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "the price went $higher, the tech works",
+      "timestamp": "2026-08-21T12:53:57.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 3642,
+            "hash": "0xf74dffb4cc63a7730cf140a2e87c65db8d6257c7"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0xf74dffb4cc63a7730cf140a2e87c65db8d6257c7",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 3642,
+              "username": "toadyhawk.eth",
+              "display_name": "Toady Hawk",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6925ce3a-8373-40bc-5ed1-b552db2c3000/original",
+              "custody_address": "0xe9787add64f50909eb9c7a2de5992cd4510907c9"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0xf74dffb4cc63a7730cf140a2e87c65db8d6257c7",
+            "parent_hash": null,
+            "parent_url": "eip155:8453/erc20:0x0578d8a44db98b23bf096a382e016e29a5ce0ffe",
+            "root_parent_url": "eip155:8453/erc20:0x0578d8a44db98b23bf096a382e016e29a5ce0ffe",
+            "parent_author": {
+              "fid": null
+            },
+            "text": "remember $HIGHER? \n\nsuch a classic \n\nimpeccable irrational optimism vibes + goat @lght visuals \n\nmaybe we should run it back for the culture",
+            "timestamp": "2026-08-21T00:58:21.000Z",
+            "embeds": [],
+            "channel": null
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 20,
+        "recasts_count": 4,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 0
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x17ec62d230bda0945c1408d19a1f242cda774905",
+      "author": {
+        "object": "user",
+        "fid": 15983,
+        "username": "jacek",
+        "display_name": "Jacek.degen.eth 🎩",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/2b8be2c4-e54f-4c12-3079-d35ce08df100/original",
+        "custody_address": "0x10501b5e63f24b3d8a4f2de44352faac53feb3ac",
+        "registered_at": "2023-07-11T06:31:22.937Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:20:51.000Z",
+          "expires_at": "2027-08-14T15:25:51.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Lead $DEGEN"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e72e1893-c7dd-4f72-a265-0bb62ae4f500/original"
+          }
+        },
+        "follower_count": 146944,
+        "following_count": 407,
+        "verifications": [
+          "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+          "0xea3d333b28e421ad6d0094562092e697d41309b9"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+            "0xea3d333b28e421ad6d0094562092e697d41309b9"
+          ],
+          "sol_addresses": [
+            "7MrhfthztJXyv2bM15NWQeQfrX2JgWhwAvVCgywQaYwq"
+          ],
+          "primary": {
+            "eth_address": "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+            "sol_address": "7MrhfthztJXyv2bM15NWQeQfrX2JgWhwAvVCgywQaYwq"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x011c9a600fa4dcc460f9864e9c8b5498c2835e5a",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0x1638220e7d75cd30aaa6fadbd749de4353d699c8",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "degentokenbase"
+          }
+        ],
+        "url": "https://www.degen.tips/",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.98,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.98
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x17ec62d230bda0945c1408d19a1f242cda774905",
+      "parent_hash": null,
+      "parent_url": "chain://eip155:7777777/erc721:0x5d6a07d07354f8793d1ca06280c4adf04767ad7e",
+      "root_parent_url": "chain://eip155:7777777/erc721:0x5d6a07d07354f8793d1ca06280c4adf04767ad7e",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "New hero section live on the POV homepage.\n\nMore homepage updates coming, but this should already make it much clearer what POV is at first glance.\n\npov.co",
+      "timestamp": "2026-08-21T12:48:19.000Z",
+      "embeds": [
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/87a951db-52aa-4a53-0ac3-cb34b0c37e00/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": {
+        "object": "channel_dehydrated",
+        "id": "degen",
+        "name": "Degen",
+        "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/4728a50a-1669-4334-1f57-9473c04a2500/original",
+        "viewer_context": {
+          "following": false
+        }
+      },
+      "reactions": {
+        "likes_count": 31,
+        "recasts_count": 2,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 3
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      },
+      "author_channel_context": {
+        "role": "owner",
+        "following": true
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0xd85694e5b673ede431ca113eaf413be3954eb2b9",
+      "author": {
+        "object": "user",
+        "fid": 5650,
+        "username": "vitalik.eth",
+        "display_name": "Vitalik Buterin",
+        "pfp_url": "https://media.firefly.land/lens/126a045e-f7bb-44cc-80b1-2bd63ce9be58.png",
+        "custody_address": "0xadd746be46ff36f10c81d6e3ba282537f4c68077",
+        "registered_at": "2022-11-18T20:44:29.372Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-10-11T11:57:27.000Z",
+          "expires_at": "2026-10-11T11:57:27.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "hullo"
+          }
+        },
+        "follower_count": 537736,
+        "following_count": 110,
+        "verifications": [
+          "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+          "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+          "0x40e82a6269e6a98b852c8ebc5dcdc4f352dca6b7"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xd8da6bf26964af9d7eed9e03e53415d37aa96045",
+            "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+            "0x40e82a6269e6a98b852c8ebc5dcdc4f352dca6b7"
+          ],
+          "sol_addresses": [
+            "47aHBDrF5Uw6Qm4npXZb2GLckssnUKhTmbTBRPKJUCH2"
+          ],
+          "primary": {
+            "eth_address": "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+            "sol_address": "47aHBDrF5Uw6Qm4npXZb2GLckssnUKhTmbTBRPKJUCH2"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x96b6bb2bd2eba3b4fbefd7dbac448ad7b6cbf279",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [],
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 1,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 1
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 16823,
+        "username": "fireflyapp",
+        "display_name": "Firefly App",
+        "pfp_url": "https://media.firefly.land/farcaster/8b064ce5-dffa-4260-9f8c-1c8c48e9eac0.png",
+        "custody_address": "0xbeb5e451154f144e7c1f07c09bef492360970fa9"
+      },
+      "thread_hash": "0xd85694e5b673ede431ca113eaf413be3954eb2b9",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "My third (and last) post in my series on obfuscation (iO): local mixing\n\nhttps://vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html\n\nLocal mixing is a very different philosophy from the other two, no prior background in lattices required, and very different tradeoffs (eg. in terms of computational overhead, it's viable today; the entire question is verifying the security of what's ultimately a novel family of cryptography). I highly encourage following their work, they plan to publish much more soon.",
+      "timestamp": "2026-08-21T12:39:14.000Z",
+      "embeds": [
+        {
+          "url": "https://vitalik.eth.limo/general/2026/08/21/obfuscation_part_iii_local_mixing.html",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 65,
+        "recasts_count": 11,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 11
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x65b1e088aaee4003bc668672c159dce18f441f6e",
+      "author": {
+        "object": "user",
+        "fid": 499783,
+        "username": "tako-unik",
+        "display_name": "Tako",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/c23806fc-7b65-466e-75ad-d5b1642f3500/rectcrop3",
+        "custody_address": "0xb3195fd127dc66493934357e0a270243e0cd2155",
+        "registered_at": "2024-04-24T15:29:36.951Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:18:31.000Z",
+          "expires_at": "2026-06-16T17:18:31.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "LFer. Based in /los-fomos • Making onchain spicy \n\nBuilding /uniklabs\n/cinema-mon-amour simp",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "los-fomos",
+                "name": "Los Fomos",
+                "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/15709126-e03b-4e36-3d57-55c54511de00/original"
+              },
+              {
+                "object": "channel_dehydrated",
+                "id": "uniklabs",
+                "name": "Future of fandom",
+                "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/df4fda88-1901-485a-4f66-8b558f65ab00/original"
+              },
+              {
+                "object": "channel_dehydrated",
+                "id": "cinema-mon-amour",
+                "name": "Cinéma, Mon Amour",
+                "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/59e9ec9c-167f-4638-7910-546277f23800/original"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 15,
+                "end": 25
+              },
+              {
+                "start": 62,
+                "end": 71
+              },
+              {
+                "start": 72,
+                "end": 89
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6d70faab-2268-43ce-b008-1cc2e5793900/original"
+          }
+        },
+        "follower_count": 11333,
+        "following_count": 297,
+        "verifications": [
+          "0x0de1bf69e2c04e6cb948cb51bc70e13d159a0917",
+          "0xafe5ff0a5a69464e06cbb74162ee2dfbb76f92f8",
+          "0xb54b7bea87dc4b83928305657852048824ac4b6d",
+          "0x545275e6098eb53b964a4787f14e49446568ad0b",
+          "0x6d2d70531b1e56c716b876fa4aac7ed69b952659"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x0de1bf69e2c04e6cb948cb51bc70e13d159a0917",
+            "0xafe5ff0a5a69464e06cbb74162ee2dfbb76f92f8",
+            "0xb54b7bea87dc4b83928305657852048824ac4b6d",
+            "0x545275e6098eb53b964a4787f14e49446568ad0b",
+            "0x6d2d70531b1e56c716b876fa4aac7ed69b952659"
+          ],
+          "sol_addresses": [
+            "8v4sa5XCqV534dkoG57CJML871c3MnLu1dDVsoAbTbMe",
+            "7MA2yqMEMPNVKRDzDd4EaFsw3bvS5jmnEtScvK14Z58",
+            "PLqdwxynao6eGNzwYKPQh2gALtdhZurnDbs4YNzKR3j"
+          ],
+          "primary": {
+            "eth_address": "0x545275e6098eb53b964a4787f14e49446568ad0b",
+            "sol_address": "7MA2yqMEMPNVKRDzDd4EaFsw3bvS5jmnEtScvK14Z58"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x545275e6098eb53b964a4787f14e49446568ad0b",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xafe5ff0a5a69464e06cbb74162ee2dfbb76f92f8",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          },
+          {
+            "address": "0xde8196e3473ebda12c6ad8c6dfc1620e13c3e9f5",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 16999
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "tako_unik"
+          }
+        ],
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x65b1e088aaee4003bc668672c159dce18f441f6e",
+      "parent_hash": null,
+      "parent_url": "https://warpcast.com/~/channel/los-fomos",
+      "root_parent_url": "https://warpcast.com/~/channel/los-fomos",
+      "parent_author": {
+        "fid": null
+      },
+      "text": "spicecaster",
+      "timestamp": "2026-08-21T12:34:50.000Z",
+      "embeds": [
+        {
+          "cast_id": {
+            "fid": 1325,
+            "hash": "0xcc2e7a8f1e6057716ef52d49501fa2ac1152f454"
+          },
+          "cast": {
+            "object": "cast_embedded",
+            "hash": "0xcc2e7a8f1e6057716ef52d49501fa2ac1152f454",
+            "author": {
+              "object": "user_dehydrated",
+              "fid": 1325,
+              "username": "cassie",
+              "display_name": "Cassie Heart",
+              "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/a03d6457-7529-49fe-41f1-1f29139d1100/original",
+              "custody_address": "0xd01b7167bb22262554049fb7cb207d3fb16c89bb"
+            },
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152,
+              "username": "warpcast",
+              "display_name": "Warpcast",
+              "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+              "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+            },
+            "thread_hash": "0x1527c018d5b8c16c5fb04b101b312015c638eeac",
+            "parent_hash": "0xa2b584246e61dd194781341f5f932999962c0d15",
+            "parent_url": null,
+            "root_parent_url": "https://warpcast.com/~/channel/los-fomos",
+            "parent_author": {
+              "fid": 193826
+            },
+            "text": "spicecaster",
+            "timestamp": "2026-08-21T10:23:14.000Z",
+            "embeds": [],
+            "channel": {
+              "object": "channel_dehydrated",
+              "id": "los-fomos",
+              "name": "Los Fomos",
+              "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/15709126-e03b-4e36-3d57-55c54511de00/original",
+              "viewer_context": {
+                "following": false
+              }
+            }
+          }
+        }
+      ],
+      "channel": {
+        "object": "channel_dehydrated",
+        "id": "los-fomos",
+        "name": "Los Fomos",
+        "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/15709126-e03b-4e36-3d57-55c54511de00/original",
+        "viewer_context": {
+          "following": false
+        }
+      },
+      "reactions": {
+        "likes_count": 9,
+        "recasts_count": 1,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 1
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      },
+      "author_channel_context": {
+        "role": "moderator",
+        "following": true
+      }
+    },
+    {
+      "object": "cast",
+      "hash": "0x3f7af85c9c28fa94c360e589b8015aa5966b1f1a",
+      "author": {
+        "object": "user",
+        "fid": 617,
+        "username": "cameron",
+        "display_name": "Cameron Armstrong",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/0f06ae7e-c3b7-4632-79fc-c87fb6b9a200/original",
+        "custody_address": "0x70844dc4c5084a3fabbfede2b49c4038ddfe66a3",
+        "registered_at": "2022-05-28T02:40:35.291Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:17:47.000Z",
+          "expires_at": "2026-06-16T17:17:47.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "my love of man, machine, and mud abounds"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e2267fc9-02a8-46cd-2f4d-922fb0e35300/original"
+          }
+        },
+        "follower_count": 271828,
+        "following_count": 1088,
+        "verifications": [
+          "0x19ce57b670121e73e43be6c2fea5c254bb4c8760",
+          "0x96c89d27436ac80e91aa7fa08cf0fda38f4e6ef2",
+          "0xc82a9d91089781636f790c674e8f44cf8f1f30fc"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x19ce57b670121e73e43be6c2fea5c254bb4c8760",
+            "0x96c89d27436ac80e91aa7fa08cf0fda38f4e6ef2",
+            "0xc82a9d91089781636f790c674e8f44cf8f1f30fc"
+          ],
+          "sol_addresses": [
+            "ywvvbZNoZf15wUtDgMdVUozGSP5N3pzBRh7GTRrKbKA"
+          ],
+          "primary": {
+            "eth_address": "0xc82a9d91089781636f790c674e8f44cf8f1f30fc",
+            "sol_address": "ywvvbZNoZf15wUtDgMdVUozGSP5N3pzBRh7GTRrKbKA"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xc82a9d91089781636f790c674e8f44cf8f1f30fc",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "cameronspirals"
+          }
+        ],
+        "url": "https://cameronarmstrong.org",
+        "viewer_context": {
+          "following": true,
+          "followed_by": true,
+          "blocking": false,
+          "blocked_by": false
+        },
+        "experimental": {
+          "neynar_user_score": 0.99,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.99
+      },
+      "app": {
+        "object": "user_dehydrated",
+        "fid": 9152,
+        "username": "warpcast",
+        "display_name": "Warpcast",
+        "pfp_url": "https://i.imgur.com/3d6fFAI.png",
+        "custody_address": "0x02ef790dd7993a35fd847c053eddae940d055596"
+      },
+      "thread_hash": "0x3f7af85c9c28fa94c360e589b8015aa5966b1f1a",
+      "parent_hash": null,
+      "parent_url": null,
+      "root_parent_url": null,
+      "parent_author": {
+        "fid": null
+      },
+      "text": "good coffee is good, but terrible coffee is somehow great",
+      "timestamp": "2026-08-21T12:25:11.000Z",
+      "embeds": [
+        {
+          "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/739cec20-cfc7-420c-7f96-173362274e00/original",
+          "metadata": {
+            "_status": "PENDING"
+          }
+        }
+      ],
+      "channel": null,
+      "reactions": {
+        "likes_count": 30,
+        "recasts_count": 5,
+        "likes": [],
+        "recasts": []
+      },
+      "replies": {
+        "count": 5
+      },
+      "mentioned_profiles": [],
+      "mentioned_profiles_ranges": [],
+      "mentioned_channels": [],
+      "mentioned_channels_ranges": [],
+      "viewer_context": {
+        "liked": false,
+        "recasted": false
+      }
+    }
+  ],
+  "next": {
+    "cursor": "eyJ0aW1lc3RhbXAiOiIyMDI2LTA4LTIxIDEyOjI1OjExLjAwMDAwMDAifQ%3D%3D"
+  }
+}

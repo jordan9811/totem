@@ -1,0 +1,1047 @@
+{
+  "channels": [
+    {
+      "object": "channel",
+      "id": "crypto",
+      "url": "https://warpcast.com/~/channel/crypto",
+      "name": "crypto",
+      "image_url": "https://i.imgur.com/cXa9fjz.png",
+      "header_image_url": null,
+      "external_link": {
+        "title": "",
+        "url": ""
+      },
+      "description": "Discussions about crypto generally, from its use and tech to its culture and philosophy. Spammy talk about price, charts, gambling, etc. seriously discouraged.",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": true,
+      "follower_count": 25338,
+      "member_count": 217,
+      "pinned_cast_hash": null,
+      "created_at": "2023-12-16T10:07:37.000Z",
+      "parent_url": "https://warpcast.com/~/channel/crypto",
+      "moderator_fids": [
+        48,
+        368422
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 48,
+        "username": "eddy",
+        "display_name": "Eddy Lazzarin 🟠",
+        "pfp_url": "https://i.imgur.com/VW1eU3C.jpg",
+        "custody_address": "0x762056045152db1cfd842065ad6d84737adf4bd4",
+        "registered_at": "2021-08-05T16:25:05.018Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:20:57.000Z",
+          "expires_at": "2026-06-16T17:20:57.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "@a16zcrypto",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 1786,
+                "username": "a16zcrypto",
+                "display_name": "a16zcrypto",
+                "pfp_url": "https://i.imgur.com/dBzXsRs.jpg",
+                "custody_address": "0xed58aed0bc42e5a01bae5afc836b2e4c9003ffa6"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 0,
+                "end": 11
+              }
+            ]
+          }
+        },
+        "follower_count": 131737,
+        "following_count": 319,
+        "verifications": [
+          "0x15cece82f15081b7290496fa4e34dc7990951f35",
+          "0xc705046dd234c9bf5476ba3571816824c67ec244",
+          "0x97764c9a0480f5593ba3c82a392d903c2b169c26"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x15cece82f15081b7290496fa4e34dc7990951f35",
+            "0xc705046dd234c9bf5476ba3571816824c67ec244",
+            "0x97764c9a0480f5593ba3c82a392d903c2b169c26"
+          ],
+          "sol_addresses": [
+            "B5vNKHEjP7Nd7rYjZySyzx93f5B2HW7kdDXNrutWyiLe"
+          ],
+          "primary": {
+            "eth_address": "0xc705046dd234c9bf5476ba3571816824c67ec244",
+            "sol_address": "B5vNKHEjP7Nd7rYjZySyzx93f5B2HW7kdDXNrutWyiLe"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xc705046dd234c9bf5476ba3571816824c67ec244",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "eddylazzarin"
+          }
+        ],
+        "experimental": {
+          "neynar_user_score": 0.98,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.98
+      }
+    },
+    {
+      "object": "channel",
+      "id": "crypto-anjxasm",
+      "url": "https://warpcast.com/~/channel/crypto-anjxasm",
+      "name": "Crypto",
+      "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/339f87af-5136-446d-1c90-557e76ca5900/rectcrop3",
+      "header_image_url": null,
+      "external_link": {
+        "title": null,
+        "url": null
+      },
+      "description": "join us",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": true,
+      "follower_count": 536,
+      "member_count": 3,
+      "pinned_cast_hash": null,
+      "created_at": "2024-05-22T04:25:08.000Z",
+      "parent_url": "https://warpcast.com/~/channel/crypto-anjxasm",
+      "moderator_fids": [
+        423280
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 423280,
+        "username": "anjxasm",
+        "display_name": "Anjxasm",
+        "pfp_url": "https://i.imgur.com/cNurQc9.jpg",
+        "custody_address": "0x56d6929afc2acc0b392d322b4525932d5e095c6b",
+        "registered_at": "2024-03-31T01:21:09.972Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-10-14T07:03:07.000Z",
+          "expires_at": "2026-10-14T07:03:07.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Slow is fast."
+          }
+        },
+        "follower_count": 127,
+        "following_count": 242,
+        "verifications": [
+          "0xc2a5b37762c06397a2cd1932a863228d7ecff600",
+          "0x2f2a4b7ee6d57a3975fb9fe9caf1fbb6b4eccdeb"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xc2a5b37762c06397a2cd1932a863228d7ecff600",
+            "0x2f2a4b7ee6d57a3975fb9fe9caf1fbb6b4eccdeb"
+          ],
+          "sol_addresses": [
+            "5a81AyjFzsF4z1CX5t6N1DqY8pQF7DVwRJdZ8PVjgVMz",
+            "3TALYriCdZPZjrYtLkjxKYRbXCj1jaHKMdvocQbrJxEj"
+          ],
+          "primary": {
+            "eth_address": "0x2f2a4b7ee6d57a3975fb9fe9caf1fbb6b4eccdeb",
+            "sol_address": "3TALYriCdZPZjrYtLkjxKYRbXCj1jaHKMdvocQbrJxEj"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x2f2a4b7ee6d57a3975fb9fe9caf1fbb6b4eccdeb",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "zz89412680"
+          }
+        ],
+        "experimental": {
+          "neynar_user_score": 0.5,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.5
+      }
+    },
+    {
+      "object": "channel",
+      "id": "cryptoart",
+      "url": "https://warpcast.com/~/channel/cryptoart",
+      "name": "Cryptoart",
+      "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/619b1381-6b53-44c4-6204-3129eb25f600/original",
+      "header_image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/500c690b-10af-4ceb-e693-e7bb6a243800/original",
+      "external_link": {
+        "title": "auctionhouse",
+        "url": "https://cryptoart.social"
+      },
+      "description": "Artists reshaping the future of art. Banner by @wgmeets",
+      "description_mentioned_profiles": [
+        {
+          "object": "user_dehydrated",
+          "fid": 3295,
+          "username": "wgmeets"
+        }
+      ],
+      "description_mentioned_profiles_ranges": [
+        {
+          "start": 47,
+          "end": 55
+        }
+      ],
+      "public_casting": true,
+      "follower_count": 54221,
+      "member_count": 1209,
+      "pinned_cast_hash": "3562e5ff2e19b526802e3b448182480cdd06c6e9",
+      "created_at": "2023-12-16T03:13:43.000Z",
+      "parent_url": "https://warpcast.com/~/channel/cryptoart",
+      "moderator_fids": [
+        4905,
+        5583,
+        294100,
+        13874,
+        396644
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 4905,
+        "username": "mxjxn",
+        "display_name": "Max Jackson",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/0c0ecd4a-4c66-4243-cc82-e54dfcef3c00/original",
+        "custody_address": "0x0e43a2acb2fb3d9baa5222b183e0432bee2c65ab",
+        "registered_at": "2022-11-06T12:29:38.188Z",
+        "pro": {
+          "status": "subscribed",
+          "subscribed_at": "2025-06-16T17:18:25.000Z",
+          "expires_at": "2027-06-20T18:57:03.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "/cryptoart developer, artist and professional tricycle driver.  Onchain since 2013. Friends with @suchbot",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 874249,
+                "username": "suchbot",
+                "display_name": "suchbot",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/14a3a8e1-b81c-420e-06f8-fd04c4b6b600/original",
+                "custody_address": "0x7fa12f978d40ced7193d7ce34432a23cf63e1d1a"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 97,
+                "end": 105
+              }
+            ],
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "cryptoart",
+                "name": "Cryptoart",
+                "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/619b1381-6b53-44c4-6204-3129eb25f600/original"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 0,
+                "end": 10
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/1f99ebaf-8951-4a8e-634e-e473a4d8ef00/original"
+          }
+        },
+        "follower_count": 89155,
+        "following_count": 2921,
+        "verifications": [
+          "0x6da0a1784de1abdde1734ba37eca3d560bf044c0",
+          "0xc8660f5b34b83fabc62fff85492b6eb518b2db6a",
+          "0x23d1782b35371acfb22f05ff443e0587df159c96",
+          "0xc2b38ca49871bb8186eb692f887a68a9574bec62",
+          "0x9f8679c8f662fdf09654fe73bd3702edeed1b9f3",
+          "0xdd6efc9e856f1a73ea8e801129e1270132bffc85"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x6da0a1784de1abdde1734ba37eca3d560bf044c0",
+            "0xc8660f5b34b83fabc62fff85492b6eb518b2db6a",
+            "0x23d1782b35371acfb22f05ff443e0587df159c96",
+            "0xc2b38ca49871bb8186eb692f887a68a9574bec62",
+            "0x9f8679c8f662fdf09654fe73bd3702edeed1b9f3",
+            "0xdd6efc9e856f1a73ea8e801129e1270132bffc85"
+          ],
+          "sol_addresses": [
+            "H5JzygLqrwx4fomrtLzEcLfBrBacrfgpno8CG2NWcBGU",
+            "7kmCi2Kj4UsT1F2Pj2Cv5guAVQTbf5tcATCCDD3jEi2d"
+          ],
+          "primary": {
+            "eth_address": "0x9f8679c8f662fdf09654fe73bd3702edeed1b9f3",
+            "sol_address": "H5JzygLqrwx4fomrtLzEcLfBrBacrfgpno8CG2NWcBGU"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x9f8679c8f662fdf09654fe73bd3702edeed1b9f3",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xc8660f5b34b83fabc62fff85492b6eb518b2db6a",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "mxjxn"
+          },
+          {
+            "platform": "github",
+            "username": "mxjxn"
+          }
+        ],
+        "url": "https://www.mxjxn.com",
+        "experimental": {
+          "neynar_user_score": 1,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 1
+      }
+    },
+    {
+      "object": "channel",
+      "id": "cryptoninjas",
+      "url": "https://warpcast.com/~/channel/cryptoninjas",
+      "name": "cryptoninjas",
+      "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/e66a1e70-f97e-4f72-ddba-f2f1846c7100/original",
+      "header_image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/fd1b19fd-a4eb-41f6-84e3-8f3851835b00/original",
+      "external_link": {
+        "title": "Join",
+        "url": "https://warpcast.com/~/channel/cryptoninjas/join?inviteCode=OQJLTdfgapnWoSN5OkJa7A"
+      },
+      "description": "It's a place for crypto ninjas online to hang out and share their love for art, onchain and stealthy actions.",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": true,
+      "follower_count": 10655,
+      "member_count": 425,
+      "pinned_cast_hash": "ada7662b49a457ae8f7e5dfa9423b44b4eed2a14",
+      "created_at": "2024-04-09T11:35:24.000Z",
+      "parent_url": "https://warpcast.com/~/channel/cryptoninjas",
+      "moderator_fids": [
+        376177,
+        296241,
+        294761,
+        262301
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 376177,
+        "username": "chillyazz.eth",
+        "display_name": "chilly↑",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/965faacb-56ce-469f-9aad-f75b5ae11600/original",
+        "custody_address": "0x1a47bb4d37d7ff7735f941e67e07ef8c4d3ec80a",
+        "registered_at": "2024-02-29T16:08:30.950Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:18:19.000Z",
+          "expires_at": "2026-06-16T17:18:19.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Co-founder of @gemoon on @monad",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 1114650,
+                "username": "gemoon",
+                "display_name": "Gemoon",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/905104f4-0177-4151-6630-e02f2d7a7e00/original",
+                "custody_address": "0x938d91bb29b8ce36d46ac34ce0625bef69f10ce6"
+              },
+              {
+                "object": "user_dehydrated",
+                "fid": 282172,
+                "username": "monad",
+                "display_name": "Monad",
+                "pfp_url": "https://i.imgur.com/sFkJ0wK.jpg",
+                "custody_address": "0x9169d0acb00003be569cbda4f5ab27db772b2ee5"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 14,
+                "end": 21
+              },
+              {
+                "start": 25,
+                "end": 31
+              }
+            ]
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/21348923-1149-46c7-f06b-b71827fb3d00/original"
+          }
+        },
+        "follower_count": 12656,
+        "following_count": 1037,
+        "verifications": [
+          "0x675d882d6cdcdd8b2eaea95f21fbfc6916af89f8",
+          "0x3e7a80830ffae0102604afae049a3932aa56dcc6",
+          "0x878bd40d918601e53947dfd4ec515ac77a40c882"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x675d882d6cdcdd8b2eaea95f21fbfc6916af89f8",
+            "0x3e7a80830ffae0102604afae049a3932aa56dcc6",
+            "0x878bd40d918601e53947dfd4ec515ac77a40c882"
+          ],
+          "sol_addresses": [
+            "6HYmHKdgYy61YGBXck6NKbEoMaYvaj5xBasr8EQWhPS8",
+            "7gpqoBEiVQYffsAKrZ4yxS9vs8PYoWU2d2Pq7KrxEXZy"
+          ],
+          "primary": {
+            "eth_address": "0x878bd40d918601e53947dfd4ec515ac77a40c882",
+            "sol_address": null
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x878bd40d918601e53947dfd4ec515ac77a40c882",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "chillyazz"
+          },
+          {
+            "platform": "github",
+            "username": "chillyazz"
+          }
+        ],
+        "experimental": {
+          "neynar_user_score": 0.97,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.97
+      }
+    },
+    {
+      "object": "channel",
+      "id": "crypto-paradise",
+      "url": "https://warpcast.com/~/channel/crypto-paradise",
+      "name": "Crypto paradise",
+      "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/bdcada4e-e78d-4dd7-6a5a-4c7674841600/original",
+      "header_image_url": null,
+      "external_link": {
+        "title": null,
+        "url": null
+      },
+      "description": "Only crypto stuff",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": true,
+      "follower_count": 10107,
+      "member_count": 484,
+      "pinned_cast_hash": "4685c910518c9b62ed649622e54f3073d9c1bbcf",
+      "created_at": "2024-02-08T09:30:31.000Z",
+      "parent_url": "https://warpcast.com/~/channel/crypto-paradise",
+      "moderator_fids": [
+        286046
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 286046,
+        "username": "ilpyung",
+        "display_name": "ilpyung",
+        "pfp_url": "https://ipfs.decentralized-content.com/ipfs/bafybeibo5ui3ecc6yryt7ucalxagxbfach3q5wt77q6ykduayjebdndd74",
+        "custody_address": "0x3879c0f66c160bbc6ab3e16f8a548cd428b7f2b4",
+        "registered_at": "2024-02-05T05:27:25.247Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:19:01.000Z",
+          "expires_at": "2026-06-16T17:19:01.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "https://www.instagram.com/il.pyung\n\n테슬라 팔란티어 로빈후드 초창기투자자\n\nhttps://cafe.naver.com/flecture?tc=shared_link \n\n코인투자의 성지 비투카\n\n쓸데없는 텔방 마케팅 하지 말고 비투카에 의뢰하기"
+          }
+        },
+        "follower_count": 8454,
+        "following_count": 340,
+        "verifications": [
+          "0xdbfcac9ebe08690cf9e808188bfb55f1ae7adfd6",
+          "0xdcd7b70ce8b0ec809e5a1219e6afb5006d7c3784"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xdbfcac9ebe08690cf9e808188bfb55f1ae7adfd6",
+            "0xdcd7b70ce8b0ec809e5a1219e6afb5006d7c3784"
+          ],
+          "sol_addresses": [
+            "BLPK5SHSWdachsw6HJ4KYEtrn53j7HS4KbKrFUCziD5P",
+            "EdkvZQw8dqpKRvCrXA6WuC786Ros6QpnrBP7imukxwKJ"
+          ],
+          "primary": {
+            "eth_address": "0xdcd7b70ce8b0ec809e5a1219e6afb5006d7c3784",
+            "sol_address": "EdkvZQw8dqpKRvCrXA6WuC786Ros6QpnrBP7imukxwKJ"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xdcd7b70ce8b0ec809e5a1219e6afb5006d7c3784",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [],
+        "experimental": {
+          "neynar_user_score": 0.95,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.95
+      }
+    },
+    {
+      "object": "channel",
+      "id": "cryptogirls",
+      "url": "https://warpcast.com/~/channel/cryptogirls",
+      "name": "GIRL$ 👒💅🦈",
+      "image_url": "https://i.imgur.com/pns6s6l.jpg",
+      "header_image_url": null,
+      "external_link": {
+        "title": null,
+        "url": null
+      },
+      "description": "degens but make it pink",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": false,
+      "follower_count": 9551,
+      "member_count": 389,
+      "pinned_cast_hash": null,
+      "created_at": "2023-12-20T07:41:55.000Z",
+      "parent_url": "https://warpcast.com/~/channel/cryptogirls",
+      "moderator_fids": [
+        2163
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 2163,
+        "username": "cryptogirls",
+        "display_name": "CRYPTO GIRLS 🦈",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/f112f96f-283c-473c-d78f-69e631100600/original",
+        "custody_address": "0x956464637532750814da72c4dc8799f5c22a85b6",
+        "registered_at": "2022-09-25T06:23:41.836Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:17:55.000Z",
+          "expires_at": "2026-06-16T17:17:55.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "founder of /cryptogirls /sharks 🦈",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "cryptogirls",
+                "name": "GIRL$ 👒💅🦈",
+                "image_url": "https://i.imgur.com/pns6s6l.jpg"
+              },
+              {
+                "object": "channel_dehydrated",
+                "id": "sharks",
+                "name": "SHARK$ 🦈🦈🦈",
+                "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/89a2d030-8e18-4ae9-7a30-7089f003ce00/rectcrop3"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 11,
+                "end": 23
+              },
+              {
+                "start": 24,
+                "end": 31
+              }
+            ]
+          }
+        },
+        "follower_count": 62639,
+        "following_count": 2016,
+        "verifications": [
+          "0x952580d41f10db41d97fcd6b1984bc2538eefc2c",
+          "0x52793d3b013e826235655c59a69175fceb20c654",
+          "0x57b59faded980bcc693c767a43134fb5043ef6fe"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x952580d41f10db41d97fcd6b1984bc2538eefc2c",
+            "0x52793d3b013e826235655c59a69175fceb20c654",
+            "0x57b59faded980bcc693c767a43134fb5043ef6fe"
+          ],
+          "sol_addresses": [
+            "E2qDBpaN5pzTABQoCRM7HYQCspoiZqopMFG8Y3PYzpvM",
+            "H2DE83Sn36TDP1EaoAsFAfS4yJoDLBBm1VMQJ3QFxrvz"
+          ],
+          "primary": {
+            "eth_address": "0x52793d3b013e826235655c59a69175fceb20c654",
+            "sol_address": "H2DE83Sn36TDP1EaoAsFAfS4yJoDLBBm1VMQJ3QFxrvz"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x52793d3b013e826235655c59a69175fceb20c654",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0x57b59faded980bcc693c767a43134fb5043ef6fe",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "cryptogirls_eth"
+          }
+        ],
+        "url": "https://t.me/cryptogirlsdao",
+        "experimental": {
+          "neynar_user_score": 0.96,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.96
+      }
+    },
+    {
+      "object": "channel",
+      "id": "crypto-the-game",
+      "url": "https://warpcast.com/~/channel/crypto-the-game",
+      "name": "Crypto: The Game",
+      "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/89c0395f-8cb3-47fa-957d-6620d4a05100/original",
+      "header_image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/34718466-f15e-4fd5-edd2-991d8be02a00/original",
+      "external_link": {
+        "title": "",
+        "url": ""
+      },
+      "description": "\"A mutant conglomeration of Survivor, Squid Game, The Hunger Games, and The Traitors.\" – WIRED",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": true,
+      "follower_count": 5321,
+      "member_count": 4,
+      "pinned_cast_hash": "6344d8402d9ff37b7355b76acccbc1f427f4ed08",
+      "created_at": "2024-01-10T22:15:54.000Z",
+      "parent_url": "https://warpcast.com/~/channel/crypto-the-game",
+      "moderator_fids": [
+        189781
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 189781,
+        "username": "dylanabruscato",
+        "display_name": "Dylan Abruscato",
+        "pfp_url": "https://i.imgur.com/x8pDBf2.jpg",
+        "custody_address": "0xcbbdd358cbbcb0217d576a85d26de1a2643ef8ca",
+        "registered_at": "2023-10-18T23:37:18.613Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:17:41.000Z",
+          "expires_at": "2026-06-16T17:17:41.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "Building /crypto-the-game (acq by @uniswap). DylanAbruscato.twitter",
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "crypto-the-game",
+                "name": "Crypto: The Game",
+                "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/89c0395f-8cb3-47fa-957d-6620d4a05100/original"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 9,
+                "end": 25
+              }
+            ]
+          }
+        },
+        "follower_count": 11597,
+        "following_count": 866,
+        "verifications": [
+          "0xc446b8dee9721c1e28a2cd2e010bcad7e3bc5909",
+          "0x67f696d04ca0c4c1fc650df8cb2366399dc81f46",
+          "0x2d96288f4aea60022ef3d259e16f2ca06ac28c74"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0xc446b8dee9721c1e28a2cd2e010bcad7e3bc5909",
+            "0x67f696d04ca0c4c1fc650df8cb2366399dc81f46",
+            "0x2d96288f4aea60022ef3d259e16f2ca06ac28c74"
+          ],
+          "sol_addresses": [
+            "2wXoM4ArrWE7ymiSuSQX4ng8DdE3mqniqt5TAn1az3bm"
+          ],
+          "primary": {
+            "eth_address": "0x67f696d04ca0c4c1fc650df8cb2366399dc81f46",
+            "sol_address": "2wXoM4ArrWE7ymiSuSQX4ng8DdE3mqniqt5TAn1az3bm"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x67f696d04ca0c4c1fc650df8cb2366399dc81f46",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "dylanabruscato"
+          }
+        ],
+        "experimental": {
+          "neynar_user_score": 0.97,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.97
+      }
+    },
+    {
+      "object": "channel",
+      "id": "fantasyisland",
+      "url": "https://warpcast.com/~/channel/fantasyisland",
+      "name": "Crypto Fantasy League",
+      "image_url": "https://i.imgur.com/ka4SO4T.png",
+      "header_image_url": null,
+      "external_link": {
+        "title": null,
+        "url": null
+      },
+      "description": "Crypto Fantasy League | Misadventure Capital",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": true,
+      "follower_count": 4740,
+      "member_count": 2,
+      "pinned_cast_hash": null,
+      "created_at": "2024-03-19T03:07:14.000Z",
+      "parent_url": "https://warpcast.com/~/channel/fantasyisland",
+      "moderator_fids": [
+        528
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 528,
+        "username": "0xen",
+        "display_name": "0xen",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/2694039a-29ed-4889-464a-18a9dea03200/original",
+        "custody_address": "0xaf4858ba8e423c62a98f6a88493ccc4c27ca3cec",
+        "registered_at": "2022-04-01T01:04:24.438Z",
+        "pro": {
+          "status": "unsubscribed",
+          "subscribed_at": "2025-06-16T17:17:55.000Z",
+          "expires_at": "2026-06-16T17:17:55.000Z"
+        },
+        "profile": {
+          "bio": {
+            "text": "'world's greatest living AI artist' \n\nicebreaker.xyz/0xen |\nhttps://gallery.so/Oxen/galleries | https://opensea.io/collection/farcats"
+          },
+          "banner": {
+            "url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/6fd3904f-2708-4012-6ec3-f734b088a700/original"
+          }
+        },
+        "follower_count": 207568,
+        "following_count": 2210,
+        "verifications": [
+          "0x333d0ebc54707c0a9d92cac749b3094c28a0e111",
+          "0x7e679553092e07e1f20f8d076289036826d97b78"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x333d0ebc54707c0a9d92cac749b3094c28a0e111",
+            "0x7e679553092e07e1f20f8d076289036826d97b78"
+          ],
+          "sol_addresses": [
+            "EsWLXv3tpufySgQYQah89ZvW4BJeRfaiwn42XiWJxot1",
+            "54saCfpQERtCQSu9jAxbWEf8SimW73DR9nqXT4H7wmc9"
+          ],
+          "primary": {
+            "eth_address": "0x7e679553092e07e1f20f8d076289036826d97b78",
+            "sol_address": "54saCfpQERtCQSu9jAxbWEf8SimW73DR9nqXT4H7wmc9"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x7e679553092e07e1f20f8d076289036826d97b78",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          },
+          {
+            "address": "0xadbf7f618ef313a6cdd5026aa10d73e33a87b70b",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 309857
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "0xen1"
+          }
+        ],
+        "experimental": {
+          "neynar_user_score": 1,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 1
+      }
+    },
+    {
+      "object": "channel",
+      "id": "cryptosapiens",
+      "url": "https://warpcast.com/~/channel/cryptosapiens",
+      "name": "cryptosapiens",
+      "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/5c139a7c-f9f1-41f5-e134-9041953d3600/original",
+      "header_image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/4e3290e5-a7aa-4f37-27ba-cfa414556200/original",
+      "external_link": {
+        "title": "Join Here!",
+        "url": "https://cura.network/cryptosapiens/details"
+      },
+      "description": "Welcome to CryptoSapiens—the onchain creators cabal. Cast your onchain WIPs, tips and strategies. Rewarding bangers with $CABAL CA: 0x0b56fcfC1c1e9Dcc1Db8e61C65283070F02c76C6",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": false,
+      "follower_count": 3520,
+      "member_count": 379,
+      "pinned_cast_hash": "5d16f03135e0e8beb5a001397041d82a4355f46c",
+      "created_at": "2024-03-18T22:12:00.000Z",
+      "parent_url": "https://warpcast.com/~/channel/cryptosapiens",
+      "moderator_fids": [
+        193866,
+        2480,
+        864314,
+        300986
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 193866,
+        "username": "cryptosapiens.eth",
+        "display_name": "CryptoSapiens",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/ce349385-f34d-4971-3f15-02d596618d00/rectcrop3",
+        "custody_address": "0x5e132f408e90137c81771acca11c0c79d3c57b64",
+        "registered_at": "2023-11-08T21:51:33.446Z",
+        "profile": {
+          "bio": {
+            "text": "/cryptosapiens\nPlease reach out to @humpty.eth with questions or feedback",
+            "mentioned_profiles": [
+              {
+                "object": "user_dehydrated",
+                "fid": 2480,
+                "username": "humpty.eth",
+                "display_name": "humpty",
+                "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/54bd79a6-ca1f-4a91-2028-db78020eea00/original",
+                "custody_address": "0x3b1c602b14720111c9a006f1e673fde7262bd3fb"
+              }
+            ],
+            "mentioned_profiles_ranges": [
+              {
+                "start": 35,
+                "end": 46
+              }
+            ],
+            "mentioned_channels": [
+              {
+                "object": "channel_dehydrated",
+                "id": "cryptosapiens",
+                "name": "cryptosapiens",
+                "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/5c139a7c-f9f1-41f5-e134-9041953d3600/original"
+              }
+            ],
+            "mentioned_channels_ranges": [
+              {
+                "start": 0,
+                "end": 14
+              }
+            ]
+          }
+        },
+        "follower_count": 8700,
+        "following_count": 1,
+        "verifications": [
+          "0x624e05d9a8deff331d2685ef3d789b25f9bec80f",
+          "0xcbb5a0089f7c5bb669e32b80ad6fa7f3f659473a"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x624e05d9a8deff331d2685ef3d789b25f9bec80f",
+            "0xcbb5a0089f7c5bb669e32b80ad6fa7f3f659473a"
+          ],
+          "sol_addresses": [
+            "7ZMzM6Yrg47bPUtctaJzEfxxeXD72r1WtaXR2tgPVXzg"
+          ],
+          "primary": {
+            "eth_address": "0xcbb5a0089f7c5bb669e32b80ad6fa7f3f659473a",
+            "sol_address": "7ZMzM6Yrg47bPUtctaJzEfxxeXD72r1WtaXR2tgPVXzg"
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0xcbb5a0089f7c5bb669e32b80ad6fa7f3f659473a",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "cryptosapiens_"
+          }
+        ],
+        "experimental": {
+          "neynar_user_score": 1,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 1
+      }
+    },
+    {
+      "object": "channel",
+      "id": "cryptoplaza",
+      "url": "https://warpcast.com/~/channel/cryptoplaza",
+      "name": "cryptoplaza",
+      "image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/107d53b8-5a28-4eed-d251-249af28d6d00/original",
+      "header_image_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/fab3617a-60a2-4a8f-b8a7-41374981f000/original",
+      "external_link": {
+        "title": "Crypto Plaza",
+        "url": "https://warpcast.com/~/channel/cryptoplaza/join?inviteCode=7VtDPvIYfDLK35-JGrKVsA"
+      },
+      "description": "Join the channel and receive a Welcome Pack of 100 $DEGENs! 🎁 Reply “Guide” and we’ll send you our starter guide to navigating Farcaster!\nWelcome to the Social Farmers Hub — our mission is to grow the largest and most helpful Farcaster channel.",
+      "description_mentioned_profiles": [],
+      "description_mentioned_profiles_ranges": [],
+      "public_casting": false,
+      "follower_count": 3117,
+      "member_count": 419,
+      "pinned_cast_hash": "91f00d4f59200b6aca81387f4212c02cc355ec6c",
+      "created_at": "2023-12-16T09:18:44.000Z",
+      "parent_url": "https://warpcast.com/~/channel/cryptoplaza",
+      "moderator_fids": [
+        4549,
+        15792,
+        812578,
+        622994,
+        11404
+      ],
+      "lead": {
+        "object": "user",
+        "fid": 4549,
+        "username": "especulacion",
+        "display_name": "CryptoPlaza🎩🧑‍🌾 OG449",
+        "pfp_url": "https://imagedelivery.net/BXluQx4ige9GuW0Ia56BHw/ded5e8df-a516-4a20-4f90-b99e2cf8cc00/original",
+        "custody_address": "0x44e5ce3d3ff5326aa0990395ff6fa2516ac4eee7",
+        "registered_at": "2022-10-31T15:51:45.697Z",
+        "profile": {
+          "bio": {
+            "text": "Founder of CryptoPlaza. Delegate at dYdX, MakerDAO (Sky), and AAVE. Member of MetaCartel. Ambassador for Superfluid."
+          }
+        },
+        "follower_count": 3232,
+        "following_count": 1109,
+        "verifications": [
+          "0x59ebff2be1e53691e819b953fe215d61135dd05f",
+          "0x3e0cf03f718520f30300266dcf4db50ba12d3331",
+          "0x2f2e68073f4c911be53ba60d354b70fbe3ddbea8",
+          "0xf3d74f5e3badbb3340966c1f141ef71ad88a55ee"
+        ],
+        "verified_addresses": {
+          "eth_addresses": [
+            "0x59ebff2be1e53691e819b953fe215d61135dd05f",
+            "0x3e0cf03f718520f30300266dcf4db50ba12d3331",
+            "0x2f2e68073f4c911be53ba60d354b70fbe3ddbea8",
+            "0xf3d74f5e3badbb3340966c1f141ef71ad88a55ee"
+          ],
+          "sol_addresses": [
+            "BGqR3Wr2ZmtvB5SqDa5qdDzhc4Wk1xEzYtGBJYXQhtsX",
+            "EYymj4UNv4xKfXc6NNgezR3s8v7d8NSeXKSE3x8F4RN"
+          ],
+          "primary": {
+            "eth_address": "0x2f2e68073f4c911be53ba60d354b70fbe3ddbea8",
+            "sol_address": null
+          }
+        },
+        "auth_addresses": [
+          {
+            "address": "0x2f2e68073f4c911be53ba60d354b70fbe3ddbea8",
+            "app": {
+              "object": "user_dehydrated",
+              "fid": 9152
+            }
+          }
+        ],
+        "verified_accounts": [
+          {
+            "platform": "x",
+            "username": "especulacion"
+          }
+        ],
+        "experimental": {
+          "neynar_user_score": 0.98,
+          "deprecation_notice": "The `neynar_user_score` field under `experimental` will be deprecated after June 1, 2025, as it will be formally promoted to a stable field named `score` within the user object."
+        },
+        "score": 0.98
+      }
+    }
+  ],
+  "next": {
+    "cursor": "eyJwYWdlIjoyfQ%3D%3D"
+  }
+}
