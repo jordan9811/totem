@@ -413,7 +413,7 @@ function ModeEditor({
 
       <SettingsGroup
         title="Filter packs"
-        note="Imported network-state packs. Off unless attached — and attached per mode, so Work can run a pack Default doesn't."
+        note="Imported network-state packs. Off unless attached — and attached per mode, so Work can run a pack Default doesn't. Attached, a pack's post rules run beside this mode's own."
       >
         <div className="flex flex-wrap gap-2 px-4 py-2">
           {availablePacks.length === 0 && (

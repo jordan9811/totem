@@ -85,6 +85,16 @@ export async function PATCH(req: NextRequest) {
     if (target.allowAds === false && want !== null && want !== "none") return NextResponse.json({ error: DIAL_REFUSED_SENTENCE, code: "ads_forced_off" }, { status: 400 });
     body.patch.adDial = want === null ? undefined : want;
   }
+  // the activation rule is a rule tree the sample feed evaluates on EVERY load (lib/feed.ts applyActivationRuleIfDue):
+  // one the evaluator cannot walk, or one reaching past the evaluable fields, is refused by the same gate as a stored
+  // rule (app/api/rules/route.ts). null clears it.
+  const activation = body?.patch && typeof body.patch === "object" ? body.patch.activationRule : undefined;
+  if (activation !== undefined && activation !== null) {
+    const { isWellFormedGroup, validateRuleGroup, RULE_SHAPE_REFUSED_SENTENCE } = await import("@/lib/rules/evaluate");
+    if (!isWellFormedGroup(activation)) return NextResponse.json({ error: RULE_SHAPE_REFUSED_SENTENCE.replace("Rule refused", "Activation rule refused"), code: "malformed_rule" }, { status: 400 });
+    const violations = validateRuleGroup(activation);
+    if (violations.length) return NextResponse.json({ error: "Activation rule refused: " + violations.map((v) => v.reason).join("; "), code: "malformed_rule" }, { status: 400 });
+  }
   try {
     const mode = await retryAdapter(() => adapters.mode.update(body.modeId, body.patch ?? {}));
     return NextResponse.json({ mode });

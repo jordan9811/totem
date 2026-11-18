@@ -241,9 +241,11 @@ export function hubNoteLine(desk: string, resurfaced: boolean): string {
 }
 
 // ------------------------------------------------------------------------------------------------ the mode (spec A)
-/** a setting of the active mode that Farcaster posts cannot carry, said instead of being quietly read as 0 */
+/** a setting of the active mode that Farcaster posts cannot carry, said instead of being quietly read as 0. `inert`: a
+ *  rule of the mode the evaluator will not run (lib/rules/evaluate.ts runnableRules), so it did nothing to the page: the
+ *  mode's line shows it as an alert, outside the "not available on Farcaster posts" list (it is not about Farcaster) */
 export interface HubModeGap {
-  kind: "ranking" | "lens" | "rule" | "pack";
+  kind: "ranking" | "lens" | "rule" | "pack" | "inert";
   /** the setting's own name: "engagement", "likes", the rule's or the pack's name */
   term: string;
   sentence: string;

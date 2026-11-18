@@ -60,7 +60,7 @@ await check("0. SESSION: the product writes all four preference namespaces — a
     const r = await api("POST", "/api/modes/active", { modeId: modes[0].id });
     if (r.status === 200) exercised.push("activeMode");
   }
-  const rule = await api("POST", "/api/rules", { name: "pd0-" + stamp, action: "hide", root: { op: "and", conditions: [{ field: "text", cmp: "contains", value: "pd0" + stamp }] } });
+  const rule = await api("POST", "/api/rules", { name: "pd0-" + stamp, action: "hide", root: { combinator: "AND", clauses: [{ field: "post.text", op: "contains", value: "pd0" + stamp }] } });
   if (rule.status === 200 && rule.json?.rule) exercised.push("rules");
   const folder = await api("POST", "/api/folders", { name: "pd0-" + stamp, isPublic: false });
   if (folder.status === 200 && folder.json?.folder) exercised.push("folders");

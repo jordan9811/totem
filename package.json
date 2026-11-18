@@ -172,6 +172,8 @@
     "test:root-post-unit": "node scripts/unit-root-post.mjs",
     "test:root-post-prod": "node scripts/accept-root-post-prod.mjs",
     "test:hub-read-unit": "node scripts/unit-hub-read.mjs",
+    "test:rules-shape-unit": "node scripts/unit-rules-shape.mjs",
+    "test:pack-rules-unit": "node scripts/unit-pack-rules.mjs",
     "test:hub-read-prod": "node scripts/accept-hub-read-prod.mjs",
     "test:hub-notif-unit": "node scripts/unit-hub-notifications.mjs",
     "test:hub-notif-prod": "node scripts/accept-hub-notifications-prod.mjs",

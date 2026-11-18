@@ -12,7 +12,7 @@ export async function GET(req: NextRequest) {
   const surface = (req.nextUrl.searchParams.get("surface") ?? "discovery") as "discovery" | "following";
   try {
     const personaId = activeSeedPersonaId();
-    const { cards, mode, contentStale, previewStrip, pinnedHashes, liveSource } = await buildFeed(personaId, { surface });
+    const { cards, mode, contentStale, previewStrip, pinnedHashes, liveSource, inertRules } = await buildFeed(personaId, { surface });
     // Viewer-aware debunk attribution rides the same payload the timeline
     // consumes — tests assert the data path, not just the render.
     // contentStale (FC Gate 2): live content served from the stale shelf
@@ -25,7 +25,8 @@ export async function GET(req: NextRequest) {
     // surface when it does. A paused/stale relay is labelled from THIS field, not from contentStale (whose banner
     // promises a retry on refresh, which a kill switch or a spent budget will not honour). Network cards and their
     // casts carry network:true.
-    return NextResponse.json({ cards, mode, contentStale, liveSource, previewStrip, pinnedHashes, debunk: debunkSourcesFor(personaId) });
+    // inertRules: the mode's stored rules the evaluator will not run (each hid and moved nothing), said on the page
+    return NextResponse.json({ cards, mode, contentStale, liveSource, previewStrip, pinnedHashes, inertRules, debunk: debunkSourcesFor(personaId) });
   } catch (e) {
     const err = e as AdapterError;
     return NextResponse.json({ error: err.message }, { status: 503 });

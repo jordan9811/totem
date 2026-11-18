@@ -78,7 +78,7 @@ await check("0. SETUP: the source persona has a mode and a rule of its own to in
   // different persona than the caller asked for is the Gate 1 bug, and it should fail where it happens.
   if (sourceMode.personaId && sourceMode.personaId !== SOURCE.id)
     throw new Error("the mode was created for " + sourceMode.personaId + ", not the persona we switched to (" + SOURCE.id + ")");
-  const rule = await retry(() => api("POST", "/api/rules", { name: "pd1-rule-" + stamp, action: "hide", root: { op: "and", conditions: [{ field: "text", cmp: "contains", value: "pd1" + stamp }] } }));
+  const rule = await retry(() => api("POST", "/api/rules", { name: "pd1-rule-" + stamp, action: "hide", root: { combinator: "AND", clauses: [{ field: "post.text", op: "contains", value: "pd1" + stamp }] } }));
   if (rule.status !== 200) throw new Error("could not create a rule: " + rule.status);
   return "mode " + sourceMode.name + ", one rule";
 });

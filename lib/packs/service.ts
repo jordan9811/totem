@@ -56,7 +56,8 @@ export function personaHoldsClaim(personaId: string, claim: string): boolean {
  *
  * Composes: attestation predicates (holding/lacking a claim) and the pack's
  * curator riders (a desk the pack carries flags the persona's cast). Post
- * rules are post-level and do not participate in persona pass/fail.
+ * rules are post-level and do not participate in persona pass/fail: they
+ * run in the feeds, beside the mode's own rules (lib/packs/rules.ts).
  *
  * Returns ONLY a boolean. The reason is deliberately not computable from the
  * outside: a fail could be a lacking claim, a held claim, or a curator flag,

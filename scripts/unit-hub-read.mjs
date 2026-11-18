@@ -41,7 +41,8 @@
 //       posts yet"); a mode that cannot be read shows nothing; no mode causes a node read or shows a post past the page;
 //       nothing while a persona acts, even one chosen while the mode was being read
 //   H18 THE MODE LOADER (lib/fc/hubRead/modeSource.ts, its stores stood in for, the real delivery tiers): keyed as the
-//       mode routes key it; refuses an unresolvable or malformed rule and an unreadable mode; tiers by fc:<fid> only;
+//       mode routes key it; refuses an unresolvable rule and an unreadable mode; a stored rule the evaluator won't run
+//       (a malformed tree, a protected field) is inert and said, never a refusal of the page; tiers by fc:<fid> only;
 //       an unreadable tier map is said; a lens gone missing and a pack about Totem accounts are said
 //   H19 READWISE ON HUB POSTS (spec C, lib/fc/hubRead/extras.ts through the engine, the REAL readwise state over the stub
 //       validator and the real readwise route): a long cast (the slider's shortest piece, 80 words) or one with a link is
@@ -56,6 +57,10 @@
 //       persona acts and for an own persona's post (nothing written); ids only, under the share-as name; on the page
 //       "Sent to you by", off it spliced, one not held said and never read; another author's hash is not it; malformed
 //       sends refuse the statement; a send never makes a note stop fitting; three days; one card per post; 0 reads
+//   H22 A PACK'S POST RULES (lib/packs/rules.ts through the loader and the shaper): an attached pack's hide and push-down
+//       rules run after the mode's own, named for their pack (flag moves nothing); only on the mode it is attached to; a
+//       pack's author-tier hide rule hides every post and is said; a claims pack with post rules says only they apply; a
+//       stored pack rule that would pin, banner, reach a protected field or cannot be walked is inert and said
 //   M   MUTATIONS: each guard removed in the BUNDLE ONLY, and the check that covers it must then FAIL
 //
 //   node scripts/unit-hub-read.mjs            (npm run test:hub-read-unit)
@@ -1067,7 +1072,7 @@ await check("H17", "YOUR MODE ON FOLLOWING (spec A): the mode's rules hide and p
   return done.join("; ");
 });
 
-await check("H18", "THE MODE LOADER (spec A): keyed exactly as the mode routes key it (activeSeedPersonaId); the mode's rules resolved; a rule it cannot resolve or walk, or an unreadable mode, refuses (never an unfiltered page); tiers keyed fc:<fid> apply (a persona-keyed tier does not), an unreadable tier map is said; a lens gone missing and a pack about Totem accounts are said", async () => {
+await check("H18", "THE MODE LOADER (spec A): keyed exactly as the mode routes key it (activeSeedPersonaId); the mode's rules resolved; a rule it cannot resolve, or an unreadable mode, refuses (never an unfiltered page); a stored rule the evaluator won't run is inert and said (never a blank page); tiers keyed fc:<fid> apply (a persona-keyed tier does not), an unreadable tier map is said; a lens gone missing and a pack about Totem accounts are said", async () => {
   const { modeCtl } = registryStub;
   const { personaCtl } = personaStub;
   const wellRule = ruleOf("rule_w", "Muted", "hide", [{ field: "post.text", op: "contains", value: "spoiler" }]);
@@ -1095,12 +1100,23 @@ await check("H18", "THE MODE LOADER (spec A): keyed exactly as the mode routes k
   modeCtl.active.set("pub_self_unit", "m_missing");
   const e1 = await errOf(modeSource.hubModeSpec());
   assert(e1 && e1.name === "HubModeError" && e1.message === copy.hubModeRuleErrorSentence("Work"), "an unresolvable rule: " + (e1 ? e1.message : "accepted"));
-  // (c) a stored rule whose tree the evaluator cannot walk (no clause list): refused
+  // (c) a stored rule whose tree the evaluator cannot walk (no clause list), and one reaching a protected field: never a
+  // refusal of the page (one bad rule used to blank Following), INERT: left out of the rules, the good rule still runs,
+  // and each is said by name in the evaluator's own sentence
   modeCtl.rules.set("rule_broken", { id: "rule_broken", name: "Broken", action: "hide", root: { op: "and", conditions: [{ field: "text", cmp: "contains", value: "x" }] }, createdAt: 0 });
-  modeCtl.modes.set("m_broken", mk("m_broken", { name: "Broken mode", ruleIds: ["rule_broken"] }));
+  modeCtl.rules.set("rule_reach", { id: "rule_reach", name: "Reach", action: "hide", root: { combinator: "AND", clauses: [{ field: "identity.rootId", op: "neq", value: "x" }] }, createdAt: 0 });
+  modeCtl.modes.set("m_broken", mk("m_broken", { name: "Broken mode", ruleIds: ["rule_broken", wellRule.id, "rule_reach"] }));
   modeCtl.active.set("pub_self_unit", "m_broken");
-  const e2 = await errOf(modeSource.hubModeSpec());
-  assert(e2 && e2.name === "HubModeError" && /Broken mode/.test(e2.message), "a malformed rule: " + (e2 ? e2.message : "accepted"));
+  let sb;
+  try {
+    sb = await modeSource.hubModeSpec();
+  } catch (e) {
+    throw new Error("a malformed rule refused the page: " + (e && e.message));
+  }
+  assert(sb.rules.map((r) => r.id).join() === wellRule.id, "the rules that run: " + JSON.stringify(sb.rules.map((r) => r.id)));
+  assert((sb.inertRules ?? []).map((r) => r.id).join() === "rule_broken,rule_reach" && sb.inertRules[0].sentence === evaluate.inertRuleSentence("Broken", "shape") && sb.inertRules[1].sentence === evaluate.inertRuleSentence("Reach", "field"), "the inert rules: " + JSON.stringify(sb.inertRules));
+  const gb = hubMode.gapsFor(sb).filter((g) => g.kind === "inert");
+  assert(gb.map((g) => g.term).join() === "Broken,Reach" && gb.every((g, i) => g.sentence === sb.inertRules[i].sentence), "the inert rules are not said: " + JSON.stringify(gb));
   // (d) the mode store unreadable: refused with the fixed sentence
   modeCtl.failActive = true;
   const e3 = await errOf(modeSource.hubModeSpec());
@@ -1116,7 +1132,7 @@ await check("H18", "THE MODE LOADER (spec A): keyed exactly as the mode routes k
   // (f) the key helpers
   assert(copy.fidOfHubAccountKey(copy.hubAccountKey(77)) === 77 && copy.fidOfHubAccountKey("fc:0") === null && copy.fidOfHubAccountKey("fc:7|x") === null && copy.fidOfHubAccountKey("seed_x") === null, "the fc:<fid> key");
   tiers.resetDeliveryCache();
-  return "keyed to " + modeCtl.asked[0] + "; 3 refusals; tiers by fid; unreadable tiers flagged";
+  return "keyed to " + modeCtl.asked[0] + "; 2 refusals; 2 stored rules the evaluator won't run left out and said; tiers by fid; unreadable tiers flagged";
 });
 
 // ---------------------------------------------------------------------------------------------------- spec C: the extras
@@ -1473,10 +1489,101 @@ await check("H21", "CLOSE-FRIEND SENDS THROUGH A RING (spec C): the ring's owner
   return "refused while acting / own persona, nothing written; 4 sends by id under 'Jordan'; on the page + 2 spliced + 1 not held (said); the mode's hide; one card for three extras; failed read hides; 3 days; 6 malformed refused; dropped before refusing; 0 node reads";
 });
 
+await check("H22", "A PACK'S POST RULES ON FOLLOWING (lib/packs/rules.ts through the mode loader and the shaper): an attached pack's hide and push-down rules decide Farcaster posts after the mode's own rules, named for their pack, and flag changes nothing; only on the mode the pack is attached to; a pack's author-tier hide rule hides every post and is said; a claims pack that also carries post rules says only its rules apply here, a claims-only pack still says it filters nothing; a stored pack rule that would pin, banner, carry an unknown action, reach a protected field or cannot be walked is INERT and said by its pack's name, and the pack's other rules still run (never a blank page)", async () => {
+  const { modeCtl } = registryStub;
+  const { personaCtl } = personaStub;
+  const packs = packStub.packCtl.packs;
+  personaCtl.id = "pub_self_unit";
+  tiers.resetDeliveryCache();
+  const mk = (id, extra = {}) => ({ id, personaId: personaCtl.id, name: "Mode " + id, isPreset: false, ranking: { recency: 0.4, engagement: 0.3, authorAffinity: 0.2, clusterAffinity: 0.1 }, ruleIds: [], notificationPolicy: "all", actionButtonSlots: { composer: [], nav: [] }, showTrending: true, calmRanking: false, createdAt: 0, ...extra });
+  const pr = (name, action, clauses) => ({ name, action, root: { combinator: "AND", clauses } });
+  const load = async (modeId) => {
+    modeCtl.active.set("pub_self_unit", modeId);
+    return modeSource.hubModeSpec();
+  };
+  const own = ruleOf("rule_own22", "Muted", "hide", [{ field: "post.text", op: "contains", value: "spoiler" }]);
+  modeCtl.rules.set(own.id, own);
+  const AIRDROP = pr("No airdrops", "hide", [{ field: "post.text", op: "contains", value: "airdrop" }]);
+  packs.set("pack_rules", { id: "pack_rules", artifact: { name: "Quiet crypto", rules: [AIRDROP, pr("Threads last", "downrank", [{ field: "post.text", op: "contains", value: "thread" }]), pr("Mark links", "flag", [{ field: "post.hasMedia", op: "eq", value: true }])] } });
+  modeCtl.modes.set("m22_pack", mk("m22_pack", { name: "Work", ruleIds: [own.id], filterPackIds: ["pack_rules"] }));
+  modeCtl.modes.set("m22_plain", mk("m22_plain", { name: "Default", ruleIds: [own.id] }));
+  const now = Date.now();
+  const P = (hash, fid, k, text, embeds = 0) => ({ hash, fid, ts: now - k * 60_000, text, reply: false, embeds });
+  const posts = [P("0xa1", 501, 1, "free AIRDROP today"), P("0xa2", 502, 2, "a thread on rollups"), P("0xa3", 503, 3, "spoiler: it ends"), P("0xa4", 504, 4, "good morning, a link", 1), P("0xa5", 505, 5, "plain words")];
+  const H = (shaped) => shaped.items.map((p) => p.hash).join(",");
+  try {
+    // (a) the loader: the mode's own rule first, then the pack's three, as ordinary rules named for their pack
+    const s = await load("m22_pack");
+    assert(s.rules.map((r) => r.id).join(",") === "rule_own22,pack:pack_rules:0,pack:pack_rules:1,pack:pack_rules:2", "the rules: " + JSON.stringify(s.rules.map((r) => r.id)));
+    assert(s.rules[1].name === "[Quiet crypto] No airdrops" && s.rules[1].action === "hide" && s.rules[2].action === "downrank" && s.rules[3].action === "flag", "the pack's rules: " + JSON.stringify(s.rules.map((r) => [r.name, r.action])));
+    assert(s.packs.length === 1 && s.packs[0].postRules === 3 && s.packs[0].perAccount === false && (s.inertRules ?? []).length === 0, "the packs: " + JSON.stringify({ packs: s.packs, inert: s.inertRules }));
+    // (b) the page: the pack hides the airdrop (in any case) and pushes the thread last; the mode's own rule still hides
+    // the spoiler; the pack's flag rule moves nothing (the link post keeps its place); the modeHides answer agrees
+    const v = hubMode.shapeForMode(posts, s, { now, want: 20 });
+    assert(H(v) === "0xa4,0xa5,0xa2" && v.hidden === 2 && v.quiet.has("0xa2") && v.quiet.size === 1, "the page under the pack: " + JSON.stringify({ items: H(v), hidden: v.hidden, quiet: [...v.quiet] }));
+    assert(v.sentence === copy.hubModeHidSentence(2, 5), "the hid sentence: " + v.sentence);
+    assert(hubMode.modeHides(posts[0], s, now) === true && hubMode.modeHides(posts[1], s, now) === false, "the extras' per-post decision skips the pack's rules");
+    // (c) per mode: Default does not run the Work mode's pack
+    const s0 = await load("m22_plain");
+    const v0 = hubMode.shapeForMode(posts, s0, { now, want: 20 });
+    assert(s0.rules.length === 1 && H(v0) === "0xa1,0xa2,0xa4,0xa5" && v0.hidden === 1 && v0.quiet.size === 0, "the mode without the pack: " + JSON.stringify({ rules: s0.rules.map((r) => r.id), items: H(v0) }));
+    // (d) a pack's author-tier hide rule: a Farcaster account has no Totem tier, so it hides every post (hide-when-unsure,
+    // as the mode's own rule does), and the page says which rule, by its pack-qualified name
+    packs.set("pack_tier", { id: "pack_tier", artifact: { name: "Tier floor", rules: [pr("No low tiers", "hide", [{ field: "author.tier", op: "lt", value: 3 }])] } });
+    modeCtl.modes.set("m22_tier", mk("m22_tier", { name: "Safe", filterPackIds: ["pack_tier"] }));
+    const st = await load("m22_tier");
+    const vt = hubMode.shapeForMode(posts, st, { now, want: 20 });
+    const tierGap = hubMode.gapsFor(st).find((g) => g.kind === "rule" && g.term === "[Tier floor] No low tiers");
+    assert(vt.items.length === 0 && vt.hidden === 5 && tierGap && /hides every post here/.test(tierGap.sentence), "a pack's author rule: " + JSON.stringify({ n: vt.items.length, gap: tierGap }));
+    // (e) a claims pack that also carries post rules: its rules run here and the page says only they do; a claims-only
+    // pack still says it filters nothing (attestation predicates are about Totem accounts: unchanged on Farcaster posts)
+    packs.set("pack_mixed", { id: "pack_mixed", artifact: { name: "Longform plus", attestationPredicates: [{ claim: "longform_reader", mode: "lacking" }], rules: [AIRDROP] } });
+    packs.set("pack_claimsonly", { id: "pack_claimsonly", artifact: { name: "Claims only", attestationPredicates: [{ claim: "espresso", mode: "holding" }] } });
+    modeCtl.modes.set("m22_mixed", mk("m22_mixed", { name: "Reading", filterPackIds: ["pack_mixed", "pack_claimsonly"] }));
+    const sm = await load("m22_mixed");
+    const vm = hubMode.shapeForMode(posts, sm, { now, want: 20 });
+    const gm = Object.fromEntries(hubMode.gapsFor(sm).filter((g) => g.kind === "pack").map((g) => [g.term, g.sentence]));
+    assert(H(vm) === "0xa2,0xa3,0xa4,0xa5" && vm.hidden === 1, "the mixed pack's rule: " + H(vm));
+    assert(/so only its post rules apply here\.$/.test(gm["Longform plus"] ?? "") && /so it filters nothing here\.$/.test(gm["Claims only"] ?? ""), "the pack sentences: " + JSON.stringify(gm));
+    // (f) a stored pack rule the import guardrails refuse: INERT here, said by the pack's name, the page still served and
+    // the pack's good rule (and the mode's own) still running: never the page without the mode, never the rule run
+    const bad = [
+      ["pin", pr("Top slot", "pin", [{ field: "post.age", op: "gte", value: 0 }]), /would pin or banner posts/],
+      ["banner", pr("Push", "banner", [{ field: "post.age", op: "gte", value: 0 }]), /would pin or banner posts/],
+      ["unknown action", pr("Boost", "boost", [{ field: "post.age", op: "gte", value: 0 }]), /carries an action \("boost"\) a pack may not/],
+      ["protected field", pr("Who", "hide", [{ field: "identity.rootId", op: "neq", value: "x" }]), /reads something a rule isn't allowed to read/],
+      ["unwalkable tree", { name: "Broken", action: "hide", root: { op: "and", conditions: [] } }, /can't be read/],
+      ["not a rule", null, /isn't a rule/],
+    ];
+    modeCtl.modes.set("m22_bad", mk("m22_bad", { name: "Work", ruleIds: [own.id], filterPackIds: ["pack_bad"] }));
+    for (const [what, rule, why] of bad) {
+      packs.set("pack_bad", { id: "pack_bad", artifact: { name: "Bad pack", rules: [AIRDROP, rule] } });
+      let sb;
+      try {
+        sb = await load("m22_bad");
+      } catch (e) {
+        throw new Error("a pack rule with " + what + " refused the page: " + (e && e.message));
+      }
+      assert(sb.rules.map((r) => r.id).join(",") === "rule_own22,pack:pack_bad:0", "a pack rule with " + what + " ran: " + JSON.stringify(sb.rules.map((r) => r.id)));
+      const inert = sb.inertRules ?? [];
+      assert(inert.length === 1 && inert[0].id === "pack:pack_bad:1" && /^Pack "Bad pack" carries a rule/.test(inert[0].sentence) && why.test(inert[0].sentence) && /so that rule does nothing: it hides and moves no post\.$/.test(inert[0].sentence), "a pack rule with " + what + " not said: " + JSON.stringify(inert));
+      const vb = hubMode.shapeForMode(posts, sb, { now, want: 20 });
+      assert(H(vb) === "0xa2,0xa4,0xa5" && vb.hidden === 2 && vb.pinned.size === 0 && vb.banner.length === 0, "the page with a pack rule with " + what + ": " + JSON.stringify({ items: H(vb), pinned: [...vb.pinned], banner: vb.banner.length }));
+      assert(hubMode.gapsFor(sb).some((g) => g.kind === "inert" && g.sentence === inert[0].sentence), "a pack rule with " + what + " is not on the mode's line");
+      assert(sb.packs[0].postRules === 1, "the pack's running rules: " + sb.packs[0].postRules);
+    }
+    return "3 pack rules after the mode's own; 2 of 5 hidden, 1 pushed down; per mode; author rule hides all, said; claims said; " + bad.length + " inert pack rules said, the page served";
+  } finally {
+    for (const id of ["pack_rules", "pack_tier", "pack_mixed", "pack_claimsonly", "pack_bad"]) packs.delete(id);
+    modeCtl.active.set("pub_self_unit", "m_ok");
+  }
+});
+
 if (!MUTATIONS.length && ONLY.length === 0) {
   const F = "lib/fc/hubRead/read.ts";
   const MF = "lib/fc/hubRead/mode.ts";
   const SF = "lib/fc/hubRead/modeSource.ts";
+  const PF = "lib/packs/rules.ts";
   const runs = [
     ["a failed follows read swallowed into an empty list", "H6", [{ file: F, find: "      else e.follows = { ...e.follows, state: \"failed\", p: null };", replace: "      else e.follows = { ...e.follows, list: [], state: \"ok\", at: rt.now(), p: null };" }]],
     ["every read failing reported as no posts", "H6", [{ file: F, find: "  const allFailed = settled && selected > 0 && m.ok === 0 && m.failed === selected;", replace: "  const allFailed = false;" }]],
@@ -1527,11 +1634,22 @@ if (!MUTATIONS.length && ONLY.length === 0) {
     ["the shared per-post decision skips push-down", "H17", [{ file: "lib/rules/evaluate.ts", find: '    if (a !== "hide" && a !== "pin" && a !== "banner" && a !== "downrank") continue;', replace: '    if (a !== "hide" && a !== "pin" && a !== "banner") continue;' }]],
     ["a muted word matched only in its own case", "H17", [{ file: "lib/rules/evaluate.ts", find: "actual.toLowerCase().includes(expected.toLowerCase())", replace: "actual.includes(expected)" }]],
     ["the mode read under another key than the routes'", "H18", [{ file: SF, find: "    viewer = activeSeedPersonaId();", replace: '    viewer = "";' }]],
-    ["a rule the mode names but cannot resolve is skipped", "H18", [{ file: SF, find: "    if (!rule || !isWellFormedGroup(rule.root) || validateRuleGroup(rule.root).length) throw new HubModeError(hubModeRuleErrorSentence(mode.name));\n    rules.push(rule);", replace: "    if (!rule) continue;\n    rules.push(rule);" }]],
-    ["a rule tree the evaluator cannot walk is accepted", "H18", [{ file: SF, find: "!rule || !isWellFormedGroup(rule.root) ||", replace: "!rule ||" }]],
-    ["an unreadable mode read as no mode", "H18", [{ file: SF, find: "  } catch {\n    throw new HubModeError(HUB_MODE_ERROR_SENTENCE);\n  }\n  const rules = [];", replace: "  } catch {\n    return null as never;\n  }\n  const rules = [];" }]],
+    ["a rule the mode names but cannot resolve is skipped", "H18", [{ file: SF, find: "    if (!rule) throw new HubModeError(hubModeRuleErrorSentence(mode.name));\n    stored.push(rule);", replace: "    if (!rule) continue;\n    stored.push(rule);" }]],
+    ["a stored rule the evaluator won't run reaches the page unsaid", "H18", [{ file: SF, find: "  const owned = runnableRules(stored);", replace: "  const owned = { run: stored, inert: [] as import(\"@/lib/rules/evaluate\").InertRule[] };" }]],
+    ["a malformed stored rule refuses the whole page again", "H18", [{ file: SF, find: "  const owned = runnableRules(stored);", replace: "  const owned = runnableRules(stored);\n  if (owned.inert.length) throw new HubModeError(hubModeRuleErrorSentence(mode.name));" }]],
+    ["an inert rule left off the mode's line", "H18", [{ file: MF, find: '  for (const r of spec.inertRules ?? []) out.push({ kind: "inert", term: r.name, sentence: r.sentence });', replace: "" }]],
+    ["an unreadable mode read as no mode", "H18", [{ file: SF, find: "  } catch {\n    throw new HubModeError(HUB_MODE_ERROR_SENTENCE);\n  }\n  const stored: ", replace: "  } catch {\n    return null as never;\n  }\n  const stored: " }]],
     ["an unreadable tier map left unsaid", "H18", [{ file: SF, find: "    tiersUnreadable = true;\n", replace: "" }]],
     ["a persona-keyed tier applied to Farcaster posts", "H18", [{ file: SF, find: "      if (fid !== null) tiers.set(fid, tier);", replace: "      tiers.set(fid ?? -1, tier);" }]],
+    // A PACK'S POST RULES (lib/packs/rules.ts, through the loader)
+    ["an attached pack's post rules not run on Following (the finding: stored, exported, never evaluated)", "H22", [{ file: SF, find: "  const rules = [...owned.run, ...packed.run];", replace: "  const rules = [...owned.run];" }]],
+    ["a pack's inert rules left unsaid", "H22", [{ file: SF, find: "  const inertRules = [...owned.inert, ...packed.inert];", replace: "  const inertRules = [...owned.inert];" }]],
+    ["a pack rule may pin or banner", "H22", [{ file: PF, find: "new Set([\"hide\", \"downrank\", \"flag\"])", replace: "new Set([\"hide\", \"downrank\", \"flag\", \"pin\", \"banner\"])" }, { file: PF, find: "  if (r.action === \"pin\" || r.action === \"banner\") return \"would pin or banner posts, which only your own delivery settings may do\";\n", replace: "" }]],
+    ["a pack rule with any action runs", "H22", [{ file: PF, find: "  if (typeof r.action !== \"string\" || !PACK_RULE_ACTIONS.has(r.action)) return", replace: "  if (typeof r.action !== \"string\") return" }]],
+    ["a pack rule reaching a protected field runs", "H22", [{ file: PF, find: "  if (problem === \"field\") return \"reads something a rule isn't allowed to read\";\n", replace: "" }]],
+    ["a pack rule tree the evaluator cannot walk is run", "H22", [{ file: PF, find: "  if (problem === \"shape\") return \"can't be read\";\n", replace: "" }]],
+    ["a pack rule taken for a delivery rule (the author question skips it)", "H22", [{ file: PF, find: "export const PACK_RULE_ID_PREFIX = \"pack:\";", replace: "export const PACK_RULE_ID_PREFIX = \"delivery:\";" }]],
+    ["a claims pack with post rules still says it filters nothing", "H22", [{ file: MF, find: "    const rest = (p.postRules ?? 0) > 0 ?", replace: "    const rest = false ?" }]],
     // SPEC C: readwise, desk notes and sends on the real Following
     ...(() => {
       const EF = "lib/fc/hubRead/extras.ts";

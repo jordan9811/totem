@@ -70,9 +70,10 @@ function fieldValue(field: RuleField, ctx: EvalContext): string | number | boole
 // ---------------------------------------------------------------- guardrails
 //
 // THE enforcement point for imported algorithms, per the Tier A spec:
-// "enforce in the rules evaluator, not the import UI". Both the import
-// sanitizer and the evaluator itself call this, so a hostile rule that
-// somehow survives import still cannot evaluate.
+// "enforce in the rules evaluator, not the import UI". The import sanitizer
+// calls this, and so do both feeds before they evaluate a stored rule
+// (runnableRules below), so a hostile rule that somehow survives import
+// still cannot evaluate.
 
 /** The only fields a rule may touch. Everything else — identity, grants,
  * disclosure, k-floor, correction surfaces, composer chrome — is not
@@ -105,15 +106,39 @@ export interface GuardrailViolation {
   reason: string;
 }
 
-/** Walk a rule tree; return every violation. Empty array = evaluable. */
-export function validateRuleGroup(group: RuleGroup, where = "rule"): GuardrailViolation[] {
+/** Walk a rule tree; return every violation. Empty array = evaluable.
+ *
+ * The SHAPE is a violation too, not only the fields: a group with no clause list (`{ op: "and", conditions: [...] }`,
+ * `{ combinator: "AND" }`) used to read as "no clauses, no violations" (`group.clauses ?? []`), was stored by POST
+ * /api/rules, and then threw inside the evaluator on every build of a feed whose mode named it. Every caller (the rules
+ * route, the algo and pack import sanitizer, buildFeed's inline rules, the activation-rule writes, both feeds' loaders)
+ * reads an empty answer as "the evaluator can walk this tree and it reads only evaluable fields", so this refuses at
+ * least what isWellFormedGroup refuses. It never throws, whatever it is handed. */
+export function validateRuleGroup(group: unknown, where = "rule"): GuardrailViolation[] {
+  if (!group || typeof group !== "object" || Array.isArray(group)) return [{ where, field: "root", reason: "not a rule group — refused" }];
+  const g = group as Record<string, unknown>;
   const out: GuardrailViolation[] = [];
-  for (const clause of group.clauses ?? []) {
-    if (isGroup(clause)) {
+  if (g.combinator !== "AND" && g.combinator !== "OR")
+    out.push({ where, field: "combinator", reason: `combinator ${JSON.stringify(g.combinator ?? null)} is not AND or OR — refused` });
+  if (!Array.isArray(g.clauses)) {
+    out.push({ where, field: "clauses", reason: "has no list of conditions — refused" });
+    return out;
+  }
+  for (const clause of g.clauses as unknown[]) {
+    if (!clause || typeof clause !== "object" || Array.isArray(clause)) {
+      out.push({ where, field: "clause", reason: "a condition that is neither a condition nor a group — refused" });
+      continue;
+    }
+    if ((clause as Record<string, unknown>).combinator !== undefined) {
       out.push(...validateRuleGroup(clause, where));
       continue;
     }
-    const field = String(clause.field);
+    const c = clause as Record<string, unknown>;
+    if (typeof c.field !== "string" || typeof c.op !== "string") {
+      out.push({ where, field: typeof c.field === "string" ? c.field : "clause", reason: "a condition needs a field and an op — refused" });
+      continue;
+    }
+    const field = c.field;
     if (EVALUABLE_FIELDS.has(field)) continue;
     const attack = PROTECTED_PATTERNS.find(([re]) => re.test(field));
     out.push({
@@ -172,9 +197,21 @@ function evalCondition(cond: RuleCondition, ctx: EvalContext): boolean {
   }
 }
 
+/** Does this tree match this post? A tree the evaluator cannot walk (a stored root with no clause list, a null clause, a
+ *  combinator other than AND/OR: isWellFormedGroup) is INERT: it matches no post, whatever its `negate`, and never throws.
+ *  It used to throw on every post, so one such stored rule took down every feed whose mode named it. "Matches no post" is
+ *  the evaluator's own reading of an empty group (below), and the one reading that can neither blank a feed nor pin,
+ *  banner or push down every post; the feeds SAY which rules are inert (inertRuleNotices), so nothing goes quiet. The
+ *  check is on the whole tree, once: a broken group nested inside a negated one would otherwise read as false and flip
+ *  the outer group to match everything. */
 export function evaluateGroup(group: RuleGroup, ctx: EvalContext): boolean {
+  if (!isWellFormedGroup(group)) return false;
+  return evalGroup(group, ctx);
+}
+
+function evalGroup(group: RuleGroup, ctx: EvalContext): boolean {
   const results = group.clauses.map((clause) =>
-    isGroup(clause) ? evaluateGroup(clause, ctx) : evalCondition(clause, ctx)
+    isGroup(clause) ? evalGroup(clause, ctx) : evalCondition(clause, ctx)
   );
   // An empty group matches nothing (safer default than matching everything:
   // a half-built rule in the builder shouldn't nuke the whole feed).
@@ -201,11 +238,13 @@ export function ruleActions(
   return out;
 }
 
-/** the fields a rule tree reads (for saying which of them a kind of post does not carry) */
+/** the fields a rule tree reads (for saying which of them a kind of post does not carry). An inert tree (one the
+ *  evaluator cannot walk) reads nothing. */
 export function fieldsOf(group: RuleGroup): RuleField[] {
+  if (!isWellFormedGroup(group)) return [];
   const out = new Set<RuleField>();
   const walk = (g: RuleGroup) => {
-    for (const c of g.clauses ?? []) {
+    for (const c of g.clauses) {
       if (isGroup(c)) walk(c);
       else out.add(c.field);
     }
@@ -214,7 +253,50 @@ export function fieldsOf(group: RuleGroup): RuleField[] {
   return [...out];
 }
 
-/** a rule tree the evaluator can walk (a stored root with no clause list would throw inside it on every build) */
+// ---------------------------------------------------------------- stored rules that cannot run
+//
+// A rule that is already stored can still be one the evaluator will not run: its tree cannot be walked (stored before
+// the write paths refused that shape), or it reads past the evaluable fields (stored before POST /api/rules ran the
+// guardrail). Both feeds ask the same question of the owner's own rules and of an attached pack's (lib/feed.ts,
+// lib/fc/hubRead/modeSource.ts): such a rule is left out of the evaluation, so it hides, pins and moves NO post, and
+// the page says which rule and why (never a crash, never a quiet change to the feed).
+
+/** why a stored rule cannot run: its tree cannot be walked, or it reads a field no rule may read */
+export type RuleProblem = "shape" | "field";
+export function ruleProblem(root: unknown): RuleProblem | null {
+  if (!isWellFormedGroup(root)) return "shape";
+  return validateRuleGroup(root).length ? "field" : null;
+}
+/** a rule the feed left out, and the sentence the page shows for it */
+export interface InertRule {
+  id: string;
+  name: string;
+  sentence: string;
+}
+export function inertRuleSentence(name: string, problem: RuleProblem): string {
+  const label = typeof name === "string" && name.trim() ? name : "without a name";
+  return problem === "shape"
+    ? `Rule "${label}" can't be read, so it does nothing: it hides and moves no post. Delete it in Settings and make it again.`
+    : `Rule "${label}" reads something a rule isn't allowed to read, so it does nothing: it hides and moves no post. Delete it in Settings.`;
+}
+/** the rules that run, and the ones left out (each with its sentence), in their order */
+export function runnableRules<R extends { id: string; name: string; root: unknown }>(rules: readonly R[]): { run: R[]; inert: InertRule[] } {
+  const run: R[] = [];
+  const inert: InertRule[] = [];
+  for (const r of rules) {
+    const problem = ruleProblem(r.root);
+    if (problem) inert.push({ id: r.id, name: r.name, sentence: inertRuleSentence(r.name, problem) });
+    else run.push(r);
+  }
+  return { run, inert };
+}
+
+/** the sentence every write path refuses a rule tree the evaluator cannot walk with (POST /api/rules, its preview, an
+ *  activation rule on PATCH /api/modes) */
+export const RULE_SHAPE_REFUSED_SENTENCE =
+  'Rule refused: its conditions must be { combinator: "AND" or "OR", clauses: [...] }, each clause a condition with a field and an op, or another such group.';
+
+/** a rule tree the evaluator can walk (a stored root with no clause list used to throw inside it on every build) */
 export function isWellFormedGroup(group: unknown): group is RuleGroup {
   if (!group || typeof group !== "object") return false;
   const g = group as Record<string, unknown>;
@@ -230,8 +312,10 @@ export function fieldLabel(field: RuleField): string {
   return FIELD_LABEL[field] ?? String(field);
 }
 
-/** Plain-language rendering of a rule, for the rule builder + mode summaries. */
+/** Plain-language rendering of a rule, for the rule builder + mode summaries. A tree the evaluator cannot walk is said as
+ *  that (the saved-rules list renders every stored rule, so a throw here took the screen you would delete it from). */
 export function describeGroup(group: RuleGroup): string {
+  if (!isWellFormedGroup(group)) return "(this rule can't be read, so it does nothing: delete it and make it again)";
   if (group.clauses.length === 0) return "(no conditions yet)";
   const parts = group.clauses.map((clause) =>
     isGroup(clause) ? `(${describeGroup(clause)})` : describeCondition(clause)

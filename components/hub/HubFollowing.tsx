@@ -118,6 +118,10 @@ function ExtrasNotices({ extras }: { extras: HubExtrasView }) {
 
 /** the mode's line under the status: its name, what it hid, and what Farcaster posts can't carry (For You uses it too) */
 export function ModeLine({ mode }: { mode: HubModeView }) {
+  // a rule the evaluator would not run is said as an alert of its own (it did nothing to the page); the rest of the gaps
+  // are what Farcaster posts can't carry
+  const inert = mode.gaps.filter((g) => g.kind === "inert");
+  const gaps = mode.gaps.filter((g) => g.kind !== "inert");
   return (
     <div
       data-testid="hub-mode"
@@ -142,13 +146,18 @@ export function ModeLine({ mode }: { mode: HubModeView }) {
           {mode.tiers.unreadable}
         </p>
       ) : null}
-      {mode.gaps.length ? (
-        <details data-testid="hub-mode-gaps" data-count={mode.gaps.length} className="mt-1">
+      {inert.map((g, i) => (
+        <p key={"inert" + i} data-testid="hub-mode-inert-rule" data-term={g.term} role="alert" className="mt-1 text-[#f4212e]">
+          {g.sentence}
+        </p>
+      ))}
+      {gaps.length ? (
+        <details data-testid="hub-mode-gaps" data-count={gaps.length} className="mt-1">
           <summary className="cursor-pointer">
-            {HUB_MODE_GAPS_HEAD}: {mode.gaps.map((g) => g.term).join(", ")}
+            {HUB_MODE_GAPS_HEAD}: {gaps.map((g) => g.term).join(", ")}
           </summary>
           <ul className="mt-1 list-disc pl-5">
-            {mode.gaps.map((g, i) => (
+            {gaps.map((g, i) => (
               <li key={i} data-testid="hub-mode-gap" data-kind={g.kind} data-term={g.term}>
                 {g.sentence}
               </li>

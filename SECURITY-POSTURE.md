@@ -1950,6 +1950,58 @@ imported algorithm that could pin an account to the top of somebody's timeline
 is an ad slot with extra steps; one that could banner an account is a push
 channel.
 
+**A rule the evaluator cannot walk never takes a feed down (2026-11-18: built,
+test data only, not deployed).** The rules route checked a rule's fields and
+not its shape: `validateRuleGroup` read a root with no clause list
+(`{ op: "and", conditions: [...] }`, `{ combinator: "AND" }`) as "no clauses,
+no violations", the route stored it, and the evaluator then threw on every
+post, so every build of a feed whose mode named it failed (a 503 on the sample
+timeline that survived restarts), and the real Following refused its whole
+page. Every write path now refuses that shape with a 400 `malformed_rule` and a
+sentence: `POST /api/rules`, its preview, an activation rule on
+`PATCH /api/modes`, and the algorithm and filter-pack import sanitizer, which
+also refuses a rule entry that is not an object. A rule already stored in such
+a shape, or one reaching past the evaluable fields (stored before the route ran
+the guardrail), is INERT on both feeds: the evaluator reads a tree it cannot
+walk as matching no post, whatever its `negate` (checked on the whole tree, so
+a broken group inside a negated one cannot flip it to match everything), the
+feeds leave such a rule out (`lib/rules/evaluate.ts` `runnableRules`, asked by
+`lib/feed.ts` and `lib/fc/hubRead/modeSource.ts`), and the page names it in a
+sentence (above the sample timeline; in the mode's line on Following and For
+You). "Matches no post" is the evaluator's own reading of an empty group: the
+one reading that neither blanks a feed nor pins, banners or pushes down every
+post. A rule the mode names that cannot be resolved at all still refuses the
+feed, as before. Measured by `scripts/unit-rules-shape.mjs` (S1 to S8, the
+routes, the sanitizer and the real sample feed in one process; 23 mutations,
+each caught), `scripts/unit-hub-read.mjs` H18, and
+`scripts/accept-hub-read-prod.mjs` HR18 (two malformed roots refused on the
+production shape, neither stored).
+
+**A filter pack's post rules run, under the same allowlist (2026-11-18: built,
+test data only, not deployed).** Until now an attached pack's `rules` were
+signed, sanitized, stored and exported, and never evaluated: a pack applied
+only its claim predicates and its lens. They now run beside the mode's own
+rules, in the same rule list and through the same per-post decision
+(`lib/packs/rules.ts`, appended in `lib/feed.ts` for the seeded and live passes
+and in `lib/fc/hubRead/modeSource.ts` for the real Following and For You), so a
+pack's author-field hide rule fails closed on an unattributed network post
+exactly as the mode's own does. The import allowlist (hide, downrank, flag; the
+evaluable fields only; a tree the evaluator can walk) is checked again on every
+build, not only at import: a stored pack rule that would pin, banner, carry an
+unknown action, read a field no rule may read (the disclosure and grant layer,
+the k-floor, correction delivery, the composer) or cannot be walked is inert,
+as an owner rule the evaluator will not run is: it hides and moves no post, the
+pack's other rules still run, and the page names it by the pack. A pack's claim
+predicates stay what they were on a Farcaster post: a Farcaster account carries
+no Totem claim, so they filter nothing there, and the page says so. Nothing new
+is read or written: the packs are the device's own records and the rules see
+only posts already read. The import preview counts the posts a pack's rules
+would hide. Measured by `scripts/unit-pack-rules.mjs` (U1 to U4, the real
+sample feed in one process; 8 mutations, each caught),
+`scripts/unit-hub-read.mjs` H22 and `scripts/accept-hub-read-prod.mjs` HR23 (a
+pack exported, imported and attached on the production shape, its posts hidden
+and back on detach, zero node reads).
+
 The tiers change PLACEMENT, never membership. Pinning reorders what the feed
 already holds: on a fully exhausted feed a never-miss post does not come back,
 above or below the caught-up banner, and the banner tier's strip is drawn from
@@ -4335,8 +4387,9 @@ its own anonymous posts); only writes that speak AS a persona are refused (§35,
 
 **Your mode on this timeline (spec A, 2026-11-06: built, test data only, not deployed): nothing new leaves the device.**
 While no persona acts, the root's active mode decides this timeline, in the tab (`lib/fc/hubRead/mode.ts`,
-`lib/fc/hubRead/modeSource.ts`): its rules through the one evaluator (`lib/rules/evaluate.ts` `ruleActions`, the same
-per-post decision the sample feed takes, with a new `post.text contains` field for a muted word), the mode's or an
+`lib/fc/hubRead/modeSource.ts`): its rules, and an attached pack's post rules after them (2026-11-18, §17), through the
+one evaluator (`lib/rules/evaluate.ts` `ruleActions`, the same per-post decision the sample feed takes, with a new
+`post.text contains` field for a muted word), the mode's or an
 attached pack's lens, and delivery tiers the root sets per Farcaster account from a hub card's menu, keyed `fc:<fid>`
 in the existing sealed `deliveryTiers` record. The mode, its rules, packs and lenses are read from the tab's own memory,
 keyed exactly as the mode routes key them (the public self while no persona acts); the tier record is read by the same
@@ -4350,9 +4403,10 @@ here that would mean reading other profiles). No mode data reaches Totem's app s
 route), the node or Neynar; a mode switch writes the sealed modes record exactly as it always has. What a Farcaster post
 cannot carry (like, recast and reply counts; a Totem tier, topic, attestation, standing or story) is listed on the page
 as not available, never counted as 0, and a hide rule on the author's Totem fields hides every post (hide-when-unsure,
-as for an unresolvable network author). A mode that cannot be read, or a rule it names that cannot be resolved or
-walked, shows nothing rather than the unfiltered page; an unreadable tier record means Normal for every account, said
-on the page. Separation is unchanged: the mode is not read while a persona acts, and an answer put together while one
+as for an unresolvable network author). A mode that cannot be read, or a rule it names that cannot be resolved, shows
+nothing rather than the unfiltered page; a stored rule the evaluator will not run (a tree it cannot walk, a field no
+rule may read) does nothing and is named in the mode's line, never a blank page (2026-11-18, §17); an unreadable tier
+record means Normal for every account, said on the page. Separation is unchanged: the mode is not read while a persona acts, and an answer put together while one
 is being chosen is refused (`acting_persona`). Not in v1: a mode's time-based auto-switch (it would write at read
 time), and never-miss reaching past the page already read. Measured by `scripts/unit-hub-read.mjs` H17 and H18 (22
 mutations, each caught; zero node reads across every mode) and `scripts/accept-hub-read-prod.mjs` HR20 (the real
@@ -4828,7 +4882,8 @@ mentions, quoted posts) for accounts the root does not follow; one it does not a
 The cost: about half the candidates are never shown to this root.
 
 **Your mode on this feed.** The root's active mode, read from the tab's memory exactly as for Following (§36, spec A):
-its rules through the one evaluator, delivery tiers keyed `fc:<fid>`, the mode's or a pack's lens. For You has counts
+its rules and an attached pack's post rules through the one evaluator, delivery tiers keyed `fc:<fid>`, the mode's or a
+pack's lens. For You has counts
 Following does not, and they mean one narrow thing each, said on the page: the mode's engagement weight reads
 `lib/feed.ts`'s engagement curve over the people you follow who liked or recast a post (calm ranking damps it), the
 lens's likes and recasts signals read the same two counts, and author affinity is the share of the sampled follows who

@@ -67,6 +67,22 @@ export interface HomeFeedPayload {
   /** FC-READ: where the network content came from — "relay" (public live reads) or "seed"; absent on the rig's
    *  server render, which is seed by construction */
   liveSource?: LiveSource;
+  /** the mode's rules this build left out because the evaluator will not run them (lib/rules/evaluate.ts runnableRules) */
+  inertRules?: Array<{ id: string; name: string; sentence: string }>;
+}
+
+/** a rule the feed could not run, said above the timeline (it hid and moved nothing: never a crash, never quiet) */
+function InertRules({ rules }: { rules: Array<{ id: string; name: string; sentence: string }> }) {
+  if (!rules.length) return null;
+  return (
+    <div data-testid="feed-inert-rules" data-count={rules.length} className="border-b border-x-border px-4 py-2 text-[13px] leading-4 text-x-sec">
+      {rules.map((r) => (
+        <p key={r.id} data-testid="feed-inert-rule" data-rule-id={r.id} role="alert" className="py-0.5 text-[#f4212e]">
+          {r.sentence}
+        </p>
+      ))}
+    </div>
+  );
 }
 
 /** the rig's server render, handed over whole — exactly what page.tsx used to put in its own JSX */
@@ -140,6 +156,7 @@ function FeedBody({
     <>
       {/* POST-DEPLOY Gate 3: the banner tier surfaces HERE — above the timeline,
           never as a notification, and never below the caught-up banner. */}
+      <InertRules rules={feed.inertRules ?? []} />
       <PreviewStrip items={feed.previewStrip ?? []} />
       <SeededTimeline
         initialCards={feed.cards}

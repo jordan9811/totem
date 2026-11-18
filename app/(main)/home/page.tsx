@@ -170,6 +170,7 @@ export default async function HomePage({
                 mode: feed.mode,
                 contentStale: feed.contentStale,
                 previewStrip: feed.previewStrip ?? [],
+                inertRules: feed.inertRules,
                 // Viewer-aware debunk attribution — the same value /api/feed2 carries as `debunk`. Read only when the
                 // timeline will render (as before: the error branch never read it).
                 debunk: loadError ? {} : debunkSourcesFor(personaId),

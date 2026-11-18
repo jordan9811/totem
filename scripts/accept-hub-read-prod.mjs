@@ -36,13 +36,17 @@
 //   HR16 (after HR12) while the persona acts: the device refuses every root write (like, recast, reply, delete, a post)
 //       with acting_persona, the relay receives nothing, and the composer no longer offers "Post as @you instead"
 //   HR18 (after HR13) THE ROOT'S OWN WRITES with no persona at all: a mode made and activated, a rule, a ring, an X import
-//       begun (each 2xx and read back); a persona action refused 409 NO_ACTING_PERSONA
+//       begun (each 2xx and read back); a rule root with no clause list refused 400 malformed_rule, never stored; a
+//       persona action refused 409 NO_ACTING_PERSONA
 //   HR19 (after HR17) the same root writes as You after making a persona, and the guard steps aside once the persona acts
 //   HR20 (after HR18, spec A) YOUR MODE ON THE REAL FOLLOWING, as the root with no persona: the pill is on Following; a
 //       mode muting a word hides exactly those posts ("Your mode hid 3 of these 50 posts."); never-miss set from a hub
 //       card's menu (keyed fc:<fid>, no "facet only") pins one post of that account on top; a mode hiding everything
 //       says "Your mode hid all 50 posts."; back on Default the page is the ground truth, newest first; what Default
 //       weighs that Farcaster posts can't carry is said; ZERO node reads across the switches and the tier
+//   HR23 (after HR20) A FILTER PACK'S POST RULES on the real Following, as the root with no persona: a pack exported from
+//       a hide rule (signed by the tab) and imported does nothing until attached; attached to a mode, the matching posts
+//       go ("Your mode hid 3 of these 50 posts."); detached, the page is the ground truth again; ZERO node reads
 //   HR17 ACTING AS YOURSELF: choosing You in the account menu reads the root's Following from the node, a hub card's like
 //       reaches the relay with the right bytes and a persona write is refused NO_ACTING_PERSONA; the composer and the
 //       menu say who acts; choosing the persona again: zero node reads and zero relay submits
@@ -397,12 +401,22 @@ async function rootLevelWrites(tag) {
   ok(await api("POST", "/api/modes/active", { modeId: mode.id }), "activate it");
   const modes = ok(await api("GET", "/api/modes"), "read the modes");
   if (modes.activeId !== mode.id || !modes.modes.some((m) => m.id === mode.id)) throw new Error("the mode is not active: " + JSON.stringify({ active: modes.activeId, want: mode.id }));
-  // what I see: a rule
+  // what I see: a rule (the evaluator's own shape: a combinator and a list of conditions)
   const word = "rootrule" + tag;
-  const rule = ok(await api("POST", "/api/rules", { name: "Root rule " + tag, action: "hide", root: { op: "and", conditions: [{ field: "text", cmp: "contains", value: word }] } }), "add a rule").rule;
+  const rule = ok(await api("POST", "/api/rules", { name: "Root rule " + tag, action: "hide", root: { combinator: "AND", clauses: [{ field: "post.text", op: "contains", value: word }] } }), "add a rule").rule;
   if (!rule || !rule.id) throw new Error("no rule in the answer");
+  // a root the evaluator cannot walk (no clause list: the shape this check itself used to store) is refused 400
+  // malformed_rule, in a sentence, and never stored
+  const refused = [];
+  for (const [label, root] of [["{op, conditions}", { op: "and", conditions: [{ field: "text", cmp: "contains", value: word + "bad" }] }], ["{combinator} alone", { combinator: "AND" }]]) {
+    const r = await api("POST", "/api/rules", { name: "Malformed " + label + " " + tag, action: "hide", root });
+    if (r.status !== 400 || r.json?.code !== "malformed_rule" || !/^Rule refused: /.test(String(r.json?.error ?? ""))) throw new Error("a malformed rule root " + label + ": " + r.status + " " + r.text.slice(0, 200) + " (expected 400 malformed_rule with its sentence)");
+    refused.push(label);
+  }
   const rules = ok(await api("GET", "/api/rules"), "read the rules").rules;
   if (!rules.some((r) => r.id === rule.id)) throw new Error("the rule does not read back");
+  const leaked = rules.filter((r) => String(r.name ?? "").startsWith("Malformed ") && String(r.name).endsWith(" " + tag));
+  if (leaked.length) throw new Error(leaked.length + " refused rule(s) were stored anyway: " + JSON.stringify(leaked.map((r) => r.name)));
   // who sees me: a ring
   ok(await api("POST", "/api/rings", { action: "createRing", label: "Ring " + tag }), "create a ring");
   const rings = ok(await api("GET", "/api/rings"), "read the rings");
@@ -415,10 +429,10 @@ async function rootLevelWrites(tag) {
   // a persona action: refused before its route runs
   const cast = await api("POST", "/api/actions/cast", { text: "as a persona, while none acts " + tag });
   if (cast.status !== 409 || cast.json?.code !== "NO_ACTING_PERSONA") throw new Error("a persona action while no persona acts: " + cast.status + " " + cast.text.slice(0, 160));
-  return done.length + " root writes answered and read back (" + done.join(", ") + "); a persona cast refused 409 NO_ACTING_PERSONA";
+  return done.length + " root writes answered and read back (" + done.join(", ") + "); " + refused.length + " malformed rule roots refused 400 malformed_rule and not stored (" + refused.join(", ") + "); a persona cast refused 409 NO_ACTING_PERSONA";
 }
 
-await check("HR18 THE ROOT'S OWN WRITES with no persona at all (the default path): a mode made and activated, a rule, a ring, an X import begun, each 2xx and read back; a persona action refused 409 NO_ACTING_PERSONA", async () => {
+await check("HR18 THE ROOT'S OWN WRITES with no persona at all (the default path): a mode made and activated, a rule, a ring, an X import begun, each 2xx and read back; a malformed rule root refused 400 malformed_rule and not stored; a persona action refused 409 NO_ACTING_PERSONA", async () => {
   const per = (await api("GET", "/api/personas")).json?.personas ?? [];
   if (per.some((p) => p.publicSelf !== true) || !per.some((p) => p.publicSelf === true)) throw new Error("not a visitor with only their own account: " + JSON.stringify(per.map((p) => [p.handle, !!p.publicSelf])));
   return rootLevelWrites("a" + Date.now().toString(36));
@@ -526,6 +540,79 @@ await check("HR20 YOUR MODE ON THE REAL FOLLOWING (spec A), signed in as the roo
   if (appCalls.length) throw new Error("the switches reached the app server: " + appCalls.slice(0, 3).map((r) => r.method + " " + r.url.slice(0, 80)).join(", "));
   const writes = during.filter((r) => r.method !== "GET").map((r) => r.method + " " + new URL(r.url).pathname);
   return said.join("; ") + "; 0 node reads; the tier record read " + tierGets + "x on load; during the switches the validator got " + writes.length + " sealed write(s) (" + [...new Set(writes)].join(", ") + ") and " + reads.length + " read(s)";
+});
+
+await check("HR23 A FILTER PACK'S POST RULES ON THE REAL FOLLOWING, as the root with no persona: a pack exported (signed) from a hide rule and imported runs nothing until attached; attached to a mode, the matching posts disappear ('Your mode hid 3 of these 50 posts.') exactly as the mode's own rule hid them; detached, they are back (the ground truth, newest first); zero node reads across the import, the attach, the switches and the detach", async () => {
+  const per = (await api("GET", "/api/personas")).json?.personas ?? [];
+  if (per.some((p) => p.publicSelf !== true)) throw new Error("expected no persona yet: " + JSON.stringify(per.map((p) => p.handle)));
+  const ok = (r, what) => {
+    if (r.status < 200 || r.status > 299) throw new Error(what + ": " + r.status + " " + r.text.slice(0, 200));
+    return r.json;
+  };
+  const tag = Date.now().toString(36);
+  // the pack: a stored hide rule on the muted word, composed into a pack (signed by the tab as the root's own account) and
+  // imported back; and a mode with no rules of its own, the pack not attached yet
+  const rule = ok(await api("POST", "/api/rules", { name: "Pack mute " + tag, action: "hide", root: { combinator: "AND", clauses: [{ field: "post.text", op: "contains", value: MUTED }] } }), "the pack's rule").rule;
+  const exported = ok(await api("POST", "/api/packs/export", { name: "Quiet zebras " + tag, summary: "hides the zebrafish posts", ruleIds: [rule.id] }), "export the pack");
+  if (!exported.artifact || exported.artifact.kind !== "filter_pack" || exported.artifact.rules?.length !== 1 || !exported.artifact.signature) throw new Error("the exported pack: " + JSON.stringify(exported).slice(0, 300));
+  const imported = ok(await api("POST", "/api/algo/import", { artifact: exported.artifact, activate: false }), "import the pack");
+  const packId = imported.pack?.id;
+  if (!packId) throw new Error("no pack from the import: " + JSON.stringify(imported).slice(0, 300));
+  const packMode = ok(await api("POST", "/api/modes", { name: "Pack mode" }), "the Pack mode").mode;
+  // Following, freshly loaded (the pill reads the new mode); from here nothing may be read from the node
+  await page.goto(BASE + "/home?tab=following", { waitUntil: "load", timeout: 120_000 });
+  await waitForDevice(page, 120_000);
+  await page.locator('[data-testid="hub-following"][data-state="ready"]').waitFor({ timeout: 120_000 });
+  await testid("mode-pill").waitFor({ timeout: 60_000 });
+  await page.locator('[data-testid="hub-mode"]').waitFor({ timeout: 60_000 });
+  await sleep(1500);
+  const r0 = (await hub.reads()).reads.length;
+  const truth50 = (await hub.truth(50)).map((c) => c.hash);
+  for (const h of mutedHashes) if (!truth50.includes(h)) throw new Error("a muted post is not among the newest 50 (the check would be vacuous)");
+  const pick = async (name, testidName) => {
+    await testid("mode-pill").click();
+    await testid("mode-option-" + testidName).click();
+    await page.locator(`[data-testid="hub-mode"][data-mode-name="${name}"], [data-testid="hub-mode-error"]`).first().waitFor({ timeout: 60_000 });
+    if (await page.getByTestId("hub-mode-error").count()) throw new Error("the mode could not be applied: " + (await testid("hub-mode-error").innerText()));
+    if ((await testid("mode-pill").getAttribute("data-active-mode")) !== name) throw new Error("the pill says " + (await testid("mode-pill").getAttribute("data-active-mode")));
+  };
+  const asTruth = async (what) => {
+    const got = await cardHashes('[data-testid="hub-timeline"]');
+    const d = got.slice(0, 50).findIndex((h, i) => h !== truth50[i]);
+    if (got.length < 50 || d !== -1) throw new Error(what + ": the page differs from the ground truth at " + d + " (" + got.length + " cards)");
+    if ((await page.locator('[data-testid="hub-mode"]').getAttribute("data-hidden")) !== "0") throw new Error(what + ": the mode hid " + (await page.locator('[data-testid="hub-mode"]').getAttribute("data-hidden")));
+  };
+  const said = [];
+  // (1) imported, not attached: the pack does nothing
+  await pick("Pack mode", "pack-mode");
+  await asTruth("imported, not attached");
+  said.push("not attached = the truth");
+  // (2) attached: exactly the three muted posts go, the rest stay in the ground truth's order, and the line says it
+  ok(await api("PATCH", "/api/modes", { modeId: packMode.id, patch: { filterPackIds: [packId] } }), "attach the pack");
+  await pick("Default", "default");
+  await pick("Pack mode", "pack-mode");
+  await page.locator('[data-testid="hub-mode"][data-hidden="3"]').waitFor({ timeout: 60_000 });
+  const pk = await cardHashes('[data-testid="hub-timeline"]');
+  const wantPk = truth50.filter((h) => !mutedHashes.includes(h));
+  const dp = pk.findIndex((h, i) => h !== wantPk[i]);
+  if (pk.length !== wantPk.length || dp !== -1) throw new Error("under the pack the page differs from the truth without the muted posts at " + dp + " (" + pk.length + " vs " + wantPk.length + ")");
+  const hid = await testid("hub-mode-hid").innerText();
+  if (!hid.includes("Your mode hid 3 of these 50 posts.")) throw new Error("the line says: " + hid);
+  if ((await page.locator('[data-testid="hub-timeline"]').innerText()).toLowerCase().includes(MUTED)) throw new Error("a muted post is on screen under the pack");
+  if (await page.getByTestId("hub-mode-inert-rule").count()) throw new Error("the pack's rule is said as one that does nothing: " + (await testid("hub-mode-inert-rule").innerText()));
+  said.push("attached: hid 3 of 50");
+  // (3) detached: they are back, newest first
+  ok(await api("PATCH", "/api/modes", { modeId: packMode.id, patch: { filterPackIds: [] } }), "detach the pack");
+  await pick("Default", "default");
+  await pick("Pack mode", "pack-mode");
+  await page.locator('[data-testid="hub-mode"][data-hidden="0"]').waitFor({ timeout: 60_000 });
+  await asTruth("detached");
+  said.push("detached = the truth");
+  await pick("Default", "default");
+  // (4) ZERO node reads caused by any of it
+  const r1 = (await hub.reads()).reads.length;
+  if (r1 !== r0) throw new Error(r1 - r0 + " node read(s) across the pack's attach, the switches and the detach: " + JSON.stringify((await hub.reads()).reads.slice(r0).map((x) => x.path + "?" + x.fid)));
+  return said.join("; ") + "; 0 node reads";
 });
 
 await check("HR21 READWISE ON THE REAL FOLLOWING (spec C), as the root with no persona: a long real-shaped cast is a reading piece; kept on screen past its length-scaled threshold it shows read, its dwell left the tab only inside the SEALED readwiseState record (no request carries the hash, the chunk id or the words; nothing reached the app server); the bin takes it off and lists it, Restore brings it back read; zero node reads", async () => {

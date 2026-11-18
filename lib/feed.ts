@@ -1,6 +1,6 @@
 import "server-only";
 // The mode-aware feed pipeline. Reads seeded posts, applies (in order):
-// blocks → facet-follow scoping → mode rules (via lib/rules) → saturation →
+// blocks → facet-follow scoping → mode rules + attached packs' post rules (via lib/rules) → saturation →
 // mode-specific shaping → ranking weights. Then splices in feed-health
 // cards (readwise chunks, sends, note corrections).
 import type { Cast, Embed, User } from "./types";
@@ -13,13 +13,14 @@ import { flaggedAuthors, subscribedAnnotations } from "./curators/annotations";
 import { holdsStanding } from "./refutation/edges";
 import { threeStrikeMuted } from "./eventlog/strikes";
 import { packsForMode, packFailures } from "./packs/service";
+import { packRules } from "./packs/rules";
 import { resolvableSiblings } from "./identity/grants";
 import { verifiedGrants } from "./identity/verifiedGrants";
 import { contentSource, isLiveContent } from "./adapters/neynar/mode";
 import { deviceNeynarOn } from "./fc/source/switch";
 import { liveFeed, relayDiscovery, relayStateOf, seedSource, type LiveResult, type LiveSource } from "./adapters/neynar/content";
 import { AdapterError } from "./adapters/types";
-import { evaluateGroup, ruleActions, validateRuleGroup } from "./rules/evaluate";
+import { evaluateGroup, fieldsOf, ruleActions, runnableRules, validateRuleGroup, type InertRule } from "./rules/evaluate";
 import { provenAttestationsFor } from "./attest/proven";
 import { marketClock } from "./adapters/mock/clock";
 import { hasModeOverride } from "./session/ephemeral";
@@ -274,6 +275,10 @@ export async function buildFeed(
   previewStrip?: { hash: string; authorPersonaId: string; handle: string; text: string; minutesAgo: number }[];
   /** the hashes the delivery tiers pinned, for the UI to mark and the suite to assert */
   pinnedHashes?: string[];
+  /** the mode's stored rules, and its attached packs' post rules, this build left out because the evaluator will not
+   *  run them (lib/rules/evaluate.ts runnableRules, lib/packs/rules.ts packRules): each hid and moved nothing, and the
+   *  page shows its sentence */
+  inertRules: InertRule[];
 }> {
   const s = state();
   // Preview mode (modeOverride set) must render EXACTLY the candidate — the
@@ -296,8 +301,11 @@ export async function buildFeed(
   // personas it fails — no sibling fan-out, since predicates are claims
   // about the account itself, and fanning out through linkages would let a
   // pack read the disclosure graph sideways.
+  // (the attached packs are kept for their POST RULES too, which run with the mode's own: below)
+  let attachedPacks: ReturnType<typeof packsForMode> = [];
   try {
-    for (const pack of packsForMode(mode.filterPackIds)) {
+    attachedPacks = packsForMode(mode.filterPackIds);
+    for (const pack of attachedPacks) {
       for (const failed of packFailures(pack.artifact)) blockedIds.push(failed);
     }
   } catch {
@@ -432,6 +440,7 @@ export async function buildFeed(
     }
     rules.push(inline);
   }
+  const stored: Rule[] = [];
   for (const ruleId of mode.ruleIds) {
     const rule = await withRetry(() => adapters.rules.get(ruleId));
     // A mode that references a rule we cannot resolve must NOT quietly serve
@@ -444,8 +453,21 @@ export async function buildFeed(
         "FAILED"
       );
     }
-    rules.push(rule);
+    stored.push(rule);
   }
+  // A stored rule the evaluator will not run (a tree it cannot walk, stored before the write paths refused that shape;
+  // one reaching past the evaluable fields, stored before the rules route ran the guardrail) is left OUT, so it hides,
+  // pins and moves no post, and the page says which one (inertRules below). It used to throw inside the per-post loop
+  // on every build: one such rule was a 503 on the whole timeline, surviving restarts.
+  const owned = runnableRules(stored);
+  rules.push(...owned.run);
+  // An attached pack's POST RULES run exactly as the mode's own do: the same `rules` list, so the seeded pass and the
+  // live pass below decide them through the one ruleActions, and a pack's author-field hide rule counts in the
+  // fail-closed author question (its ids are `pack:`, never `delivery:`). The import guardrails are checked again before
+  // they run (lib/packs/rules.ts): a pack rule outside them is inert and said, like an owner rule the evaluator won't run.
+  const packed = packRules(attachedPacks);
+  rules.push(...packed.run);
+  const inertRules: InertRule[] = [...owned.inert, ...packed.inert];
 
   // ZK PASS 1 Gate 2: the proof-mediated discovery gate. Null unless the
   // rep binding is zk — then eligibility comes from what each author
@@ -674,8 +696,9 @@ export async function buildFeed(
   // would let an Event Safe Space tier rule wave every stranger
   // through, the exact fail-open the rules exist to prevent.
   // FC-READ (review): hoisted above the relay decision — the relay base below needs the same answer BEFORE it reads.
-  const referencesAuthor = (grp: Rule["root"]): boolean =>
-    grp.clauses.some((c) => ("combinator" in c ? referencesAuthor(c) : /^author\./.test(c.field)));
+  // (through fieldsOf, which walks only a tree the evaluator can walk: the hand-rolled walk here threw on a stored root
+  // with no clause list before a single post was decided)
+  const referencesAuthor = (grp: Rule["root"]): boolean => fieldsOf(grp).some((f) => /^author\./.test(f));
   // GATE 5 (attack-post-2 F-1, residual): a DELIVERY rule is excluded from this question.
   //
   // The question is "is there a hide rule whose answer depends on who the author is",
@@ -1620,7 +1643,7 @@ export async function buildFeed(
       // up, and an "ended" timeline with six cards still sitting above it is the
       // anti-doomscroll contract being honoured in the cards and broken in the chrome.
       const stripHere = fresh.length ? previewStrip : [];
-      return { cards: [...above, banner, ...below], mode, contentStale, liveSource, lensId: activeLens.id, previewStrip: stripHere, pinnedHashes: [...pinSet] };
+      return { cards: [...above, banner, ...below], mode, contentStale, liveSource, lensId: activeLens.id, previewStrip: stripHere, pinnedHashes: [...pinSet], inertRules };
     }
   }
 
@@ -1645,7 +1668,7 @@ export async function buildFeed(
     const m = mergedAuthorFor(c.personaId, personaId);
     if (m) c.author = { ...c.author, ...m };
   }
-  return { cards: merged, mode, contentStale, liveSource, lensId: activeLens.id, previewStrip, pinnedHashes: [...pinSet] };
+  return { cards: merged, mode, contentStale, liveSource, lensId: activeLens.id, previewStrip, pinnedHashes: [...pinSet], inertRules };
 }
 
 /** Debunk indicator: posts repeating a story that has a qualifying note. */

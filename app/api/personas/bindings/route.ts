@@ -8,7 +8,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { SEED_VIEWER, personaById, state } from "@/lib/adapters/mock/store";
 import { adapters } from "@/lib/adapters/registry";
 import { retryAdapter } from "@/lib/adapters/retry";
-import { validateRuleGroup } from "@/lib/rules/evaluate";
+import { isWellFormedGroup, validateRuleGroup } from "@/lib/rules/evaluate";
 import type { RuleGroup } from "@/lib/adapters/types";
 
 export const dynamic = "force-dynamic";
@@ -45,7 +45,9 @@ export async function GET() {
       // number for the UI's plain input; anything more complex than that
       // shape still stores/evaluates fine, it just shows as "custom rule"
       let afterHourUTC: number | null = null;
-      const clauses = m.activationRule?.clauses;
+      // a stored activation rule the evaluator cannot walk (a null clause) used to throw here (`in` on null) and take the
+      // whole matrix with it; it shows as "custom rule", and the feed treats it as inert (lib/rules/evaluate.ts)
+      const clauses = isWellFormedGroup(m.activationRule) ? m.activationRule.clauses : undefined;
       if (clauses?.length === 1 && !("combinator" in clauses[0])) {
         const c = clauses[0] as { field: string; op: string; value: unknown };
         if (c.field === "clock.hourUTC" && c.op === "gte" && typeof c.value === "number") {

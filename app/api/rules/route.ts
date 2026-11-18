@@ -25,7 +25,8 @@ export async function GET() {
 const CREATABLE_ACTIONS = new Set(["hide", "downrank", "flag"]);
 
 export async function POST(req: NextRequest) {
-  const body = await req.json();
+  const body = await req.json().catch(() => null);
+  if (!body || typeof body !== "object" || Array.isArray(body)) return NextResponse.json({ error: "Rule refused: send the rule as a JSON object.", code: "malformed_rule" }, { status: 400 });
   const action = body.action ?? "hide";
   if (!CREATABLE_ACTIONS.has(action))
     return NextResponse.json(
@@ -35,8 +36,11 @@ export async function POST(req: NextRequest) {
   // GATE 5 (attack-post-2 F-4, residual): the ACTION was allowlisted and the ROOT was not, so
   // `{action:"hide", root:{combinator:"AND"}}` stored fine and then threw inside the evaluator
   // on every feed build — a persisted 503 on the whole timeline, surviving restarts, from two
-  // ordinary requests. The evaluator's own validator is the right gate, and it already exists.
-  const { validateRuleGroup } = await import("@/lib/rules/evaluate");
+  // ordinary requests. The SHAPE is checked first, in its own sentence (validateRuleGroup used to
+  // read a missing clause list as "no clauses, no violations", so that case stayed open behind the
+  // comment that closed it), then the fields, by the evaluator's own validator.
+  const { isWellFormedGroup, validateRuleGroup, RULE_SHAPE_REFUSED_SENTENCE } = await import("@/lib/rules/evaluate");
+  if (!isWellFormedGroup(body.root)) return NextResponse.json({ error: RULE_SHAPE_REFUSED_SENTENCE, code: "malformed_rule" }, { status: 400 });
   const violations = validateRuleGroup(body.root);
   if (violations.length)
     return NextResponse.json(

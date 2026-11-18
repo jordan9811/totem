@@ -156,10 +156,21 @@ export async function previewArtifact(raw: unknown, viewer: string): Promise<Alg
     // those accounts author — computed against the live window, so the
     // number is the activation outcome, not an estimate.
     const { packFailures } = await import("@/lib/packs/service");
+    const { packRules } = await import("@/lib/packs/rules");
     const failed = new Set(packFailures(artifact));
     const current = await buildFeed(viewer, { surface: "discovery", limit: 40 });
     const posts = current.cards.filter((c) => c.kind === "post" && c.cast && !c.private);
-    const hiddenPosts = posts.filter((c) => c.cast!.personaId && failed.has(c.cast!.personaId));
+    // the pack's POST RULES hide posts too once it is attached (lib/feed.ts runs them with the mode's own), so the
+    // preview runs the same window through them (the identical buildFeed path, as an algorithm's preview does) and
+    // counts what they remove; `hides` stays the accounts the predicates filter (the pack read API's number)
+    const postRules = packRules([{ id: "preview", artifact }]).run;
+    let ruleHidden = new Set<string>();
+    if (postRules.length) {
+      const candidate = await buildFeed(viewer, { surface: "discovery", limit: 40, modeOverride: current.mode, inlineRules: postRules });
+      const kept = new Set(candidate.cards.filter((c) => c.kind === "post" && c.cast && !c.private).map((c) => c.cast!.hash));
+      ruleHidden = new Set(posts.filter((c) => !kept.has(c.cast!.hash)).map((c) => c.cast!.hash));
+    }
+    const hiddenPosts = posts.filter((c) => (c.cast!.personaId && failed.has(c.cast!.personaId)) || ruleHidden.has(c.cast!.hash));
     const samples = hiddenPosts.slice(0, 3).map((c) => ({
       hash: c.cast!.hash,
       text: c.cast!.text.slice(0, 120),

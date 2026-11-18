@@ -172,6 +172,14 @@ export function sanitizeArtifact(raw: unknown): SanitizeResult {
   const rules: AlgoArtifact["rules"] = [];
   let fatal = false;
   for (const r of (Array.isArray(a.rules) ? a.rules : []) as Rule[]) {
+    // a rule entry that is not an object (null, a string) has no root to read: refused like a malformed tree, never a TypeError
+    if (!r || typeof r !== "object" || Array.isArray(r)) {
+      violations.push({ where: "rules", field: "rule", reason: "a rule entry that is not an object — refused" });
+      fatal = true;
+      continue;
+    }
+    // validateRuleGroup refuses the SHAPE too (no clause list, a combinator other than AND/OR, a null condition): such a
+    // root used to pass here, be stored as the mode's rule or the pack's, and then throw inside the evaluator
     const ruleViolations = validateRuleGroup(r.root);
     if (ruleViolations.length) {
       violations.push(...ruleViolations.map((v) => ({ ...v, where: `rule "${r.name}"` })));

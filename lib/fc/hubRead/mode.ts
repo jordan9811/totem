@@ -4,7 +4,8 @@
 // which order, and what the mode could not do. scripts/unit-hub-read.mjs H17 pins it.
 //
 // THE SAME MACHINERY AS THE SAMPLE FEED (lib/feed.ts), not a second one:
-//   * the per-post decision is lib/rules/evaluate.ts ruleActions, over the mode's own rules and the delivery tiers
+//   * the per-post decision is lib/rules/evaluate.ts ruleActions, over the mode's own rules, its attached packs' post
+//     rules (lib/packs/rules.ts, appended by the loader: the sample feed's same list) and the delivery tiers
 //     compiled by lib/delivery/tiers.ts compileDeliveryRules (never-miss = pin, banner, quiet = downrank, facet-only =
 //     hide): one evaluator, the same Rule objects;
 //   * a hide rule that reads the AUTHOR's Totem fields (tier, topic, proven attestations) hides every Farcaster post,
@@ -33,7 +34,7 @@
 // signals read the same two counts, and author affinity is the share of the sampled follows who follow the author (on
 // Following every author is followed, so it is 1 there, as before). Without a proof (Following) nothing changes.
 import type { RankingWeights, Rule, RuleField } from "@/lib/adapters/types";
-import { fieldLabel, fieldsOf, ruleActions, type EvalContext } from "@/lib/rules/evaluate";
+import { fieldLabel, fieldsOf, ruleActions, type EvalContext, type InertRule } from "@/lib/rules/evaluate";
 import { lensScore, signalsFor } from "@/lib/lens/signals";
 import { LENS_SIGNALS, type LensSignal, type LensSpec } from "@/lib/lens/types";
 import { makeFinalComparator } from "@/lib/reach/boost";
@@ -49,8 +50,13 @@ export interface HubModeSpec {
   longformOnly: boolean;
   hideReplies: boolean;
   kingOfTheHill: boolean;
-  /** the mode's own rules, resolved (a rule that could not be resolved never reaches here: the loader refuses) */
+  /** the mode's own rules, resolved (a rule that could not be resolved never reaches here: the loader refuses), then its
+   *  attached packs' post rules (lib/packs/rules.ts packRules, ids `pack:<packId>:<i>`, named `[<pack>] <rule>`) */
   rules: Rule[];
+  /** the mode's rules, and its packs' post rules, the evaluator will not run (lib/rules/evaluate.ts runnableRules,
+   *  lib/packs/rules.ts): left out of `rules`, so each hides and moves no post, and gapsFor says so on the page.
+   *  Absent = none. */
+  inertRules?: InertRule[];
   /** the delivery tiers in this mode, compiled into rules (lib/delivery/tiers.ts compileDeliveryRules) */
   deliveryRules: Rule[];
   /** fid → tier, for the accounts with a non-normal tier in this mode */
@@ -58,8 +64,9 @@ export interface HubModeSpec {
   /** the tier map could not be read: every account is Normal for now, and the page says so */
   tiersUnreadable: boolean;
   lens: { id: string; name: string | null; source: "mode" | "pack" | "canonical"; spec: LensSpec | null; missing: boolean };
-  /** attached filter packs: `perAccount` = it carries claim predicates or curator riders (about Totem accounts) */
-  packs: Array<{ id: string; name: string; perAccount: boolean }>;
+  /** attached filter packs: `perAccount` = it carries claim predicates or curator riders (about Totem accounts);
+   *  `postRules` = how many of its post rules run (they are in `rules`) */
+  packs: Array<{ id: string; name: string; perAccount: boolean; postRules?: number }>;
 }
 
 /** what the shaper needs of a post (lib/fc/hubRead/read.ts maps its records) */
@@ -117,6 +124,8 @@ export function gapsFor(spec: HubModeSpec, surface: HubSurface = "following"): H
 }
 function gapsOfMode(spec: HubModeSpec): HubModeGap[] {
   const out: HubModeGap[] = [];
+  // first: a rule the evaluator will not run, by name (it did nothing to this page; the line says so, as an alert)
+  for (const r of spec.inertRules ?? []) out.push({ kind: "inert", term: r.name, sentence: r.sentence });
   if (w(spec.ranking.engagement) !== 0)
     out.push({ kind: "ranking", term: "engagement", sentence: "Engagement isn't used: Farcaster's network keeps no like, recast or reply counts." });
   if (w(spec.ranking.clusterAffinity) !== 0)
@@ -143,7 +152,9 @@ function gapsOfMode(spec: HubModeSpec): HubModeGap[] {
   }
   for (const p of spec.packs) {
     if (!p.perAccount) continue;
-    out.push({ kind: "pack", term: p.name, sentence: `Pack "${p.name}" checks claims Totem accounts prove, which Farcaster accounts don't carry, so it filters nothing here.` });
+    // its post rules DO run here (they are in spec.rules above, each said there if it reads what a post lacks)
+    const rest = (p.postRules ?? 0) > 0 ? "so only its post rules apply here" : "so it filters nothing here";
+    out.push({ kind: "pack", term: p.name, sentence: `Pack "${p.name}" checks claims Totem accounts prove, which Farcaster accounts don't carry, ${rest}.` });
   }
   return out;
 }
